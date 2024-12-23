@@ -7,6 +7,7 @@ set(0003GRAPH_SOURCES
     0005_HamiltonianPathAndCycle.cc
     0006_EulerianPathAndCircuit.cc
     0007_MinimumSpanningTreeKruskalAlgorithm.cc
+    0008_MinimumSpanningTreePrimAlgorithm.cc
 
 )
 
