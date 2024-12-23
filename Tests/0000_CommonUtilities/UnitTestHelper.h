@@ -150,6 +150,10 @@ public:
 
 		sort(data.begin(), data.end(), [](const pair<pair<T, T>, T>& pairA, const pair<pair<T, T>, T>& pairB)
 			{
+				if (pairA.second == pairB.second)
+				{
+					return pairA.first.first < pairB.first.first;
+				}
 				return pairA.second < pairB.second;
 			});
 		return data;

@@ -32,7 +32,7 @@ namespace MinimumSpanningTreePrimAlgorithm
 		map<Node*, vector<pair<Node*, int>>> _adjlist;
 		map<int, Node*> _nodeMap;
 		vector<pair<pair<int, int>, int>> _minimumSpanningTree;
-		set<Node*, CompareNodeKey> _operationalSet;
+		multiset<Node*, CompareNodeKey> _operationalSet;
 		Node* MakeOrFindNode(int data);
 	public:
 		void PushUndirectedEdge(int valueU, int valueV, int weight);
