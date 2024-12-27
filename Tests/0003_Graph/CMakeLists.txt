@@ -18,6 +18,8 @@ add_executable(
   0004_StronglyConnectedComponentsTest.cc
   0005_HamiltonianPathAndCycleTest.cc
   0006_EulerianPathAndCircuitTest.cc
+  0007_MinimumSpanningTreeKruskalAlgorithmTest.cc
+  0008_MinimumSpanningTreePrimAlgorithmTest.cc
 )
 
 target_link_libraries(
