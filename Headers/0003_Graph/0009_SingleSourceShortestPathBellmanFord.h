@@ -39,6 +39,6 @@ namespace SingleSourceShortestPathBellmanFord
 	public:
 		void PushDirectedEdge(int valueU, int valueV, int weight);
 		bool FindSingleSourceShortestPathBellmanFord(int data);
-		vector<int> GetShortestPathBellmanFord(Node* node);
+		vector<int> GetShortestPathBellmanFord(int data);
 	};
 }

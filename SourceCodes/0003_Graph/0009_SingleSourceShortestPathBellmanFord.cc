@@ -96,9 +96,10 @@ namespace SingleSourceShortestPathBellmanFord
 		return true;
 	}
 
-	vector<int> Graph::GetShortestPathBellmanFord(Node* node)
+	vector<int> Graph::GetShortestPathBellmanFord(int data)
 	{
 		vector<int> path = {};
+		Node* node = this->_nodeMap[data];
 		this->GetShortestPath(node, path);
 		reverse(path.begin(), path.end());
 		return path;
