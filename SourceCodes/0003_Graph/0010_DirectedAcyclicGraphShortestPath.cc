@@ -38,11 +38,10 @@ namespace DirectedAcyclicGraphShortestPath
 	void Graph::DepthFirstSearch(Node* nodeU)
 	{
 		nodeU->color = GRAY;
-		for (auto nodeV : this->_adjlist[nodeU])
+		for (auto& nodeV : this->_adjlist[nodeU])
 		{
 			if (nodeV->color == WHITE)
 			{
-				nodeV->parent = nodeU;
 				this->DepthFirstSearch(nodeV);
 			}
 		}
@@ -73,7 +72,7 @@ namespace DirectedAcyclicGraphShortestPath
 
 	void Graph::Relax(Edge* edge)
 	{
-		if (edge->nodeV->distance > (edge->nodeU->distance + edge->weight))
+		if (edge->nodeU->distance != INT_MAX && (edge->nodeV->distance > (edge->nodeU->distance + edge->weight)))
 		{
 			edge->nodeV->distance = edge->nodeU->distance + edge->weight;
 			edge->nodeV->parent = edge->nodeU;

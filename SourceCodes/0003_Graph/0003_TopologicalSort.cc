@@ -36,7 +36,7 @@ namespace TopologicalSort
 		this->time++;
 		nodeU->discoveryTime = this->time;
 		nodeU->color = GRAY;
-		for (auto nodeV : this->_adjlist[nodeU])
+		for (auto& nodeV : this->_adjlist[nodeU])
 		{
 			if (nodeV->color == WHITE)
 			{

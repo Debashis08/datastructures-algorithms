@@ -46,7 +46,7 @@ namespace SingleSourceShortestPathBellmanFord
 
 	void Graph::Relax(Edge* edge)
 	{
-		if (edge->nodeV->distance > (edge->nodeU->distance + edge->weight))
+		if (edge->nodeU->distance != INT_MAX && (edge->nodeV->distance > (edge->nodeU->distance + edge->weight)))
 		{
 			edge->nodeV->distance = edge->nodeU->distance + edge->weight;
 			edge->nodeV->parent = edge->nodeU;
