@@ -21,6 +21,7 @@ add_executable(
   0007_MinimumSpanningTreeKruskalAlgorithmTest.cc
   0008_MinimumSpanningTreePrimAlgorithmTest.cc
   0009_SingleSourceShortestPathBellmanFordTest.cc
+  0010_DirectedAcyclicGraphShortestPathTest.cc
 )
 
 target_link_libraries(

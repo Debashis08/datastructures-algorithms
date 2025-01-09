@@ -9,6 +9,7 @@ set(0003GRAPH_SOURCES
     0007_MinimumSpanningTreeKruskalAlgorithm.cc
     0008_MinimumSpanningTreePrimAlgorithm.cc
     0009_SingleSourceShortestPathBellmanFord.cc
+    0010_DirectedAcyclicGraphShortestPath.cc
 
 )
 
