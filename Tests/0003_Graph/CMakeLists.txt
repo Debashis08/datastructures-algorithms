@@ -23,6 +23,7 @@ add_executable(
   0009_SingleSourceShortestPathBellmanFordTest.cc
   0010_DirectedAcyclicGraphShortestPathTest.cc
   0011_SingleSourceShortestPathDijkstraTest.cc
+  0012_DifferenceConstraintsShortestPathsTest.cc
 )
 
 target_link_libraries(
