@@ -1,6 +1,7 @@
 #pragma once
 
 #include<map>
+#include<string>
 #include<vector>
 using namespace std;
 
@@ -9,9 +10,9 @@ namespace DifferenceConstraintsShortestPaths
 	class Node
 	{
 	public:
-		int data;
+		string data;
 		int distance;
-		Node(int data);
+		Node(string data);
 	};
 
 	class Edge
@@ -26,18 +27,18 @@ namespace DifferenceConstraintsShortestPaths
 	class Graph
 	{
 	private:
+		Node* startingNode;
 		map<Node*, vector<Node*>> _adjlist;
-		map<int, Node*> _nodeMap;
+		map<string, Node*> _nodeMap;
 		vector<Edge*> _edgeList;
-		Node* MakeOrFindNode(int data);
+		Node* MakeOrFindNode(string data);
+		void PushDirectedEdge(string valueU, string valueV, int weight);
 		void InitializeSingleSource(Node* sourceNode);
 		void Relax(Edge* edge);
-		void GetShortestPath(Node* node, vector<int>& path);
 
 
 	public:
-		void PushDirectedEdge(int valueU, int valueV, int weight);
-		bool FindSingleSourceShortestPathBellmanFord(int data);
-		vector<int> GetShortestPathBellmanFord(int data);
+		void PushAllDirectedEdges(vector<vector<int>> vectorA, vector<string> vectorX, vector<int> vectorB);
+		
 	};
 }
