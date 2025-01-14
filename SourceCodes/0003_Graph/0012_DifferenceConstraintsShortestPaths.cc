@@ -118,14 +118,14 @@ namespace DifferenceConstraintsShortestPaths
 		return true;
 	}
 
-	vector<int> Graph::GetDifferenceConstrtaintsSolution()
+	vector<pair<string, int>> Graph::GetDifferenceConstrtaintsSolution()
 	{
-		vector<int> result;
+		vector<pair<string, int>> result;
 		for (auto& node : this->_nodeMap)
 		{
 			if (node.second->data != "")
 			{
-				result.push_back(node.second->distance);
+				result.push_back({ node.second->data, node.second->distance });
 			}
 		}
 		return result;

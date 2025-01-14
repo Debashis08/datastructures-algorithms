@@ -73,7 +73,6 @@ public:
 		return result;
 	}
 
-
 	// This helper method is used to sort the vector of vectors of a particular typename.
 	// Each inner vector is sorted first.
 	// Then each of them are sorted by their first element, in increasing order.
@@ -157,5 +156,28 @@ public:
 				return pairA.second < pairB.second;
 			});
 		return data;
+	}
+
+	template<typename T1, typename T2>
+	string SortVectorOfPairAndSerialize(vector<pair<T1, T2>> data)
+	{
+		// Sorting the vector in non-decreasing order on typename T1
+		sort(data.begin(), data.end(), [](const pair<T1, T2>& pair1, const pair<T1, T2>& pair2)
+			{
+				return pair1.first < pair2.first;
+			});
+
+		// Serializing the vector to string
+		string result = "";
+		for (auto& iterator : data)
+		{
+			result += iterator.first + "(" + to_string(iterator.second) + ")" + " ";
+		}
+
+		if (!result.empty())
+		{
+			result.pop_back();
+		}
+		return result;
 	}
 };

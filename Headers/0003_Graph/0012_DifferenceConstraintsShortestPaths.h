@@ -27,7 +27,6 @@ namespace DifferenceConstraintsShortestPaths
 	class Graph
 	{
 	private:
-		Node* startingNode;
 		map<Node*, vector<Node*>> _adjlist;
 		map<string, Node*> _nodeMap;
 		vector<Edge*> _edgeList;
@@ -39,6 +38,6 @@ namespace DifferenceConstraintsShortestPaths
 	public:
 		void PushAllDirectedEdges(vector<vector<int>> vectorA, vector<string> vectorX, vector<int> vectorB);
 		bool FindDifferenceConstraintsSolutionBellmanFord();
-		vector<int> GetDifferenceConstrtaintsSolution();
+		vector<pair<string, int>> GetDifferenceConstrtaintsSolution();
 	};
 }
