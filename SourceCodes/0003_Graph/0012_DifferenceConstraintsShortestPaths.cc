@@ -62,7 +62,7 @@ namespace DifferenceConstraintsShortestPaths
 	// Graph Public Member Methods
 	void Graph::PushAllDirectedEdges(vector<vector<int>> vectorA, vector<string> vectorX, vector<int> vectorB)
 	{
-		// Creating the Graph
+		// Creating the Actual Graph
 		string valueU = "";
 		string valueV = "";
 		int weight = 0;
@@ -82,5 +82,52 @@ namespace DifferenceConstraintsShortestPaths
 			weight = vectorB[i];
 			this->PushDirectedEdge(valueU, valueV, weight);
 		}
+
+		// Creating all the edges from the additional vertex
+		valueU = "";
+		valueV = "";
+		weight = 0;
+		for (int i = 0; i < vectorX.size(); i++)
+		{
+			valueV = vectorX[i];
+			this->PushDirectedEdge(valueU, valueV, weight);
+		}
+	}
+
+	bool Graph::FindDifferenceConstraintsSolutionBellmanFord()
+	{
+		Node* source = this->_nodeMap[""];
+
+		this->InitializeSingleSource(source);
+
+		for (int i = 0; i < this->_nodeMap.size(); i++)
+		{
+			for (auto& edge : this->_edgeList)
+			{
+				this->Relax(edge);
+			}
+		}
+
+		for (auto& edge : this->_edgeList)
+		{
+			if (edge->nodeV->distance > (edge->nodeU->distance + edge->weight))
+			{
+				return false;
+			}
+		}
+		return true;
+	}
+
+	vector<int> Graph::GetDifferenceConstrtaintsSolution()
+	{
+		vector<int> result;
+		for (auto& node : this->_nodeMap)
+		{
+			if (node.second->data != "")
+			{
+				result.push_back(node.second->distance);
+			}
+		}
+		return result;
 	}
 }

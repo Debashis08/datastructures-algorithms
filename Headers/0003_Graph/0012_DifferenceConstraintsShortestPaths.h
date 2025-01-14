@@ -36,9 +36,9 @@ namespace DifferenceConstraintsShortestPaths
 		void InitializeSingleSource(Node* sourceNode);
 		void Relax(Edge* edge);
 
-
 	public:
 		void PushAllDirectedEdges(vector<vector<int>> vectorA, vector<string> vectorX, vector<int> vectorB);
-		
+		bool FindDifferenceConstraintsSolutionBellmanFord();
+		vector<int> GetDifferenceConstrtaintsSolution();
 	};
 }

@@ -109,7 +109,7 @@ public:
 	}
 
 	template<typename T>
-	bool NormalizeCyclesAnCompare(vector<T> data1, vector<T> data2)
+	bool NormalizeCyclesAndCompare(vector<T> data1, vector<T> data2)
 	{
 		if (data1.size() != data2.size())
 		{
