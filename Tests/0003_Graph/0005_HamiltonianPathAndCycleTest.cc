@@ -28,6 +28,6 @@ namespace HamiltonianPathAndCycle
 		
 		ASSERT_TRUE(isHamiltonianCyclePresent);
 		ASSERT_TRUE(isHamiltonianPathPresent);
-		ASSERT_TRUE(unitTestHelper.NormalizeCyclesAnCompare(hamiltonianPathActualResult, hamiltonianPathExpectedResult));
+		ASSERT_TRUE(unitTestHelper.NormalizeCyclesAndCompare(hamiltonianPathActualResult, hamiltonianPathExpectedResult));
 	}
 }
