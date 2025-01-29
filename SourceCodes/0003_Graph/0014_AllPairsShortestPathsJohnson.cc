@@ -141,8 +141,12 @@ namespace AllPairsShortestPathsJohnson
 		// Creating the graph G'
 		this->_augmentedAdjlist = this->_adjlist;
 		this->_augmentedEdgeList = this->_edgeList;
+
+		// Source Node s
 		Node* source = new Node(0);
 		this->_nodeMap[0] = source;
+
+		// Creating all the augmented edges in G'.E = G.E U {(s, v) : v in G.V
 		for (auto& node : this->_nodeMap)
 		{
 			if (node.second != source)
