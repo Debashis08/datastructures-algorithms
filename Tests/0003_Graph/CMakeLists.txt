@@ -24,6 +24,8 @@ add_executable(
   0010_DirectedAcyclicGraphShortestPathTest.cc
   0011_SingleSourceShortestPathDijkstraTest.cc
   0012_DifferenceConstraintsShortestPathsTest.cc
+  0013_AllPairsShortestPathsFloydWarshallTest.cc
+  0014_AllPairsShortestPathsJohnsonTest.cc
 )
 
 target_link_libraries(

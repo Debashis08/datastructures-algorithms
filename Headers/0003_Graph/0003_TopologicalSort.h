@@ -17,6 +17,7 @@ namespace TopologicalSort
         int color;
         int discoveryTime;
         int finishingTime;
+        int inDegree;
         Node* parent;
         Node(int value);
     };
@@ -35,6 +36,7 @@ namespace TopologicalSort
         void PushDirectedEdge(int valueU, int valueV);
         void PushSingleNode(int valueU);
         void TopologicalSort();
+        void KahnTopologicalSort();
         vector<pair<int, pair<int, int>>> ShowTopologicalSortResult();
     };
 }

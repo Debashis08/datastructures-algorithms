@@ -12,6 +12,8 @@ set(0003GRAPH_SOURCES
     0010_DirectedAcyclicGraphShortestPath.cc
     0011_SingleSourceShortestPathDijkstra.cc
     0012_DifferenceConstraintsShortestPaths.cc
+    0013_AllPairsShortestPathsFloydWarshall.cc
+    0014_AllPairsShortestPathsJohnson.cc
 
 )
 
