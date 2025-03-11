@@ -23,12 +23,15 @@ namespace MaximumFlowFordFulkerson
 
 		this->_flagParallelEdges = countParallelEdges > 0;
 
+		// If there are no anti-parallel edges, no need to modify the adjMatrix
 		if (!this->_flagParallelEdges)
 		{
 			return;
 		}
 		
 		int newNoOfVertices = this->_noOfVertices + countParallelEdges;
+
+		// Modifying the adjMatrix
 		for (auto& edge : this->_adjMatrix)
 		{
 			edge.resize(newNoOfVertices, 0);
@@ -38,6 +41,7 @@ namespace MaximumFlowFordFulkerson
 		this->_parent.resize(newNoOfVertices, -1);
 		this->_adjMatrix.resize(newNoOfVertices, vector<int>(newNoOfVertices, 0));
 
+		// Removing the anti-parallel edges by adding new nodes
 		for (int i = 0; i < this->_noOfVertices; i++)
 		{
 			for (int j = 0; j < this->_noOfVertices; j++)
@@ -52,6 +56,7 @@ namespace MaximumFlowFordFulkerson
 			}
 		}
 
+		// Updating the total no of vertices after modifying the adjMatrix
 		this->_noOfVertices = newNoOfVertices;
 	}
 
@@ -70,9 +75,16 @@ namespace MaximumFlowFordFulkerson
 
 	bool Graph::DepthFirstSearch()
 	{
+		// Resetting the visited values
 		fill(this->_visited.begin(), this->_visited.end(), false);
+
+		// Resetting the parent values
 		fill(this->_parent.begin(), this->_parent.end(), -1);
+
+		// Starting the DepthFirstSearch from the source vertex
 		this->DepthFirstSearchVisit(this->_source);
+
+		// Returning the visited value of the sink vertex, initially it was set to false
 		return this->_visited[this->_sink];
 	}
 
