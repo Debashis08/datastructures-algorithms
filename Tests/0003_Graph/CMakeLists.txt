@@ -26,6 +26,7 @@ add_executable(
   0012_DifferenceConstraintsShortestPathsTest.cc
   0013_AllPairsShortestPathsFloydWarshallTest.cc
   0014_AllPairsShortestPathsJohnsonTest.cc
+  0015_MaximumFlowFordFulkersonTest.cc
 )
 
 target_link_libraries(
