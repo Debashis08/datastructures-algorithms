@@ -18,7 +18,7 @@ namespace MaximumFlowFordFulkerson
 		vector<vector<int>> _residualGraph;
 		vector<int> _parent;
 		vector<bool> _visited;
-		void ResolvePrallelEdges();
+		void ResolveAntiParallelEdges();
 		void DepthFirstSearchVisit(int nodeU);
 		bool DepthFirstSearch();
 	public:
