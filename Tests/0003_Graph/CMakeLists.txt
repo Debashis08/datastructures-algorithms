@@ -27,6 +27,7 @@ add_executable(
   0013_AllPairsShortestPathsFloydWarshallTest.cc
   0014_AllPairsShortestPathsJohnsonTest.cc
   0015_MaximumFlowFordFulkersonTest.cc
+  0016_MaximumFlowEdmondsKarpTest.cc
 )
 
 target_link_libraries(
