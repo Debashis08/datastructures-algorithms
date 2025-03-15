@@ -15,6 +15,7 @@ set(0003GRAPH_SOURCES
     0013_AllPairsShortestPathsFloydWarshall.cc
     0014_AllPairsShortestPathsJohnson.cc
     0015_MaximumFlowFordFulkerson.cc
+    0016_MaximumFlowEdmondsKarp.cc
 
 )
 

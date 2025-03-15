@@ -26,4 +26,4 @@ target_link_libraries(
 
 
 include(GoogleTest)
-gtest_discover_tests(0001-Basics-Tests)
+gtest_discover_tests(0001-Basics-Tests DISCOVERY_TIMEOUT 30)
