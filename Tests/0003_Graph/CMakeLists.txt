@@ -28,6 +28,7 @@ add_executable(
   0014_AllPairsShortestPathsJohnsonTest.cc
   0015_MaximumFlowFordFulkersonTest.cc
   0016_MaximumFlowEdmondsKarpTest.cc
+  0017_MaximumBipartiteMatchingTest.cc
 )
 
 target_link_libraries(
