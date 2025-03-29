@@ -83,12 +83,16 @@ namespace MaximumBipartiteMatching
 
 					for (int nodeV = 0; nodeV < this->_noOfVertices; nodeV++)
 					{
-						if (this->_adjMatrix[nodeU][nodeV] != 0 && this->_color[nodeV] == WHITE)
+						if (nodeU == nodeV)
+						{
+							continue;
+						}
+						else if (this->_residualGraph[nodeU][nodeV] != 0 && this->_color[nodeV] == WHITE)
 						{
 							this->_color[nodeV] = 1 - this->_color[nodeU];
 							nodeQueue.push(nodeV);
 						}
-						else if (this->_color[nodeV] == this->_color[nodeU])
+						else if (this->_residualGraph[nodeU][nodeV] != 0 && this->_color[nodeV] == this->_color[nodeU])
 						{
 							this->_isBipartite = false;
 							return;
@@ -208,11 +212,13 @@ namespace MaximumBipartiteMatching
 
 	vector<vector<int>> Graph::GetMatchings()
 	{
-		for (int nodeU = 0; nodeU < this->_noOfVertices; nodeU++)
+		for (int nodeU = 0; nodeU < this->_adjMatrix.size(); nodeU++)
 		{
-			for (int nodeV = 0; nodeV < this->_noOfVertices; nodeV++)
+			for (int nodeV = 0; nodeV < this->_adjMatrix.size(); nodeV++)
 			{
-				if (this->_residualGraph[nodeV][nodeU] == 1)
+				if ((nodeU != this->_source || nodeU != this->_sink || nodeV != this->_source || nodeV != this->_sink) 
+					&& 
+					(this->_adjMatrix[nodeU][nodeV] - this->_residualGraph[nodeU][nodeV]) == 1)
 				{
 					this->_matchings.push_back({ nodeU, nodeV });
 				}
