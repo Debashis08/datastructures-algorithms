@@ -62,38 +62,52 @@ namespace MaximumBipartiteMatching
 		this->_noOfVertices = newNoOfVertices;
 	}
 
+	// This method is used to color the vertices of the graph to determine if the given graph is bipartite or not
 	void Graph::ColorGraph()
 	{
 		// Color of all the vertices are initialised to WHITE
 		fill(this->_color.begin(), this->_color.end(), WHITE);
 
+		// Queue to hold the vertices
 		queue<int> nodeQueue;
 
 		for (int node = 0; node < this->_noOfVertices; node++)
 		{
+			// Check if the node is already not colored
 			if (this->_color[node] == WHITE)
 			{
+				// The color of the node is set to RED
 				this->_color[node] = RED;
+
+				// The node is inserted into the queue
 				nodeQueue.push(node);
 
+				// Using BFS method to color all the vertices
 				while (!nodeQueue.empty())
 				{
 					int nodeU = nodeQueue.front();
 					nodeQueue.pop();
 
+					// Iterating over G.Adj[nodeU]
 					for (int nodeV = 0; nodeV < this->_noOfVertices; nodeV++)
 					{
+						// As there are no self loops, continue
 						if (nodeU == nodeV)
 						{
 							continue;
 						}
+						// Check if there is an edge u --> v and nodeV is not colored yet
 						else if (this->_residualGraph[nodeU][nodeV] != 0 && this->_color[nodeV] == WHITE)
 						{
+							// Set the color of nodeV opposite of nodeU
 							this->_color[nodeV] = 1 - this->_color[nodeU];
+							// Insert the nodeV into the queue
 							nodeQueue.push(nodeV);
 						}
+						// Check if there is an edge u --> v and nodeV is of same color as nodeU
 						else if (this->_residualGraph[nodeU][nodeV] != 0 && this->_color[nodeV] == this->_color[nodeU])
 						{
+							// Set the _isBipartite flag to false and return
 							this->_isBipartite = false;
 							return;
 						}
@@ -102,26 +116,38 @@ namespace MaximumBipartiteMatching
 			}
 		}
 
+		// If the above operation completes without returning yet that indicates the graph is bipartite
+		// Set the _isBipartite flag to true and return
 		this->_isBipartite = true;
 		return;
 	}
 
+	// This method is used to create the additional edges
+	// from the source vertex to the RED colored vertices and
+	// from the BLUE colored vertices to the sink vertex
 	void Graph::AddAdditionalEdges()
 	{
+		// Resizing the residual graph to accomodate space for the new edges
 		for (auto& edge : this->_residualGraph)
 		{
 			edge.resize(this->_noOfVertices, 0);
 		}
+
 		this->_parent.resize(this->_noOfVertices, -1);
 		this->_visited.resize(this->_noOfVertices, false);
 		this->_color.resize(this->_noOfVertices, WHITE);
 		this->_residualGraph.resize(this->_noOfVertices, vector<int>(this->_noOfVertices, 0));
+
+		// Creating the additional edges
 		for (int node = 0; node < this->_source; node++)
 		{
+			// From source vertex --> RED colored vertices
 			if (this->_color[node] == RED)
 			{
 				this->_residualGraph[this->_source][node] = 1;
 			}
+
+			// From BLUE colored vertices --> sink vertex
 			else if (this->_color[node] == BLUE)
 			{
 				this->_residualGraph[node][this->_sink] = 1;
@@ -129,6 +155,7 @@ namespace MaximumBipartiteMatching
 		}
 	}
 
+	// Implementation of BreadthFirstSearch for EdmondsKarp algorithm to find the path from source to sink
 	bool Graph::BreadthFirstSearch()
 	{
 		// Resetting the visited values
@@ -198,6 +225,8 @@ namespace MaximumBipartiteMatching
 		{
 			int augmentedPathFlow = 1;
 
+			// No need to find the minimum amount of augmentedPathFlow as like standard EdmondsKarp algorithm
+			// as here capacity of each edges is 1
 			for (int nodeV = this->_sink; nodeV != this->_source; nodeV = this->_parent[nodeV])
 			{
 				int nodeU = this->_parent[nodeV];
@@ -210,12 +239,16 @@ namespace MaximumBipartiteMatching
 		return this->_maximumFlow;
 	}
 
+	// This method is used for finding the matchings
 	vector<vector<int>> Graph::GetMatchings()
 	{
 		for (int nodeU = 0; nodeU < this->_adjMatrix.size(); nodeU++)
 		{
 			for (int nodeV = 0; nodeV < this->_adjMatrix.size(); nodeV++)
 			{
+				// Check if the nodeU and nodeV are not source or sink
+				// and there is a flow of 1 unit from nodeU --> nodeV
+				// which means nodeU --> nodeV is being used for the maximum flow (maximum matching)
 				if ((nodeU != this->_source || nodeU != this->_sink || nodeV != this->_source || nodeV != this->_sink) 
 					&& 
 					(this->_adjMatrix[nodeU][nodeV] - this->_residualGraph[nodeU][nodeV]) == 1)
