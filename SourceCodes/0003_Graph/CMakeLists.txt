@@ -17,6 +17,7 @@ set(0003GRAPH_SOURCES
     0015_MaximumFlowFordFulkerson.cc
     0016_MaximumFlowEdmondsKarp.cc
     0017_MaximumBipartiteMatching.cc
+    0018_MaximumFlowGoldbergGenericPushRelabel.cc
 
 )
 

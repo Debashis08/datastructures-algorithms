@@ -29,6 +29,7 @@ add_executable(
   0015_MaximumFlowFordFulkersonTest.cc
   0016_MaximumFlowEdmondsKarpTest.cc
   0017_MaximumBipartiteMatchingTest.cc
+  0018_MaximumFlowGoldbergGenericPushRelabelTest.cc
 )
 
 target_link_libraries(
