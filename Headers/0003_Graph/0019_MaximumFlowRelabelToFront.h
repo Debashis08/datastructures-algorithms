@@ -1,10 +1,10 @@
 #pragma once
 
 #include<vector>
-#include<queue>
+#include<list>
 using namespace std;
 
-namespace MaximumFlowGoldbergGenericPushRelabel
+namespace MaximumFlowRelabelToFront
 {
 	class Graph
 	{
@@ -18,14 +18,14 @@ namespace MaximumFlowGoldbergGenericPushRelabel
 		vector<int> _excessFlow;
 		vector<int> _height;
 		vector<bool> _visited;
-		queue<int> _nodeQueue;
+		list<int> _nodeList;
 		void InitializePreflow();
-		bool CheckOverFlow();
-		bool Push(int nodeU);
+		void Discharge(int nodeU);
+		void Push(int nodeU, int nodeV);
 		void Relabel(int nodeU);
 	public:
 		void CreateGraph(int noOfVertices);
 		void PushDirectedEdge(int valueU, int valueV, int capacity);
-		int FindMaximumFlowGoldbergGenericPushRelabel();
+		int FindMaximumFlowRelabelToFront();
 	};
 }
