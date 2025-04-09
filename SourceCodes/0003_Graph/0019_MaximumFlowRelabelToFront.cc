@@ -32,26 +32,39 @@ namespace MaximumFlowRelabelToFront
 		}
 	}
 
+	// Discharges the excess flow from nodeU
 	void Graph::Discharge(int nodeU)
 	{
+		// Check if excess flow of nodeU is > 0
 		while (this->_excessFlow[nodeU] > 0)
 		{
+			// Falg to check if any amount of excess flow is pushed to any neighbour vertex
 			bool hasPushed = false;
+
+			// Iterating over all of the vertices
 			for (int nodeV = 0; nodeV < this->_noOfVertices; nodeV++)
 			{
+				// For G'.Adj[nodeU] check if edge (nodeU, nodeV) is admissible
 				if (this->_residualGraph[nodeU][nodeV] > 0 && this->_height[nodeU] == 1 + this->_height[nodeV])
 				{
+					// Push excess flow along the admissible edge (nodeU, nodeV)
 					this->Push(nodeU, nodeV);
+					// Set the hasPushed flag to true
 					hasPushed = true;
+					// Check if there is no excess flow left in nodeU then no need to check any more admissible edge going from nodeU
 					if (this->_excessFlow[nodeU] == 0)
 					{
+						// Then break from iterating over G'.Adj[nodeU]
 						break;
 					}
 				}
 			}
 
+			// Check if Push operation is not done yet
 			if (!hasPushed)
 			{
+				// Then it indicates that all the outgoing edges from nodeU are inadmissible
+				// so perform the Relabel operation on nodeU
 				this->Relabel(nodeU);
 			}
 		}
@@ -70,7 +83,6 @@ namespace MaximumFlowRelabelToFront
 		// Adjust the excess flows in nodeU and nodeV
 		this->_excessFlow[nodeU] = this->_excessFlow[nodeU] - minimumFlow;
 		this->_excessFlow[nodeV] = this->_excessFlow[nodeV] + minimumFlow;
-
 	}
 
 	// Relabels height of vertex nodeU when there are outgoing non-saturated edges available
@@ -119,6 +131,7 @@ namespace MaximumFlowRelabelToFront
 		// Initialize Pre-flow
 		this->InitializePreflow();
 
+		// Make the list L = G.V - {source, sink}
 		for (int i = 0; i < this->_noOfVertices; i++)
 		{
 			if (i != this->_source && i != this->_sink)
@@ -127,21 +140,27 @@ namespace MaximumFlowRelabelToFront
 			}
 		}
 
+		// Set current vertex = L.head
 		list<int>::iterator nodeUiterator = this->_nodeList.begin();
 
+		// Iterate over all of the elements in the list L
 		while (nodeUiterator != this->_nodeList.end())
 		{
+			// Get the height of current vertex
 			int oldHeight = this->_height[*nodeUiterator];
+
+			// Discharge the excess flow of current vertex
 			this->Discharge(*nodeUiterator);
+
+			// Check if the height of current vertex increases which means the current vertex got relabeled
 			if (this->_height[*nodeUiterator] > oldHeight)
 			{
+				// Then move current vertex to the front of the list L
 				this->_nodeList.splice(this->_nodeList.begin(), this->_nodeList, nodeUiterator);
-				nodeUiterator++;
 			}
-			else
-			{
-				nodeUiterator++;
-			}
+
+			// Go to the next vertex of current vertex in L
+			nodeUiterator++;
 		}
 
 		// Return the excess flow in the sink vertex which is actually the maximum flow along the given flow network
