@@ -35,8 +35,8 @@ namespace TopologicalSort
 
 	void Graph::DepthFirstSearch(Node* nodeU)
 	{
-		this->time++;
-		nodeU->discoveryTime = this->time;
+		this->_time++;
+		nodeU->discoveryTime = this->_time;
 		nodeU->color = GRAY;
 		for (auto& nodeV : this->_adjlist[nodeU])
 		{
@@ -47,13 +47,13 @@ namespace TopologicalSort
 			}
 			else if (nodeV->color == GRAY)
 			{
-				this->hasCycle = true;
+				this->_hasCycle = true;
 				return;
 			}
 		}
 		nodeU->color = BLACK;
-		this->time++;
-		nodeU->finishingTime = time;
+		this->_time++;
+		nodeU->finishingTime = _time;
 		this->_topologicalSortedNodeList.push_front(nodeU);
 	}
 
@@ -73,13 +73,13 @@ namespace TopologicalSort
 
 	void Graph::TopologicalSort()
 	{
-		this->time = 0;
+		this->_time = 0;
 		for (auto& iterator : this->_nodeMap)
 		{
 			if (iterator.second->color == WHITE)
 			{
 				this->DepthFirstSearch(iterator.second);
-				if (this->hasCycle == true)
+				if (this->_hasCycle == true)
 				{
 					break;
 				}
@@ -91,7 +91,7 @@ namespace TopologicalSort
 	{
 		// Step-1 Compute in-degree of each vertices
 		// This is already done while creating the graph
-		this->time = 0;
+		this->_time = 0;
 		queue<Node*> nodeQueue;
 
 		// Step-2 Enqueue vertices with in-degree 0
@@ -99,8 +99,8 @@ namespace TopologicalSort
 		{
 			if (node.second->inDegree == 0)
 			{
-				this->time++;
-				node.second->discoveryTime = time;
+				this->_time++;
+				node.second->discoveryTime = _time;
 				nodeQueue.push(node.second);
 			}
 		}
@@ -110,8 +110,8 @@ namespace TopologicalSort
 		{
 			Node* node = nodeQueue.front();
 			nodeQueue.pop();
-			this->time++;
-			node->finishingTime = time;
+			this->_time++;
+			node->finishingTime = _time;
 			this->_topologicalSortedNodeList.push_back(node);
 			
 		// Step-4 Process all the neighbours of current node based on in-degree
@@ -120,8 +120,8 @@ namespace TopologicalSort
 				neighbour->inDegree--;
 				if (neighbour->inDegree == 0)
 				{
-					this->time++;
-					neighbour->discoveryTime = time;
+					this->_time++;
+					neighbour->discoveryTime = _time;
 					nodeQueue.push(neighbour);
 				}
 			}
@@ -130,13 +130,13 @@ namespace TopologicalSort
 		// Step-5 Check if a cycle exists
 		if (this->_topologicalSortedNodeList.size() != this->_nodeMap.size())
 		{
-			this->hasCycle = true;
+			this->_hasCycle = true;
 		}
 	}
 
 	vector<pair<int, pair<int, int>>> Graph::ShowTopologicalSortResult()
 	{
-		if (this->hasCycle == true)
+		if (this->_hasCycle == true)
 		{
 			return {};
 		}

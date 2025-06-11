@@ -58,6 +58,11 @@ if(CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wno-c++98-compat-pedantic)  # Disable for Clang
 endif()
 
+if (MSVC)
+    add_compile_options(/W4)
+else()
+    add_compile_options(-Wall -Wextra -Wpedantic)
+endif()
 
 if(CLANG_TIDY_EXE)
   set(CMAKE_CXX_CLANG_TIDY 
@@ -91,4 +96,4 @@ enable_testing()
 
 # Add test directory
 add_subdirectory(Tests)
-set_target_properties(gtest gmock gtest_main gmock_main PROPERTIES CXX_CLANG_TIDY "")
+# set_target_properties(gtest gmock gtest_main gmock_main PROPERTIES CXX_CLANG_TIDY "")
