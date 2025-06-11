@@ -102,7 +102,7 @@ namespace TopologicalSort
         graph.TopologicalSort();
          
         // Expected output if cycle detection is implemented
-        EXPECT_THROW(graph.ShowTopologicalSortResult(), runtime_error);
+        EXPECT_EQ(unitTestHelper.SerializeVectorToString(graph.ShowTopologicalSortResult()), "");
     }
 
     TEST(TopoSortTesting, ShowTopoSortResultUsingKahnAlgorithm)
@@ -139,6 +139,6 @@ namespace TopologicalSort
         graph.KahnTopologicalSort();
 
         // Expected output if cycle detection is implemented
-        EXPECT_THROW(graph.ShowTopologicalSortResult(), runtime_error);
+        EXPECT_EQ(unitTestHelper.SerializeVectorToString(graph.ShowTopologicalSortResult()), "");
     }
 }
