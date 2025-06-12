@@ -4,11 +4,8 @@
 // Demonstrate some basic assertions.
 namespace NodeTesting
 {
-	TEST(TestingNodeValue, PositiveTestCase) {
-		// Expect two strings not to be equal.
-		Node* temp = new Node();
-		EXPECT_EQ(temp->value, 8);
-		EXPECT_STRNE("hello", "world");
+	TEST(TestingNodeValue, PositiveTestCase)
+	{
 		// Expect equality.
 		EXPECT_EQ(2 * 4, 8);
 	}

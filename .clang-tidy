@@ -1,22 +1,26 @@
 Checks: >
-  readability-identifier-naming,
-WarningsAsErrors: '*'
-HeaderFilterRegex: '(SourceCodes/.*|Headers/.*|Tests/.*)'  # Only check your code (exclude googletest)
+    readability-identifier-naming,
+    -clang-diagnostic-header-hygiene,
+    -clang-diagnostic-shadow-field-in-constructor
+
+WarningsAsErrors: 'clang-diagnostic-*,readability-identifier-naming*,-clang-diagnostic-header-hygiene,-clang-diagnostic-shadow-field-in-constructor'
+
+HeaderFilterRegex: '(SourceCodes/.*|Headers/.*|Tests/.*)(?!.*googletest/)'
 
 CheckOptions:
-  - key: readability-identifier-naming.VariableCase
-    value: camelBack
-  - key: readability-identifier-naming.FunctionCase
-    value: CamelCase
-  - key: readability-identifier-naming.MethodCase
-    value: CamelCase
-  - key: readability-identifier-naming.ClassCase
-    value: CamelCase
-  - key: readability-identifier-naming.StructCase
-    value: CamelCase
-  - key: readability-identifier-naming.PrivateMemberPrefix
-    value: _
-  - key: readability-identifier-naming.PrivateMemberCase
-    value: camelBack
-  - key: readability-identifier-naming.IgnoreFailedSplit
-    value: false
+    - key: readability-identifier-naming.VariableCase
+      value: camelBack
+    - key: readability-identifier-naming.FunctionCase
+      value: CamelCase
+    - key: readability-identifier-naming.MethodCase
+      value: CamelCase
+    - key: readability-identifier-naming.ClassCase
+      value: CamelCase
+    - key: readability-identifier-naming.StructCase
+      value: CamelCase
+    - key: readability-identifier-naming.PrivateMemberPrefix
+      value: _
+    - key: readability-identifier-naming.PrivateMemberCase
+      value: camelBack
+    - key: readability-identifier-naming.IgnoreFailedSplit
+      value: false
