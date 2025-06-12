@@ -29,10 +29,9 @@ jobs:
     - name: Run Clang-Tidy
       run: |
         echo "Running Clang-Tidy..."
-        find SourceCodes Headers Tests -name '*.cpp' -o -name '*.h' | xargs clang-tidy -p build
-        --extra-arg-before=-Wno-sign-compare
-      # Fail pipeline if any warning occurs
-      continue-on-error: false  
+        find SourceCodes Headers Tests -name '*.cpp' -o -name '*.h' \
+        | xargs clang-tidy -p build --extra-arg-before=-Wno-sign-compare
+      continue-on-error: false
 
     - name: Build
       run: cmake --build build
