@@ -30,7 +30,8 @@ jobs:
       run: |
         echo "Running Clang-Tidy..."
         find SourceCodes Headers Tests -name '*.cpp' -o -name '*.h' | xargs clang-tidy -p build
-      continue-on-error: false  # Fail pipeline if any warning occurs
+      # Fail pipeline if any warning occurs
+      continue-on-error: false  
 
     - name: Build
       run: cmake --build build

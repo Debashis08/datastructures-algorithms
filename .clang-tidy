@@ -1,5 +1,6 @@
 ﻿Checks: >
   readability-identifier-naming
+  -clang-diagnostic-sign-compare
 
 HeaderFilterRegex: '(SourceCodes/.*|Headers/.*|Tests/.*)'
 
