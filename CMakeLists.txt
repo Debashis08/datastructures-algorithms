@@ -7,7 +7,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 # While developing, set this below flag to 'OFF', to save compilation time, uncheck this change before pushing the code
-option(ENABLE_CLANG_TIDY "Enable Clang-Tidy analysis" OFF)
+option(ENABLE_CLANG_TIDY "Enable Clang-Tidy analysis" ON)
 
 
 # Compiler warnings (conditionally set based on compiler)
