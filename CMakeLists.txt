@@ -6,6 +6,10 @@ set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
+# While developing, set this below flag to 'OFF', to save compilation time, uncheck this change before pushing the code
+option(ENABLE_CLANG_TIDY "Enable Clang-Tidy analysis" OFF)
+
+
 # Compiler warnings (conditionally set based on compiler)
 if(MSVC)
     # Remove default /W3 and set /W4 explicitly
@@ -30,8 +34,9 @@ endif()
 
 # Clang-Tidy Setup (only if found)
 find_program(CLANG_TIDY_EXE NAMES "clang-tidy")
-if(CLANG_TIDY_EXE)
+if(ENABLE_CLANG_TIDY AND CLANG_TIDY_EXE)
     message(STATUS "clang-tidy found: ${CLANG_TIDY_EXE}")
+    message(STATUS "clang-tidy enabled: ${CLANG_TIDY_EXE}")
     set(CMAKE_CXX_CLANG_TIDY
         "${CLANG_TIDY_EXE}"
         "--config-file=${CMAKE_SOURCE_DIR}/.clang-tidy"
