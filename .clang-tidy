@@ -1,6 +1,6 @@
 ﻿Checks: >
+  -*
   readability-identifier-naming
-  !clang-diagnostic-sign-compare  # Disable sign-compare warning
 
 HeaderFilterRegex: '(SourceCodes/.*|Headers/.*|Tests/.*)'
 
