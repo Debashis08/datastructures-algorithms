@@ -34,7 +34,7 @@ endif()
 
 # Clang-Tidy Setup (only if found)
 find_program(CLANG_TIDY_EXE NAMES "clang-tidy")
-if(ENABLE_CLANG_TIDY AND CLANG_TIDY_EXE)
+if(CLANG_TIDY_EXE)
     message(STATUS "clang-tidy found: ${CLANG_TIDY_EXE}")
     message(STATUS "clang-tidy enabled: ${CLANG_TIDY_EXE}")
     set(CMAKE_CXX_CLANG_TIDY
