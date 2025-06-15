@@ -3,7 +3,7 @@ Checks: >
 
 WarningsAsErrors: '*'
 
-HeaderFilterRegex: '(SourceCodes/.*|Headers/.*)'
+HeaderFilterRegex: '(Headers/.*|SourceCodes/.*)'
 
 CheckOptions:
   # Private member variables

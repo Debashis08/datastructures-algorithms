@@ -1,4 +1,4 @@
-name: datastructures-algorithms-CI-CD-flow
+name: datastructures-algorithms-ci-cd
 
 on:
   push:
@@ -24,7 +24,7 @@ jobs:
 
     - name: Run clang-tidy
       run: |
-        find SourceCodes Headers -name '*.cpp' -o -name '*.cc' -o -name '*.cxx' -o -name '*.h' | \
+        find Headers -name '*.h' -o -name '*.hpp' ; find SourceCodes -name '*.cpp' -o -name '*.cc' -o -name '*.cxx' | \
         xargs clang-tidy -p build --warnings-as-errors=*
 
     - name: Build
