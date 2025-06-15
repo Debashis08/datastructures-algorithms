@@ -32,8 +32,8 @@ namespace StronglyConnectedComponents
 
 	void Graph::DepthFirstSearchOnGraphG(Node* nodeU)
 	{
-		this->time++;
-		nodeU->discoveryTime = this->time;
+		this->_time++;
+		nodeU->discoveryTime = this->_time;
 		nodeU->color = GRAY;
 		for (auto nodeV : this->_adjlistG[nodeU])
 		{
@@ -44,8 +44,8 @@ namespace StronglyConnectedComponents
 			}
 		}
 		nodeU->color = BLACK;
-		this->time++;
-		nodeU->finishingTime = time;
+		this->_time++;
+		nodeU->finishingTime = this->_time;
 		this->_nodesFinishingTimeOrder.push_front(nodeU);
 	}
 
@@ -78,12 +78,12 @@ namespace StronglyConnectedComponents
 
 	void Graph::PushSingleNode(int valueU)
 	{
-		Node* nodeU = this->MakeOrFindNode(valueU);
+		this->MakeOrFindNode(valueU);
 	}
 
 	void Graph::DFSOnGraphG()
 	{
-		this->time = 0;
+		this->_time = 0;
 		for (auto& iterator : this->_nodeMap)
 		{
 			if (iterator.second->color == WHITE)

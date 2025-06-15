@@ -24,7 +24,7 @@ namespace DepthFirstSearch
     class Graph
     {
     private:
-        int time;
+        int _time;
         map<Node*, list<Node*>> _adjlist;
         map<int, Node*> _nodeMap;
         Node* MakeOrFindNode(int value);

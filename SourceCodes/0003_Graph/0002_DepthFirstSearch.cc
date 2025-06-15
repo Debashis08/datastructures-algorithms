@@ -32,8 +32,8 @@ namespace DepthFirstSearch
 
 	void Graph::DepthFirstSearch(Node* nodeU)
 	{
-		this->time++;
-		nodeU->discoveredTime = this->time;
+		this->_time++;
+		nodeU->discoveredTime = this->_time;
 		nodeU->color = GRAY;
 		for (auto nodeV : this->_adjlist[nodeU])
 		{
@@ -44,8 +44,8 @@ namespace DepthFirstSearch
 			}
 		}
 		nodeU->color = BLACK;
-		this->time++;
-		nodeU->finishingTime = time;
+		this->_time++;
+		nodeU->finishingTime = this->_time;
 	}
 
 	void Graph::PushDirectedEdge(int valueU, int valueV)
@@ -58,7 +58,7 @@ namespace DepthFirstSearch
 
 	void Graph::DFS()
 	{
-		this->time = 0;
+		this->_time = 0;
 		for (auto& iterator : this->_nodeMap)
 		{
 			if (iterator.second->color == WHITE)
