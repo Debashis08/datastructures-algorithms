@@ -19,7 +19,7 @@ namespace BinarySearchTree
 	}
 
 
-	void BinarySearchTree::_InsertNode(Node* node)
+	void BinarySearchTree::InsertBinarySearchTreeNode(Node* node)
 	{
 		Node* nodeY = nullptr;
 		Node* nodeX = this->_root;
@@ -50,7 +50,7 @@ namespace BinarySearchTree
 		}
 	}
 
-	Node* BinarySearchTree::_FindNode(int value)
+	Node* BinarySearchTree::FindBinarySearchTreeNode(int value)
 	{
 		Node* node = this->_root;
 		while (node != nullptr)
@@ -71,7 +71,7 @@ namespace BinarySearchTree
 		return node;
 	}
 
-	Node* BinarySearchTree::_FindMinimumValueNode(Node* node)
+	Node* BinarySearchTree::FindBinarySearchTreeMinimumValueNode(Node* node)
 	{
 		while (node->left != nullptr)
 		{
@@ -80,7 +80,7 @@ namespace BinarySearchTree
 		return node;
 	}
 
-	Node* BinarySearchTree::_FindMaximumValueNode(Node* node)
+	Node* BinarySearchTree::FindBinarySearchTreeMaximumValueNode(Node* node)
 	{
 		while (node->right != nullptr)
 		{
@@ -89,11 +89,11 @@ namespace BinarySearchTree
 		return node;
 	}
 
-	Node* BinarySearchTree::_FindSuccessorNode(Node* node)
+	Node* BinarySearchTree::FindSuccessorBinarySearchTreeNode(Node* node)
 	{
 		if (node->right != nullptr)
 		{
-			return this->_FindMinimumValueNode(node->right);
+			return this->FindBinarySearchTreeMinimumValueNode(node->right);
 		}
 		Node* nodeY = node->parent;
 		while (nodeY != nullptr && node == nodeY->right)
@@ -104,11 +104,11 @@ namespace BinarySearchTree
 		return nodeY;
 	}
 
-	Node* BinarySearchTree::_FindPredecessorNode(Node* node)
+	Node* BinarySearchTree::FindPredecessorBinarySearchTreeNode(Node* node)
 	{
 		if (node->left != nullptr)
 		{
-			return this->_FindMaximumValueNode(node->left);
+			return this->FindBinarySearchTreeMaximumValueNode(node->left);
 		}
 		Node* nodeY = node->parent;
 		while (nodeY != nullptr && node == nodeY->left)
@@ -119,7 +119,7 @@ namespace BinarySearchTree
 		return nodeY;
 	}
 
-	void BinarySearchTree::_Transplant(Node* nodeU, Node* nodeV)
+	void BinarySearchTree::TransplantBinarySearchTreeNode(Node* nodeU, Node* nodeV)
 	{
 		if (nodeU->parent == nullptr)
 		{
@@ -140,66 +140,66 @@ namespace BinarySearchTree
 		}
 	}
 
-	void BinarySearchTree::_DeleteNode(Node* node)
+	void BinarySearchTree::DeleteBinarySearchTreeNode(Node* node)
 	{
 		if (node->left == nullptr)
 		{
-			this->_Transplant(node, node->right);
+			this->TransplantBinarySearchTreeNode(node, node->right);
 		}
 		else if (node->right == nullptr)
 		{
-			this->_Transplant(node, node->left);
+			this->TransplantBinarySearchTreeNode(node, node->left);
 		}
 		else
 		{
-			Node* nodeY = this->_FindMinimumValueNode(node->right);
+			Node* nodeY = this->FindBinarySearchTreeMinimumValueNode(node->right);
 			if (nodeY->parent != node)
 			{
-				this->_Transplant(nodeY, nodeY->right);
+				this->TransplantBinarySearchTreeNode(nodeY, nodeY->right);
 				nodeY->right = node->right;
 				nodeY->right->parent = nodeY;
 			}
-			this->_Transplant(node, nodeY);
+			this->TransplantBinarySearchTreeNode(node, nodeY);
 			nodeY->left = node->left;
 			nodeY->left->parent = nodeY;
 			delete node;
 		}
 	}
 
-	void BinarySearchTree::_RecursiveInorderTraversal(Node* node, vector<int>& result)
+	void BinarySearchTree::RecursiveInorderTraversal(Node* node, vector<int>& result)
 	{
 		if (node == nullptr)
 		{
 			return;
 		}
-		this->_RecursiveInorderTraversal(node->left, result);
+		this->RecursiveInorderTraversal(node->left, result);
 		result.push_back(node->data);
-		this->_RecursiveInorderTraversal(node->right, result);
+		this->RecursiveInorderTraversal(node->right, result);
 	}
 
-	void BinarySearchTree::_RecursivePreorderTraversal(Node* node, vector<int>& result)
+	void BinarySearchTree::RecursivePreorderTraversal(Node* node, vector<int>& result)
 	{
 		if (node == nullptr)
 		{
 			return;
 		}
 		result.push_back(node->data);
-		this->_RecursivePreorderTraversal(node->left, result);
-		this->_RecursivePreorderTraversal(node->right, result);
+		this->RecursivePreorderTraversal(node->left, result);
+		this->RecursivePreorderTraversal(node->right, result);
 	}
 
-	void BinarySearchTree::_RecursivePostorderTraversal(Node* node, vector<int>& result)
+	void BinarySearchTree::RecursivePostorderTraversal(Node* node, vector<int>& result)
 	{
 		if (node == nullptr)
 		{
 			return;
 		}
-		this->_RecursivePostorderTraversal(node->left, result);
-		this->_RecursivePostorderTraversal(node->right, result);
+		this->RecursivePostorderTraversal(node->left, result);
+		this->RecursivePostorderTraversal(node->right, result);
 		result.push_back(node->data);
 	}
 
-	void BinarySearchTree::_MorrisInorderTraversal(Node* node, vector<int>& result)
+	void BinarySearchTree::MorrisInorderTraversal(Node* node, vector<int>& result)
 	{
 		while (node != nullptr)
 		{
@@ -230,7 +230,7 @@ namespace BinarySearchTree
 		}
 	}
 
-	void BinarySearchTree::_MorrisPreorderTraversal(Node* node, vector<int>& result)
+	void BinarySearchTree::MorrisPreorderTraversal(Node* node, vector<int>& result)
 	{
 		while (node != nullptr)
 		{
@@ -261,7 +261,7 @@ namespace BinarySearchTree
 		}
 	}
 
-	void BinarySearchTree::_MorrisPostorderTraversal(Node* node, vector<int>& result)
+	void BinarySearchTree::MorrisPostorderTraversal(Node* node, vector<int>& result)
 	{
 		while (node != nullptr)
 		{
@@ -296,54 +296,54 @@ namespace BinarySearchTree
 	void BinarySearchTree::InsertNode(int value)
 	{
 		Node* node = new Node(value, nullptr, nullptr, nullptr);
-		this->_InsertNode(node);
+		this->InsertBinarySearchTreeNode(node);
 	}
 
 	void BinarySearchTree::DeleteNode(int value)
 	{
-		Node* node = this->_FindNode(value);
-		this->_DeleteNode(node);
+		Node* node = this->FindBinarySearchTreeNode(value);
+		this->DeleteBinarySearchTreeNode(node);
 	}
 
 	vector<int> BinarySearchTree::GetRecursiveInorderTravesalResult()
 	{
 		vector<int> result;
-		this->_RecursiveInorderTraversal(this->_root, result);
+		this->RecursiveInorderTraversal(this->_root, result);
 		return result;
 	}
 
 	vector<int> BinarySearchTree::GetRecursivePreorderTravesalResult()
 	{
 		vector<int> result;
-		this->_RecursivePreorderTraversal(this->_root, result);
+		this->RecursivePreorderTraversal(this->_root, result);
 		return result;
 	}
 
 	vector<int> BinarySearchTree::GetRecursivePostorderTravesalResult()
 	{
 		vector<int> result;
-		this->_RecursivePostorderTraversal(this->_root, result);
+		this->RecursivePostorderTraversal(this->_root, result);
 		return result;
 	}
 
 	vector<int> BinarySearchTree::GetMorrisInorderTraversalResult()
 	{
 		vector<int> result;
-		this->_MorrisInorderTraversal(this->_root, result);
+		this->MorrisInorderTraversal(this->_root, result);
 		return result;
 	}
 
 	vector<int> BinarySearchTree::GetMorrisPreorderTraversalResult()
 	{
 		vector<int> result;
-		this->_MorrisPreorderTraversal(this->_root, result);
+		this->MorrisPreorderTraversal(this->_root, result);
 		return result;
 	}
 
 	vector<int> BinarySearchTree::GetMorrisPostorderTraversalResult()
 	{
 		vector<int> result;
-		this->_MorrisPostorderTraversal(this->_root, result);
+		this->MorrisPostorderTraversal(this->_root, result);
 		return result;
 	}
 }

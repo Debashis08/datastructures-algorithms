@@ -24,7 +24,7 @@ namespace StronglyConnectedComponents
     class Graph
     {
     private:
-        int time;
+        int _time;
         map<Node*, list<Node*>> _adjlistG;
         map<Node*, list<Node*>> _adjlistT;
         map<int, Node*> _nodeMap;
