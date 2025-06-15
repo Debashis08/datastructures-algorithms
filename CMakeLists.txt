@@ -1,5 +1,4 @@
-﻿# CMakeList.txt : CMake for datastructures-algorithms
-cmake_minimum_required (VERSION 3.10)
+﻿cmake_minimum_required (VERSION 3.10)
 project ("datastructures-algorithms")
 
 set(CMAKE_CXX_STANDARD 14)
@@ -25,6 +24,7 @@ include_directories(${CMAKE_SOURCE_DIR}/Headers)
 add_subdirectory(Headers)
 add_subdirectory(SourceCodes)
 
+cmake_policy(SET CMP0135 NEW)
 include(FetchContent)
 FetchContent_Declare(
   googletest
