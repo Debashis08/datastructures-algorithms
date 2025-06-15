@@ -122,7 +122,7 @@ namespace EulerianPathAndCircuit
 
 	void Graph::PushSingleNode(int valueU)
 	{
-		Node* nodeU = this->MakeOrFindNode(valueU);
+		this->MakeOrFindNode(valueU);
 	}
 
 	void Graph::FindEulerianPathAndCircuit()

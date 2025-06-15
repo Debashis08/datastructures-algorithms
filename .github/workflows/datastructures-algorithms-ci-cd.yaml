@@ -1,0 +1,34 @@
+name: datastructures-algorithms-ci-cd
+
+on:
+  push:
+    branches: [ main, release ]
+  pull_request:
+    branches: [ main, release ]
+
+jobs:
+  lint-build-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y cmake libgtest-dev clang-tidy
+
+    - name: Configure CMake
+      run: cmake -S . -B build -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+
+    - name: Run clang-tidy
+      run: |
+        find Headers -name '*.h' -o -name '*.hpp' ; find SourceCodes -name '*.cpp' -o -name '*.cc' -o -name '*.cxx' | \
+        xargs clang-tidy -p build --warnings-as-errors=*
+
+    - name: Build
+      run: cmake --build build
+
+    - name: Run tests
+      run: ctest --test-dir build --output-on-failure

@@ -25,8 +25,8 @@ namespace TopologicalSort
     class Graph
     {
     private:
-        int time;
-        bool hasCycle;
+        int _time;
+        bool _hasCycle;
         map<Node*, list<Node*>> _adjlist;
         map<int, Node*> _nodeMap;
         list<Node*> _topologicalSortedNodeList;
