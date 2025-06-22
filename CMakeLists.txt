@@ -19,10 +19,10 @@ if(CLANG_TIDY_EXE)
     )
 endif()
 
-include_directories(${CMAKE_SOURCE_DIR}/Headers)
+include_directories(${CMAKE_SOURCE_DIR}/include)
 
-add_subdirectory(Headers)
-add_subdirectory(SourceCodes)
+add_subdirectory(include)
+add_subdirectory(source)
 
 cmake_policy(SET CMP0135 NEW)
 include(FetchContent)
@@ -36,4 +36,4 @@ set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 
 enable_testing()
 
-add_subdirectory(Tests)
+add_subdirectory(test)
