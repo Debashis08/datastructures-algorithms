@@ -3,8 +3,6 @@ Checks: >
 
 WarningsAsErrors: '*'
 
-HeaderFilterRegex: '.*'
-
 CheckOptions:
   # Private member variables
   - key: readability-identifier-naming.PrivateMemberPrefix

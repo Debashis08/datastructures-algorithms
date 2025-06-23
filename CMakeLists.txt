@@ -15,6 +15,7 @@ if(CLANG_TIDY_EXE)
         "--config-file=${CMAKE_SOURCE_DIR}/.clang-tidy"
         "--extra-arg-before=-Wno-unknown-warning-option"
         "--extra-arg-before=-Wno-c++98-compat-pedantic"
+        "--header-filter=(include/.*|source/.*)"
         "--quiet"
     )
 endif()
