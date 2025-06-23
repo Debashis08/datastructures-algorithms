@@ -23,7 +23,7 @@ target_link_libraries(
 
 target_link_libraries(
   0001-Basics-Tests
-  0001Basics
+  0001BASICS
 )
 
 

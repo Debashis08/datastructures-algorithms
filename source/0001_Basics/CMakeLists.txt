@@ -4,4 +4,4 @@ set(0001BASICS_SOURCES
 )
 
 # Create a library target
-add_library(0001Basics ${0001BASICS_SOURCES})
+add_library(0001BASICS ${0001BASICS_SOURCES})
