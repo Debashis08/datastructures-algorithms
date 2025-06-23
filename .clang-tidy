@@ -4,7 +4,6 @@ Checks: >
 WarningsAsErrors: '*'
 
 HeaderFilterRegex: '(include/.*|source/.*)'
-ExcludeHeaderFilterRegex: 'build/.*'
 
 CheckOptions:
   # Private member variables
