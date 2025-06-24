@@ -24,7 +24,7 @@ jobs:
 
     - name: Run clang-tidy
       run: |
-        find Headers -name '*.h' -o -name '*.hpp' ; find SourceCodes -name '*.cpp' -o -name '*.cc' -o -name '*.cxx' | \
+        find include -name '*.h' -o -name '*.hpp' ; find source -name '*.cpp' -o -name '*.cc' -o -name '*.cxx' | \
         xargs clang-tidy -p build --warnings-as-errors=*
 
     - name: Build

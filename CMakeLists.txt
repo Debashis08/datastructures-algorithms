@@ -6,11 +6,11 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 
-# .clang-tidy settp
+# .clang-tidy setup
 find_program(CLANG_TIDY_EXE NAMES "clang-tidy")
 if(CLANG_TIDY_EXE)
     message(STATUS "clang-tidy found: ${CLANG_TIDY_EXE}")
-    set(CMAKE_CXX_CLANG_TIDY
+    set(CLANG_TIDY_COMMAND
         "${CLANG_TIDY_EXE}"
         "--config-file=${CMAKE_SOURCE_DIR}/.clang-tidy"
         "--extra-arg-before=-Wno-unknown-warning-option"
@@ -19,10 +19,10 @@ if(CLANG_TIDY_EXE)
     )
 endif()
 
-include_directories(${CMAKE_SOURCE_DIR}/Headers)
+include_directories(${CMAKE_SOURCE_DIR}/include)
 
-add_subdirectory(Headers)
-add_subdirectory(SourceCodes)
+add_subdirectory(include)
+add_subdirectory(source)
 
 cmake_policy(SET CMP0135 NEW)
 include(FetchContent)
@@ -36,4 +36,4 @@ set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 
 enable_testing()
 
-add_subdirectory(Tests)
+add_subdirectory(test)
