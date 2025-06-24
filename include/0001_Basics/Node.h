@@ -1,10 +1,8 @@
 #pragma once
 
-class node
+class Node
 {
-private:
-	int val;
 public:
 	int value;
-	node();
+	Node();
 };
