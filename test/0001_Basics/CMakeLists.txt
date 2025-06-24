@@ -13,22 +13,19 @@ FetchContent_MakeAvailable(googletest)
 enable_testing()
 
 add_executable(
-  0001-Basics-Tests
+  0001BasicsTests
   NodeTest.cc)
 
 target_link_libraries(
-  0001-Basics-Tests
+  0001BasicsTests
   GTest::gtest_main
-)
-
-target_link_libraries(
-  0001-Basics-Tests
   0001BASICS
 )
 
+# Add .clang-tidy configuration to this library.
 if(CLANG_TIDY_EXE)
   set_target_properties(0001BASICS PROPERTIES CXX_CLANG_TIDY "${CLANG_TIDY_COMMAND}")
 endif()
 
 include(GoogleTest)
-gtest_discover_tests(0001-Basics-Tests DISCOVERY_TIMEOUT 30)
+gtest_discover_tests(0001BasicsTests DISCOVERY_TIMEOUT 30)
