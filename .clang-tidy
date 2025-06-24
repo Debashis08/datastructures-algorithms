@@ -3,6 +3,8 @@ Checks: >
 
 WarningsAsErrors: '*'
 
+HeaderFilterRegex: (^|.*/)(include/.*|source/.*)
+
 CheckOptions:
   # Private member variables
   - key: readability-identifier-naming.PrivateMemberPrefix
