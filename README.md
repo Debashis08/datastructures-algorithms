@@ -14,8 +14,8 @@ This repository contains a collection of **data structures and algorithms** impl
 
 ```plain text
 datastructures-algorithms  
-├── Headers            # Header Files
-├── SourceCodes        # Implementation of the solutions
-├── Tests              # Unit tests for implemented solutions
+├── include            # Header Files
+├── source             # Implementation of the solutions
+├── test               # Unit tests for implemented solutions
 └── CMakeLists.txt     # CMake configuration file
 ```
