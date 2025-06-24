@@ -26,6 +26,9 @@ target_link_libraries(
   0001BASICS
 )
 
+if(CLANG_TIDY_EXE)
+  set_target_properties(0001BASICS PROPERTIES CXX_CLANG_TIDY "${CLANG_TIDY_COMMAND}")
+endif()
 
 include(GoogleTest)
 gtest_discover_tests(0001-Basics-Tests DISCOVERY_TIMEOUT 30)
