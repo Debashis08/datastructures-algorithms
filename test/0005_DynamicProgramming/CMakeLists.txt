@@ -21,7 +21,7 @@ add_executable(
 target_link_libraries(
   0005DynamicProgrammingTests
   GTest::gtest_main
-  0004DYNAMICPROGRAMMING
+  0005DYNAMICPROGRAMMING
 )
 
 # Add .clang-tidy configuration to this library.

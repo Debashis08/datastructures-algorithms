@@ -1,4 +1,5 @@
 #pragma once
+#include<iostream>
 #include<vector>
 using namespace std;
 
@@ -11,6 +12,7 @@ namespace RodCutting
 		vector<int> _price;
 	public:
 		DynamicProgramming(int length, vector<int> price);
-		int RecursiveCutRod();
+		int RecursiveRodCutting(int length);
+		int DynamicProgrammingRodCutting();
 	};
 }
