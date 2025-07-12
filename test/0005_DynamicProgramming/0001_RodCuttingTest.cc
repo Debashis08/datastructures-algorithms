@@ -30,9 +30,9 @@ namespace RodCutting
 		int expectedResult = 22;
 
 		// Act
-		int actualResult = dp.DynamicProgrammingRodCutting();
+		pair<int, vector<int>> actualResult = dp.DpGetMaximumProfitWithCuts();
 
 		// Assert
-		EXPECT_EQ(actualResult, expectedResult);
+		EXPECT_EQ(actualResult.first, expectedResult);
 	}
 }

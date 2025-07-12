@@ -10,9 +10,10 @@ namespace RodCutting
 	private:
 		int _length;
 		vector<int> _price;
+		vector<int> _cutPositions;
 	public:
 		DynamicProgramming(int length, vector<int> price);
 		int RecursiveRodCutting(int length);
-		int DynamicProgrammingRodCutting();
+		pair<int, vector<int>> DpGetMaximumProfitWithCuts();
 	};
 }

@@ -18,7 +18,7 @@ namespace RodCutting
 		{
 			return 0;
 		}
-		
+
 		int result = 0;
 
 		for (int cut = 1; cut <= length; cut++)
@@ -29,19 +29,27 @@ namespace RodCutting
 		return result;
 	}
 
-	int DynamicProgramming::DynamicProgrammingRodCutting()
+	pair<int, vector<int>> DynamicProgramming::DpGetMaximumProfitWithCuts()
 	{
 		vector<int> dp(this->_price.size() + 1, 0);
+		this->_cutPositions = vector<int>(this->_price.size() + 1, 0);
 
 		// Find maximum value for all rod of length i.
 		for (int i = 1; i <= this->_length; i++)
 		{
 			for (int j = 1; j <= i; j++)
 			{
-				dp[i] = max(dp[i], this->_price[j - 1] + dp[i-j]);
+				if (dp[i] < (this->_price[j - 1] + dp[i - j]))
+				{
+					dp[i] = this->_price[j - 1] + dp[i - j];
+					this->_cutPositions[i] = j - 1;
+				}
 			}
 		}
 
-		return dp[this->_length];
+		// Re-construct the cuts
+
+
+		return { dp[this->_length] ,{} };
 	}
 }
