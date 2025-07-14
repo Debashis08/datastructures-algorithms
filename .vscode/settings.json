@@ -1,0 +1,11 @@
+{
+  "cmake.useCMakePresets": "always",
+  "cmake.configureOnOpen": true,
+  "cmake.sourceDirectory": "${workspaceFolder}",
+
+  // Optional: see all Google‑Test cases in the VS Code Testing tab
+  "cmake.ctestArgs": ["--output-on-failure"],
+
+  // Let the C++ extension read compile_commands.json automatically
+  "C_Cpp.default.compileCommands": "${workspaceFolder}/artifact/build/x64-debug/compile_commands.json"
+}

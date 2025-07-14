@@ -1,0 +1,7 @@
+{
+  "recommendations": [
+    "ms-vscode.cmake-tools",
+    "ms-vscode.cpptools",
+    "matepek.vscode-catch2-test-adapter"  // same adapter, also recognises GTest
+  ]
+}

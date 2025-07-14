@@ -1,0 +1,29 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug active target (MinGW)",
+      "type": "cppdbg",
+      "request": "launch",
+
+      // ← CMake Tools swaps this to the full path of the selected executable
+      "program": "${command:cmake.launchTargetPath}",
+
+      "args": [],                   // customise at run‑time in the debug panel
+      "cwd": "${workspaceFolder}",  // working directory = repo root
+
+      "MIMode": "gdb",
+      "miDebuggerPath": "C:/mingw64/bin/gdb.exe",
+      "setupCommands": [
+        { "description": "Enable pretty printing", "text": "-enable-pretty-printing", "ignoreFailures": true }
+      ],
+
+      // Auto‑build the chosen target first
+      "preLaunchTask": "CMake Build",
+
+      // VS Code will reuse this config for Google‑Test executables, too
+      "externalConsole": false,
+      "stopAtEntry": false
+    }
+  ]
+}
