@@ -1,4 +1,4 @@
-name: datastructures-algorithms-ci-cd
+name: datastructures-algorithms-ci-cd-windows
 
 on:
   push:
@@ -8,7 +8,7 @@ on:
 
 jobs:
   lint-build-test:
-    runs-on: windows-2022
+    runs-on: windows-latest
 
     steps:
     - name: Checkout code
@@ -16,28 +16,23 @@ jobs:
 
     - name: Setup MSVC
       uses: ilammy/msvc-dev-cmd@v1
+      with:
+        arch: x64
 
     - name: Install dependencies
       run: |
-        choco install cmake --installargs 'ADD_CMAKE_TO_PATH=System' -y
+        choco install cmake -y
         choco install ninja -y
         choco install llvm -y
 
-    - name: Add LLVM to PATH
-      run: echo "C:\Program Files\LLVM\bin" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8
-
     - name: Configure CMake
-      run: cmake -S . -B build -G "Ninja" -DCMAKE_CXX_CLANG_TIDY=clang-tidy -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+      run: cmake -S . -B build -G "Ninja" -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
 
     - name: Run clang-tidy
-      shell: pwsh
       run: |
-        clang-tidy --version
-        $files = Get-ChildItem -Recurse -Path include, source -Include *.cpp,*.cc,*.cxx,*.h,*.hpp -File
-        foreach ($file in $files) {
-          Write-Host "Running clang-tidy on $($file.FullName)"
-          clang-tidy -p build "$($file.FullName)" --warnings-as-errors=*
-        }
+        (Get-ChildItem -Path include -Recurse -Include *.h,*.hpp).FullName + 
+        (Get-ChildItem -Path source -Recurse -Include *.cpp,*.cc,*.cxx).FullName | 
+        ForEach-Object { clang-tidy -p build --warnings-as-errors=* $_ }
 
     - name: Build
       run: cmake --build build
