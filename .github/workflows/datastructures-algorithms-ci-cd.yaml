@@ -34,8 +34,8 @@ jobs:
       shell: pwsh
       run: |
         clang-tidy --version
-        $headerFiles = Get-ChildItem -Recurse -Path include, source -Include *.h,*.hpp -File
-        $sourceFiles = Get-ChildItem -Recurse -Path include, source -Include *.cpp,*.cc,*.cxx -File
+        $headerFiles = Get-ChildItem -Recurse -Path include -Include *.h,*.hpp -File
+        $sourceFiles = Get-ChildItem -Recurse -Path source -Include *.cpp,*.cc,*.cxx -File
         
         # Process header files with explicit header treatment
         foreach ($file in $headerFiles) {
