@@ -138,7 +138,7 @@ namespace TopologicalSort
 	{
 		if (this->_hasCycle == true)
 		{
-			throw runtime_error("Cycle Detected");
+			return {};
 		}
 		vector<pair<int, pair<int, int>>> result;
 		for (auto& node : this->_topologicalSortedNodeList)

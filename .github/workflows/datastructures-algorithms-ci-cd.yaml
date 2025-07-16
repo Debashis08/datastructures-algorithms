@@ -8,27 +8,44 @@ on:
 
 jobs:
   lint-build-test:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
 
+    - name: Setup MSVC
+      uses: ilammy/msvc-dev-cmd@v1
+      with:
+        arch: x64
+
     - name: Install dependencies
+      shell: pwsh
       run: |
-        sudo apt-get update
-        sudo apt-get install -y cmake libgtest-dev clang-tidy
+        choco install cmake -y
+        choco install ninja -y
+        choco install llvm -y
 
     - name: Configure CMake
-      run: cmake -S . -B build -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+      shell: pwsh
+      run: cmake -S . -B build -G "Ninja" -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
 
     - name: Run clang-tidy
+      shell: pwsh
       run: |
-        find include -name '*.h' -o -name '*.hpp' ; find source -name '*.cpp' -o -name '*.cc' -o -name '*.cxx' | \
-        xargs clang-tidy -p build --warnings-as-errors=*
+        clang-tidy --version
+        $files = Get-ChildItem -Recurse -Path source -Include *.cpp,*.cc,*.cxx -File
+
+        # These source/.* files would be checked using .clang-tidy maintained at projectroot
+        foreach ($file in $files) {
+          Write-Host "Running clang-tidy on source $($file.FullName)"
+          clang-tidy -p build "$($file.FullName)" --warnings-as-errors=*
+        }
 
     - name: Build
+      shell: pwsh
       run: cmake --build build
 
     - name: Run tests
+      shell: pwsh
       run: ctest --test-dir build --output-on-failure
