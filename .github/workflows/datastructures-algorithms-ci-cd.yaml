@@ -8,16 +8,19 @@ on:
 
 jobs:
   lint-build-test:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    - name: Install dependencies
+    - name: Install CMake
       run: |
-        sudo apt-get update
-        sudo apt-get install -y cmake libgtest-dev clang-tidy
+        choco install cmake --installargs 'ADD_CMAKE_TO_PATH=System'
+
+    - name: Install GTest
+      run: |
+        choco install gtest
 
     - name: Configure CMake
       run: cmake -S . -B build -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
