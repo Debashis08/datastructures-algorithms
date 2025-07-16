@@ -34,10 +34,10 @@ jobs:
       shell: pwsh
       run: |
         clang-tidy --version
-        $sourceFiles = Get-ChildItem -Recurse -Path source -Include *.cpp,*.cc,*.cxx -File
-        
-        # Process source files normally
-        foreach ($file in $sourceFiles) {
+        $files = Get-ChildItem -Recurse -Path source -Include *.cpp,*.cc,*.cxx -File
+
+        # These source/.* files would be checked using .clang-tidy maintained at projectroot
+        foreach ($file in $files) {
           Write-Host "Running clang-tidy on source $($file.FullName)"
           clang-tidy -p build "$($file.FullName)" --warnings-as-errors=*
         }
