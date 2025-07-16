@@ -14,16 +14,16 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    - name: Install CMake
+    - name: Setup MSVC
+      uses: ilammy/msvc-dev-cmd@v1
+      
+    - name: Install dependencies
       run: |
         choco install cmake --installargs 'ADD_CMAKE_TO_PATH=System'
-
-    - name: Install GTest
-      run: |
-        choco install gtest
+        choco install ninja
 
     - name: Configure CMake
-      run: cmake -S . -B build -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+      run: cmake -S . -B build -G "Ninja" -DCMAKE_CXX_CLANG_TIDY=clang-tidy -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
 
     - name: Run clang-tidy
       run: |
