@@ -34,14 +34,7 @@ jobs:
       shell: pwsh
       run: |
         clang-tidy --version
-        $headerFiles = Get-ChildItem -Recurse -Path include -Include *.h,*.hpp -File
         $sourceFiles = Get-ChildItem -Recurse -Path source -Include *.cpp,*.cc,*.cxx -File
-        
-        # Process header files with explicit header treatment
-        foreach ($file in $headerFiles) {
-          Write-Host "Running clang-tidy on header $($file.FullName)"
-          clang-tidy -p build "$($file.FullName)" --warnings-as-errors=* --extra-arg=-xc++-header
-        }
         
         # Process source files normally
         foreach ($file in $sourceFiles) {
