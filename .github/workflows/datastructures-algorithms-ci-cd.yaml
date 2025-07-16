@@ -16,19 +16,28 @@ jobs:
 
     - name: Setup MSVC
       uses: ilammy/msvc-dev-cmd@v1
-      
+
     - name: Install dependencies
       run: |
-        choco install cmake --installargs 'ADD_CMAKE_TO_PATH=System'
-        choco install ninja
+        choco install cmake --installargs 'ADD_CMAKE_TO_PATH=System' -y
+        choco install ninja -y
+        choco install llvm -y
+
+    - name: Add LLVM to PATH
+      run: echo "C:\Program Files\LLVM\bin" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8
 
     - name: Configure CMake
       run: cmake -S . -B build -G "Ninja" -DCMAKE_CXX_CLANG_TIDY=clang-tidy -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
 
     - name: Run clang-tidy
+      shell: pwsh
       run: |
         clang-tidy --version
-        Get-ChildItem -Recurse -Include *.h,*.hpp,*.cpp,*.cc,*.cxx | ForEach-Object { clang-tidy -p build $_.FullName --warnings-as-errors=* }
+        $files = Get-ChildItem -Recurse -Path source, test -Include *.cpp,*.cc,*.cxx,*.h,*.hpp -File
+        foreach ($file in $files) {
+          Write-Host "Running clang-tidy on $($file.FullName)"
+          clang-tidy -p build "$($file.FullName)" --warnings-as-errors=*
+        }
 
     - name: Build
       run: cmake --build build
