@@ -31,7 +31,7 @@ jobs:
     - name: Run clang-tidy
       run: |
         clang-tidy --version
-        $files = Get-ChildItem -Recurse -Path include, source -Include *.cpp,*.cc,*.cxx,*.h,*.hpp -File
+        $files = Get-ChildItem -Recurse -Path include, source -Include *.h,*.hpp,*.cpp,*.cc,*.cxx -File
         foreach ($file in $files) {
           Write-Host "Running clang-tidy on $($file.FullName)"
           clang-tidy -p build "$($file.FullName)" --warnings-as-errors=*
