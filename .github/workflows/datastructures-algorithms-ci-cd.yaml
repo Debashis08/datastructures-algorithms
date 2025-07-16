@@ -27,8 +27,8 @@ jobs:
 
     - name: Run clang-tidy
       run: |
-        find include -name '*.h' -o -name '*.hpp' ; find source -name '*.cpp' -o -name '*.cc' -o -name '*.cxx' | \
-        xargs clang-tidy -p build --warnings-as-errors=*
+        clang-tidy --version
+        Get-ChildItem -Recurse -Include *.h,*.hpp,*.cpp,*.cc,*.cxx | ForEach-Object { clang-tidy -p build $_.FullName --warnings-as-errors=* }
 
     - name: Build
       run: cmake --build build
