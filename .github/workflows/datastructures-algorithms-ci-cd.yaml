@@ -30,9 +30,12 @@ jobs:
 
     - name: Run clang-tidy
       run: |
-        (Get-ChildItem -Path include -Recurse -Include *.h,*.hpp).FullName + 
-        (Get-ChildItem -Path source -Recurse -Include *.cpp,*.cc,*.cxx).FullName | 
-        ForEach-Object { clang-tidy -p build --warnings-as-errors=* $_ }
+        clang-tidy --version
+        $files = Get-ChildItem -Recurse -Path include, source -Include *.cpp,*.cc,*.cxx,*.h,*.hpp -File
+        foreach ($file in $files) {
+          Write-Host "Running clang-tidy on $($file.FullName)"
+          clang-tidy -p build "$($file.FullName)" --warnings-as-errors=*
+        }
 
     - name: Build
       run: cmake --build build
