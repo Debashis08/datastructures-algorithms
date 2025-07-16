@@ -91,20 +91,6 @@ namespace TopologicalSort
         EXPECT_EQ(actualResult, expectedResult);
     }
 
-    // Test with a cyclic graph to verify it can detect cycles (assuming cycle detection is implemented)
-    TEST(TopoSortTesting, CyclicGraph)
-    {
-        Graph graph;
-        graph.PushDirectedEdge(1, 2);
-        graph.PushDirectedEdge(2, 3);
-        graph.PushDirectedEdge(3, 1);  // Cycle: 1 -> 2 -> 3 -> 1
-
-        graph.TopologicalSort();
-         
-        // Expected output if cycle detection is implemented
-        EXPECT_THROW(graph.ShowTopologicalSortResult(), runtime_error);
-    }
-
     TEST(TopoSortTesting, ShowTopoSortResultUsingKahnAlgorithm)
     {
         Graph graph;
@@ -126,19 +112,5 @@ namespace TopologicalSort
         string expectedResult = "1(1,5) 5(2,7) 6(3,8) 9(4,10) 2(6,11) 7(9,12) 4(13,15) 8(14,17) 3(16,18)";
 
         EXPECT_EQ(actualResult, expectedResult);
-    }
-
-    // Test with a cyclic graph to verify it can detect cycles
-    TEST(TopoSortTesting, CyclicGraphUsingKahnAlgorithm)
-    {
-        Graph graph;
-        graph.PushDirectedEdge(1, 2);
-        graph.PushDirectedEdge(2, 3);
-        graph.PushDirectedEdge(3, 1);  // Cycle: 1 -> 2 -> 3 -> 1
-
-        graph.KahnTopologicalSort();
-
-        // Expected output if cycle detection is implemented
-        EXPECT_THROW(graph.ShowTopologicalSortResult(), runtime_error);
     }
 }

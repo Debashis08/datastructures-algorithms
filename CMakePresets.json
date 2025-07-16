@@ -8,8 +8,8 @@
             "binaryDir": "${sourceDir}/artifact/build/${presetName}",
             "installDir": "${sourceDir}/artifact/install/${presetName}",
             "cacheVariables": {
-                "CMAKE_C_COMPILER": "gcc",
-                "CMAKE_CXX_COMPILER": "g++"
+                "CMAKE_C_COMPILER": "cl.exe",
+                "CMAKE_CXX_COMPILER": "cl.exe"
             },
             "condition": {
                 "type": "equals",
