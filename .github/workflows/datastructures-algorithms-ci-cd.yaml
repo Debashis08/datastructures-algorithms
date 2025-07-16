@@ -32,10 +32,10 @@ jobs:
       shell: pwsh
       run: |
         clang-tidy --version
-        $files = Get-ChildItem -Recurse -Path include, source -Include *.h,*.hpp,*.cpp,*.cc,*.cxx -File
+        $files = Get-ChildItem -Recurse -Path include, source -Include *.cpp,*.cc,*.cxx,*.h,*.hpp -File
         foreach ($file in $files) {
           Write-Host "Running clang-tidy on $($file.FullName)"
-          clang-tidy -p build "$($file.FullName)" --warnings-as-errors=* --checks=-clang-diagnostic-pragma-once-outside-header
+          clang-tidy -p build "$($file.FullName)" --warnings-as-errors=*
         }
 
     - name: Build
