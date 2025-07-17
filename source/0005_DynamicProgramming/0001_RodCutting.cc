@@ -5,10 +5,10 @@ using namespace std;
 
 namespace RodCutting
 {
-	DynamicProgramming::DynamicProgramming(int length, vector<int> price)
+	DynamicProgramming::DynamicProgramming(vector<int> price)
 	{
-		this->_length = length;
 		this->_price = price;
+		this->_totalLength = this->_price.size();
 	}
 
 	int DynamicProgramming::RecursiveRodCutting(int length)
@@ -29,13 +29,13 @@ namespace RodCutting
 		return result;
 	}
 
-	pair<int, vector<int>> DynamicProgramming::DpGetMaximumProfitWithCuts()
+	pair<int, vector<int>> DynamicProgramming::DpGetMaximumProfitWithCuts(int length)
 	{
 		vector<int> dp(this->_price.size() + 1, 0);
 		this->_cutPositions = vector<int>(this->_price.size() + 1, 0);
 
 		// Find maximum value for all rod of length i.
-		for (int i = 1; i <= this->_length; i++)
+		for (int i = 1; i <= this->_totalLength; i++)
 		{
 			for (int j = 1; j <= i; j++)
 			{
@@ -48,8 +48,14 @@ namespace RodCutting
 		}
 
 		// Re-construct the cuts
+		vector<int> cutLengths;
+		int currentLength = length;
+		while (currentLength > 0)
+		{
+			cutLengths.push_back(this->_cutPositions[currentLength] + 1);
+			currentLength -= cutLengths.back();
+		}
 
-
-		return { dp[this->_length] ,{} };
+		return { dp[length] ,cutLengths };
 	}
 }
