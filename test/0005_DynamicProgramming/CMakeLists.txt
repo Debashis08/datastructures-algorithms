@@ -16,6 +16,7 @@ add_executable(
   0005DynamicProgrammingTests
   0001_FibonacciNumberTest.cc
   0002_TribonacciNumberTest.cc
+  0003_ClimbingStairsTest.cc
 
 )
 
