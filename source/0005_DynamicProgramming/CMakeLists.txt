@@ -3,6 +3,7 @@ set(0005DYNAMICPROGRAMMING_SOURCES
     0001_FibonacciNumber.cc
     0002_TribonacciNumber.cc
     0003_ClimbingStairs.cc
+    0004_MinimumCostClimbingStairs.cc
 
 )
 
