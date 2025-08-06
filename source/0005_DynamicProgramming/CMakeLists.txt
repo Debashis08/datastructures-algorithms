@@ -4,6 +4,7 @@ set(0005DYNAMICPROGRAMMING_SOURCES
     0002_TribonacciNumber.cc
     0003_ClimbingStairs.cc
     0004_MinimumCostClimbingStairs.cc
+    0005_HouseRobber1.cc
 
 )
 
