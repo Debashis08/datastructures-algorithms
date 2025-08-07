@@ -18,6 +18,7 @@ add_executable(
   0002_TribonacciNumberTest.cc
   0003_ClimbingStairsTest.cc
   0004_MinimumCostClimbingStairsTest.cc
+  0005_HouseRobber1Test.cc
 
 )
 
