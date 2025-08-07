@@ -19,6 +19,7 @@ add_executable(
   0003_ClimbingStairsTest.cc
   0004_MinimumCostClimbingStairsTest.cc
   0005_HouseRobber1Test.cc
+  0006_HouseRobber2Test.cc
 
 )
 
