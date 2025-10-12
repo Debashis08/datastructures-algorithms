@@ -6,14 +6,30 @@ namespace DecodeWays
 	{
 		size_t digitsLength = digits.size();
 
+		// Base case: If the end of the string is reached, return 1 as it signifies a valid decoding.
 		if (index >= digitsLength)
 		{
 			return 1;
 		}
+
+		int ways = 0;
+
+		// Single digit decoding: check if current digit is not '0'.
+		if (digits[index] != '0')
+		{
+			ways = this->CountWaysRecursiveHelper(digits, index + 1);
+		}
+
+		// Two digit decoding: check if next two digits are valid.
+		if ((index + 1 < digitsLength) && ((digits[index] == '1' && digits[index + 1] <= '9') || (digits[index] == '2' && digits[index + 1] <= '6')))
+		{
+			ways += this->CountWaysRecursiveHelper(digits, index + 2);
+		}
+		return ways;
 	}
 
 	int DynamicProgramming::RecursiveCountWays(string digits)
 	{
-
+		return this->CountWaysRecursiveHelper(digits, 0);
 	}
 }

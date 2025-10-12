@@ -1,0 +1,19 @@
+#include<gtest/gtest.h>
+#include "../../include/0005_DynamicProgramming/0007_DecodeWays.h"
+
+namespace DecodeWays
+{
+	TEST(DecodeWays, RecursionTest01)
+	{
+		// Arrange
+		DynamicProgramming dp;
+		string digits = "121";
+		int expectedWaysCount = 3;
+
+		// Act
+		int actualWaysCount = dp.RecursiveCountWays(digits);
+
+		// Assert
+		ASSERT_EQ(expectedWaysCount, actualWaysCount);
+	}
+}
