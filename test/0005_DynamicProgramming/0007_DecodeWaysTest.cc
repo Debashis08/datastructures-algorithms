@@ -30,4 +30,18 @@ namespace DecodeWays
 		// Assert
 		ASSERT_EQ(expectedWaysCount, actualWaysCount);
 	}
+
+	TEST(DecodeWays, DpTestInvalidInput)
+	{
+		// Arrange
+		DynamicProgramming dp;
+		string digits = "230";
+		int expectedWaysCount = 0;
+
+		// Act
+		int actualWaysCount = dp.DpCountways(digits);
+
+		// Assert
+		ASSERT_EQ(expectedWaysCount, actualWaysCount);
+	}
 }
