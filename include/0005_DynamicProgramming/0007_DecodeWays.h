@@ -27,5 +27,6 @@ namespace DecodeWays
 		int CountWaysRecursiveHelper(string& digits, size_t index);
 	public:
 		int RecursiveCountWays(string digits);
+		int DpCountways(string digits);
 	};
 }
