@@ -1,18 +1,22 @@
-name: datastructures-algorithms-ci-cd
+name: datastructures-algorithms-validate
 
+# Triggers when a PR is opened or updated, targeting the 'release' branch
 on:
-  push:
-    branches: [ main, release ]
   pull_request:
-    branches: [ main, release ]
+    types: [opened, synchronize]
+    branches: [release]
 
 jobs:
+  # --- Job 1: Lint, Build, and Test ---
   lint-build-test:
+    
+    # This job will ONLY run if the PR's source branch starts with 'feature-'
+    if: startsWith(github.event.pull_request.head.ref, 'feature-')
     runs-on: windows-latest
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4 # Use v4
 
     - name: Setup MSVC
       uses: ilammy/msvc-dev-cmd@v1
