@@ -21,6 +21,7 @@ add_executable(
   0005_HouseRobber1Test.cc
   0006_HouseRobber2Test.cc
   0007_DecodeWaysTest.cc
+  0008_TilingProblemTest.cc
 
 )
 

@@ -7,6 +7,7 @@ set(0005DYNAMICPROGRAMMING_SOURCES
     0005_HouseRobber1.cc
     0006_HouseRobber2.cc
     0007_DecodeWays.cc
+    0008_TilingProblem.cc
 
 )
 
