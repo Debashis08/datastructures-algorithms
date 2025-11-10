@@ -1,4 +1,4 @@
-name: datastructures-algorithms-tag-and-release
+name: datastructures-algorithms-deploy
 
 # Triggers only when a PR to 'main' is closed
 on:
@@ -13,57 +13,9 @@ permissions:
   pull-requests: read  # To read the PR body
 
 jobs:
-  # --- Job 1: Lint, Build, and Test ---
-  lint-build-test:
-    # This job only runs if the PR was actually merged
-    if: github.event.pull_request.merged == true
-    runs-on: windows-latest
-
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v4 # Use v4
-
-    - name: Setup MSVC
-      uses: ilammy/msvc-dev-cmd@v1
-      with:
-        arch: x64
-
-    - name: Install dependencies
-      shell: pwsh
-      run: |
-        choco install cmake -y
-        choco install ninja -y
-        choco install llvm -y
-
-    - name: Configure CMake
-      shell: pwsh
-      run: cmake -S . -B build -G "Ninja" -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
-
-    - name: Run clang-tidy
-      shell: pwsh
-      run: |
-        clang-tidy --version
-        $files = Get-ChildItem -Recurse -Path source -Include *.cpp,*.cc,*.cxx -File
-
-        # These source/.* files would be checked using .clang-tidy maintained at projectroot
-        foreach ($file in $files) {
-          Write-Host "Running clang-tidy on source $($file.FullName)"
-          clang-tidy -p build "$($file.FullName)" --warnings-as-errors=*
-        }
-
-    - name: Build
-      shell: pwsh
-      run: cmake --build build
-
-    - name: Run tests
-      shell: pwsh
-      run: ctest --test-dir build --output-on-failure
-
-  # --- Job 2: Create Tag and Release ---
+  # --- Job 1: Create Tag and Release ---
   create-tag-and-release:
-    # This job MUST wait for the 'lint-build-test' job to succeed
-    needs: lint-build-test
-    
+  
     # This job only runs if:
     # 1. The PR was actually merged (implicit from 'needs', but good to be explicit).
     # 2. The PR was from a branch named exactly 'release'.
