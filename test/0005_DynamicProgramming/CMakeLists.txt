@@ -23,6 +23,7 @@ add_executable(
   0007_DecodeWaysTest.cc
   0008_TilingProblemTest.cc
   0009_FriendsPairingProblemTest.cc
+  0010_WaysToCoverDistanceTest.cc
 
 )
 

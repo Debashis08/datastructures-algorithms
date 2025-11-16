@@ -9,6 +9,8 @@ set(0005DYNAMICPROGRAMMING_SOURCES
     0007_DecodeWays.cc
     0008_TilingProblem.cc
     0009_FriendsPairingProblem.cc
+    0010_WaysToCoverDistance.cc
+
 )
 
 # Create a library target
