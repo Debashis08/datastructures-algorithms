@@ -8,7 +8,7 @@ set(0005DYNAMICPROGRAMMING_SOURCES
     0006_HouseRobber2.cc
     0007_DecodeWays.cc
     0008_TilingProblem.cc
-
+    0009_FriendsPairingProblem.cc
 )
 
 # Create a library target
