@@ -11,6 +11,7 @@ set(0005DYNAMICPROGRAMMING_SOURCES
     0009_FriendsPairingProblem.cc
     0010_WaysToCoverDistance.cc
     0011_CountWaysToReachNthStairIncludeOrder.cc
+    0012_CountWaysToReachNthStairExcludeOrder.cc
 
 )
 

@@ -25,6 +25,7 @@ add_executable(
   0009_FriendsPairingProblemTest.cc
   0010_WaysToCoverDistanceTest.cc
   0011_CountWaysToReachNthStairIncludeOrderTest.cc
+  0012_CountWaysToReachNthStairExcludeOrderTest.cc
 
 )
 
