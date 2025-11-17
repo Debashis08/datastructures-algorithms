@@ -8,6 +8,10 @@ set(0005DYNAMICPROGRAMMING_SOURCES
     0006_HouseRobber2.cc
     0007_DecodeWays.cc
     0008_TilingProblem.cc
+    0009_FriendsPairingProblem.cc
+    0010_WaysToCoverDistance.cc
+    0011_CountWaysToReachNthStairIncludeOrder.cc
+    0012_CountWaysToReachNthStairExcludeOrder.cc
 
 )
 
