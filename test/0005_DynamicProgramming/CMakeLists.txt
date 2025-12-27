@@ -26,6 +26,7 @@ add_executable(
   0010_WaysToCoverDistanceTest.cc
   0011_CountWaysToReachNthStairIncludeOrderTest.cc
   0012_CountWaysToReachNthStairExcludeOrderTest.cc
+  0013_KnapsackProblemTest.cc
 
 )
 
