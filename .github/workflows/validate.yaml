@@ -57,10 +57,12 @@ jobs:
       - name: Run clang-tidy
         shell: pwsh
         run: |
+          clang-tidy --version
           $files = Get-ChildItem -Recurse -Path source -Include *.cpp,*.cc,*.cxx -File
           $failed = $false
+          # These source/.* files would be checked using .clang-tidy maintained at projectroot
           foreach ($file in $files) {
-            Write-Host "Checking $($file.Name)..."
+            Write-Host "Checking $($file.FullName)"
             clang-tidy -p build "$($file.FullName)" --warnings-as-errors=*
             if ($LASTEXITCODE -ne 0) { $failed = $true }
           }
@@ -110,7 +112,7 @@ jobs:
         # We need the source code because CTest might look for source files referenced in tests
         uses: actions/checkout@v4
 
-      - name: Install dependencies (Runtime & CTest)
+      - name: Install dependencies
         shell: pwsh
         # We only need CMake (for ctest) here. Ninja/LLVM usually not needed unless tests invoke them.
         run: choco install cmake --no-progress -y
