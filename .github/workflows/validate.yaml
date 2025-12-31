@@ -1,77 +1,128 @@
 name: validate
 
-# Triggers when a PR is opened or updated, targeting 'release' OR 'main'
 on:
   pull_request:
     types: [opened, synchronize]
     branches:
-      - release
-      - main
+      - 'release/*'
+      - 'main'
 
 jobs:
-  # --- Job 1: The "Gate" Job ---
-  # This job runs first to validate the PR path.
-  enforce-branch-strategy:
+  # job 1: Policy Check
+  validate-branch-policy:
     runs-on: ubuntu-latest
     steps:
-      - name: Block invalid PR path
-        # This step ONLY runs if the path is INVALID
-        # Wrap the entire logical operation in ${{...}}
-        if: ${{ !((startsWith(github.event.pull_request.head.ref, 'feature-') && github.event.pull_request.base.ref == 'release') || (github.event.pull_request.head.ref == 'release' && github.event.pull_request.base.ref == 'main')) }}
+      - name: Verify Branch Strategy
         run: |
-          echo "::error:: This PR path (${{ github.event.pull_request.head.ref }} -> ${{ github.event.pull_request.base.ref }}) is not allowed."
-          echo "::error:: Allowed paths are: 'feature-*' -> 'release' OR 'release' -> 'main'."
-          exit 1
-      
-      - name: Approve valid PR path
-        # This step ONLY runs if the path is VALID (for logging)
-        if: (startsWith(github.event.pull_request.head.ref, 'feature-') && github.event.pull_request.base.ref == 'release') || (github.event.pull_request.head.ref == 'release' && github.event.pull_request.base.ref == 'main')
-        run: |
-          echo "Valid PR path. Proceeding to build and test..."
+          HEAD="${{ github.head_ref }}"
+          BASE="${{ github.base_ref }}"
+          echo "Verifying path: $HEAD -> $BASE"
+          
+          if [[ "$HEAD" == feature/* && "$BASE" == release/* ]]; then
+            echo "Pull Request is allowed: $HEAD -> $BASE."
+            exit 0
+          elif [[ "$HEAD" == release/* && "$BASE" == main ]]; then
+            echo "Pull Request is allowed: $HEAD -> $BASE."
+            exit 0
+          else
+            echo "::error::Invalid Pull Request from '$HEAD' -> '$BASE'."
+            echo "Allowed: 'feature/*'->'release/*' OR 'release/*'->'main'."
+            exit 1
+          fi
 
-  # --- Job 2: Lint, Build, and Test ---
-  lint-build-test:
-    # This job WAITS for 'enforce-branch-strategy' to succeed
-    needs: enforce-branch-strategy
-
+  # job 2: Static Analysis
+  lint-code:
+    needs: validate-branch-policy
     runs-on: windows-latest
-
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-    - name: Setup MSVC
-      uses: ilammy/msvc-dev-cmd@v1
-      with:
-        arch: x64
+      - name: Setup MSVC
+        uses: ilammy/msvc-dev-cmd@v1
+        with:
+          arch: x64
 
-    - name: Install dependencies
-      shell: pwsh
-      run: |
-        choco install cmake -y
-        choco install ninja -y
-        choco install llvm -y
+      - name: Install dependencies
+        shell: pwsh
+        run: |
+          choco install cmake --no-progress -y
+          choco install ninja --no-progress -y
+          choco install llvm --no-progress -y
 
-    - name: Configure CMake
-      shell: pwsh
-      run: cmake -S . -B build -G "Ninja" -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+      - name: Configure CMake
+        shell: pwsh
+        run: cmake -S . -B build -G "Ninja" -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
 
-    - name: Run clang-tidy
-      shell: pwsh
-      run: |
-        clang-tidy --version
-        $files = Get-ChildItem -Recurse -Path source -Include *.cpp,*.cc,*.cxx -File
+      - name: Run clang-tidy
+        shell: pwsh
+        run: |
+          $files = Get-ChildItem -Recurse -Path source -Include *.cpp,*.cc,*.cxx -File
+          $failed = $false
+          foreach ($file in $files) {
+            Write-Host "Checking $($file.Name)..."
+            clang-tidy -p build "$($file.FullName)" --warnings-as-errors=*
+            if ($LASTEXITCODE -ne 0) { $failed = $true }
+          }
+          if ($failed) { Write-Error "Clang-tidy failed."; exit 1 }
 
-        # These source/.* files would be checked using .clang-tidy maintained at projectroot
-        foreach ($file in $files) {
-          Write-Host "Running clang-tidy on source $($file.FullName)"
-          clang-tidy -p build "$($file.FullName)" --warnings-as-errors=*
-        }
+  # job 3: Build Project
+  build-project:
+    needs:  lint-code
+    runs-on: windows-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-    - name: Build
-      shell: pwsh
-      run: cmake --build build
+      - name: Setup MSVC
+        uses: ilammy/msvc-dev-cmd@v1
+        with:
+          arch: x64
 
-    - name: Run tests
-      shell: pwsh
-      run: ctest --test-dir build --output-on-failure
+      - name: Install dependencies
+        shell: pwsh
+        run: |
+          choco install cmake --no-progress -y
+          choco install ninja --no-progress -y
+
+      - name: Configure CMake
+        shell: pwsh
+        run: cmake -S . -B build -G "Ninja"
+
+      - name: Build
+        shell: pwsh
+        run: cmake --build build --config Release
+
+      # Upload the build directory so the Test job can use it
+      - name: Upload Build Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-artifacts
+          path: build/
+          retention-days: 1
+
+  # job 4: Run Unit Tests
+  run-unit-tests:
+    needs: build-project
+    runs-on: windows-latest
+    steps:
+      - name: Checkout code
+        # We need the source code because CTest might look for source files referenced in tests
+        uses: actions/checkout@v4
+
+      - name: Install dependencies (Runtime & CTest)
+        shell: pwsh
+        # We only need CMake (for ctest) here. Ninja/LLVM usually not needed unless tests invoke them.
+        run: choco install cmake --no-progress -y
+
+      - name: Download Build Artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: build-artifacts
+          path: build
+
+      - name: Run tests
+        shell: pwsh
+        # -C Release is crucial if it's a multi-config generator, though Ninja is single-config.
+        # Good practice to keep it for consistency.
+        run: ctest --test-dir build --output-on-failure -C Release
