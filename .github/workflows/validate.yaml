@@ -103,8 +103,8 @@ jobs:
           path: build/
           retention-days: 1
 
-  # job 4: Run Unit Tests
-  run-unit-tests:
+  # job 4: Run all Tests
+  run-all-tests:
     needs: build-project
     runs-on: windows-latest
     steps:
