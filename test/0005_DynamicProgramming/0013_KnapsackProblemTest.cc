@@ -34,4 +34,20 @@ namespace KnapsackProblem
 		// Assert
 		ASSERT_EQ(expectedMaximumProfit, actualMaximumProfit);
 	}
+
+	TEST(KnapsackProblemTest, DpKnapsackProblemTest02)
+	{
+		// Arrange
+		DynamicProgramming dp;
+		int capacity = 4;
+		vector<int> weight = { 4,5,1 };
+		vector<int> profit = { 1,2,3 };
+		int expectedMaximumProfit = 3;
+
+		// Act
+		int actualMaximumProfit = dp.DpKnapsackSpaceOptimized(capacity, weight, profit);
+
+		// Assert
+		ASSERT_EQ(expectedMaximumProfit, actualMaximumProfit);
+	}
 }

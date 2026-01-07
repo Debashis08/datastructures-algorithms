@@ -59,4 +59,20 @@ namespace KnapsackProblem
 
 		return dp[numberOfItems][capacity];
 	}
+
+	int DynamicProgramming::DpKnapsackSpaceOptimized(int capacity, vector<int> weight, vector<int> profit)
+	{
+		int numberOfItems = weight.size();
+		vector<int> dp(capacity + 1, 0);
+
+		for (int i = 1; i <= numberOfItems; i++)
+		{
+			for (int j = capacity; j >= weight[i - 1]; j--)
+			{
+				dp[j] = max(dp[j], profit[i - 1] + dp[j - weight[i - 1]]);
+			}
+		}
+
+		return dp[capacity];
+	}
 }

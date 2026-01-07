@@ -29,5 +29,6 @@ namespace KnapsackProblem
 	public:
 		int RecursiveKnapsack(int capacity, vector<int> weight, vector<int> profit);
 		int DpKnapsack(int capacity, vector<int> weight, vector<int> profit);
+		int DpKnapsackSpaceOptimized(int capacity, vector<int> weight, vector<int> profit);
 	};
 }
