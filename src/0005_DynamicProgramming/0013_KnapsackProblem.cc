@@ -1,4 +1,4 @@
-#include "../../include/0005_DynamicProgramming/0013_KnapsackProblem.h"
+#include <0005_DynamicProgramming/0013_KnapsackProblem.h>
 
 namespace KnapsackProblem
 {

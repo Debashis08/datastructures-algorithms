@@ -1,6 +1,6 @@
-#include "../include/0003_Graph/0007_MinimumSpanningTreeKruskalAlgorithm.h"
-#include<climits>
-#include<algorithm>
+#include <0003_Graph/0007_MinimumSpanningTreeKruskalAlgorithm.h>
+#include <climits>
+#include <algorithm>
 using namespace std;
 
 namespace MinimumSpanningTreeKruskalAlgorithm

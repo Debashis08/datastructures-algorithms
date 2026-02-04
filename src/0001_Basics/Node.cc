@@ -1,4 +1,4 @@
-#include "../include/0001_Basics/Node.h"
+#include <0001_Basics/Node.h>
 
 Node::Node()
 {

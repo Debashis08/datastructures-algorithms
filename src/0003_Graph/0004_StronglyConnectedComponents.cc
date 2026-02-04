@@ -1,7 +1,7 @@
-#include "../include/0003_Graph/0004_StronglyConnectedComponents.h"
-#include<vector>
-#include<utility>
-#include<climits>
+#include <0003_Graph/0004_StronglyConnectedComponents.h>
+#include <vector>
+#include <utility>
+#include <climits>
 using namespace std;
 
 namespace StronglyConnectedComponents

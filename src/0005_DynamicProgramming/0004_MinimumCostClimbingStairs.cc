@@ -1,5 +1,5 @@
-#include "../../include/0005_DynamicProgramming/0004_MinimumCostClimbingStairs.h"
-#include<algorithm>
+#include <0005_DynamicProgramming/0004_MinimumCostClimbingStairs.h>
+#include <algorithm>
 
 namespace MinimumCostClimbingStairs
 {

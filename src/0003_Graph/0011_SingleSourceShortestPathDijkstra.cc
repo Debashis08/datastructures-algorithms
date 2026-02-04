@@ -1,6 +1,6 @@
-#include "../include/0003_Graph/0011_SingleSourceShortestPathDijkstra.h"
-#include<climits>
-#include<algorithm>
+#include <0003_Graph/0011_SingleSourceShortestPathDijkstra.h>
+#include <climits>
+#include <algorithm>
 using namespace std;
 
 namespace SingleSourceShortestPathDijkstra

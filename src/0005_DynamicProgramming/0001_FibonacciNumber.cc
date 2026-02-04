@@ -1,4 +1,4 @@
-#include "../../include/0005_DynamicProgramming/0001_FibonacciNumber.h"
+#include <0005_DynamicProgramming/0001_FibonacciNumber.h>
 
 namespace FibonacciNumber
 {

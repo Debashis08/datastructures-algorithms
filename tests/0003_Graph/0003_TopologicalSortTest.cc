@@ -1,5 +1,5 @@
-#include<gtest/gtest.h>
-#include "../include/0003_Graph/0003_TopologicalSort.h"
+#include <gtest/gtest.h>
+#include <0003_Graph/0003_TopologicalSort.h>
 #include "../0000_CommonUtilities/UnitTestHelper.h"
 
 namespace TopologicalSort

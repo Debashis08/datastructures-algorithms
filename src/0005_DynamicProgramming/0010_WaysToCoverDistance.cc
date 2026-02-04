@@ -1,4 +1,4 @@
-#include "../../include/0005_DynamicProgramming/0010_WaysToCoverDistance.h"
+#include <0005_DynamicProgramming/0010_WaysToCoverDistance.h>
 
 namespace WaysToCoverDistance
 {

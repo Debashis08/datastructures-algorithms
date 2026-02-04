@@ -1,5 +1,5 @@
-#include "../include/0003_Graph/0018_MaximumFlowGoldbergGenericPushRelabel.h"
-#include<climits>
+#include <0003_Graph/0018_MaximumFlowGoldbergGenericPushRelabel.h>
+#include <climits>
 using namespace std;
 
 namespace MaximumFlowGoldbergGenericPushRelabel

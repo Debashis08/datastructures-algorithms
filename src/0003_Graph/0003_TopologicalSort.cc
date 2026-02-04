@@ -1,9 +1,9 @@
-#include "../include/0003_Graph/0003_TopologicalSort.h"
-#include<vector>
-#include<queue>
-#include<utility>
-#include<climits>
-#include<stdexcept>
+#include <0003_Graph/0003_TopologicalSort.h>
+#include <vector>
+#include <queue>
+#include <utility>
+#include <climits>
+#include <stdexcept>
 using namespace std;
 
 namespace TopologicalSort

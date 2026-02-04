@@ -1,5 +1,5 @@
-#include<gtest/gtest.h>
-#include "../include/0003_Graph/0018_MaximumFlowGoldbergGenericPushRelabel.h"
+#include <gtest/gtest.h>
+#include <0003_Graph/0018_MaximumFlowGoldbergGenericPushRelabel.h>
 #include "../0000_CommonUtilities/UnitTestHelper.h"
 
 namespace MaximumFlowGoldbergGenericPushRelabel

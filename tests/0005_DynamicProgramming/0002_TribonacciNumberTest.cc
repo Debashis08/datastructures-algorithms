@@ -1,5 +1,5 @@
-#include<gtest/gtest.h>
-#include "../../include/0005_DynamicProgramming/0002_TribonacciNumber.h"
+#include <gtest/gtest.h>
+#include <0005_DynamicProgramming/0002_TribonacciNumber.h>
 using namespace std;
 
 namespace TribonacciNumber

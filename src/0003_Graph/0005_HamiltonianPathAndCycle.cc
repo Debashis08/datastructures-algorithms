@@ -1,4 +1,4 @@
-#include "../include/0003_Graph/0005_HamiltonianPathAndCycle.h"
+#include <0003_Graph/0005_HamiltonianPathAndCycle.h>
 
 using namespace std;
 namespace HamiltonianPathAndCycle

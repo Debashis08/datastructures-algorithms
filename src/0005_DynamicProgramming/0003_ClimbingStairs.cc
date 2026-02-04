@@ -1,4 +1,4 @@
-#include "../../include/0005_DynamicProgramming/0003_ClimbingStairs.h"
+#include <0005_DynamicProgramming/0003_ClimbingStairs.h>
 using namespace std;
 
 namespace ClimbingStairs

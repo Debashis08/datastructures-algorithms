@@ -1,6 +1,6 @@
-#include "../include/0003_Graph/0016_MaximumFlowEdmondsKarp.h"
-#include<climits>
-#include<queue>
+#include <0003_Graph/0016_MaximumFlowEdmondsKarp.h>
+#include <climits>
+#include <queue>
 using namespace std;
 
 namespace MaximumFlowEdmondsKarp

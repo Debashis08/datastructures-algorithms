@@ -1,4 +1,4 @@
-#include "../../include/0005_DynamicProgramming/0007_DecodeWays.h"
+#include <0005_DynamicProgramming/0007_DecodeWays.h>
 
 namespace DecodeWays
 {

@@ -1,5 +1,5 @@
-#include<gtest/gtest.h>
-#include "../../include/0005_DynamicProgramming/0005_HouseRobber1.h"
+#include <gtest/gtest.h>
+#include <0005_DynamicProgramming/0005_HouseRobber1.h>
 
 namespace HouseRobber1
 {

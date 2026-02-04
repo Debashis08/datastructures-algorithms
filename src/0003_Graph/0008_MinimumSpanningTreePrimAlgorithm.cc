@@ -1,5 +1,5 @@
-#include "../include/0003_Graph/0008_MinimumSpanningTreePrimAlgorithm.h"
-#include<climits>
+#include <0003_Graph/0008_MinimumSpanningTreePrimAlgorithm.h>
+#include <climits>
 using namespace std;
 
 

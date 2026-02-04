@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
-#include<string>
-#include "../include/0003_Graph/0001_BreadthFirstSearch.h"
+#include <string>
+#include <0003_Graph/0001_BreadthFirstSearch.h>
 #include "../0000_CommonUtilities/UnitTestHelper.h"
 
 namespace BreadthFirstSearch

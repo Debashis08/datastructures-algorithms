@@ -1,4 +1,4 @@
-#include "../../include/0005_DynamicProgramming/0014_SubsetSumProblem.h"
+#include <0005_DynamicProgramming/0014_SubsetSumProblem.h>
 
 namespace SubsetSumProblem
 {

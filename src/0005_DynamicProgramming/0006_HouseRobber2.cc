@@ -1,4 +1,4 @@
-#include "../../include/0005_DynamicProgramming/0006_HouseRobber2.h"
+#include <0005_DynamicProgramming/0006_HouseRobber2.h>
 
 namespace HouseRobber2
 {

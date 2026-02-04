@@ -1,5 +1,5 @@
-#include<gtest/gtest.h>
-#include "../include/0003_Graph/0019_MaximumFlowRelabelToFront.h"
+#include <gtest/gtest.h>
+#include <0003_Graph/0019_MaximumFlowRelabelToFront.h>
 #include "../0000_CommonUtilities/UnitTestHelper.h"
 using namespace std;
 

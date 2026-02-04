@@ -1,5 +1,5 @@
-#include<gtest/gtest.h>
-#include "../include/0003_Graph/0005_HamiltonianPathAndCycle.h"
+#include <gtest/gtest.h>
+#include <0003_Graph/0005_HamiltonianPathAndCycle.h>
 #include "../0000_CommonUtilities/UnitTestHelper.h"
 
 namespace HamiltonianPathAndCycle

@@ -1,5 +1,5 @@
-#include<gtest/gtest.h>
-#include "../include/0003_Graph/0007_MinimumSpanningTreeKruskalAlgorithm.h"
+#include <gtest/gtest.h>
+#include <0003_Graph/0007_MinimumSpanningTreeKruskalAlgorithm.h>
 #include "../0000_CommonUtilities/UnitTestHelper.h"
 
 namespace MinimumSpanningTreeKruskalAlgorithm

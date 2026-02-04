@@ -1,5 +1,5 @@
-#include"../include/0003_Graph/0012_DifferenceConstraintsShortestPaths.h"
-#include<climits>
+#include <0003_Graph/0012_DifferenceConstraintsShortestPaths.h>
+#include <climits>
 using namespace std;
 
 namespace DifferenceConstraintsShortestPaths

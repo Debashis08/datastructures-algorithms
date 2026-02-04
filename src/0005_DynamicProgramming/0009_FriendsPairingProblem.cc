@@ -1,4 +1,4 @@
-#include "../../include/0005_DynamicProgramming/0009_FriendsPairingProblem.h"
+#include <0005_DynamicProgramming/0009_FriendsPairingProblem.h>
 
 namespace FriendsPairingProblem
 {

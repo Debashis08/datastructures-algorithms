@@ -1,5 +1,5 @@
-#include<gtest/gtest.h>
-#include "../include/0003_Graph/0002_DepthFirstSearch.h"
+#include <gtest/gtest.h>
+#include <0003_Graph/0002_DepthFirstSearch.h>
 #include "../0000_CommonUtilities/UnitTestHelper.h"
 
 namespace DepthFirstSearch

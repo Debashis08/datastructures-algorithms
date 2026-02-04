@@ -1,5 +1,5 @@
-#include<gtest/gtest.h>
-#include "../../include/0005_DynamicProgramming/0001_FibonacciNumber.h"
+#include <gtest/gtest.h>
+#include <0005_DynamicProgramming/0001_FibonacciNumber.h>
 using namespace std;
 
 namespace FibonacciNumber

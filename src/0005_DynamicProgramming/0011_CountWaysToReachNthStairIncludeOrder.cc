@@ -1,4 +1,4 @@
-#include "../../include/0005_DynamicProgramming/0011_CountWaysToReachNthStairIncludeOrder.h"
+#include <0005_DynamicProgramming/0011_CountWaysToReachNthStairIncludeOrder.h>
 
 namespace CountWaysToReachNthStairIncludeOrder
 {

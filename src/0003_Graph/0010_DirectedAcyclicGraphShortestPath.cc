@@ -1,6 +1,6 @@
-#include "../include/0003_Graph/0010_DirectedAcyclicGraphShortestPath.h"
-#include<climits>
-#include<algorithm>
+#include <0003_Graph/0010_DirectedAcyclicGraphShortestPath.h>
+#include <climits>
+#include <algorithm>
 using namespace std;
 
 namespace DirectedAcyclicGraphShortestPath

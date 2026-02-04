@@ -1,5 +1,5 @@
-#include<gtest/gtest.h>
-#include "../../include/0005_DynamicProgramming/0008_TilingProblem.h"
+#include <gtest/gtest.h>
+#include <0005_DynamicProgramming/0008_TilingProblem.h>
 
 namespace TilingProblem
 {

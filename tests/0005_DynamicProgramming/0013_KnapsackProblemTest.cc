@@ -1,5 +1,5 @@
-#include<gtest/gtest.h>
-#include "../../include/0005_DynamicProgramming/0013_KnapsackProblem.h"
+#include <gtest/gtest.h>
+#include <0005_DynamicProgramming/0013_KnapsackProblem.h>
 
 namespace KnapsackProblem
 {

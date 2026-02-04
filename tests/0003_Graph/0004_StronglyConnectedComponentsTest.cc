@@ -1,5 +1,5 @@
-#include<gtest/gtest.h>
-#include "../include/0003_Graph/0004_StronglyConnectedComponents.h"
+#include <gtest/gtest.h>
+#include <0003_Graph/0004_StronglyConnectedComponents.h>
 #include "../0000_CommonUtilities/UnitTestHelper.h"
 
 namespace StronglyConnectedComponents

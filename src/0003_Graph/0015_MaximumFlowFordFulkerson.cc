@@ -1,5 +1,5 @@
-#include "../include/0003_Graph/0015_MaximumFlowFordFulkerson.h"
-#include<climits>
+#include <0003_Graph/0015_MaximumFlowFordFulkerson.h>
+#include <climits>
 using namespace std;
 
 namespace MaximumFlowFordFulkerson

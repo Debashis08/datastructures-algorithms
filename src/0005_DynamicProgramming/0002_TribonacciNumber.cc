@@ -1,4 +1,4 @@
-#include "../../include/0005_DynamicProgramming/0002_TribonacciNumber.h"
+#include <0005_DynamicProgramming/0002_TribonacciNumber.h>
 
 namespace TribonacciNumber
 {
