@@ -58,7 +58,7 @@ jobs:
         shell: pwsh
         run: |
           clang-tidy --version
-          $files = Get-ChildItem -Recurse -Path source -Include *.cpp,*.cc,*.cxx -File
+          $files = Get-ChildItem -Recurse -Path src -Include *.cpp,*.cc,*.cxx -File
           $failed = $false
           # These source/.* files would be checked using .clang-tidy maintained at projectroot
           foreach ($file in $files) {

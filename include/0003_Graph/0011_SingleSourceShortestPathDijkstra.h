@@ -1,8 +1,8 @@
 #pragma once
 
-#include<map>
-#include<vector>
-#include<set>
+#include <map>
+#include <vector>
+#include <set>
 using namespace std;
 
 namespace SingleSourceShortestPathDijkstra

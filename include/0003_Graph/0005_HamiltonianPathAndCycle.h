@@ -1,8 +1,8 @@
 #pragma once
 
-#include<map>
-#include<unordered_set>
-#include<vector>
+#include <map>
+#include <unordered_set>
+#include <vector>
 using namespace std;
 
 namespace HamiltonianPathAndCycle
