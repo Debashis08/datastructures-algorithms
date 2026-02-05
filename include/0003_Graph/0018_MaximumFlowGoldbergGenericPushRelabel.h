@@ -1,7 +1,7 @@
 #pragma once
 
-#include<vector>
-#include<queue>
+#include <vector>
+#include <queue>
 using namespace std;
 
 namespace MaximumFlowGoldbergGenericPushRelabel

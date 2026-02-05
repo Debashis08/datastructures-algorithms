@@ -1,8 +1,8 @@
 #pragma once
 
-#include<map>
-#include<vector>
-#include<list>
+#include <map>
+#include <vector>
+#include <list>
 using namespace std;
 
 namespace DirectedAcyclicGraphShortestPath

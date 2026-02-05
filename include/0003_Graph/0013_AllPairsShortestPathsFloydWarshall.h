@@ -1,6 +1,6 @@
 #pragma once
 
-#include<vector>
+#include <vector>
 using namespace std;
 
 namespace AllPairsShortestPathsFloydWarshall

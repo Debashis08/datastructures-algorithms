@@ -1,7 +1,7 @@
 #pragma once
 
-#include<vector>
-#include<list>
+#include <vector>
+#include <list>
 using namespace std;
 
 namespace MaximumFlowRelabelToFront
