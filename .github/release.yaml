@@ -1,0 +1,62 @@
+template: |
+  ### Changes in this release
+  $CHANGES
+  
+  **Full Changelog:** https://github.com/$OWNER/$REPOSITORY/compare/$PREVIOUS_TAG...v$RESOLVED_VERSION
+
+categories:
+  - title: 'Basics'
+    labels:
+      - 'basics'
+
+  - title: 'Tree'
+    labels:
+      - 'tree'
+  
+  - title: 'Graph'
+    labels:
+      - 'graph'
+
+  - title: 'Greedy Algorithms'
+    labels:
+      - 'greedy-algorithms'
+
+  - title: 'Dynamic Programming'
+    labels:
+      - 'dynamic-programming'
+
+  - title: 'Bitwise Algorithms'
+    labels:
+      - 'bitwise-algorithms'
+
+  - title: 'Build System (CMake)'
+    labels:
+      - 'build'
+    # Hide build changes if they are part of a feature PR (e.g. adding a new DP file)
+    exclude-labels:
+      - 'basics'
+      - 'tree'
+      - 'graph'
+      - 'greedy-algorithms'
+      - 'dynamic-programming'
+      - 'bitwise-algorithms'
+
+  - title: 'Testing Utilities'
+    labels:
+      - 'test-utils'
+
+  - title: 'Workflows Updated'
+    labels:
+      - 'workflows'
+
+  - title: 'Documentation'
+    labels:
+      - 'documentation'
+
+exclude-labels:
+  - 'skip-changelog'
+
+# Convert "## Title" to "**Title**"
+replacers:
+  - search: '/^## (.*)$/gm'
+    replace: '**$1**'
