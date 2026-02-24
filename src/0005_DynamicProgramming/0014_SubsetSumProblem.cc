@@ -38,4 +38,34 @@ namespace SubsetSumProblem
 		int numberOfElements = nums.size();
 		return this->SubsetSumRecursiveHelper(nums, sum, numberOfElements);
 	}
+
+	bool DynamicProgramming::dpIsSubsetSum(vector<int> nums, int sum)
+	{
+		int numberOfElements = nums.size();
+		vector<vector<bool>> dp(numberOfElements + 1, vector<bool>(sum + 1, false));
+
+		// When the sum is 0, the result is true
+		for (int i = 0; i < numberOfElements; i++)
+		{
+			dp[i][0] = true;
+		}
+
+		for (int i = 1; i < numberOfElements + 1; i++)
+		{
+			for (int j = 1; j < sum + 1; j++)
+			{
+				if (j < nums[i - 1])
+				{
+					dp[i][j] = dp[i - 1][j];
+				}
+				else
+				{
+					// include or exclude the current element
+					dp[i][j] = (dp[i-1][j-nums[i-1]] || dp[i-1][j]);
+				}
+			}
+		}
+
+		return dp[numberOfElements][sum];
+	}
 }
