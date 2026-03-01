@@ -28,6 +28,7 @@ add_executable(
   0012_CountWaysToReachNthStairExcludeOrderTest.cc
   0013_KnapsackProblemTest.cc
   0014_SubsetSumProblemTest.cc
+  0015_CountSubsetsForSumTest.cc
 
 )
 
