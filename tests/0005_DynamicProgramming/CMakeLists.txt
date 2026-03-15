@@ -30,6 +30,7 @@ add_executable(
   0014_SubsetSumProblemTest.cc
   0015_CountSubsetsForSumTest.cc
   0016_PartitionEqualSubsetSumTest.cc
+  0017_TargetSumTest.cc
 
 )
 
