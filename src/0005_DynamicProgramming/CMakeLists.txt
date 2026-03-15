@@ -16,6 +16,7 @@ set(0005DYNAMICPROGRAMMING_SOURCES
     0014_SubsetSumProblem.cc
     0015_CountSubsetsForSum.cc
     0016_PartitionEqualSubsetSum.cc
+    0017_TargetSum.cc
 
 )
 
