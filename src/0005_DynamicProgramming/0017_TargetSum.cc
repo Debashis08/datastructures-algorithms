@@ -2,7 +2,7 @@
 
 namespace TargetSum
 {
-	int DynamicProgramming::recursiveFindTotalWaysHelper(vector<int>& nums, int currentSum, int targetSum, int index)
+	int DynamicProgramming::RecursiveFindTotalWaysHelper(vector<int>& nums, int currentSum, int targetSum, int index)
 	{
 		// Base case
 		if (currentSum == targetSum && index == nums.size())
@@ -19,18 +19,17 @@ namespace TargetSum
 		// 1. Add the current element to currentSum
 		// 2. Subtract the current element from currentSum
 		return (
-			this->recursiveFindTotalWaysHelper(nums, currentSum + nums[index], targetSum, index + 1)
+			this->RecursiveFindTotalWaysHelper(nums, currentSum + nums[index], targetSum, index + 1)
 			+
-			this->recursiveFindTotalWaysHelper(nums, currentSum - nums[index], targetSum, index + 1));
+			this->RecursiveFindTotalWaysHelper(nums, currentSum - nums[index], targetSum, index + 1));
 	}
 
-
-	int DynamicProgramming::recursiveFindTotalWays(vector<int> nums, int target)
+	int DynamicProgramming::RecursiveFindTotalWays(vector<int> nums, int target)
 	{
-		return this->recursiveFindTotalWaysHelper(nums, 0, target, 0);
+		return this->RecursiveFindTotalWaysHelper(nums, 0, target, 0);
 	}
 
-	int DynamicProgramming::dpFindTotalWays(vector<int> nums, int target)
+	int DynamicProgramming::DpFindTotalWays(vector<int> nums, int target)
 	{
 		int totalSum = accumulate(nums.begin(), nums.end(), 0);
 

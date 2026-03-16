@@ -3,7 +3,7 @@
 
 namespace TargetSum
 {
-	TEST(TargetSum, TC0001)
+	TEST(TargetSum, RecursiveSolutionTest_ValidInput_ReturnsCorrectResult)
 	{
 		// Arrange
 		DynamicProgramming dp;
@@ -12,13 +12,13 @@ namespace TargetSum
 		int expectedResult = 5;
 
 		// Act
-		int actualResult = dp.recursiveFindTotalWays(nums, target);
+		int actualResult = dp.RecursiveFindTotalWays(nums, target);
 
 		// Assert
 		ASSERT_EQ(expectedResult, actualResult);
 	}
 
-	TEST(TargetSum, TC0002)
+	TEST(TargetSum, DpSolutionTest_ValidInput_ReturnsCorrectResult)
 	{
 		// Arrange
 		DynamicProgramming dp;
@@ -27,13 +27,13 @@ namespace TargetSum
 		int expectedResult = 5;
 
 		// Act
-		int actualResult = dp.dpFindTotalWays(nums, target);
+		int actualResult = dp.DpFindTotalWays(nums, target);
 
 		// Assert
 		ASSERT_EQ(expectedResult, actualResult);
 	}
 
-	TEST(TargetSum, TC0003)
+	TEST(TargetSum, DpSolutionTest_TargetGreaterThanTotalSum_ReturnsZero)
 	{
 		// Arrange
 		DynamicProgramming dp;
@@ -42,7 +42,7 @@ namespace TargetSum
 		int expectedResult = 0;
 
 		// Act
-		int actualResult = dp.dpFindTotalWays(nums, target);
+		int actualResult = dp.DpFindTotalWays(nums, target);
 
 		// Assert
 		ASSERT_EQ(expectedResult, actualResult);

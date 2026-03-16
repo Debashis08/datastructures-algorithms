@@ -29,6 +29,6 @@ namespace SubsetSumProblem
 		bool SubsetSumRecursiveHelper(vector<int>& nums, int sum, int numberOfElements);
 	public:
 		bool RecursiveSubsetSum(vector<int> nums, int sum);
-		bool dpIsSubsetSum(vector<int> nums, int sum);
+		bool DpIsSubsetSum(vector<int> nums, int sum);
 	};
 }

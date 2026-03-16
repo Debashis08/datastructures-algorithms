@@ -2,7 +2,7 @@
 
 namespace PartitionEqualSubsetSum
 {
-	bool DynamicProgramming::recursivePartitionEqualSubsetsHelper(vector<int>& nums, int targetSum, int numberOfElements)
+	bool DynamicProgramming::RecursivePartitionEqualSubsetsHelper(vector<int>& nums, int targetSum, int numberOfElements)
 	{
 		if (targetSum == 0)
 		{
@@ -16,13 +16,13 @@ namespace PartitionEqualSubsetSum
 
 		if (nums[numberOfElements - 1] > targetSum)
 		{
-			return this->recursivePartitionEqualSubsetsHelper(nums, targetSum, numberOfElements - 1);
+			return this->RecursivePartitionEqualSubsetsHelper(nums, targetSum, numberOfElements - 1);
 		}
 
-		return (this->recursivePartitionEqualSubsetsHelper(nums, targetSum - nums[numberOfElements - 1], numberOfElements - 1) || this->recursivePartitionEqualSubsetsHelper(nums, targetSum, numberOfElements - 1));
+		return (this->RecursivePartitionEqualSubsetsHelper(nums, targetSum - nums[numberOfElements - 1], numberOfElements - 1) || this->RecursivePartitionEqualSubsetsHelper(nums, targetSum, numberOfElements - 1));
 	}
 
-	bool DynamicProgramming::recursivePartitionEqualSubsets(vector<int> nums)
+	bool DynamicProgramming::RecursivePartitionEqualSubsets(vector<int> nums)
 	{
 		int targetSum = accumulate(nums.begin(), nums.end(), 0);
 
@@ -33,10 +33,10 @@ namespace PartitionEqualSubsetSum
 		}
 
 		int numberOfElements = nums.size();
-		return this->recursivePartitionEqualSubsetsHelper(nums, targetSum / 2, numberOfElements);
+		return this->RecursivePartitionEqualSubsetsHelper(nums, targetSum / 2, numberOfElements);
 	}
 
-	bool DynamicProgramming::dpPartitionEqualSubsets(vector<int> nums)
+	bool DynamicProgramming::DpPartitionEqualSubsets(vector<int> nums)
 	{
 		int targetSum = accumulate(nums.begin(), nums.end(), 0);
 

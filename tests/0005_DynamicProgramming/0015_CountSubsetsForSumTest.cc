@@ -12,7 +12,7 @@ namespace CountSubsetsForSum
 		int expectedCount = 3;
 
 		// Act
-		int actualCount = dp.recursiveCountSubsets(nums, sum);
+		int actualCount = dp.RecursiveCountSubsets(nums, sum);
 
 		// Assert
 		ASSERT_EQ(expectedCount, actualCount);
@@ -27,7 +27,7 @@ namespace CountSubsetsForSum
 		int expectedCount = 3;
 
 		// Act
-		int actualCount = dp.dpCountSubsets(nums, sum);
+		int actualCount = dp.DpCountSubsets(nums, sum);
 
 		// Assert
 		ASSERT_EQ(expectedCount, actualCount);

@@ -11,7 +11,7 @@ namespace PartitionEqualSubsetSum
 		bool expectedResult = true;
 
 		// Act
-		bool actualResult = dp.recursivePartitionEqualSubsets(nums);
+		bool actualResult = dp.RecursivePartitionEqualSubsets(nums);
 
 		// Assert
 		ASSERT_EQ(expectedResult, actualResult);
@@ -25,7 +25,7 @@ namespace PartitionEqualSubsetSum
 		bool expectedResult = true;
 
 		// Act
-		bool actualResult = dp.dpPartitionEqualSubsets(nums);
+		bool actualResult = dp.DpPartitionEqualSubsets(nums);
 
 		// Assert
 		ASSERT_EQ(expectedResult, actualResult);

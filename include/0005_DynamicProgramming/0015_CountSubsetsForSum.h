@@ -26,9 +26,9 @@ namespace CountSubsetsForSum
 	class DynamicProgramming
 	{
 	private:
-		int recursiveCountSubsetsHelper(vector<int>& nums, int targetSum, int currentSum, int index);
+		int RecursiveCountSubsetsHelper(vector<int>& nums, int targetSum, int currentSum, int index);
 	public:
-		int recursiveCountSubsets(vector<int> nums, int sum);
-		int dpCountSubsets(vector<int> nums, int sum);
+		int RecursiveCountSubsets(vector<int> nums, int sum);
+		int DpCountSubsets(vector<int> nums, int sum);
 	};
 }

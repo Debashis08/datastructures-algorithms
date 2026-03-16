@@ -27,7 +27,7 @@ namespace SubsetSumProblem
 		bool expectedResult = true;
 
 		// Act
-		bool actualResult = dp.dpIsSubsetSum(nums, sum);
+		bool actualResult = dp.DpIsSubsetSum(nums, sum);
 
 		// Assert
 		ASSERT_EQ(expectedResult, actualResult);
