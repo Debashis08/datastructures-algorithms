@@ -39,7 +39,7 @@ namespace SubsetSumProblem
 		return this->SubsetSumRecursiveHelper(nums, sum, numberOfElements);
 	}
 
-	bool DynamicProgramming::dpIsSubsetSum(vector<int> nums, int sum)
+	bool DynamicProgramming::DpIsSubsetSum(vector<int> nums, int sum)
 	{
 		int numberOfElements = nums.size();
 		vector<vector<bool>> dp(numberOfElements + 1, vector<bool>(sum + 1, false));

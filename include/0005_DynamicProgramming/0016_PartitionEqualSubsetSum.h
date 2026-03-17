@@ -28,9 +28,9 @@ namespace PartitionEqualSubsetSum
 	class DynamicProgramming
 	{
 	private:
-		bool recursivePartitionEqualSubsetsHelper(vector<int>& nums, int targetSum, int numberOfElements);
+		bool RecursivePartitionEqualSubsetsHelper(vector<int>& nums, int targetSum, int numberOfElements);
 	public:
-		bool recursivePartitionEqualSubsets(vector<int> nums);
-		bool dpPartitionEqualSubsets(vector<int> nums);
+		bool RecursivePartitionEqualSubsets(vector<int> nums);
+		bool DpPartitionEqualSubsets(vector<int> nums);
 	};
 }

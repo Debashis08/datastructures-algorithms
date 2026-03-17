@@ -36,10 +36,10 @@ namespace TargetSum
 	class DynamicProgramming
 	{
 	private:
-		int recursiveFindTotalWaysHelper(vector<int>& nums, int currentSum, int targetSum, int index);
-		int dpFindTotalWays();
+		int RecursiveFindTotalWaysHelper(vector<int>& nums, int currentSum, int targetSum, int index);
+		int DpFindTotalWays();
 	public:
-		int recursiveFindTotalWays(vector<int> nums, int target);
-		int dpFindTotalWays(vector<int> nums, int target);
+		int RecursiveFindTotalWays(vector<int> nums, int target);
+		int DpFindTotalWays(vector<int> nums, int target);
 	};
 }
