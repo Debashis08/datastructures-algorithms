@@ -1,8 +1,10 @@
 template: |
-  ### Changes in this release
+  ### datastructures-algorithms — Release v$RESOLVED_VERSION [ $DATE ]
   $CHANGES
   
   **Full Changelog:** https://github.com/$OWNER/$REPOSITORY/compare/$PREVIOUS_TAG...v$RESOLVED_VERSION
+
+change-template: '- $TITLE [#$NUMBER]'
 
 categories:
   - title: 'Basics'
@@ -32,14 +34,6 @@ categories:
   - title: 'Build System (CMake)'
     labels:
       - 'build'
-    # Hide build changes if they are part of a feature PR (e.g. adding a new DP file)
-    exclude-labels:
-      - 'basics'
-      - 'tree'
-      - 'graph'
-      - 'greedy-algorithms'
-      - 'dynamic-programming'
-      - 'bitwise-algorithms'
 
   - title: 'Testing Utilities'
     labels:
