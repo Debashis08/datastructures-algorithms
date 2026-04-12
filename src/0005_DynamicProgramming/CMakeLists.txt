@@ -14,6 +14,9 @@ set(0005DYNAMICPROGRAMMING_SOURCES
     0012_CountWaysToReachNthStairExcludeOrder.cc
     0013_KnapsackProblem.cc
     0014_SubsetSumProblem.cc
+    0015_CountSubsetsForSum.cc
+    0016_PartitionEqualSubsetSum.cc
+    0017_TargetSum.cc
 
 )
 
