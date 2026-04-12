@@ -1,5 +1,5 @@
 template: |
-  ### datastructures-algorithms — Release v$RESOLVED_VERSION [ $DATE ]
+  ### datastructures-algorithms — release v$RESOLVED_VERSION
   $CHANGES
   
   **Full Changelog:** https://github.com/$OWNER/$REPOSITORY/compare/$PREVIOUS_TAG...v$RESOLVED_VERSION
