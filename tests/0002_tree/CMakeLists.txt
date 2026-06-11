@@ -13,20 +13,20 @@ FetchContent_MakeAvailable(googletest)
 enable_testing()
 
 add_executable(
-  0002TreeTests
+  0002_TreeTests
   0001_BinarySearchTreeTest.cc
 )
 
 target_link_libraries(
-  0002TreeTests
+  0002_TreeTests
   GTest::gtest_main
-  0002TREE
+  0002_Tree
 )
 
 # Add .clang-tidy configuration to this library.
 if(CLANG_TIDY_EXE)
-  set_target_properties(0002TREE PROPERTIES CXX_CLANG_TIDY "${CLANG_TIDY_COMMAND}")
+  set_target_properties(0002_Tree PROPERTIES CXX_CLANG_TIDY "${CLANG_TIDY_COMMAND}")
 endif()
 
 include(GoogleTest)
-gtest_discover_tests(0002TreeTests DISCOVERY_TIMEOUT 30)
+gtest_discover_tests(0002_TreeTests DISCOVERY_TIMEOUT 30)
