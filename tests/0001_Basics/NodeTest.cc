@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include <0001_Basics/Node.h>
+#include "Node.h"
 
 // Demonstrate some basic assertions.
 namespace NodeTesting

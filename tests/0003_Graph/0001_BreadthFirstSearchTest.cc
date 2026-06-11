@@ -1,7 +1,7 @@
 #include <gtest/gtest.h>
 #include <string>
-#include <0003_Graph/0001_BreadthFirstSearch.h>
-#include "../0000_CommonUtilities/UnitTestHelper.h"
+#include "../../src/0003_graph/headers/0001_BreadthFirstSearch.h"
+#include "../0000_common_utilities/UnitTestHelper.h"
 
 namespace BreadthFirstSearch
 {

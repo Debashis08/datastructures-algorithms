@@ -1,7 +1,7 @@
 #include <gtest/gtest.h>
 #include <string>
-#include <0002_Tree/0001_BinarySearchTree.h>
-#include "../0000_CommonUtilities/UnitTestHelper.h"
+#include "0001_BinarySearchTree.h"
+#include "../0000_common_utilities/UnitTestHelper.h"
 
 namespace BinarySearchTree
 {

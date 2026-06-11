@@ -19,9 +19,6 @@ if(CLANG_TIDY_EXE)
     )
 endif()
 
-include_directories(${CMAKE_SOURCE_DIR}/include)
-
-add_subdirectory(include)
 add_subdirectory(src)
 
 cmake_policy(SET CMP0135 NEW)

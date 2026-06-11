@@ -24,3 +24,7 @@ set(0003GRAPH_SOURCES
 
 # Create a library target
 add_library(0003GRAPH ${0003GRAPH_SOURCES})
+
+target_include_directories(0003GRAPH PUBLIC 
+    ${CMAKE_CURRENT_SOURCE_DIR}/headers
+)
