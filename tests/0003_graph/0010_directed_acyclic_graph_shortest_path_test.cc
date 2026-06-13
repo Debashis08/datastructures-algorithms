@@ -1,29 +1,29 @@
 #include <gtest/gtest.h>
-#include "0010_DirectedAcyclicGraphShortestPath.h"
-#include "../0000_common_utilities/UnitTestHelper.h"
+#include "0010_directed_acyclic_graph_shortest_path.h"
+#include "../0000_common_utilities/unit_test_helper.h"
 
-namespace DirectedAcyclicGraphShortestPath
+namespace directed_acyclic_graph_shortest_path
 {
 	UnitTestHelper unitTestHelper;
 
-	// Test for Simple Graph
-	TEST(DAGTest, SimpleGraph)
+	// Test for simple Graph
+	TEST(dAGTest, simpleGraph)
 	{
 		Graph graph;
 
-		graph.PushDirectedEdge(0, 1, 5);
-		graph.PushDirectedEdge(0, 2, 3);
-		graph.PushDirectedEdge(1, 2, 2);
-		graph.PushDirectedEdge(1, 3, 6);
-		graph.PushDirectedEdge(2, 3, 7);
-		graph.PushDirectedEdge(2, 4, 4);
-		graph.PushDirectedEdge(2, 5, 2);
-		graph.PushDirectedEdge(3, 4, -1);
-		graph.PushDirectedEdge(3, 5, 1);
-		graph.PushDirectedEdge(4, 5, -2);
+		graph.pushDirectedEdge(0, 1, 5);
+		graph.pushDirectedEdge(0, 2, 3);
+		graph.pushDirectedEdge(1, 2, 2);
+		graph.pushDirectedEdge(1, 3, 6);
+		graph.pushDirectedEdge(2, 3, 7);
+		graph.pushDirectedEdge(2, 4, 4);
+		graph.pushDirectedEdge(2, 5, 2);
+		graph.pushDirectedEdge(3, 4, -1);
+		graph.pushDirectedEdge(3, 5, 1);
+		graph.pushDirectedEdge(4, 5, -2);
 
-		graph.FindDAGShortestPath(1);
+		graph.findDAGShortestPath(1);
 		string expectedPath = "1 3 4 5";
-		ASSERT_EQ(unitTestHelper.SerializeVectorToString(graph.GetDAGShortestPath(5)), expectedPath);
+		ASSERT_EQ(unitTestHelper.serializeVectorToString(graph.getDAGShortestPath(5)), expectedPath);
 	}
 }

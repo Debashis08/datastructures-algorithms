@@ -1,35 +1,35 @@
 #include <gtest/gtest.h>
-#include "0017_MaximumBipartiteMatching.h"
-#include "../0000_common_utilities/UnitTestHelper.h"
+#include "0017_maximum_bipartite_matching.h"
+#include "../0000_common_utilities/unit_test_helper.h"
 
-namespace MaximumBipartiteMatching
+namespace maximum_bipartite_matching
 {
-	TEST(MaximumBipartiteMatching, SimpleGraph)
+	TEST(maximumBipartiteMatching, simpleGraph)
 	{
-		// Arrange
+		// arrange
 		Graph graph;
 		UnitTestHelper unitTestHelper;
 		int noOfVertices = 9;
 		int expectedMaximumMatching = 3;
 		string expectedMatchings = "[0 1][2 6][3 5]";
 
-		// Act
-		graph.CreateGraph(noOfVertices);
+		// act
+		graph.createGraph(noOfVertices);
 
-		graph.PushDirectedEdge(0, 1);
-		graph.PushDirectedEdge(2, 1);
-		graph.PushDirectedEdge(2, 6);
-		graph.PushDirectedEdge(3, 5);
-		graph.PushDirectedEdge(3, 6);
-		graph.PushDirectedEdge(3, 7);
-		graph.PushDirectedEdge(4, 6);
-		graph.PushDirectedEdge(8, 6);
+		graph.pushDirectedEdge(0, 1);
+		graph.pushDirectedEdge(2, 1);
+		graph.pushDirectedEdge(2, 6);
+		graph.pushDirectedEdge(3, 5);
+		graph.pushDirectedEdge(3, 6);
+		graph.pushDirectedEdge(3, 7);
+		graph.pushDirectedEdge(4, 6);
+		graph.pushDirectedEdge(8, 6);
 
-		int actualMaximumMatching = graph.FindMaximumBipartiteMatching();
-		vector<vector<int>> actualMatchings = graph.GetMatchings();
+		int actualMaximumMatching = graph.findMaximumBipartiteMatching();
+		vector<vector<int>> actualMatchings = graph.getMatchings();
 
-		// Assert
+		// assert
 		ASSERT_EQ(expectedMaximumMatching, actualMaximumMatching);
-		ASSERT_EQ(expectedMatchings, unitTestHelper.SerializeVectorToString(actualMatchings));
+		ASSERT_EQ(expectedMatchings, unitTestHelper.serializeVectorToString(actualMatchings));
 	}
 }

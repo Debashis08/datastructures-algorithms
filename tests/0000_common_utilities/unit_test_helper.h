@@ -10,7 +10,7 @@ class UnitTestHelper
 {
 public:
 	template<typename T>
-	string SerializeVectorToString(vector<T> vector)
+	string serializeVectorToString(vector<T> vector)
 	{
 		string result = "";
 		for (auto& iterator : vector)
@@ -22,7 +22,7 @@ public:
 	}
 
 	template<typename T>
-	string SerializeVectorToString(vector<pair<T,T>> vector)
+	string serializeVectorToString(vector<pair<T,T>> vector)
 	{
 		string result = "";
 		for (auto& iterator : vector)
@@ -38,7 +38,7 @@ public:
 	}
 	
 	template<typename T>
-	string SerializeVectorToString(vector<pair<T, pair<T, T>>> vector)
+	string serializeVectorToString(vector<pair<T, pair<T, T>>> vector)
 	{
 		string result = "";
 		for (auto& iterator : vector)
@@ -54,7 +54,7 @@ public:
 	}
 
 	template<typename T>
-	string SerializeVectorToString(vector<vector<T>> vector)
+	string serializeVectorToString(vector<vector<T>> vector)
 	{
 		string result = "";
 		for (auto& iterator : vector)
@@ -73,34 +73,34 @@ public:
 		return result;
 	}
 
-	// This helper method is used to sort the vector of vectors of a particular typename.
-	// Each inner vector is sorted first.
-	// Then each of them are sorted by their first element, in increasing order.
+	// this helper method is used to sort the vector of vectors of a particular typename.
+	// each inner vector is sorted first.
+	// then each of them are sorted by their first element, in increasing order.
 	template<typename T>
-	vector<vector<T>> SortVectorOfVectors(vector<vector<T>> data)
+	vector<vector<T>> sortVectorOfVectors(vector<vector<T>> data)
 	{
-		// Step 1: Sorting each inner vectors.
+		// step 1: sorting each inner vectors.
 		for (auto& innerVector : data)
 		{
 			sort(innerVector.begin(), innerVector.end());
 		}
 
-		// Step 2: Sorting all the vectors by their first element, in increasing order.
+		// step 2: sorting all the vectors by their first element, in increasing order.
 		sort(data.begin(), data.end(), [](const vector<T>& a, const vector<T>& b)
 			{
-				// Checking if both inner vectors are empty to prevent out-of-bounds access.
+				// checking if both inner vectors are empty to prevent out-of-bounds access.
 				if (a.empty() && b.empty())
 					return false;
 
-				// Considering empty vector as less than non-empty vector.
+				// considering empty vector as less than non-empty vector.
 				if (a.empty())
 					return true;
 
-				// Considering non-empty vector as greater than empty vector.
+				// considering non-empty vector as greater than empty vector.
 				if (b.empty())
 					return false;
 
-				// Comparing the first elements of each vector.
+				// comparing the first elements of each vector.
 				return (a[0] < b[0]);
 			});
 
@@ -108,36 +108,36 @@ public:
 	}
 
 	template<typename T>
-	bool NormalizeCyclesAndCompare(vector<T> data1, vector<T> data2)
+	bool normalizeCyclesAndCompare(vector<T> data1, vector<T> data2)
 	{
 		if (data1.size() != data2.size())
 		{
 			return false;
 		}
 		
-		// Normalized rotation of cycle 1
+		// normalized rotation of cycle 1
 		vector<T> normalizedCycle1(data1);
 		auto minIterator1 = min_element(normalizedCycle1.begin(), normalizedCycle1.end());
 		rotate(normalizedCycle1.begin(), minIterator1, normalizedCycle1.end());
 
-		// Normalized rotation of cycle 2
+		// normalized rotation of cycle 2
 		vector<T> normalizedCycle2(data2);
 		auto minIterator2 = min_element(normalizedCycle2.begin(), normalizedCycle2.end());
 		rotate(normalizedCycle2.begin(), minIterator2, normalizedCycle2.end());
 
-		// Check clock wise
+		// check clock wise
 		if (normalizedCycle1 == normalizedCycle2)
 		{
 			return true;
 		}
 
-		// Check counter clock wise
+		// check counter clock wise
 		reverse(normalizedCycle2.begin() + 1, normalizedCycle2.end());
 		return (normalizedCycle1 == normalizedCycle2);
 	}
 
 	template<typename T>
-	vector<pair<pair<T, T>, T>> SortVectorOfPair(vector<pair<pair<T, T>, T>> data)
+	vector<pair<pair<T, T>, T>> sortVectorOfPair(vector<pair<pair<T, T>, T>> data)
 	{
 		for (auto& iterator : data)
 		{
@@ -159,15 +159,15 @@ public:
 	}
 
 	template<typename T1, typename T2>
-	string SortVectorOfPairAndSerialize(vector<pair<T1, T2>> data)
+	string sortVectorOfPairAndSerialize(vector<pair<T1, T2>> data)
 	{
-		// Sorting the vector in non-decreasing order on typename T1
+		// sorting the vector in non-decreasing order on typename T1
 		sort(data.begin(), data.end(), [](const pair<T1, T2>& pair1, const pair<T1, T2>& pair2)
 			{
 				return pair1.first < pair2.first;
 			});
 
-		// Serializing the vector to string
+		// serializing the vector to string
 		string result = "";
 		for (auto& iterator : data)
 		{

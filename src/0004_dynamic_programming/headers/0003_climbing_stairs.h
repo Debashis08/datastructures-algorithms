@@ -3,22 +3,22 @@
 using namespace std;
 
 /*
-Pattern 1
-Linear Recurrence
+pattern 1
+linear recurrence
 
-Description
-There are n stairs, and a person standing at the bottom wants to climb stairs to reach the top.
-The person can climb either 1 stair or 2 stairs at a time, the task is to count the number of ways that a person can reach at the top.
+description
+there are n stairs, and a person standing at the bottom wants to climb stairs to reach the top.
+the person can climb either 1 stair or 2 stairs at a time, the task is to count the number of ways that a person can reach at the top.
 
 */
 
-namespace ClimbingStairs
+namespace climbing_stairs
 {
 	class DynamicProgramming
 	{
 	private:
 	public:
-		int RecursiveCountWays(int n);
-		int DpCountWays(int n);
+		int recursiveCountWays(int n);
+		int dpCountWays(int n);
 	};
 }

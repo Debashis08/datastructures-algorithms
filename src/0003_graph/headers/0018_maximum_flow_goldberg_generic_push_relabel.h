@@ -4,7 +4,7 @@
 #include <queue>
 using namespace std;
 
-namespace MaximumFlowGoldbergGenericPushRelabel
+namespace maximum_flow_goldberg_generic_push_relabel
 {
 	class Graph
 	{
@@ -19,13 +19,13 @@ namespace MaximumFlowGoldbergGenericPushRelabel
 		vector<int> _height;
 		vector<bool> _visited;
 		queue<int> _nodeQueue;
-		void InitializePreflow();
-		bool CheckOverFlow();
-		bool Push(int nodeU);
-		void Relabel(int nodeU);
+		void initializePreflow();
+		bool checkOverFlow();
+		bool push(int nodeU);
+		void relabel(int nodeU);
 	public:
-		void CreateGraph(int noOfVertices);
-		void PushDirectedEdge(int valueU, int valueV, int capacity);
-		int FindMaximumFlowGoldbergGenericPushRelabel();
+		void createGraph(int noOfVertices);
+		void pushDirectedEdge(int valueU, int valueV, int capacity);
+		int findMaximumFlowGoldbergGenericPushRelabel();
 	};
 }

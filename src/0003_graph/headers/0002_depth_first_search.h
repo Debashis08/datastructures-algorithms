@@ -6,7 +6,7 @@
 #include <vector>
 using namespace std;
 
-namespace DepthFirstSearch
+namespace depth_first_search
 {
     enum color { WHITE, GRAY, BLACK };
 
@@ -27,11 +27,11 @@ namespace DepthFirstSearch
         int _time;
         map<Node*, list<Node*>> _adjlist;
         map<int, Node*> _nodeMap;
-        Node* MakeOrFindNode(int value);
-        void DepthFirstSearch(Node* Node);
+        Node* makeOrFindNode(int value);
+        void depthFirstSearch(Node* Node);
     public:
-        void PushDirectedEdge(int valueU, int valueV);
+        void pushDirectedEdge(int valueU, int valueV);
         void DFS();
-        vector<pair<int, pair<int, int>>> ShowDFSResult();
+        vector<pair<int, pair<int, int>>> showDFSResult();
     };
 }

@@ -1,44 +1,44 @@
 #include <gtest/gtest.h>
 #include <string>
-#include "../../src/0003_graph/headers/0001_BreadthFirstSearch.h"
-#include "../0000_common_utilities/UnitTestHelper.h"
+#include "../../src/0003_graph/headers/0001_breadth_first_search.h"
+#include "../0000_common_utilities/unit_test_helper.h"
 
-namespace BreadthFirstSearch
+namespace breadth_first_search
 {
     UnitTestHelper unitTestHelper;
 
 
-	TEST(BFSTesting, ShowBFSResultTest01) 
+	TEST(bFSTesting, showBFSResultTest01) 
     {
 		Graph graph;
 
-        graph.PushUndirectedEdge(1, 2);
-        graph.PushUndirectedEdge(1, 3);
-        graph.PushUndirectedEdge(2, 4);
-        graph.PushUndirectedEdge(3, 5);
-        graph.PushUndirectedEdge(3, 6);
-        graph.PushUndirectedEdge(5, 6);
-        graph.PushUndirectedEdge(5, 7);
-        graph.PushUndirectedEdge(6, 7);
-        graph.PushUndirectedEdge(6, 8);
-        graph.PushUndirectedEdge(7, 8);
+        graph.pushUndirectedEdge(1, 2);
+        graph.pushUndirectedEdge(1, 3);
+        graph.pushUndirectedEdge(2, 4);
+        graph.pushUndirectedEdge(3, 5);
+        graph.pushUndirectedEdge(3, 6);
+        graph.pushUndirectedEdge(5, 6);
+        graph.pushUndirectedEdge(5, 7);
+        graph.pushUndirectedEdge(6, 7);
+        graph.pushUndirectedEdge(6, 8);
+        graph.pushUndirectedEdge(7, 8);
 
         graph.BFS(1);
         
-        string actualResult = unitTestHelper.SerializeVectorToString(graph.ShowBFSResult());
+        string actualResult = unitTestHelper.serializeVectorToString(graph.showBFSResult());
         string expectedResult = "1(0) 2(1) 3(1) 4(2) 5(2) 6(2) 7(3) 8(3)";
         EXPECT_EQ(actualResult, expectedResult);
 	}
 
-    TEST(BFSTesting, ShowBFSResultTest02) 
+    TEST(bFSTesting, showBFSResultTest02) 
     {
         Graph graph;
 
-        graph.PushUndirectedEdge(1, 2);
+        graph.pushUndirectedEdge(1, 2);
 
         graph.BFS(1);
 
-        string actualResult = unitTestHelper.SerializeVectorToString(graph.ShowBFSResult());
+        string actualResult = unitTestHelper.serializeVectorToString(graph.showBFSResult());
         string expectedResult = "1(0) 2(1)";
         EXPECT_EQ(actualResult, expectedResult);
     }

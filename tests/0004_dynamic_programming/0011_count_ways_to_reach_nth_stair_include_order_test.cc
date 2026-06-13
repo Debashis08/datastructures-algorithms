@@ -1,33 +1,33 @@
 #include <gtest/gtest.h>
-#include "0011_CountWaysToReachNthStairIncludeOrder.h"
+#include "0011_count_ways_to_reach_nth_stair_include_order.h"
 
-namespace CountWaysToReachNthStairIncludeOrder
+namespace count_ways_to_reach_nth_stair_include_order
 {
-	TEST(CountWaysToReachNthStairIncludeOrderTest, RecursiveCountWaysToReachNthStairIncludeOrder1)
+	TEST(countWaysToReachNthStairIncludeOrderTest, recursiveCountWaysToReachNthStairIncludeOrder1)
 	{
-		// Arrange
+		// arrange
 		DynamicProgramming dp;
 		int n = 4;
 		int expectedNumberOfWays = 5;
 
-		// Act
-		int actualNumberOfWays = dp.RecursiveCountWaysToReachNthStairIncludeOrder(n);
+		// act
+		int actualNumberOfWays = dp.recursiveCountWaysToReachNthStairIncludeOrder(n);
 
-		// Assert
+		// assert
 		ASSERT_EQ(expectedNumberOfWays, actualNumberOfWays);
 	}
 
-	TEST(CountWaysToReachNthStairIncludeOrderTest, DpCountWaysToReachNthStairIncludeOrder1)
+	TEST(countWaysToReachNthStairIncludeOrderTest, dpCountWaysToReachNthStairIncludeOrder1)
 	{
-		// Arrange
+		// arrange
 		DynamicProgramming dp;
 		int n = 4;
 		int expectedNumberOfWays = 5;
 
-		// Act
-		int actualNumberOfWays = dp.DpCountWaysToReachNthStairIncludeOrder(n);
+		// act
+		int actualNumberOfWays = dp.dpCountWaysToReachNthStairIncludeOrder(n);
 
-		// Assert
+		// assert
 		ASSERT_EQ(expectedNumberOfWays, actualNumberOfWays);
 	}
 }

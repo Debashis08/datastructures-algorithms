@@ -1,104 +1,104 @@
 #include <gtest/gtest.h>
-#include "0009_SingleSourceShortestPathBellmanFord.h"
-#include "../0000_common_utilities/UnitTestHelper.h"
+#include "0009_single_source_shortest_path_bellman_ford.h"
+#include "../0000_common_utilities/unit_test_helper.h"
 
-namespace SingleSourceShortestPathBellmanFord
+namespace single_source_shortest_path_bellman_ford
 {
     UnitTestHelper unitTestHelper;
 
-    // Test for Simple Graph
-    TEST(BellmanFordTest, SimpleTest)
+    // Test for simple Graph
+    TEST(bellmanFordTest, simpleTest)
     {
         Graph graph;
 
-        graph.PushDirectedEdge(0, 1, 6);
-        graph.PushDirectedEdge(0, 3, 7);
-        graph.PushDirectedEdge(1, 2, 5);
-        graph.PushDirectedEdge(1, 3, 8);
-        graph.PushDirectedEdge(1, 4, -4);
-        graph.PushDirectedEdge(2, 1, -2);
-        graph.PushDirectedEdge(3, 2, -3);
-        graph.PushDirectedEdge(3, 4, 9);
-        graph.PushDirectedEdge(3, 4, 9);
-        graph.PushDirectedEdge(4, 2, 7);
-        graph.PushDirectedEdge(4, 0, 2);
+        graph.pushDirectedEdge(0, 1, 6);
+        graph.pushDirectedEdge(0, 3, 7);
+        graph.pushDirectedEdge(1, 2, 5);
+        graph.pushDirectedEdge(1, 3, 8);
+        graph.pushDirectedEdge(1, 4, -4);
+        graph.pushDirectedEdge(2, 1, -2);
+        graph.pushDirectedEdge(3, 2, -3);
+        graph.pushDirectedEdge(3, 4, 9);
+        graph.pushDirectedEdge(3, 4, 9);
+        graph.pushDirectedEdge(4, 2, 7);
+        graph.pushDirectedEdge(4, 0, 2);
 
         string expectedResult = "0 3 2 1 4";
-        ASSERT_TRUE(graph.FindSingleSourceShortestPathBellmanFord(0));
-        ASSERT_EQ(unitTestHelper.SerializeVectorToString(graph.GetShortestPathBellmanFord(4)), expectedResult);
+        ASSERT_TRUE(graph.findSingleSourceShortestPathBellmanFord(0));
+        ASSERT_EQ(unitTestHelper.serializeVectorToString(graph.getShortestPathBellmanFord(4)), expectedResult);
     }
 
-    // Test for Single Node Graph
-    TEST(BellmanFordTest, SingleNodeTest)
+    // Test for single Node Graph
+    TEST(bellmanFordTest, singleNodeTest)
     {
         Graph graph;
-        graph.PushDirectedEdge(0, 0, 0);  // Self-loop
+        graph.pushDirectedEdge(0, 0, 0);  // self-loop
 
         string expectedResult = "0";
-        ASSERT_TRUE(graph.FindSingleSourceShortestPathBellmanFord(0));
-        ASSERT_EQ(unitTestHelper.SerializeVectorToString(graph.GetShortestPathBellmanFord(0)), expectedResult);
+        ASSERT_TRUE(graph.findSingleSourceShortestPathBellmanFord(0));
+        ASSERT_EQ(unitTestHelper.serializeVectorToString(graph.getShortestPathBellmanFord(0)), expectedResult);
     }
 
-    // Test for Negative Weight Cycle
-    TEST(BellmanFordTest, NegativeWeightCycleTest)
+    // Test for negative weight cycle
+    TEST(bellmanFordTest, negativeWeightCycleTest)
     {
         Graph graph;
-        graph.PushDirectedEdge(0, 1, 1);
-        graph.PushDirectedEdge(1, 2, -1);
-        graph.PushDirectedEdge(2, 0, -1);  // Negative weight cycle
+        graph.pushDirectedEdge(0, 1, 1);
+        graph.pushDirectedEdge(1, 2, -1);
+        graph.pushDirectedEdge(2, 0, -1);  // negative weight cycle
 
-        ASSERT_FALSE(graph.FindSingleSourceShortestPathBellmanFord(0));
+        ASSERT_FALSE(graph.findSingleSourceShortestPathBellmanFord(0));
     }
 
-    // Test for Multiple Shortest Paths
-    TEST(BellmanFordTest, MultipleShortestPathsTest)
+    // Test for multiple shortest paths
+    TEST(bellmanFordTest, multipleShortestPathsTest)
     {
         Graph graph;
-        graph.PushDirectedEdge(0, 1, 5);
-        graph.PushDirectedEdge(0, 2, 5);
-        graph.PushDirectedEdge(1, 3, 1);
-        graph.PushDirectedEdge(2, 3, 1);
+        graph.pushDirectedEdge(0, 1, 5);
+        graph.pushDirectedEdge(0, 2, 5);
+        graph.pushDirectedEdge(1, 3, 1);
+        graph.pushDirectedEdge(2, 3, 1);
 
         string expectedResult = "0 1 3";
-        ASSERT_TRUE(graph.FindSingleSourceShortestPathBellmanFord(0));
-        ASSERT_EQ(unitTestHelper.SerializeVectorToString(graph.GetShortestPathBellmanFord(3)), expectedResult);
+        ASSERT_TRUE(graph.findSingleSourceShortestPathBellmanFord(0));
+        ASSERT_EQ(unitTestHelper.serializeVectorToString(graph.getShortestPathBellmanFord(3)), expectedResult);
     }
 
-    // Test for All Negative Weights
-    TEST(BellmanFordTest, AllNegativeWeightsTest)
+    // Test for all negative weights
+    TEST(bellmanFordTest, allNegativeWeightsTest)
     {
         Graph graph;
-        graph.PushDirectedEdge(0, 1, -5);
-        graph.PushDirectedEdge(1, 2, -3);
-        graph.PushDirectedEdge(2, 3, -2);
-        graph.PushDirectedEdge(3, 4, -1);
+        graph.pushDirectedEdge(0, 1, -5);
+        graph.pushDirectedEdge(1, 2, -3);
+        graph.pushDirectedEdge(2, 3, -2);
+        graph.pushDirectedEdge(3, 4, -1);
 
         string expectedResult = "0 1 2 3 4";
-        ASSERT_TRUE(graph.FindSingleSourceShortestPathBellmanFord(0));
-        ASSERT_EQ(unitTestHelper.SerializeVectorToString(graph.GetShortestPathBellmanFord(4)), expectedResult);
+        ASSERT_TRUE(graph.findSingleSourceShortestPathBellmanFord(0));
+        ASSERT_EQ(unitTestHelper.serializeVectorToString(graph.getShortestPathBellmanFord(4)), expectedResult);
     }
 
-    // Test for Large Graph
-    TEST(BellmanFordTest, LargeGraphTest)
+    // Test for large Graph
+    TEST(bellmanFordTest, largeGraphTest)
     {
         Graph graph;
         for (int i = 0; i < 100; ++i) {
-            graph.PushDirectedEdge(i, i + 1, 1);
+            graph.pushDirectedEdge(i, i + 1, 1);
         }
 
         string expectedResult = "0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20";
-        ASSERT_TRUE(graph.FindSingleSourceShortestPathBellmanFord(0));
-        ASSERT_EQ(unitTestHelper.SerializeVectorToString(graph.GetShortestPathBellmanFord(20)), expectedResult);
+        ASSERT_TRUE(graph.findSingleSourceShortestPathBellmanFord(0));
+        ASSERT_EQ(unitTestHelper.serializeVectorToString(graph.getShortestPathBellmanFord(20)), expectedResult);
     }
 
-    // Test for Self-Loop Edge
-    TEST(BellmanFordTest, SelfLoopTest)
+    // Test for self-loop Edge
+    TEST(bellmanFordTest, selfLoopTest)
     {
         Graph graph;
-        graph.PushDirectedEdge(0, 0, 10);  // Self-loop with weight 10
+        graph.pushDirectedEdge(0, 0, 10);  // self-loop with weight 10
 
         string expectedResult = "0";
-        ASSERT_TRUE(graph.FindSingleSourceShortestPathBellmanFord(0));
-        ASSERT_EQ(unitTestHelper.SerializeVectorToString(graph.GetShortestPathBellmanFord(0)), expectedResult);
+        ASSERT_TRUE(graph.findSingleSourceShortestPathBellmanFord(0));
+        ASSERT_EQ(unitTestHelper.serializeVectorToString(graph.getShortestPathBellmanFord(0)), expectedResult);
     }
 }

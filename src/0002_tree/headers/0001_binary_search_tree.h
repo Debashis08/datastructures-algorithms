@@ -4,7 +4,7 @@
 #include <string>
 using namespace std;
 
-namespace BinarySearchTree
+namespace binary_search_tree
 {
 	class Node
 	{

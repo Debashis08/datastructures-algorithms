@@ -1,28 +1,28 @@
 #include <gtest/gtest.h>
-#include "0006_EulerianPathAndCircuit.h"
-#include "../0000_common_utilities/UnitTestHelper.h"
+#include "0006_eulerian_path_and_circuit.h"
+#include "../0000_common_utilities/unit_test_helper.h"
 
-namespace EulerianPathAndCircuit
+namespace eulerian_path_and_circuit
 {
 	UnitTestHelper unitTestHelper;
 
-	TEST(EulerianPathAndCycle, Test1)
+	TEST(eulerianPathAndCycle, test1)
 	{
 		Graph graph;
 
-		graph.PushUndirectedEdge(1, 0);
-		graph.PushUndirectedEdge(0, 2);
-		graph.PushUndirectedEdge(2, 1);
-		graph.PushUndirectedEdge(0, 3);
-		graph.PushUndirectedEdge(3, 4);
-		graph.PushUndirectedEdge(4, 0);
+		graph.pushUndirectedEdge(1, 0);
+		graph.pushUndirectedEdge(0, 2);
+		graph.pushUndirectedEdge(2, 1);
+		graph.pushUndirectedEdge(0, 3);
+		graph.pushUndirectedEdge(3, 4);
+		graph.pushUndirectedEdge(4, 0);
 
-		graph.FindEulerianPathAndCircuit();
+		graph.findEulerianPathAndCircuit();
 
-		bool isEulerianPathPresent = graph.IsEulerianPathPresent();
-		bool isEulerianCircuitPresent = graph.IsEulerianCircuitPresent();
+		bool isEulerianPathPresent = graph.isEulerianPathPresent();
+		bool isEulerianCircuitPresent = graph.isEulerianCircuitPresent();
 
-		vector<int> actualEulerianPath = graph.UndirectedGraphGetEulerianPath();
+		vector<int> actualEulerianPath = graph.undirectedGraphGetEulerianPath();
 		vector<int> expectedEulerianPath = { 0, 1, 2, 0, 3, 4, 0};
 
 		ASSERT_TRUE(isEulerianPathPresent);

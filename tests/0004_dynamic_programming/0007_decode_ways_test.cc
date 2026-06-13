@@ -1,47 +1,47 @@
 #include <gtest/gtest.h>
-#include "0007_DecodeWays.h"
+#include "0007_decode_ways.h"
 
-namespace DecodeWays
+namespace decode_ways
 {
-	TEST(DecodeWays, RecursionTest01)
+	TEST(decodeWays, recursionTest01)
 	{
-		// Arrange
+		// arrange
 		DynamicProgramming dp;
 		string digits = "121";
 		int expectedWaysCount = 3;
 
-		// Act
-		int actualWaysCount = dp.RecursiveCountWays(digits);
+		// act
+		int actualWaysCount = dp.recursiveCountWays(digits);
 
-		// Assert
+		// assert
 		ASSERT_EQ(expectedWaysCount, actualWaysCount);
 	}
 
-	TEST(DecodeWays, DpTest01)
+	TEST(decodeWays, dpTest01)
 	{
-		// Arrange
+		// arrange
 		DynamicProgramming dp;
 		string digits = "121";
 		int expectedWaysCount = 3;
 
-		// Act
-		int actualWaysCount = dp.DpCountways(digits);
+		// act
+		int actualWaysCount = dp.dpCountways(digits);
 
-		// Assert
+		// assert
 		ASSERT_EQ(expectedWaysCount, actualWaysCount);
 	}
 
-	TEST(DecodeWays, DpTestInvalidInput)
+	TEST(decodeWays, dpTestInvalidInput)
 	{
-		// Arrange
+		// arrange
 		DynamicProgramming dp;
 		string digits = "230";
 		int expectedWaysCount = 0;
 
-		// Act
-		int actualWaysCount = dp.DpCountways(digits);
+		// act
+		int actualWaysCount = dp.dpCountways(digits);
 
-		// Assert
+		// assert
 		ASSERT_EQ(expectedWaysCount, actualWaysCount);
 	}
 }

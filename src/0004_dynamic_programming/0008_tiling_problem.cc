@@ -1,8 +1,8 @@
-#include "0008_TilingProblem.h"
+#include "0008_tiling_problem.h"
 
-namespace TilingProblem
+namespace tiling_problem
 {
-	int DynamicProgramming::NumberOfWaysRecursiveHelper(int n)
+	int DynamicProgramming::numberOfWaysRecursiveHelper(int n)
 	{
 		if (n < 0)
 		{
@@ -15,18 +15,18 @@ namespace TilingProblem
 		}
 
 		int result = 0;
-		result += this->NumberOfWaysRecursiveHelper(n - 1);
-		result += this->NumberOfWaysRecursiveHelper(n - 2);
+		result += this->numberOfWaysRecursiveHelper(n - 1);
+		result += this->numberOfWaysRecursiveHelper(n - 2);
 
 		return result;
 	}
 
-	int DynamicProgramming::RecursiveNumberOfWays(int n)
+	int DynamicProgramming::recursiveNumberOfWays(int n)
 	{
-		return this->NumberOfWaysRecursiveHelper(n);
+		return this->numberOfWaysRecursiveHelper(n);
 	}
 
-	int DynamicProgramming::DpNumberOfWays(int n)
+	int DynamicProgramming::dpNumberOfWays(int n)
 	{
 		vector<int> dp(n + 1, 0);
 		dp[0] = 1;

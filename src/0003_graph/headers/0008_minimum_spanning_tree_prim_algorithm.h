@@ -5,7 +5,7 @@
 #include <set>
 using namespace std;
 
-namespace MinimumSpanningTreePrimAlgorithm
+namespace minimum_spanning_tree_prim_algorithm
 {
 	class Node
 	{
@@ -33,10 +33,10 @@ namespace MinimumSpanningTreePrimAlgorithm
 		map<int, Node*> _nodeMap;
 		vector<pair<pair<int, int>, int>> _minimumSpanningTree;
 		multiset<Node*, CompareNodeKey> _operationalSet;
-		Node* MakeOrFindNode(int data);
+		Node* makeOrFindNode(int data);
 	public:
-		void PushUndirectedEdge(int valueU, int valueV, int weight);
-		void FindMinimumSpanningTreePrimAlgorithm();
-		vector<pair<pair<int, int>, int>> GetMinimumSpanningTree();
+		void pushUndirectedEdge(int valueU, int valueV, int weight);
+		void findMinimumSpanningTreePrimAlgorithm();
+		vector<pair<pair<int, int>, int>> getMinimumSpanningTree();
 	};
 }

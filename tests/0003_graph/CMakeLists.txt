@@ -14,25 +14,26 @@ enable_testing()
 
 add_executable(
   0003GraphTests
-  0001_BreadthFirstSearchTest.cc
-  0002_DepthFirstSearchTest.cc
-  0003_TopologicalSortTest.cc
-  0004_StronglyConnectedComponentsTest.cc
-  0005_HamiltonianPathAndCycleTest.cc
-  0006_EulerianPathAndCircuitTest.cc
-  0007_MinimumSpanningTreeKruskalAlgorithmTest.cc
-  0008_MinimumSpanningTreePrimAlgorithmTest.cc
-  0009_SingleSourceShortestPathBellmanFordTest.cc
-  0010_DirectedAcyclicGraphShortestPathTest.cc
-  0011_SingleSourceShortestPathDijkstraTest.cc
-  0012_DifferenceConstraintsShortestPathsTest.cc
-  0013_AllPairsShortestPathsFloydWarshallTest.cc
-  0014_AllPairsShortestPathsJohnsonTest.cc
-  0015_MaximumFlowFordFulkersonTest.cc
-  0016_MaximumFlowEdmondsKarpTest.cc
-  0017_MaximumBipartiteMatchingTest.cc
-  0018_MaximumFlowGoldbergGenericPushRelabelTest.cc
-  0019_MaximumFlowRelabelToFrontTest.cc
+
+  0001_breadth_first_search_test.cc
+  0002_depth_first_search_test.cc
+  0003_topological_sort_test.cc
+  0004_strongly_connected_components_test.cc
+  0005_hamiltonian_path_and_cycle_test.cc
+  0006_eulerian_path_and_circuit_test.cc
+  0007_minimum_spanning_tree_kruskal_algorithm_test.cc
+  0008_minimum_spanning_tree_prim_algorithm_test.cc
+  0009_single_source_shortest_path_bellman_ford_test.cc
+  0010_directed_acyclic_graph_shortest_path_test.cc
+  0011_single_source_shortest_path_dijkstra_test.cc
+  0012_difference_constraints_shortest_paths_test.cc
+  0013_all_pairs_shortest_paths_floyd_warshall_test.cc
+  0014_all_pairs_shortest_paths_johnson_test.cc
+  0015_maximum_flow_ford_fulkerson_test.cc
+  0016_maximum_flow_edmonds_karp_test.cc
+  0017_maximum_bipartite_matching_test.cc
+  0018_maximum_flow_goldberg_generic_push_relabel_test.cc
+  0019_maximum_flow_relabel_to_front_test.cc
 )
 
 target_link_libraries(

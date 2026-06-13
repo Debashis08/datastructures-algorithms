@@ -5,28 +5,28 @@
 using namespace std;
 
 /*
-Pattern 1
-Linear Recurrence
+pattern 1
+linear recurrence
 
-Description
-Let 1 maps to 'A', 2 maps to 'B', ..., 26 to 'Z'.Given a digit sequence, count the number of possible decodings of the given digit sequence.
+description
+let 1 maps to 'A', 2 maps to 'B', ..., 26 to 'Z'.given a digit sequence, count the number of possible decodings of the given digit sequence.
 
-Consider the input string "123".There are three valid ways to decode it :
-"ABC" : The grouping is(1, 2, 3) -> 'A', 'B', 'C'
-"AW" : The grouping is(1, 23) -> 'A', 'W'
-"LC" : The grouping is(12, 3) -> 'L', 'C'
-Note : Groupings that contain invalid codes(e.g., "0" by itself or numbers greater than "26") are not allowed.
-For instance, the string "230" is invalid because "0" cannot stand alone, and "30" is greater than "26", so it cannot represent any letter.The task is to find the total number of valid ways to decode a given string.
+consider the input string "123".there are three valid ways to decode it :
+"ABC" : the grouping is(1, 2, 3) -> 'A', 'B', 'C'
+"AW" : the grouping is(1, 23) -> 'A', 'W'
+"LC" : the grouping is(12, 3) -> 'L', 'C'
+note : groupings that contain invalid codes(e.g., "0" by itself or numbers greater than "26") are not allowed.
+for instance, the string "230" is invalid because "0" cannot stand alone, and "30" is greater than "26", so it cannot represent any letter.the task is to find the total number of valid ways to decode a given string.
 */
 
-namespace DecodeWays
+namespace decode_ways
 {
 	class DynamicProgramming
 	{
 	private:
-		int CountWaysRecursiveHelper(string& digits, size_t index);
+		int countWaysRecursiveHelper(string& digits, size_t index);
 	public:
-		int RecursiveCountWays(string digits);
-		int DpCountways(string digits);
+		int recursiveCountWays(string digits);
+		int dpCountways(string digits);
 	};
 }

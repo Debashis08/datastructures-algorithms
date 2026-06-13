@@ -1,10 +1,10 @@
-#include "0004_StronglyConnectedComponents.h"
+#include "0004_strongly_connected_components.h"
 #include <vector>
 #include <utility>
 #include <climits>
 using namespace std;
 
-namespace StronglyConnectedComponents
+namespace strongly_connected_components
 {
 	Node::Node(int value)
 	{
@@ -15,7 +15,7 @@ namespace StronglyConnectedComponents
 		this->parent = nullptr;
 	}
 
-	Node* Graph::MakeOrFindNode(int value)
+	Node* Graph::makeOrFindNode(int value)
 	{
 		Node* node = nullptr;
 		if (this->_nodeMap.find(value) == this->_nodeMap.end())
@@ -30,7 +30,7 @@ namespace StronglyConnectedComponents
 		return node;
 	}
 
-	void Graph::DepthFirstSearchOnGraphG(Node* nodeU)
+	void Graph::depthFirstSearchOnGraphG(Node* nodeU)
 	{
 		this->_time++;
 		nodeU->discoveryTime = this->_time;
@@ -40,7 +40,7 @@ namespace StronglyConnectedComponents
 			if (nodeV->color == WHITE)
 			{
 				nodeV->parent = nodeU;
-				this->DepthFirstSearchOnGraphG(nodeV);
+				this->depthFirstSearchOnGraphG(nodeV);
 			}
 		}
 		nodeU->color = BLACK;
@@ -49,7 +49,7 @@ namespace StronglyConnectedComponents
 		this->_nodesFinishingTimeOrder.push_front(nodeU);
 	}
 
-	void Graph::DepthFirstSearchOnGraphT(Node* nodeU, vector<int>& connectedComponents)
+	void Graph::depthFirstSearchOnGraphT(Node* nodeU, vector<int>& connectedComponents)
 	{
 		nodeU->color = GRAY;
 		connectedComponents.push_back(nodeU->data);
@@ -58,42 +58,42 @@ namespace StronglyConnectedComponents
 			if (nodeV->color == WHITE)
 			{
 				nodeV->parent = nodeU;
-				this->DepthFirstSearchOnGraphT(nodeV, connectedComponents);
+				this->depthFirstSearchOnGraphT(nodeV, connectedComponents);
 			}
 		}
 		nodeU->color = BLACK;
 	}
 
-	void Graph::PushDirectedEdge(int valueU, int valueV)
+	void Graph::pushDirectedEdge(int valueU, int valueV)
 	{
-		Node* nodeU = this->MakeOrFindNode(valueU);
-		Node* nodeV = this->MakeOrFindNode(valueV);
+		Node* nodeU = this->makeOrFindNode(valueU);
+		Node* nodeV = this->makeOrFindNode(valueV);
 
-		// Creating the actual graph.
+		// creating the actual graph.
 		this->_adjlistG[nodeU].push_back(nodeV);
 
-		// Creating the transpose of the actual graph.
+		// creating the transpose of the actual graph.
 		this->_adjlistT[nodeV].push_back(nodeU);
 	}
 
-	void Graph::PushSingleNode(int valueU)
+	void Graph::pushSingleNode(int valueU)
 	{
-		this->MakeOrFindNode(valueU);
+		this->makeOrFindNode(valueU);
 	}
 
-	void Graph::DFSOnGraphG()
+	void Graph::dFSOnGraphG()
 	{
 		this->_time = 0;
 		for (auto& iterator : this->_nodeMap)
 		{
 			if (iterator.second->color == WHITE)
 			{
-				this->DepthFirstSearchOnGraphG(iterator.second);
+				this->depthFirstSearchOnGraphG(iterator.second);
 			}
 		}
 	}
 
-	void Graph::DFSOnGraphT()
+	void Graph::dFSOnGraphT()
 	{
 		for (auto& iterator : this->_nodeMap)
 		{
@@ -106,16 +106,16 @@ namespace StronglyConnectedComponents
 			if (iterator->color == WHITE)
 			{
 				vector<int> connectedComponents;
-				this->DepthFirstSearchOnGraphT(iterator, connectedComponents);
+				this->depthFirstSearchOnGraphT(iterator, connectedComponents);
 				this->_allConnectedComponents.push_back(connectedComponents);
 			}
 		}
 	}
 
-	vector<vector<int>> Graph::FindAllStronglyConnectedComponents()
+	vector<vector<int>> Graph::findAllStronglyConnectedComponents()
 	{
-		this->DFSOnGraphG();
-		this->DFSOnGraphT();
+		this->dFSOnGraphG();
+		this->dFSOnGraphT();
 		return this->_allConnectedComponents;
 	}
 }

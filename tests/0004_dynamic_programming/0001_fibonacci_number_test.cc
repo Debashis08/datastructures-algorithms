@@ -1,34 +1,34 @@
 #include <gtest/gtest.h>
-#include "0001_FibonacciNumber.h"
+#include "0001_fibonacci_number.h"
 using namespace std;
 
-namespace FibonacciNumber
+namespace fibonacci_number
 {
-	TEST(FibonacciNumber, RecursiveTest)
+	TEST(fibonacciNumber, recursiveTest)
 	{
-		// Arrange
+		// arrange
 		DynamicProgramming dp;
 		int n = 5;
 		int expectedFib = 5;
 		
-		// Act
-		int actualFib = dp.RecursiveNthFibonacci(n);
+		// act
+		int actualFib = dp.recursiveNthFibonacci(n);
 
-		// Assert
+		// assert
 		ASSERT_EQ(expectedFib, actualFib);
 	}
 
-	TEST(FibonacciNumber, DpTest)
+	TEST(fibonacciNumber, dpTest)
 	{
-		// Arrange
+		// arrange
 		DynamicProgramming dp;
 		int n = 5;
 		int expectedFib = 5;
 
-		// Act
-		int actualFib = dp.DpNthFibonacci(n);
+		// act
+		int actualFib = dp.dpNthFibonacci(n);
 
-		// Assert
+		// assert
 		ASSERT_EQ(expectedFib, actualFib);
 	}
 }

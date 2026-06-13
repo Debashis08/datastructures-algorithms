@@ -5,7 +5,7 @@
 #include <list>
 using namespace std;
 
-namespace DirectedAcyclicGraphShortestPath
+namespace directed_acyclic_graph_shortest_path
 {
 	enum color {WHITE, GRAY, BLACK};
 
@@ -35,17 +35,17 @@ namespace DirectedAcyclicGraphShortestPath
 		map<int, Node*> _nodeMap;
 		map<Node*, vector<Edge*>> _edgeMap;
 		list<Node*> _topologicalSortedNodeList;
-		Node* MakeOrFindNode(int data);
-		void DepthFirstSearch(Node* node);
-		void TopologicalSort();
-		void InitializeSingleSource(Node* sourceNode);
-		void Relax(Edge* edge);
-		void GetShortestPath(Node* node, vector<int>& path);
+		Node* makeOrFindNode(int data);
+		void depthFirstSearch(Node* node);
+		void topologicalSort();
+		void initializeSingleSource(Node* sourceNode);
+		void relax(Edge* edge);
+		void getShortestPath(Node* node, vector<int>& path);
 
 
 	public:
-		void PushDirectedEdge(int valueU, int valueV, int weight);
-		void FindDAGShortestPath(int data);
-		vector<int> GetDAGShortestPath(int data);
+		void pushDirectedEdge(int valueU, int valueV, int weight);
+		void findDAGShortestPath(int data);
+		vector<int> getDAGShortestPath(int data);
 	};
 }

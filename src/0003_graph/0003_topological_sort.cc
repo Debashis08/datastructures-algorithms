@@ -1,4 +1,4 @@
-#include "0003_TopologicalSort.h"
+#include "0003_topological_sort.h"
 #include <vector>
 #include <queue>
 #include <utility>
@@ -6,7 +6,7 @@
 #include <stdexcept>
 using namespace std;
 
-namespace TopologicalSort
+namespace topological_sort
 {
 	Node::Node(int value)
 	{
@@ -18,7 +18,7 @@ namespace TopologicalSort
 		this->parent = nullptr;
 	}
 
-	Node* Graph::MakeOrFindNode(int value)
+	Node* Graph::makeOrFindNode(int value)
 	{
 		Node* node = nullptr;
 		if (this->_nodeMap.find(value) == this->_nodeMap.end())
@@ -33,7 +33,7 @@ namespace TopologicalSort
 		return node;
 	}
 
-	void Graph::DepthFirstSearch(Node* nodeU)
+	void Graph::depthFirstSearch(Node* nodeU)
 	{
 		this->_time++;
 		nodeU->discoveryTime = this->_time;
@@ -43,7 +43,7 @@ namespace TopologicalSort
 			if (nodeV->color == WHITE)
 			{
 				nodeV->parent = nodeU;
-				this->DepthFirstSearch(nodeV);
+				this->depthFirstSearch(nodeV);
 			}
 			else if (nodeV->color == GRAY)
 			{
@@ -57,28 +57,28 @@ namespace TopologicalSort
 		this->_topologicalSortedNodeList.push_front(nodeU);
 	}
 
-	void Graph::PushDirectedEdge(int valueU, int valueV)
+	void Graph::pushDirectedEdge(int valueU, int valueV)
 	{
-		Node* nodeU = this->MakeOrFindNode(valueU);
-		Node* nodeV = this->MakeOrFindNode(valueV);
+		Node* nodeU = this->makeOrFindNode(valueU);
+		Node* nodeV = this->makeOrFindNode(valueV);
 
 		this->_adjlist[nodeU].push_back(nodeV);
 		nodeV->inDegree++;
 	}
 
-	void Graph::PushSingleNode(int valueU)
+	void Graph::pushSingleNode(int valueU)
 	{
-		this->MakeOrFindNode(valueU);
+		this->makeOrFindNode(valueU);
 	}
 
-	void Graph::TopologicalSort()
+	void Graph::topologicalSort()
 	{
 		this->_time = 0;
 		for (auto& iterator : this->_nodeMap)
 		{
 			if (iterator.second->color == WHITE)
 			{
-				this->DepthFirstSearch(iterator.second);
+				this->depthFirstSearch(iterator.second);
 				if (this->_hasCycle == true)
 				{
 					break;
@@ -87,14 +87,14 @@ namespace TopologicalSort
 		}
 	}
 
-	void Graph::KahnTopologicalSort()
+	void Graph::kahnTopologicalSort()
 	{
-		// Step-1 Compute in-degree of each vertices
-		// This is already done while creating the graph
+		// step-1 compute in-degree of each vertices
+		// this is already done while creating the graph
 		this->_time = 0;
 		queue<Node*> nodeQueue;
 
-		// Step-2 Enqueue vertices with in-degree 0
+		// step-2 enqueue vertices with in-degree 0
 		for (auto& node : this->_nodeMap)
 		{
 			if (node.second->inDegree == 0)
@@ -105,7 +105,7 @@ namespace TopologicalSort
 			}
 		}
 
-		// Step-3 Process vertices in queue
+		// step-3 process vertices in queue
 		while (!nodeQueue.empty())
 		{
 			Node* node = nodeQueue.front();
@@ -114,7 +114,7 @@ namespace TopologicalSort
 			node->finishingTime = this->_time;
 			this->_topologicalSortedNodeList.push_back(node);
 			
-		// Step-4 Process all the neighbours of current node based on in-degree
+		// step-4 process all the neighbours of current node based on in-degree
 			for (auto& neighbour : this->_adjlist[node])
 			{
 				neighbour->inDegree--;
@@ -127,14 +127,14 @@ namespace TopologicalSort
 			}
 		}
 
-		// Step-5 Check if a cycle exists
+		// step-5 check if a cycle exists
 		if (this->_topologicalSortedNodeList.size() != this->_nodeMap.size())
 		{
 			this->_hasCycle = true;
 		}
 	}
 
-	vector<pair<int, pair<int, int>>> Graph::ShowTopologicalSortResult()
+	vector<pair<int, pair<int, int>>> Graph::showTopologicalSortResult()
 	{
 		if (this->_hasCycle == true)
 		{

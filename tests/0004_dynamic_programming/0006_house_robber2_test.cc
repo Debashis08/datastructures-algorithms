@@ -1,47 +1,47 @@
 #include <gtest/gtest.h>
-#include "0006_HouseRobber2.h"
+#include "0006_house_robber2.h"
 
-namespace HouseRobber2
+namespace house_robber2
 {
-	TEST(HouseRobber2, RecursionTest01)
+	TEST(houseRobber2, recursionTest01)
 	{
-		// Arrange
+		// arrange
 		DynamicProgramming dp;
 		vector<int> houseValues = { 2, 2, 3, 1, 2 };
 		int expectedMaximumLoot = 5;
 
-		// Act
-		int actualMaximumLoot = dp.RecursiveMaximumLoot(houseValues);
+		// act
+		int actualMaximumLoot = dp.recursiveMaximumLoot(houseValues);
 
-		// Assert
+		// assert
 		ASSERT_EQ(expectedMaximumLoot, actualMaximumLoot);
 	}
 
-	TEST(HouseRobber2, DpTest01)
+	TEST(houseRobber2, dpTest01)
 	{
-		// Arrange
+		// arrange
 		DynamicProgramming dp;
 		vector<int> houseValues = { 2, 2, 3, 1, 2 };
 		int expectedMaximumLoot = 5;
 
-		// Act
-		int actualMaximumLoot = dp.DpMaximumLoot(houseValues);
+		// act
+		int actualMaximumLoot = dp.dpMaximumLoot(houseValues);
 
-		// Assert
+		// assert
 		ASSERT_EQ(expectedMaximumLoot, actualMaximumLoot);
 	}
 
-	TEST(HouseRobber2, DpTest02)
+	TEST(houseRobber2, dpTest02)
 	{
-		// Arrange
+		// arrange
 		DynamicProgramming dp;
 		vector<int> houseValues = { 9, 1, 8, 2 };
 		int expectedMaximumLoot = 17;
 
-		// Act
-		int actualMaximumLoot = dp.DpMaximumLoot(houseValues);
+		// act
+		int actualMaximumLoot = dp.dpMaximumLoot(houseValues);
 
-		// Assert
+		// assert
 		ASSERT_EQ(expectedMaximumLoot, actualMaximumLoot);
 	}
 

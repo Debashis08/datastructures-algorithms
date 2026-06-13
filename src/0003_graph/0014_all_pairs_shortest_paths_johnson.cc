@@ -1,8 +1,8 @@
-#include "0014_AllPairsShortestPathsJohnson.h"
+#include "0014_all_pairs_shortest_paths_johnson.h"
 #include <climits>
 using namespace std;
 
-namespace AllPairsShortestPathsJohnson
+namespace all_pairs_shortest_paths_johnson
 {
 	Node::Node(int data)
 	{
@@ -19,8 +19,8 @@ namespace AllPairsShortestPathsJohnson
 		this->weight = weight;
 	}
 
-	// Graph Private Member Methods
-	Node* Graph::MakeOrFindNode(int data)
+	// Graph private member methods
+	Node* Graph::makeOrFindNode(int data)
 	{
 		Node* node = nullptr;
 		if (this->_nodeMap.find(data) == this->_nodeMap.end())
@@ -35,13 +35,13 @@ namespace AllPairsShortestPathsJohnson
 		return node;
 	}
 
-	void Graph::PushAugmentedDirectedEdges(Node* sourceNode, Node* nodeV, int weight)
+	void Graph::pushAugmentedDirectedEdges(Node* sourceNode, Node* nodeV, int weight)
 	{
 		this->_augmentedAdjlist[sourceNode].push_back(nodeV);
 		this->_augmentedEdgeList.push_back(new Edge(sourceNode, nodeV, weight));
 	}
 
-	void Graph::InitializeSingleSource(Node* sourceNode)
+	void Graph::initializeSingleSource(Node* sourceNode)
 	{
 		for (auto& iterator : this->_nodeMap)
 		{
@@ -51,7 +51,7 @@ namespace AllPairsShortestPathsJohnson
 		sourceNode->distance = 0;
 	}
 
-	void Graph::RelaxBellmanFord(Edge* edge)
+	void Graph::relaxBellmanFord(Edge* edge)
 	{
 		if (edge->nodeU->distance != INT_MAX && (edge->nodeV->distance > (edge->nodeU->distance + edge->weight)))
 		{
@@ -60,15 +60,15 @@ namespace AllPairsShortestPathsJohnson
 		}
 	}
 
-	bool Graph::BellmanFord(Node* source)
+	bool Graph::bellmanFord(Node* source)
 	{
-		this->InitializeSingleSource(source);
+		this->initializeSingleSource(source);
 
 		for (int i = 0; i < this->_nodeMap.size() - 1; i++)
 		{
 			for (auto& edge : this->_augmentedEdgeList)
 			{
-				this->RelaxBellmanFord(edge);
+				this->relaxBellmanFord(edge);
 			}
 		}
 
@@ -82,7 +82,7 @@ namespace AllPairsShortestPathsJohnson
 		return true;
 	}
 
-	void Graph::RelaxDijkstra(Edge* edge)
+	void Graph::relaxDijkstra(Edge* edge)
 	{
 		if (edge->nodeU->distance != INT_MAX && (edge->nodeV->distance > (edge->nodeU->distance + edge->weight)))
 		{
@@ -93,9 +93,9 @@ namespace AllPairsShortestPathsJohnson
 		}
 	}
 
-	void Graph::Dijkstra(Node* source)
+	void Graph::dijkstra(Node* source)
 	{
-		this->InitializeSingleSource(source);
+		this->initializeSingleSource(source);
 
 		for (auto& node : this->_nodeMap)
 		{
@@ -109,26 +109,26 @@ namespace AllPairsShortestPathsJohnson
 
 			for (auto& edge : this->_edgeMap[nodeU])
 			{
-				this->RelaxDijkstra(edge);
+				this->relaxDijkstra(edge);
 			}
 		}
 	}
 
-	void Graph::GetShortestPath(int source, int destination, vector<int>& path)
+	void Graph::getShortestPath(int source, int destination, vector<int>& path)
 	{
 		if (this->_predecessorMatrix[source - 1][destination - 1] != source)
 		{
 			int predecessor = this->_predecessorMatrix[source - 1][destination - 1];
-			this->GetShortestPath(source, predecessor, path);
+			this->getShortestPath(source, predecessor, path);
 			path.push_back(predecessor);
 		}
 	}
 
-	// Graph Public Member Methods
-	void Graph::PushDirectedEdge(int dataU, int dataV, int weight)
+	// Graph public member methods
+	void Graph::pushDirectedEdge(int dataU, int dataV, int weight)
 	{
-		Node* nodeU = this->MakeOrFindNode(dataU);
-		Node* nodeV = this->MakeOrFindNode(dataV);
+		Node* nodeU = this->makeOrFindNode(dataU);
+		Node* nodeV = this->makeOrFindNode(dataV);
 
 		this->_adjlist[nodeU].push_back(nodeV);
 		Edge* edge = new Edge(nodeU, nodeV, weight);
@@ -136,26 +136,26 @@ namespace AllPairsShortestPathsJohnson
 		this->_edgeList.push_back(edge);
 	}
 
-	bool Graph::FindAllPairsShortestPathsJohnsonAlgorithm()
+	bool Graph::findAllPairsShortestPathsJohnsonAlgorithm()
 	{
-		// Creating the graph G'
+		// creating the graph G'
 		this->_augmentedAdjlist = this->_adjlist;
 		this->_augmentedEdgeList = this->_edgeList;
 
-		// Source Node s
+		// source Node s
 		Node* source = new Node(0);
 		this->_nodeMap[0] = source;
 
-		// Creating all the augmented edges in G'.E = G.E U {(s, v) : v in G.V
+		// creating all the augmented edges in G'.E = G.E U {(s, v) : v in G.V
 		for (auto& node : this->_nodeMap)
 		{
 			if (node.second != source)
 			{
-				this->PushAugmentedDirectedEdges(source, node.second, 0);
+				this->pushAugmentedDirectedEdges(source, node.second, 0);
 			}
 		}
 
-		if (this->BellmanFord(source) == false)
+		if (this->bellmanFord(source) == false)
 		{
 			return false;
 		}
@@ -178,7 +178,7 @@ namespace AllPairsShortestPathsJohnson
 			for (auto& iteratorU : this->_nodeMap)
 			{
 				Node* nodeU = iteratorU.second;
-				this->Dijkstra(nodeU);
+				this->dijkstra(nodeU);
 				for (auto& iteratorV : this->_nodeMap)
 				{
 					Node* nodeV = iteratorV.second;
@@ -190,12 +190,12 @@ namespace AllPairsShortestPathsJohnson
 		}
 	}
 
-	vector<vector<int>> Graph::GetAllPairsShortestPathsDistanceMatrix()
+	vector<vector<int>> Graph::getAllPairsShortestPathsDistanceMatrix()
 	{
 		return this->_shortestPathMatrix;
 	}
 
-	vector<vector<int>> Graph::GetAllPairsShortestPathsPathMatrix()
+	vector<vector<int>> Graph::getAllPairsShortestPathsPathMatrix()
 	{
 		vector<vector<int>> result;
 		for (int i = 0; i < this->_noOfVertices; i++)
@@ -206,7 +206,7 @@ namespace AllPairsShortestPathsJohnson
 				{
 					vector<int> path = {};
 					path.push_back(i + 1);
-					this->GetShortestPath(i + 1, j + 1, path);
+					this->getShortestPath(i + 1, j + 1, path);
 					path.push_back(j + 1);
 					result.push_back(path);
 				}

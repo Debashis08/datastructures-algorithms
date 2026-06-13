@@ -4,7 +4,7 @@
 #include <vector>
 using namespace std;
 
-namespace SingleSourceShortestPathBellmanFord
+namespace single_source_shortest_path_bellman_ford
 {
 	class Node
 	{
@@ -30,15 +30,15 @@ namespace SingleSourceShortestPathBellmanFord
 		map<Node*, vector<Node*>> _adjlist;
 		map<int, Node*> _nodeMap;
 		vector<Edge*> _edgeList;
-		Node* MakeOrFindNode(int data);
-		void InitializeSingleSource(Node* sourceNode);
-		void Relax(Edge* edge);
-		void GetShortestPath(Node* node, vector<int>& path);
+		Node* makeOrFindNode(int data);
+		void initializeSingleSource(Node* sourceNode);
+		void relax(Edge* edge);
+		void getShortestPath(Node* node, vector<int>& path);
 
 
 	public:
-		void PushDirectedEdge(int valueU, int valueV, int weight);
-		bool FindSingleSourceShortestPathBellmanFord(int data);
-		vector<int> GetShortestPathBellmanFord(int data);
+		void pushDirectedEdge(int valueU, int valueV, int weight);
+		bool findSingleSourceShortestPathBellmanFord(int data);
+		vector<int> getShortestPathBellmanFord(int data);
 	};
 }

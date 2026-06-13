@@ -1,8 +1,8 @@
-#include "0017_TargetSum.h"
+#include "0017_target_sum.h"
 
-namespace TargetSum
+namespace target_sum
 {
-	int DynamicProgramming::RecursiveFindTotalWaysHelper(vector<int>& nums, int currentSum, int targetSum, int index)
+	int DynamicProgramming::recursiveFindTotalWaysHelper(vector<int>& nums, int currentSum, int targetSum, int index)
 	{
 		// Base case
 		if (currentSum == targetSum && index == nums.size())
@@ -15,21 +15,21 @@ namespace TargetSum
 			return 0;
 		}
 
-		// Return total count of two possible ways while considering the current element
-		// 1. Add the current element to currentSum
-		// 2. Subtract the current element from currentSum
+		// return total count of two possible ways while considering the current element
+		// 1. add the current element to currentSum
+		// 2. subtract the current element from currentSum
 		return (
-			this->RecursiveFindTotalWaysHelper(nums, currentSum + nums[index], targetSum, index + 1)
+			this->recursiveFindTotalWaysHelper(nums, currentSum + nums[index], targetSum, index + 1)
 			+
-			this->RecursiveFindTotalWaysHelper(nums, currentSum - nums[index], targetSum, index + 1));
+			this->recursiveFindTotalWaysHelper(nums, currentSum - nums[index], targetSum, index + 1));
 	}
 
-	int DynamicProgramming::RecursiveFindTotalWays(vector<int> nums, int target)
+	int DynamicProgramming::recursiveFindTotalWays(vector<int> nums, int target)
 	{
-		return this->RecursiveFindTotalWaysHelper(nums, 0, target, 0);
+		return this->recursiveFindTotalWaysHelper(nums, 0, target, 0);
 	}
 
-	int DynamicProgramming::DpFindTotalWays(vector<int> nums, int target)
+	int DynamicProgramming::dpFindTotalWays(vector<int> nums, int target)
 	{
 		int totalSum = accumulate(nums.begin(), nums.end(), 0);
 
@@ -54,7 +54,7 @@ namespace TargetSum
 		{
 			for (int j = 0; j <= targetSubsetSum; j++)
 			{
-				// Considering excluding the current element
+				// considering excluding the current element
 				dp[i][j] = dp[i - 1][j];
 
 				// Case to include the current element

@@ -1,8 +1,8 @@
-#include "0002_TribonacciNumber.h"
+#include "0002_tribonacci_number.h"
 
-namespace TribonacciNumber
+namespace tribonacci_number
 {
-	int DynamicProgramming::RecursiveNthTribonacci(int n)
+	int DynamicProgramming::recursiveNthTribonacci(int n)
 	{
 		if (n == 0 || n == 1 || n == 2)
 		{
@@ -14,10 +14,10 @@ namespace TribonacciNumber
 			return 1;
 		}
 
-		return this->RecursiveNthTribonacci(n - 1) + this->RecursiveNthTribonacci(n - 2) + this->RecursiveNthTribonacci(n - 3);
+		return this->recursiveNthTribonacci(n - 1) + this->recursiveNthTribonacci(n - 2) + this->recursiveNthTribonacci(n - 3);
 	}
 
-	int DynamicProgramming::DpNthTribonacci(int n)
+	int DynamicProgramming::dpNthTribonacci(int n)
 	{
 		vector<int> dp(n, 0);
 		dp[0] = dp[1] = 0;

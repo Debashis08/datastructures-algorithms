@@ -1,53 +1,53 @@
 #include <gtest/gtest.h>
-#include "0013_KnapsackProblem.h"
+#include "0013_knapsack_problem.h"
 
-namespace KnapsackProblem
+namespace knapsack_problem
 {
-	TEST(KnapsackProblemTest, RecursiveKnapsackProblemTest01)
+	TEST(knapsackProblemTest, recursiveKnapsackProblemTest01)
 	{
-		// Arrange
+		// arrange
 		DynamicProgramming dp;
 		int capacity = 4;
 		vector<int> weight = { 4,5,1 };
 		vector<int> profit = { 1,2,3 };
 		int expectedMaximumProfit = 3;
 
-		// Act
-		int actualMaximumProfit = dp.RecursiveKnapsack(capacity, weight, profit);
+		// act
+		int actualMaximumProfit = dp.recursiveKnapsack(capacity, weight, profit);
 
-		// Assert
+		// assert
 		ASSERT_EQ(expectedMaximumProfit, actualMaximumProfit);
 	}
 
-	TEST(KnapsackProblemTest, DpKnapsackProblemTest01)
+	TEST(knapsackProblemTest, dpKnapsackProblemTest01)
 	{
-		// Arrange
+		// arrange
 		DynamicProgramming dp;
 		int capacity = 4;
 		vector<int> weight = { 4,5,1 };
 		vector<int> profit = { 1,2,3 };
 		int expectedMaximumProfit = 3;
 
-		// Act
-		int actualMaximumProfit = dp.DpKnapsack(capacity, weight, profit);
+		// act
+		int actualMaximumProfit = dp.dpKnapsack(capacity, weight, profit);
 
-		// Assert
+		// assert
 		ASSERT_EQ(expectedMaximumProfit, actualMaximumProfit);
 	}
 
-	TEST(KnapsackProblemTest, DpKnapsackProblemTest02)
+	TEST(knapsackProblemTest, dpKnapsackProblemTest02)
 	{
-		// Arrange
+		// arrange
 		DynamicProgramming dp;
 		int capacity = 4;
 		vector<int> weight = { 4,5,1 };
 		vector<int> profit = { 1,2,3 };
 		int expectedMaximumProfit = 3;
 
-		// Act
-		int actualMaximumProfit = dp.DpKnapsackSpaceOptimized(capacity, weight, profit);
+		// act
+		int actualMaximumProfit = dp.dpKnapsackSpaceOptimized(capacity, weight, profit);
 
-		// Assert
+		// assert
 		ASSERT_EQ(expectedMaximumProfit, actualMaximumProfit);
 	}
 }

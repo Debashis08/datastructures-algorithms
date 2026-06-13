@@ -1,9 +1,9 @@
-#include "0009_SingleSourceShortestPathBellmanFord.h"
+#include "0009_single_source_shortest_path_bellman_ford.h"
 #include <climits>
 #include <algorithm>
 using namespace std;
 
-namespace SingleSourceShortestPathBellmanFord
+namespace single_source_shortest_path_bellman_ford
 {
 	Node::Node(int data)
 	{
@@ -19,8 +19,8 @@ namespace SingleSourceShortestPathBellmanFord
 		this->weight = weight;
 	}
 
-	// Graph Private Member Methods
-	Node* Graph::MakeOrFindNode(int data)
+	// Graph private member methods
+	Node* Graph::makeOrFindNode(int data)
 	{
 		Node* node = nullptr;
 		if (this->_nodeMap.find(data) == this->_nodeMap.end())
@@ -35,7 +35,7 @@ namespace SingleSourceShortestPathBellmanFord
 		return node;
 	}
 
-	void Graph :: InitializeSingleSource(Node* sourceNode)
+	void Graph :: initializeSingleSource(Node* sourceNode)
 	{
 		for (auto& iterator : this->_nodeMap)
 		{
@@ -45,7 +45,7 @@ namespace SingleSourceShortestPathBellmanFord
 		sourceNode->distance = 0;
 	}
 
-	void Graph::Relax(Edge* edge)
+	void Graph::relax(Edge* edge)
 	{
 		if (edge->nodeU->distance != INT_MAX && (edge->nodeV->distance > (edge->nodeU->distance + edge->weight)))
 		{
@@ -54,36 +54,36 @@ namespace SingleSourceShortestPathBellmanFord
 		}
 	}
 
-	void Graph::GetShortestPath(Node* node, vector<int>& path)
+	void Graph::getShortestPath(Node* node, vector<int>& path)
 	{
 		path.push_back(node->data);
 		if (node->parent != nullptr)
 		{
-			this->GetShortestPath(node->parent, path);
+			this->getShortestPath(node->parent, path);
 		}
 	}
 
-	// Graph Public Member Methods
-	void Graph::PushDirectedEdge(int dataU, int dataV, int weight)
+	// Graph public member methods
+	void Graph::pushDirectedEdge(int dataU, int dataV, int weight)
 	{
-		Node* nodeU = this->MakeOrFindNode(dataU);
-		Node* nodeV = this->MakeOrFindNode(dataV);
+		Node* nodeU = this->makeOrFindNode(dataU);
+		Node* nodeV = this->makeOrFindNode(dataV);
 
 		this->_adjlist[nodeU].push_back(nodeV);
 		this->_edgeList.push_back(new Edge(nodeU, nodeV, weight));
 	}
 
-	bool Graph::FindSingleSourceShortestPathBellmanFord(int data)
+	bool Graph::findSingleSourceShortestPathBellmanFord(int data)
 	{
 		Node* source = this->_nodeMap[data];
 
-		this->InitializeSingleSource(source);
+		this->initializeSingleSource(source);
 
 		for (int i = 0; i < this->_nodeMap.size() - 1; i++)
 		{
 			for (auto& edge : this->_edgeList)
 			{
-				this->Relax(edge);
+				this->relax(edge);
 			}
 		}
 
@@ -97,11 +97,11 @@ namespace SingleSourceShortestPathBellmanFord
 		return true;
 	}
 
-	vector<int> Graph::GetShortestPathBellmanFord(int data)
+	vector<int> Graph::getShortestPathBellmanFord(int data)
 	{
 		vector<int> path = {};
 		Node* node = this->_nodeMap[data];
-		this->GetShortestPath(node, path);
+		this->getShortestPath(node, path);
 		reverse(path.begin(), path.end());
 		return path;
 	}

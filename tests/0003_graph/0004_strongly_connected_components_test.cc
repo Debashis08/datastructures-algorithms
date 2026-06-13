@@ -1,102 +1,102 @@
 #include <gtest/gtest.h>
-#include "0004_StronglyConnectedComponents.h"
-#include "../0000_common_utilities/UnitTestHelper.h"
+#include "0004_strongly_connected_components.h"
+#include "../0000_common_utilities/unit_test_helper.h"
 
-namespace StronglyConnectedComponents
+namespace strongly_connected_components
 {
 	UnitTestHelper  unitTestHelper;
 
-    // Test case: Testing with a simple graph.
-	TEST(StronglyConnectedComponentsTesting, SimpleGraphTest)
+    // Test case: testing with a simple graph.
+	TEST(stronglyConnectedComponentsTesting, simpleGraphTest)
 	{
 		Graph graph;
 
-		graph.PushDirectedEdge(1, 2);
-		graph.PushDirectedEdge(1, 5);
-		graph.PushDirectedEdge(2, 3);
-		graph.PushDirectedEdge(2, 4);
-		graph.PushDirectedEdge(3, 2);
-		graph.PushDirectedEdge(4, 4);
-		graph.PushDirectedEdge(5, 1);
-		graph.PushDirectedEdge(5, 4);
-		graph.PushDirectedEdge(6, 1);
-		graph.PushDirectedEdge(6, 3);
-		graph.PushDirectedEdge(6, 7);
-		graph.PushDirectedEdge(7, 3);
-		graph.PushDirectedEdge(7, 8);
-		graph.PushDirectedEdge(8, 6);
+		graph.pushDirectedEdge(1, 2);
+		graph.pushDirectedEdge(1, 5);
+		graph.pushDirectedEdge(2, 3);
+		graph.pushDirectedEdge(2, 4);
+		graph.pushDirectedEdge(3, 2);
+		graph.pushDirectedEdge(4, 4);
+		graph.pushDirectedEdge(5, 1);
+		graph.pushDirectedEdge(5, 4);
+		graph.pushDirectedEdge(6, 1);
+		graph.pushDirectedEdge(6, 3);
+		graph.pushDirectedEdge(6, 7);
+		graph.pushDirectedEdge(7, 3);
+		graph.pushDirectedEdge(7, 8);
+		graph.pushDirectedEdge(8, 6);
 
-        auto actualResult = graph.FindAllStronglyConnectedComponents();
+        auto actualResult = graph.findAllStronglyConnectedComponents();
         vector<vector<int>> expectedResult = { {6, 8, 7},{1, 5},{2, 3},{4} };
-        EXPECT_EQ(unitTestHelper.SortVectorOfVectors(actualResult), unitTestHelper.SortVectorOfVectors(expectedResult));
+        EXPECT_EQ(unitTestHelper.sortVectorOfVectors(actualResult), unitTestHelper.sortVectorOfVectors(expectedResult));
 	}
 
-    // Test case: Single Node.
-    TEST(StronglyConnectedComponentsTesting, SingleNodeTest) 
+    // Test case: single Node.
+    TEST(stronglyConnectedComponentsTesting, singleNodeTest) 
     {
         Graph graph;
-        graph.PushSingleNode(1);
+        graph.pushSingleNode(1);
 
-        auto actualResult = graph.FindAllStronglyConnectedComponents();
+        auto actualResult = graph.findAllStronglyConnectedComponents();
         vector<vector<int>> expectedResult = { {1} };
-        EXPECT_EQ(unitTestHelper.SortVectorOfVectors(actualResult), unitTestHelper.SortVectorOfVectors(expectedResult));
+        EXPECT_EQ(unitTestHelper.sortVectorOfVectors(actualResult), unitTestHelper.sortVectorOfVectors(expectedResult));
     }
 
-    // Test case: Disconnected Graph.
-    TEST(StronglyConnectedComponentsTesting, DisconnectedGraphTest)
+    // Test case: disconnected Graph.
+    TEST(stronglyConnectedComponentsTesting, disconnectedGraphTest)
     {
         Graph graph;
-        graph.PushSingleNode(1);
-        graph.PushSingleNode(2);
-        graph.PushSingleNode(3);
+        graph.pushSingleNode(1);
+        graph.pushSingleNode(2);
+        graph.pushSingleNode(3);
 
-        auto actualResult = graph.FindAllStronglyConnectedComponents();
+        auto actualResult = graph.findAllStronglyConnectedComponents();
         vector<vector<int>> expectedResult = { {1},{3},{2} };
-        EXPECT_EQ(unitTestHelper.SortVectorOfVectors(actualResult), unitTestHelper.SortVectorOfVectors(expectedResult));
+        EXPECT_EQ(unitTestHelper.sortVectorOfVectors(actualResult), unitTestHelper.sortVectorOfVectors(expectedResult));
     }
 
-    // Test case: Chain of Nodes.
-    TEST(StronglyConnectedComponentsTesting, ChainOfNodesTest)
+    // Test case: chain of nodes.
+    TEST(stronglyConnectedComponentsTesting, chainOfNodesTest)
     {
         Graph graph;
-        graph.PushDirectedEdge(1, 2);
-        graph.PushDirectedEdge(2, 3);
-        graph.PushDirectedEdge(3, 4);
+        graph.pushDirectedEdge(1, 2);
+        graph.pushDirectedEdge(2, 3);
+        graph.pushDirectedEdge(3, 4);
 
-        auto actualResult = graph.FindAllStronglyConnectedComponents();
+        auto actualResult = graph.findAllStronglyConnectedComponents();
         vector<vector<int>> expectedResult = { {2},{1},{3},{4} };
-        EXPECT_EQ(unitTestHelper.SortVectorOfVectors(actualResult), unitTestHelper.SortVectorOfVectors(expectedResult));
+        EXPECT_EQ(unitTestHelper.sortVectorOfVectors(actualResult), unitTestHelper.sortVectorOfVectors(expectedResult));
     }
 
-    // Test case: Bidirectional Edge.
-    TEST(StronglyConnectedComponentsTesting, BidirectionalEdgeTest)
+    // Test case: bidirectional Edge.
+    TEST(stronglyConnectedComponentsTesting, bidirectionalEdgeTest)
     {
         Graph graph;
-        graph.PushDirectedEdge(1, 2);
-        graph.PushDirectedEdge(2, 1);
+        graph.pushDirectedEdge(1, 2);
+        graph.pushDirectedEdge(2, 1);
 
-        auto actualResult = graph.FindAllStronglyConnectedComponents();
+        auto actualResult = graph.findAllStronglyConnectedComponents();
         vector<vector<int>> expectedResult = { {2, 1} };
-        EXPECT_EQ(unitTestHelper.SortVectorOfVectors(actualResult), unitTestHelper.SortVectorOfVectors(expectedResult));
+        EXPECT_EQ(unitTestHelper.sortVectorOfVectors(actualResult), unitTestHelper.sortVectorOfVectors(expectedResult));
     }
 
-    // Test case: Complex Graph.
-    TEST(StronglyConnectedComponentsTesting, ComplexGraphTest)
+    // Test case: complex Graph.
+    TEST(stronglyConnectedComponentsTesting, complexGraphTest)
     {
         Graph graph;
 
-        // Graph structure with multiple SCCs and isolated nodes.
-        graph.PushDirectedEdge(1, 2);
-        graph.PushDirectedEdge(2, 3);
-        graph.PushDirectedEdge(3, 1);  // Cycle: 1 -> 2 -> 3 -> 1
-        graph.PushDirectedEdge(4, 5);
-        graph.PushDirectedEdge(5, 6);
-        graph.PushDirectedEdge(6, 4);  // Cycle: 4 -> 5 -> 6 -> 4
-        graph.PushDirectedEdge(7, 8);  // Single direction: 7 -> 8
-        graph.PushSingleNode(9);       // Isolated node.
+        // Graph structure with multiple sCCs and isolated nodes.
+        graph.pushDirectedEdge(1, 2);
+        graph.pushDirectedEdge(2, 3);
+        graph.pushDirectedEdge(3, 1);  // cycle: 1 -> 2 -> 3 -> 1
+        graph.pushDirectedEdge(4, 5);
+        graph.pushDirectedEdge(5, 6);
+        graph.pushDirectedEdge(6, 4);  // cycle: 4 -> 5 -> 6 -> 4
+        graph.pushDirectedEdge(7, 8);  // single direction: 7 -> 8
+        graph.pushSingleNode(9);       // isolated node.
 
-        auto actualResult = graph.FindAllStronglyConnectedComponents();
+        auto actualResult = graph.findAllStronglyConnectedComponents();
         vector<vector<int>> expectedResult = { {4, 6, 5},{7}, { 2, 3, 1},{8}, {9} };
-        EXPECT_EQ(unitTestHelper.SortVectorOfVectors(actualResult), unitTestHelper.SortVectorOfVectors(expectedResult));
+        EXPECT_EQ(unitTestHelper.sortVectorOfVectors(actualResult), unitTestHelper.sortVectorOfVectors(expectedResult));
     }
 }

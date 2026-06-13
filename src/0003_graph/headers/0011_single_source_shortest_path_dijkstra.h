@@ -5,7 +5,7 @@
 #include <set>
 using namespace std;
 
-namespace SingleSourceShortestPathDijkstra
+namespace single_source_shortest_path_dijkstra
 {
 	class Node
 	{
@@ -41,15 +41,15 @@ namespace SingleSourceShortestPathDijkstra
 		map<int, Node*> _nodeMap;
 		map<Node*, vector<Edge*>> _edgeMap;
 		multiset<Node*, CompareNodeDistance> _operationalSet;
-		Node* MakeOrFindNode(int data);
-		void InitializeSingleSource(Node* sourceNode);
-		void Relax(Edge* edge);
-		void Dijkstra(Node* source);
-		void GetShortestPath(Node* node, vector<int>& path);
+		Node* makeOrFindNode(int data);
+		void initializeSingleSource(Node* sourceNode);
+		void relax(Edge* edge);
+		void dijkstra(Node* source);
+		void getShortestPath(Node* node, vector<int>& path);
 
 	public:
-		void PushDirectedEdge(int valueU, int valueV, int weight);
-		void FindShortestPathDijkstra(int data);
-		vector<int> GetDijkstraShortestPath(int data);
+		void pushDirectedEdge(int valueU, int valueV, int weight);
+		void findShortestPathDijkstra(int data);
+		vector<int> getDijkstraShortestPath(int data);
 	};
 }

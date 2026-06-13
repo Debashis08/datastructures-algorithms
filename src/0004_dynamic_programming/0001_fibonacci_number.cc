@@ -1,18 +1,18 @@
-#include "0001_FibonacciNumber.h"
+#include "0001_fibonacci_number.h"
 
-namespace FibonacciNumber
+namespace fibonacci_number
 {
-	int DynamicProgramming::RecursiveNthFibonacci(int n)
+	int DynamicProgramming::recursiveNthFibonacci(int n)
 	{
 		if (n <= 1)
 		{
 			return n;
 		}
 
-		return this->RecursiveNthFibonacci(n - 1) + this->RecursiveNthFibonacci(n - 2);
+		return this->recursiveNthFibonacci(n - 1) + this->recursiveNthFibonacci(n - 2);
 	}
 
-	int DynamicProgramming::DpNthFibonacci(int n)
+	int DynamicProgramming::dpNthFibonacci(int n)
 	{
 		vector<int> dp(n + 1, 0);
 		dp[0] = 0;

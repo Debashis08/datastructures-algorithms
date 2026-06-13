@@ -1,12 +1,12 @@
 #include <gtest/gtest.h>
-#include "Node.h"
+#include "node.h"
 
-// Demonstrate some basic assertions.
-namespace NodeTesting
+// demonstrate some basic assertions.
+namespace node_testing
 {
-	TEST(TestingNodeValue, PositiveTestCase) 
+	TEST(testingNodeValue, positiveTestCase) 
 	{
-		// Expect two strings not to be equal.
+		// expect two strings not to be equal.
 		EXPECT_EQ(2 * 4, 8);
 	}
 }

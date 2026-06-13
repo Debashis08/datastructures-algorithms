@@ -6,7 +6,7 @@
 #include <vector>
 using namespace std;
 
-namespace StronglyConnectedComponents
+namespace strongly_connected_components
 {
     enum color { WHITE, GRAY, BLACK };
 
@@ -30,14 +30,14 @@ namespace StronglyConnectedComponents
         map<int, Node*> _nodeMap;
         list<Node*> _nodesFinishingTimeOrder;
         vector<vector<int>> _allConnectedComponents;
-        Node* MakeOrFindNode(int value);
-        void DepthFirstSearchOnGraphG(Node* DFSNode);
-        void DepthFirstSearchOnGraphT(Node* DFSNode, vector<int>& connectedComponents);
+        Node* makeOrFindNode(int value);
+        void depthFirstSearchOnGraphG(Node* dFSNode);
+        void depthFirstSearchOnGraphT(Node* dFSNode, vector<int>& connectedComponents);
     public:
-        void PushDirectedEdge(int valueU, int valueV);
-        void PushSingleNode(int valueU);
-        void DFSOnGraphG();
-        void DFSOnGraphT();
-        vector<vector<int>> FindAllStronglyConnectedComponents();
+        void pushDirectedEdge(int valueU, int valueV);
+        void pushSingleNode(int valueU);
+        void dFSOnGraphG();
+        void dFSOnGraphT();
+        vector<vector<int>> findAllStronglyConnectedComponents();
     };
 }

@@ -1,19 +1,19 @@
-#include "0004_MinimumCostClimbingStairs.h"
+#include "0004_minimum_cost_climbing_stairs.h"
 #include <algorithm>
 
-namespace MinimumCostClimbingStairs
+namespace minimum_cost_climbing_stairs
 {
-	int DynamicProgramming::MinCostRecursive(size_t step, vector<int>& cost)
+	int DynamicProgramming::minCostRecursive(size_t step, vector<int>& cost)
 	{
 		if (step == 0 || step == 1)
 		{
 			return cost[step];
 		}
 
-		return cost[step] + min(this->MinCostRecursive(step - 1, cost), this->MinCostRecursive(step - 2, cost));
+		return cost[step] + min(this->minCostRecursive(step - 1, cost), this->minCostRecursive(step - 2, cost));
 	}
 
-	int DynamicProgramming::RecursiveMinimumCostClimbingStairs(vector<int>& cost)
+	int DynamicProgramming::recursiveMinimumCostClimbingStairs(vector<int>& cost)
 	{
 		size_t totalSteps = cost.size();
 
@@ -22,10 +22,10 @@ namespace MinimumCostClimbingStairs
 			return cost[0];
 		}
 
-		return min(this->MinCostRecursive(totalSteps - 1, cost), this->MinCostRecursive(totalSteps - 2, cost));
+		return min(this->minCostRecursive(totalSteps - 1, cost), this->minCostRecursive(totalSteps - 2, cost));
 	}
 
-	int DynamicProgramming::DpMinimumCostClimbingStairs(vector<int>& cost)
+	int DynamicProgramming::dpMinimumCostClimbingStairs(vector<int>& cost)
 	{
 		size_t totalSteps = cost.size();
 		vector<int> dp(totalSteps, 0);

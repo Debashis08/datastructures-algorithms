@@ -14,7 +14,8 @@ enable_testing()
 
 add_executable(
   0001BasicsTests
-  NodeTest.cc)
+  node_test.cc
+)
 
 target_link_libraries(
   0001BasicsTests

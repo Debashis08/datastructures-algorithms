@@ -1,12 +1,12 @@
-#include "0016_MaximumFlowEdmondsKarp.h"
+#include "0016_maximum_flow_edmonds_karp.h"
 #include <climits>
 #include <queue>
 using namespace std;
 
-namespace MaximumFlowEdmondsKarp
+namespace maximum_flow_edmonds_karp
 {
-	// Graph Private Member Methods
-	void Graph::ResolveAntiParallelEdges()
+	// Graph private member methods
+	void Graph::resolveAntiParallelEdges()
 	{
 		int countParallelEdges = 0;
 		for (int i = 0; i < this->_noOfVertices; i++)
@@ -20,12 +20,12 @@ namespace MaximumFlowEdmondsKarp
 			}
 		}
 
-		// As i->j and j->i both edges has been counted, actual count is count = count / 2
+		// as i->j and j->i both edges has been counted, actual count is count = count / 2
 		countParallelEdges /= 2;
 
 		this->_flagParallelEdges = countParallelEdges > 0;
 
-		// If there are no anti-parallel edges, no need to modify the adjMatrix
+		// if there are no anti-parallel edges, no need to modify the adjMatrix
 		if (!this->_flagParallelEdges)
 		{
 			return;
@@ -33,7 +33,7 @@ namespace MaximumFlowEdmondsKarp
 
 		int newNoOfVertices = this->_noOfVertices + countParallelEdges;
 
-		// Modifying the adjMatrix
+		// modifying the adjMatrix
 		for (auto& edge : this->_adjMatrix)
 		{
 			edge.resize(newNoOfVertices, 0);
@@ -43,7 +43,7 @@ namespace MaximumFlowEdmondsKarp
 		this->_parent.resize(newNoOfVertices, -1);
 		this->_adjMatrix.resize(newNoOfVertices, vector<int>(newNoOfVertices, 0));
 
-		// Removing the anti-parallel edges by adding new nodes
+		// removing the anti-parallel edges by adding new nodes
 		for (int i = 0; i < this->_noOfVertices; i++)
 		{
 			for (int j = 0; j < this->_noOfVertices; j++)
@@ -58,16 +58,16 @@ namespace MaximumFlowEdmondsKarp
 			}
 		}
 
-		// Updating the total no of vertices after modifying the adjMatrix
+		// updating the total no of vertices after modifying the adjMatrix
 		this->_noOfVertices = newNoOfVertices;
 	}
 
-	bool Graph::BreadthFirstSearch()
+	bool Graph::breadthFirstSearch()
 	{
-		// Resetting the visited values
+		// resetting the visited values
 		fill(this->_visited.begin(), this->_visited.end(), false);
 
-		// Resetting the parent values
+		// resetting the parent values
 		fill(this->_parent.begin(), this->_parent.end(), -1);
 
 		queue<int> nodeQueue;
@@ -90,12 +90,12 @@ namespace MaximumFlowEdmondsKarp
 			}
 		}
 
-		// Returning the visited value of the sink vertex, initially it was set to false
+		// returning the visited value of the sink vertex, initially it was set to false
 		return this->_visited[this->_sink];
 	}
 
-	// Graph Public Member Methods
-	void Graph::CreateGraph(int noOfVertices)
+	// Graph public member methods
+	void Graph::createGraph(int noOfVertices)
 	{
 		this->_noOfVertices = noOfVertices;
 		this->_source = 0;
@@ -107,23 +107,23 @@ namespace MaximumFlowEdmondsKarp
 		this->_visited = vector<bool>(this->_noOfVertices, false);
 	}
 
-	void Graph::PushDirectedEdge(int valueU, int valueV, int capacity)
+	void Graph::pushDirectedEdge(int valueU, int valueV, int capacity)
 	{
 		this->_adjMatrix[valueU][valueV] = capacity;
 	}
 
-	int Graph::FindMaximumFlowEdmondsKarp()
+	int Graph::findMaximumFlowEdmondsKarp()
 	{
-		// Resolving all the parallel edges if present
-		this->ResolveAntiParallelEdges();
+		// resolving all the parallel edges if present
+		this->resolveAntiParallelEdges();
 		this->_residualGraph = this->_adjMatrix;
 
-		// While there exists a path p from source to sink in the residual network G'
-		while (this->BreadthFirstSearch())
+		// while there exists a path p from source to sink in the residual network G'
+		while (this->breadthFirstSearch())
 		{
 			int augmentedPathFlow = INT_MAX;
 
-			// Calculating c'(p) = min{ c'(u,v) : (u,v) is in p }
+			// calculating c'(p) = min{ c'(u,v) : (u,v) is in p }
 			for (int nodeV = this->_sink; nodeV > this->_source; nodeV = this->_parent[nodeV])
 			{
 				int nodeU = this->_parent[nodeV];

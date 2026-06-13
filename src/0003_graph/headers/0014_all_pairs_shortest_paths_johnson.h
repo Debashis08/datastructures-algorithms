@@ -5,7 +5,7 @@
 #include <set>
 using namespace std;
 
-namespace AllPairsShortestPathsJohnson
+namespace all_pairs_shortest_paths_johnson
 {
 	class Node
 	{
@@ -48,19 +48,19 @@ namespace AllPairsShortestPathsJohnson
 		multiset<Node*, CompareNodeDistance> _operationalSet;
 		vector<vector<int>> _shortestPathMatrix;
 		vector<vector<int>> _predecessorMatrix;
-		Node* MakeOrFindNode(int data);
-		void PushAugmentedDirectedEdges(Node* sourceNode, Node* nodeV, int weight);
-		void InitializeSingleSource(Node* sourceNode);
-		void RelaxBellmanFord(Edge* edge);
-		bool BellmanFord(Node* source);
-		void RelaxDijkstra(Edge* edge);
-		void Dijkstra(Node* source);
-		void GetShortestPath(int source, int destination, vector<int>& path);
+		Node* makeOrFindNode(int data);
+		void pushAugmentedDirectedEdges(Node* sourceNode, Node* nodeV, int weight);
+		void initializeSingleSource(Node* sourceNode);
+		void relaxBellmanFord(Edge* edge);
+		bool bellmanFord(Node* source);
+		void relaxDijkstra(Edge* edge);
+		void dijkstra(Node* source);
+		void getShortestPath(int source, int destination, vector<int>& path);
 
 	public:
-		void PushDirectedEdge(int dataU, int dataV, int weight);
-		bool FindAllPairsShortestPathsJohnsonAlgorithm();
-		vector<vector<int>> GetAllPairsShortestPathsDistanceMatrix();
-		vector<vector<int>> GetAllPairsShortestPathsPathMatrix();
+		void pushDirectedEdge(int dataU, int dataV, int weight);
+		bool findAllPairsShortestPathsJohnsonAlgorithm();
+		vector<vector<int>> getAllPairsShortestPathsDistanceMatrix();
+		vector<vector<int>> getAllPairsShortestPathsPathMatrix();
 	};
 }

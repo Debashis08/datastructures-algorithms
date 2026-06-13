@@ -5,7 +5,7 @@
 #include <list>
 using namespace std;
 
-namespace EulerianPathAndCircuit
+namespace eulerian_path_and_circuit
 {
 	class Node
 	{
@@ -26,18 +26,18 @@ namespace EulerianPathAndCircuit
 		map<Node*, list<Node*>> _adjlist;
 		map<int, Node*> _nodeMap;
 		vector<int> _eulerianPath;
-		Node* MakeOrFindNode(int value);
-		void DepthFirstSearch(Node* node);
-		bool IsConnected();
-		void EulerianPathHierholzerAlgorithm(Node* startingNode);
+		Node* makeOrFindNode(int value);
+		void depthFirstSearch(Node* node);
+		bool isConnected();
+		void eulerianPathHierholzerAlgorithm(Node* startingNode);
 
 	public:
-		void PushUndirectedEdge(int valueU, int valueV);
-		void PushDirectedEdge(int valueU, int valueV);
-		void PushSingleNode(int valueU);
-		void FindEulerianPathAndCircuit();
-		bool IsEulerianPathPresent();
-		bool IsEulerianCircuitPresent();
-		vector<int> UndirectedGraphGetEulerianPath();
+		void pushUndirectedEdge(int valueU, int valueV);
+		void pushDirectedEdge(int valueU, int valueV);
+		void pushSingleNode(int valueU);
+		void findEulerianPathAndCircuit();
+		bool isEulerianPathPresent();
+		bool isEulerianCircuitPresent();
+		vector<int> undirectedGraphGetEulerianPath();
 	};
 }

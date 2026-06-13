@@ -4,17 +4,17 @@
 using namespace std;
 
 /*
-Pattern 1
-Linear Recurrence
+pattern 1
+linear recurrence
 
-Description
-Given a distance 'dist', count total number of ways to cover the distance with 1, 2 and 3 steps.
+description
+given a distance 'dist', count total number of ways to cover the distance with 1, 2 and 3 steps.
 
-Examples:
+examples:
 
-Input: n = 3
-Output: 4
-Explanation: Below are the four ways
+input: n = 3
+output: 4
+explanation: below are the four ways
 => 1 step + 1 step + 1 step
 => 1 step + 2 step
 => 2 step + 1 step
@@ -22,9 +22,9 @@ Explanation: Below are the four ways
 
 
 
-Input: n = 4
-Output: 7
-Explanation: Below are the four ways
+input: n = 4
+output: 7
+explanation: below are the four ways
 => 1 step + 1 step + 1 step + 1 step
 => 1 step + 2 step + 1 step
 =>  2 step + 1 step + 1 step
@@ -34,14 +34,14 @@ Explanation: Below are the four ways
 =>  1 step + 3 step
 */
 
-namespace WaysToCoverDistance
+namespace ways_to_cover_distance
 {
 	class DynamicProgramming
 	{
 	private:
-		int WaysToCoverDistanceRecursiveHelper(int dist);
+		int waysToCoverDistanceRecursiveHelper(int dist);
 	public:
-		int RecursiveWaysToCoverDistance(int dist);
-		int DpWaysToCoverDistance(int dist);
+		int recursiveWaysToCoverDistance(int dist);
+		int dpWaysToCoverDistance(int dist);
 	};
 }

@@ -1,11 +1,11 @@
-#include "0013_AllPairsShortestPathsFloydWarshall.h"
+#include "0013_all_pairs_shortest_paths_floyd_warshall.h"
 #include <climits>
 using namespace std;
 
-namespace AllPairsShortestPathsFloydWarshall
+namespace all_pairs_shortest_paths_floyd_warshall
 {
-	// Graph Private Member Methods
-	void Graph::InitializeDistanceAndPredecessors()
+	// Graph private member methods
+	void Graph::initializeDistanceAndPredecessors()
 	{
 		this->_shortestPathMatrixFloydWarshall = this->_adjMatrix;
 
@@ -25,18 +25,18 @@ namespace AllPairsShortestPathsFloydWarshall
 		}
 	}
 
-	void Graph::GetShortestPath(int source, int destination, vector<int>& path)
+	void Graph::getShortestPath(int source, int destination, vector<int>& path)
 	{
 		if (this->_predecessorMatrix[source - 1][destination - 1] != source)
 		{
 			int predecessor = this->_predecessorMatrix[source - 1][destination - 1];
-			this->GetShortestPath(source, predecessor, path);
+			this->getShortestPath(source, predecessor, path);
 			path.push_back(predecessor);
 		}
 	}
 
-	// Graph Public Member Methods
-	void Graph::CreateGraph(int noOfVertices)
+	// Graph public member methods
+	void Graph::createGraph(int noOfVertices)
 	{
 		this->_noOfVertices = noOfVertices;
 		this->_adjMatrix = vector<vector<int>>(this->_noOfVertices, vector<int>(this->_noOfVertices, INT_MAX));
@@ -55,14 +55,14 @@ namespace AllPairsShortestPathsFloydWarshall
 		}
 	}
 
-	void Graph::PushDirectedEdge(int valueU, int valueV, int weight)
+	void Graph::pushDirectedEdge(int valueU, int valueV, int weight)
 	{
 		this->_adjMatrix[valueU - 1][valueV - 1] = weight;
 	}
 
-	void Graph::FindAllPairsShortestPathsFloydWarshallSolution()
+	void Graph::findAllPairsShortestPathsFloydWarshallSolution()
 	{
-		this->InitializeDistanceAndPredecessors();
+		this->initializeDistanceAndPredecessors();
 
 		for (int k = 0; k < this->_noOfVertices; k++)
 		{
@@ -82,7 +82,7 @@ namespace AllPairsShortestPathsFloydWarshall
 		}
 	}
 
-	vector<vector<int>> Graph::GetFloydWarshallShortestPath()
+	vector<vector<int>> Graph::getFloydWarshallShortestPath()
 	{
 		vector<vector<int>> result;
 		for (int i = 0; i < this->_noOfVertices; i++)
@@ -93,7 +93,7 @@ namespace AllPairsShortestPathsFloydWarshall
 				{
 					vector<int> path = {};
 					path.push_back(i + 1);
-					this->GetShortestPath(i + 1, j + 1, path);
+					this->getShortestPath(i + 1, j + 1, path);
 					path.push_back(j + 1);
 					result.push_back(path);
 				}

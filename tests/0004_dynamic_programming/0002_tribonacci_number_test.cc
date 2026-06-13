@@ -1,34 +1,34 @@
 #include <gtest/gtest.h>
-#include "0002_TribonacciNumber.h"
+#include "0002_tribonacci_number.h"
 using namespace std;
 
-namespace TribonacciNumber
+namespace tribonacci_number
 {
-	TEST(TribonacciNumber, RecursiveTest)
+	TEST(tribonacciNumber, recursiveTest)
 	{
-		// Arrange
+		// arrange
 		DynamicProgramming dp;
 		int n = 5;
 		int expectedFib = 2;
 
-		// Act
-		int actualFib = dp.RecursiveNthTribonacci(n);
+		// act
+		int actualFib = dp.recursiveNthTribonacci(n);
 
-		// Assert
+		// assert
 		ASSERT_EQ(expectedFib, actualFib);
 	}
 
-	TEST(TribonacciNumber, DpTest)
+	TEST(tribonacciNumber, dpTest)
 	{
-		// Arrange
+		// arrange
 		DynamicProgramming dp;
 		int n = 10;
 		int expectedFib = 44;
 
-		// Act
-		int actualFib = dp.DpNthTribonacci(n);
+		// act
+		int actualFib = dp.dpNthTribonacci(n);
 
-		// Assert
+		// assert
 		ASSERT_EQ(expectedFib, actualFib);
 	}
 }

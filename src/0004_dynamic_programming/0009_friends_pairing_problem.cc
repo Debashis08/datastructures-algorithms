@@ -1,28 +1,28 @@
-#include "0009_FriendsPairingProblem.h"
+#include "0009_friends_pairing_problem.h"
 
-namespace FriendsPairingProblem
+namespace friends_pairing_problem
 {
-	// Dynamic Programming Private Member Methods.
-	int DynamicProgramming::CountFriendsPairingsRecursiveHelper(int n)
+	// dynamic programming private member methods.
+	int DynamicProgramming::countFriendsPairingsRecursiveHelper(int n)
 	{
 		if (n <= 1)
 		{
 			return 1;
 		}
 		int result = 0;
-		result += this->CountFriendsPairingsRecursiveHelper(n - 1);
-		result += (n - 1) * this->CountFriendsPairingsRecursiveHelper(n - 2);
+		result += this->countFriendsPairingsRecursiveHelper(n - 1);
+		result += (n - 1) * this->countFriendsPairingsRecursiveHelper(n - 2);
 
 		return result;
 	}
 
-	// Dynamic Programming Public Member Methods.
-	int DynamicProgramming::RecursiveCountFriendsPairings(int n)
+	// dynamic programming public member methods.
+	int DynamicProgramming::recursiveCountFriendsPairings(int n)
 	{
-		return this->CountFriendsPairingsRecursiveHelper(n);
+		return this->countFriendsPairingsRecursiveHelper(n);
 	}
 
-	int DynamicProgramming::DpCountFriendsPairings(int n)
+	int DynamicProgramming::dpCountFriendsPairings(int n)
 	{
 		vector<int> dp(n + 1, 0);
 		dp[0] = 0;

@@ -1,9 +1,9 @@
-#include "0010_WaysToCoverDistance.h"
+#include "0010_ways_to_cover_distance.h"
 
-namespace WaysToCoverDistance
+namespace ways_to_cover_distance
 {
-	// Dynamic Programming Private Member Methods.
-	int DynamicProgramming::WaysToCoverDistanceRecursiveHelper(int dist)
+	// dynamic programming private member methods.
+	int DynamicProgramming::waysToCoverDistanceRecursiveHelper(int dist)
 	{
 		if (dist < 0)
 		{
@@ -16,20 +16,20 @@ namespace WaysToCoverDistance
 		}
 		
 		int result = 0;
-		result += this->WaysToCoverDistanceRecursiveHelper(dist - 1);
-		result += this->WaysToCoverDistanceRecursiveHelper(dist - 2);
-		result += this->WaysToCoverDistanceRecursiveHelper(dist - 3);
+		result += this->waysToCoverDistanceRecursiveHelper(dist - 1);
+		result += this->waysToCoverDistanceRecursiveHelper(dist - 2);
+		result += this->waysToCoverDistanceRecursiveHelper(dist - 3);
 		
 		return result;
 	}
 
-	// Dynamic Programming Public Member Methods.
-	int DynamicProgramming::RecursiveWaysToCoverDistance(int dist)
+	// dynamic programming public member methods.
+	int DynamicProgramming::recursiveWaysToCoverDistance(int dist)
 	{
-		return this->WaysToCoverDistanceRecursiveHelper(dist);
+		return this->waysToCoverDistanceRecursiveHelper(dist);
 	}
 
-	int DynamicProgramming::DpWaysToCoverDistance(int dist)
+	int DynamicProgramming::dpWaysToCoverDistance(int dist)
 	{
 		vector<int> dp(dist + 1, 0);
 		dp[0] = 1;

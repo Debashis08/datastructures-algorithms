@@ -1,12 +1,12 @@
-#include "0017_MaximumBipartiteMatching.h"
+#include "0017_maximum_bipartite_matching.h"
 #include <climits>
 #include <queue>
 using namespace std;
 
-namespace MaximumBipartiteMatching
+namespace maximum_bipartite_matching
 {
-	// Graph Private Member Methods
-	void Graph::ResolveAntiParallelEdges()
+	// Graph private member methods
+	void Graph::resolveAntiParallelEdges()
 	{
 		int countParallelEdges = 0;
 		for (int i = 0; i < this->_noOfVertices; i++)
@@ -20,12 +20,12 @@ namespace MaximumBipartiteMatching
 			}
 		}
 
-		// As i->j and j->i both edges has been counted, actual count is count = count / 2
+		// as i->j and j->i both edges has been counted, actual count is count = count / 2
 		countParallelEdges /= 2;
 
 		this->_flagParallelEdges = countParallelEdges > 0;
 
-		// If there are no anti-parallel edges, no need to modify the adjMatrix
+		// if there are no anti-parallel edges, no need to modify the adjMatrix
 		if (!this->_flagParallelEdges)
 		{
 			return;
@@ -33,7 +33,7 @@ namespace MaximumBipartiteMatching
 
 		int newNoOfVertices = this->_noOfVertices + countParallelEdges;
 
-		// Modifying the adjMatrix
+		// modifying the adjMatrix
 		for (auto& edge : this->_adjMatrix)
 		{
 			edge.resize(newNoOfVertices, 0);
@@ -43,7 +43,7 @@ namespace MaximumBipartiteMatching
 		this->_parent.resize(newNoOfVertices, -1);
 		this->_adjMatrix.resize(newNoOfVertices, vector<int>(newNoOfVertices, 0));
 
-		// Removing the anti-parallel edges by adding new nodes
+		// removing the anti-parallel edges by adding new nodes
 		for (int i = 0; i < this->_noOfVertices; i++)
 		{
 			for (int j = 0; j < this->_noOfVertices; j++)
@@ -58,14 +58,14 @@ namespace MaximumBipartiteMatching
 			}
 		}
 
-		// Updating the total no of vertices after modifying the adjMatrix
+		// updating the total no of vertices after modifying the adjMatrix
 		this->_noOfVertices = newNoOfVertices;
 	}
 
-	// This method is used to color the vertices of the graph to determine if the given graph is bipartite or not
-	void Graph::ColorGraph()
+	// this method is used to color the vertices of the graph to determine if the given graph is bipartite or not
+	void Graph::colorGraph()
 	{
-		// Color of all the vertices are initialised to WHITE
+		// color of all the vertices are initialised to WHITE
 		fill(this->_color.begin(), this->_color.end(), WHITE);
 
 		// Queue to hold the vertices
@@ -73,41 +73,41 @@ namespace MaximumBipartiteMatching
 
 		for (int node = 0; node < this->_noOfVertices; node++)
 		{
-			// Check if the node is already not colored
+			// check if the node is already not colored
 			if (this->_color[node] == WHITE)
 			{
-				// The color of the node is set to RED
+				// the color of the node is set to RED
 				this->_color[node] = RED;
 
-				// The node is inserted into the queue
+				// the node is inserted into the queue
 				nodeQueue.push(node);
 
-				// Using BFS method to color all the vertices
+				// using BFS method to color all the vertices
 				while (!nodeQueue.empty())
 				{
 					int nodeU = nodeQueue.front();
 					nodeQueue.pop();
 
-					// Iterating over G.Adj[nodeU]
+					// iterating over G.adj[nodeU]
 					for (int nodeV = 0; nodeV < this->_noOfVertices; nodeV++)
 					{
-						// As there are no self loops, continue
+						// as there are no self loops, continue
 						if (nodeU == nodeV)
 						{
 							continue;
 						}
-						// Check if there is an edge u --> v and nodeV is not colored yet
+						// check if there is an edge u --> v and nodeV is not colored yet
 						else if (this->_residualGraph[nodeU][nodeV] != 0 && this->_color[nodeV] == WHITE)
 						{
-							// Set the color of nodeV opposite of nodeU
+							// set the color of nodeV opposite of nodeU
 							this->_color[nodeV] = 1 - this->_color[nodeU];
-							// Insert the nodeV into the queue
+							// insert the nodeV into the queue
 							nodeQueue.push(nodeV);
 						}
-						// Check if there is an edge u --> v and nodeV is of same color as nodeU
+						// check if there is an edge u --> v and nodeV is of same color as nodeU
 						else if (this->_residualGraph[nodeU][nodeV] != 0 && this->_color[nodeV] == this->_color[nodeU])
 						{
-							// Set the _isBipartite flag to false and return
+							// set the _isBipartite flag to false and return
 							this->_isBipartite = false;
 							return;
 						}
@@ -116,18 +116,18 @@ namespace MaximumBipartiteMatching
 			}
 		}
 
-		// If the above operation completes without returning yet that indicates the graph is bipartite
-		// Set the _isBipartite flag to true and return
+		// if the above operation completes without returning yet that indicates the graph is bipartite
+		// set the _isBipartite flag to true and return
 		this->_isBipartite = true;
 		return;
 	}
 
-	// This method is used to create the additional edges
+	// this method is used to create the additional edges
 	// from the source vertex to the RED colored vertices and
 	// from the BLUE colored vertices to the sink vertex
-	void Graph::AddAdditionalEdges()
+	void Graph::addAdditionalEdges()
 	{
-		// Resizing the residual graph to accomodate space for the new edges
+		// resizing the residual graph to accomodate space for the new edges
 		for (auto& edge : this->_residualGraph)
 		{
 			edge.resize(this->_noOfVertices, 0);
@@ -138,16 +138,16 @@ namespace MaximumBipartiteMatching
 		this->_color.resize(this->_noOfVertices, WHITE);
 		this->_residualGraph.resize(this->_noOfVertices, vector<int>(this->_noOfVertices, 0));
 
-		// Creating the additional edges
+		// creating the additional edges
 		for (int node = 0; node < this->_source; node++)
 		{
-			// From source vertex --> RED colored vertices
+			// from source vertex --> RED colored vertices
 			if (this->_color[node] == RED)
 			{
 				this->_residualGraph[this->_source][node] = 1;
 			}
 
-			// From BLUE colored vertices --> sink vertex
+			// from BLUE colored vertices --> sink vertex
 			else if (this->_color[node] == BLUE)
 			{
 				this->_residualGraph[node][this->_sink] = 1;
@@ -155,13 +155,13 @@ namespace MaximumBipartiteMatching
 		}
 	}
 
-	// Implementation of BreadthFirstSearch for EdmondsKarp algorithm to find the path from source to sink
-	bool Graph::BreadthFirstSearch()
+	// implementation of breadthFirstSearch for edmondsKarp algorithm to find the path from source to sink
+	bool Graph::breadthFirstSearch()
 	{
-		// Resetting the visited values
+		// resetting the visited values
 		fill(this->_visited.begin(), this->_visited.end(), false);
 
-		// Resetting the parent values
+		// resetting the parent values
 		fill(this->_parent.begin(), this->_parent.end(), -1);
 
 		queue<int> nodeQueue;
@@ -184,12 +184,12 @@ namespace MaximumBipartiteMatching
 			}
 		}
 
-		// Returning the visited value of the sink vertex, initially it was set to false
+		// returning the visited value of the sink vertex, initially it was set to false
 		return this->_visited[this->_sink];
 	}
 
-	// Graph Public Member Methods
-	void Graph::CreateGraph(int noOfVertices)
+	// Graph public member methods
+	void Graph::createGraph(int noOfVertices)
 	{
 		this->_noOfVertices = noOfVertices;
 		this->_maximumFlow = 0;
@@ -200,32 +200,32 @@ namespace MaximumBipartiteMatching
 		this->_color = vector<int>(this->_noOfVertices, WHITE);
 	}
 
-	void Graph::PushDirectedEdge(int valueU, int valueV)
+	void Graph::pushDirectedEdge(int valueU, int valueV)
 	{
 		this->_adjMatrix[valueU][valueV] = 1;
 	}
 
-	int Graph::FindMaximumBipartiteMatching()
+	int Graph::findMaximumBipartiteMatching()
 	{
-		// Resolving all the parallel edges if present
-		this->ResolveAntiParallelEdges();
+		// resolving all the parallel edges if present
+		this->resolveAntiParallelEdges();
 		this->_residualGraph = this->_adjMatrix;
 
-		this->ColorGraph();
+		this->colorGraph();
 
 		this->_source = this->_noOfVertices;
 		this->_noOfVertices++;
 		this->_sink = this->_noOfVertices;
 		this->_noOfVertices++;
 
-		this->AddAdditionalEdges();
+		this->addAdditionalEdges();
 
-		// While there exists a path p from source to sink in the residual network G'
-		while (this->BreadthFirstSearch())
+		// while there exists a path p from source to sink in the residual network G'
+		while (this->breadthFirstSearch())
 		{
 			int augmentedPathFlow = 1;
 
-			// No need to find the minimum amount of augmentedPathFlow as like standard EdmondsKarp algorithm
+			// no need to find the minimum amount of augmentedPathFlow as like standard edmondsKarp algorithm
 			// as here capacity of each edges is 1
 			for (int nodeV = this->_sink; nodeV != this->_source; nodeV = this->_parent[nodeV])
 			{
@@ -239,14 +239,14 @@ namespace MaximumBipartiteMatching
 		return this->_maximumFlow;
 	}
 
-	// This method is used for finding the matchings
-	vector<vector<int>> Graph::GetMatchings()
+	// this method is used for finding the matchings
+	vector<vector<int>> Graph::getMatchings()
 	{
 		for (int nodeU = 0; nodeU < this->_adjMatrix.size(); nodeU++)
 		{
 			for (int nodeV = 0; nodeV < this->_adjMatrix.size(); nodeV++)
 			{
-				// Check if the nodeU and nodeV are not source or sink
+				// check if the nodeU and nodeV are not source or sink
 				// and there is a flow of 1 unit from nodeU --> nodeV
 				// which means nodeU --> nodeV is being used for the maximum flow (maximum matching)
 				if ((nodeU != this->_source || nodeU != this->_sink || nodeV != this->_source || nodeV != this->_sink) 

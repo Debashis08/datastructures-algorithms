@@ -4,9 +4,9 @@
 #include <vector>
 using namespace std;
 
-namespace MaximumBipartiteMatching
+namespace maximum_bipartite_matching
 {
-	enum Color
+	enum color
 	{
 		WHITE = -1,
 		RED = 0,
@@ -28,14 +28,14 @@ namespace MaximumBipartiteMatching
 		vector<bool> _visited;
 		vector<int> _color;
 		vector<vector<int>> _matchings;
-		void ResolveAntiParallelEdges();
-		void ColorGraph();
-		void AddAdditionalEdges();
-		bool BreadthFirstSearch();
+		void resolveAntiParallelEdges();
+		void colorGraph();
+		void addAdditionalEdges();
+		bool breadthFirstSearch();
 	public:
-		void CreateGraph(int noOfVertices);
-		void PushDirectedEdge(int valueU, int valueV);
-		int FindMaximumBipartiteMatching();
-		vector<vector<int>> GetMatchings();
+		void createGraph(int noOfVertices);
+		void pushDirectedEdge(int valueU, int valueV);
+		int findMaximumBipartiteMatching();
+		vector<vector<int>> getMatchings();
 	};
 }

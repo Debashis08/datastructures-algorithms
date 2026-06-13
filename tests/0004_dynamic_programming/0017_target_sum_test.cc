@@ -1,50 +1,50 @@
 #include <gtest/gtest.h>
-#include "0017_TargetSum.h"
+#include "0017_target_sum.h"
 
-namespace TargetSum
+namespace target_sum
 {
-	TEST(TargetSum, RecursiveSolutionTest_ValidInput_ReturnsCorrectResult)
+	TEST(targetSum, recursiveSolutionTest_ValidInput_ReturnsCorrectResult)
 	{
-		// Arrange
+		// arrange
 		DynamicProgramming dp;
 		vector<int> nums = { 1, 1, 1, 1, 1 };
 		int target = 3;
 		int expectedResult = 5;
 
-		// Act
-		int actualResult = dp.RecursiveFindTotalWays(nums, target);
+		// act
+		int actualResult = dp.recursiveFindTotalWays(nums, target);
 
-		// Assert
+		// assert
 		ASSERT_EQ(expectedResult, actualResult);
 	}
 
-	TEST(TargetSum, DpSolutionTest_ValidInput_ReturnsCorrectResult)
+	TEST(targetSum, dpSolutionTest_ValidInput_ReturnsCorrectResult)
 	{
-		// Arrange
+		// arrange
 		DynamicProgramming dp;
 		vector<int> nums = { 1, 1, 1, 1, 1 };
 		int target = 3;
 		int expectedResult = 5;
 
-		// Act
-		int actualResult = dp.DpFindTotalWays(nums, target);
+		// act
+		int actualResult = dp.dpFindTotalWays(nums, target);
 
-		// Assert
+		// assert
 		ASSERT_EQ(expectedResult, actualResult);
 	}
 
-	TEST(TargetSum, DpSolutionTest_TargetGreaterThanTotalSum_ReturnsZero)
+	TEST(targetSum, dpSolutionTest_TargetGreaterThanTotalSum_ReturnsZero)
 	{
-		// Arrange
+		// arrange
 		DynamicProgramming dp;
 		vector<int> nums = { 1, 1, 1, 1, 1 };
 		int target = -1000;
 		int expectedResult = 0;
 
-		// Act
-		int actualResult = dp.DpFindTotalWays(nums, target);
+		// act
+		int actualResult = dp.dpFindTotalWays(nums, target);
 
-		// Assert
+		// assert
 		ASSERT_EQ(expectedResult, actualResult);
 	}
 }

@@ -1,91 +1,91 @@
 #include <gtest/gtest.h>
-#include "0009_FriendsPairingProblem.h"
+#include "0009_friends_pairing_problem.h"
 
-namespace FriendsPairingProblem
+namespace friends_pairing_problem
 {
-	TEST(FriendsPairingProblemDynamicProgrammingTest, RecursiveCountFriendsPairingsTest1)
+	TEST(friendsPairingProblemDynamicProgrammingTest, recursiveCountFriendsPairingsTest1)
 	{
-		// Arrange
+		// arrange
 		DynamicProgramming dp;
 		int numberOfFriends = 3;
 		int expectedPairings = 4;
 		
-		// Act
-		int actualPairings = dp.RecursiveCountFriendsPairings(numberOfFriends);
+		// act
+		int actualPairings = dp.recursiveCountFriendsPairings(numberOfFriends);
 
-		// Assert
+		// assert
 		ASSERT_EQ(expectedPairings, actualPairings);
-		EXPECT_EQ(dp.RecursiveCountFriendsPairings(4), 10);
-		EXPECT_EQ(dp.RecursiveCountFriendsPairings(5), 26);
+		EXPECT_EQ(dp.recursiveCountFriendsPairings(4), 10);
+		EXPECT_EQ(dp.recursiveCountFriendsPairings(5), 26);
 	}
 
-	TEST(FriendsPairingProblemDynamicProgrammingTest, RecursiveCountFriendsPairingsTest2)
+	TEST(friendsPairingProblemDynamicProgrammingTest, recursiveCountFriendsPairingsTest2)
 	{
-		// Arrange
+		// arrange
 		DynamicProgramming dp;
 		int numberOfFriends = 4;
 		int expectedPairings = 10;
 
-		// Act
-		int actualPairings = dp.RecursiveCountFriendsPairings(numberOfFriends);
+		// act
+		int actualPairings = dp.recursiveCountFriendsPairings(numberOfFriends);
 
-		// Assert
+		// assert
 		ASSERT_EQ(expectedPairings, actualPairings);
 	}
 
-	TEST(FriendsPairingProblemDynamicProgrammingTest, RecursiveCountFriendsPairingsTest3)
+	TEST(friendsPairingProblemDynamicProgrammingTest, recursiveCountFriendsPairingsTest3)
 	{
-		// Arrange
+		// arrange
 		DynamicProgramming dp;
 		int numberOfFriends = 5;
 		int expectedPairings = 26;
 
-		// Act
-		int actualPairings = dp.RecursiveCountFriendsPairings(numberOfFriends);
+		// act
+		int actualPairings = dp.recursiveCountFriendsPairings(numberOfFriends);
 
-		// Assert
+		// assert
 		ASSERT_EQ(expectedPairings, actualPairings);
 	}
 
-	TEST(FriendsPairingProblemDynamicProgrammingTest, DpCountFriendsPairingsTest1)
+	TEST(friendsPairingProblemDynamicProgrammingTest, dpCountFriendsPairingsTest1)
 	{
-		// Arrange
+		// arrange
 		DynamicProgramming dp;
 		int numberOfFriends = 3;
 		int expectedPairings = 4;
 
-		// Act
-		int actualPairings = dp.RecursiveCountFriendsPairings(numberOfFriends);
+		// act
+		int actualPairings = dp.recursiveCountFriendsPairings(numberOfFriends);
 
-		// Assert
+		// assert
 		ASSERT_EQ(expectedPairings, actualPairings);
 	}
 
-	TEST(FriendsPairingProblemDynamicProgrammingTest, DpCountFriendsPairingsTest2)
+	TEST(friendsPairingProblemDynamicProgrammingTest, dpCountFriendsPairingsTest2)
 	{
-		// Arrange
+		// arrange
 		DynamicProgramming dp;
 		int numberOfFriends = 4;
 		int expectedPairings = 10;
 
-		// Act
-		int actualPairings = dp.RecursiveCountFriendsPairings(numberOfFriends);
+		// act
+		int actualPairings = dp.recursiveCountFriendsPairings(numberOfFriends);
 
-		// Assert
+		// assert
 		ASSERT_EQ(expectedPairings, actualPairings);
 	}
 
-	TEST(FriendsPairingProblemDynamicProgrammingTest, DpCountFriendsPairingsTest3)
+	TEST(friendsPairingProblemDynamicProgrammingTest, dpCountFriendsPairingsTest3)
 	{
-		// Arrange
+		// arrange
 		DynamicProgramming dp;
 		int numberOfFriends = 5;
 		int expectedPairings = 26;
 
-		// Act
-		int actualPairings = dp.RecursiveCountFriendsPairings(numberOfFriends);
+		// act
+		int actualPairings = dp.recursiveCountFriendsPairings(numberOfFriends);
 
-		// Assert
+		// assert
 		ASSERT_EQ(expectedPairings, actualPairings);
 	}
 }

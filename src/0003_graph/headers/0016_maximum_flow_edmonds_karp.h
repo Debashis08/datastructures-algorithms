@@ -4,7 +4,7 @@
 #include <vector>
 using namespace std;
 
-namespace MaximumFlowEdmondsKarp
+namespace maximum_flow_edmonds_karp
 {
 	class Graph
 	{
@@ -18,11 +18,11 @@ namespace MaximumFlowEdmondsKarp
 		vector<vector<int>> _residualGraph;
 		vector<int> _parent;
 		vector<bool> _visited;
-		void ResolveAntiParallelEdges();
-		bool BreadthFirstSearch();
+		void resolveAntiParallelEdges();
+		bool breadthFirstSearch();
 	public:
-		void CreateGraph(int noOfVertices);
-		void PushDirectedEdge(int valueU, int valueV, int capacity);
-		int FindMaximumFlowEdmondsKarp();
+		void createGraph(int noOfVertices);
+		void pushDirectedEdge(int valueU, int valueV, int capacity);
+		int findMaximumFlowEdmondsKarp();
 	};
 }

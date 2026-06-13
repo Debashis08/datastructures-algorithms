@@ -6,7 +6,7 @@
 #include <vector>
 using namespace std;
 
-namespace TopologicalSort
+namespace topological_sort
 {
     enum color { WHITE, GRAY, BLACK };
 
@@ -30,13 +30,13 @@ namespace TopologicalSort
         map<Node*, list<Node*>> _adjlist;
         map<int, Node*> _nodeMap;
         list<Node*> _topologicalSortedNodeList;
-        Node* MakeOrFindNode(int value);
-        void DepthFirstSearch(Node* DFSNode);
+        Node* makeOrFindNode(int value);
+        void depthFirstSearch(Node* dFSNode);
     public:
-        void PushDirectedEdge(int valueU, int valueV);
-        void PushSingleNode(int valueU);
-        void TopologicalSort();
-        void KahnTopologicalSort();
-        vector<pair<int, pair<int, int>>> ShowTopologicalSortResult();
+        void pushDirectedEdge(int valueU, int valueV);
+        void pushSingleNode(int valueU);
+        void topologicalSort();
+        void kahnTopologicalSort();
+        vector<pair<int, pair<int, int>>> showTopologicalSortResult();
     };
 }

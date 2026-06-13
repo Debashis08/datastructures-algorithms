@@ -4,7 +4,7 @@
 #include <vector>
 using namespace std;
 
-namespace MaximumFlowFordFulkerson
+namespace maximum_flow_ford_fulkerson
 {
 	class Graph
 	{
@@ -18,12 +18,12 @@ namespace MaximumFlowFordFulkerson
 		vector<vector<int>> _residualGraph;
 		vector<int> _parent;
 		vector<bool> _visited;
-		void ResolveAntiParallelEdges();
-		void DepthFirstSearchVisit(int nodeU);
-		bool DepthFirstSearch();
+		void resolveAntiParallelEdges();
+		void depthFirstSearchVisit(int nodeU);
+		bool depthFirstSearch();
 	public:
-		void CreateGraph(int noOfVertices);
-		void PushDirectedEdge(int valueU, int valueV, int capacity);
-		int FindMaximumFlowFordFulkerson();
+		void createGraph(int noOfVertices);
+		void pushDirectedEdge(int valueU, int valueV, int capacity);
+		int findMaximumFlowFordFulkerson();
 	};
 }

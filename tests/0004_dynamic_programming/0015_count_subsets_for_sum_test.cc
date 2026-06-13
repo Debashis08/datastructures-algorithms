@@ -1,35 +1,35 @@
-#include<gtest/gtest.h>
-#include"0015_CountSubsetsForSum.h"
+#include <gtest/gtest.h>
+#include "0015_count_subsets_for_sum.h"
 
-namespace CountSubsetsForSum
+namespace count_subsets_for_sum
 {
-	TEST(CountSubsetsForSum, RecursiveCountSubsetSum)
+	TEST(countSubsetsForSum, recursiveCountSubsetSum)
 	{
-		// Arrange
+		// arrange
 		DynamicProgramming dp;
 		vector<int> nums = { 1, 2, 3, 3 };
 		int sum = 6;
 		int expectedCount = 3;
 
-		// Act
-		int actualCount = dp.RecursiveCountSubsets(nums, sum);
+		// act
+		int actualCount = dp.recursiveCountSubsets(nums, sum);
 
-		// Assert
+		// assert
 		ASSERT_EQ(expectedCount, actualCount);
 	}
 
-	TEST(CountSubsetsForSum, DpCountSubsetSum)
+	TEST(countSubsetsForSum, dpCountSubsetSum)
 	{
-		// Arrange
+		// arrange
 		DynamicProgramming dp;
 		vector<int> nums = { 1, 2, 3, 3 };
 		int sum = 6;
 		int expectedCount = 3;
 
-		// Act
-		int actualCount = dp.DpCountSubsets(nums, sum);
+		// act
+		int actualCount = dp.dpCountSubsets(nums, sum);
 
-		// Assert
+		// assert
 		ASSERT_EQ(expectedCount, actualCount);
 	}
 }

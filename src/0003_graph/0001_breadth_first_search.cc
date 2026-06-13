@@ -1,4 +1,4 @@
-#include "0001_BreadthFirstSearch.h"
+#include "0001_breadth_first_search.h"
 #include <iostream>
 #include <queue>
 #include <vector>
@@ -7,7 +7,7 @@
 #include <climits>
 using namespace std;
 
-namespace BreadthFirstSearch
+namespace breadth_first_search
 {
 	Node::Node(int value)
 	{
@@ -17,7 +17,7 @@ namespace BreadthFirstSearch
 		this->parent = nullptr;
 	}
 
-	Node* Graph::MakeOrFindNode(int value)
+	Node* Graph::makeOrFindNode(int value)
 	{
 		Node* node = nullptr;
 		if (this->_nodeMap.find(value) == this->_nodeMap.end())
@@ -32,7 +32,7 @@ namespace BreadthFirstSearch
 		return node;
 	}
 
-	void Graph::BreadthFirstSearch(Node* node)
+	void Graph::breadthFirstSearch(Node* node)
 	{
 		node->color = WHITE;
 		node->distance = 0;
@@ -60,10 +60,10 @@ namespace BreadthFirstSearch
 		}
 	}
 
-	void Graph::PushUndirectedEdge(int valueU, int valueV)
+	void Graph::pushUndirectedEdge(int valueU, int valueV)
 	{
-		Node* nodeU = this->MakeOrFindNode(valueU);
-		Node* nodeV = this->MakeOrFindNode(valueV);
+		Node* nodeU = this->makeOrFindNode(valueU);
+		Node* nodeV = this->makeOrFindNode(valueV);
 
 		this->_adjlist[nodeU].push_back(nodeV);
 		this->_adjlist[nodeV].push_back(nodeU);
@@ -71,10 +71,10 @@ namespace BreadthFirstSearch
 
 	void Graph::BFS(int value)
 	{
-		this->BreadthFirstSearch(this->_nodeMap[value]);
+		this->breadthFirstSearch(this->_nodeMap[value]);
 	}
 
-	vector<pair<int, int>> Graph::ShowBFSResult()
+	vector<pair<int, int>> Graph::showBFSResult()
 	{
 		vector<pair<int, int>> result;
 		for (auto& node : this->_nodeMap)

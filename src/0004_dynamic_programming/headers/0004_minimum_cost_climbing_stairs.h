@@ -3,23 +3,23 @@
 using namespace std;
 
 /*
-Pattern 1
-Linear Recurrence
+pattern 1
+linear recurrence
 
-Description
-Given an array of integers cost[] of length n, where cost[i] is the cost of the ith step on a staircase. Once the cost is paid, we can either climb 1 or 2 steps.
-We can either start from the step with index 0, or the step with index 1. The task is to find the minimum cost to reach the top.
+description
+given an array of integers cost[] of length n, where cost[i] is the cost of the ith step on a staircase. once the cost is paid, we can either climb 1 or 2 steps.
+we can either start from the step with index 0, or the step with index 1. the task is to find the minimum cost to reach the top.
 
 */
 
-namespace MinimumCostClimbingStairs
+namespace minimum_cost_climbing_stairs
 {
 	class DynamicProgramming
 	{
 	private:
-		int MinCostRecursive(size_t step, vector<int>& cost);
+		int minCostRecursive(size_t step, vector<int>& cost);
 	public:
-		int RecursiveMinimumCostClimbingStairs(vector<int>& cost);
-		int DpMinimumCostClimbingStairs(vector<int>& cost);
+		int recursiveMinimumCostClimbingStairs(vector<int>& cost);
+		int dpMinimumCostClimbingStairs(vector<int>& cost);
 	};
 }

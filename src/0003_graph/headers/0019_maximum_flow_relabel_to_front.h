@@ -4,7 +4,7 @@
 #include <list>
 using namespace std;
 
-namespace MaximumFlowRelabelToFront
+namespace maximum_flow_relabel_to_front
 {
 	class Graph
 	{
@@ -19,13 +19,13 @@ namespace MaximumFlowRelabelToFront
 		vector<int> _height;
 		vector<bool> _visited;
 		list<int> _nodeList;
-		void InitializePreflow();
-		void Discharge(int nodeU);
-		void Push(int nodeU, int nodeV);
-		void Relabel(int nodeU);
+		void initializePreflow();
+		void discharge(int nodeU);
+		void push(int nodeU, int nodeV);
+		void relabel(int nodeU);
 	public:
-		void CreateGraph(int noOfVertices);
-		void PushDirectedEdge(int valueU, int valueV, int capacity);
-		int FindMaximumFlowRelabelToFront();
+		void createGraph(int noOfVertices);
+		void pushDirectedEdge(int valueU, int valueV, int capacity);
+		int findMaximumFlowRelabelToFront();
 	};
 }

@@ -5,7 +5,7 @@
 #include <vector>
 using namespace std;
 
-namespace DifferenceConstraintsShortestPaths
+namespace difference_constraints_shortest_paths
 {
 	class Node
 	{
@@ -30,14 +30,14 @@ namespace DifferenceConstraintsShortestPaths
 		map<Node*, vector<Node*>> _adjlist;
 		map<string, Node*> _nodeMap;
 		vector<Edge*> _edgeList;
-		Node* MakeOrFindNode(string data);
-		void PushDirectedEdge(string valueU, string valueV, int weight);
-		void InitializeSingleSource(Node* sourceNode);
-		void Relax(Edge* edge);
+		Node* makeOrFindNode(string data);
+		void pushDirectedEdge(string valueU, string valueV, int weight);
+		void initializeSingleSource(Node* sourceNode);
+		void relax(Edge* edge);
 
 	public:
-		void PushAllDirectedEdges(vector<vector<int>> vectorA, vector<string> vectorX, vector<int> vectorB);
-		bool FindDifferenceConstraintsSolutionBellmanFord();
-		vector<pair<string, int>> GetDifferenceConstrtaintsSolution();
+		void pushAllDirectedEdges(vector<vector<int>> vectorA, vector<string> vectorX, vector<int> vectorB);
+		bool findDifferenceConstraintsSolutionBellmanFord();
+		vector<pair<string, int>> getDifferenceConstrtaintsSolution();
 	};
 }

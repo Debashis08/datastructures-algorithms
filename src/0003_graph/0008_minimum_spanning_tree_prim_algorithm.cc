@@ -1,9 +1,9 @@
-#include "0008_MinimumSpanningTreePrimAlgorithm.h"
+#include "0008_minimum_spanning_tree_prim_algorithm.h"
 #include <climits>
 using namespace std;
 
 
-namespace MinimumSpanningTreePrimAlgorithm
+namespace minimum_spanning_tree_prim_algorithm
 {
 	Node::Node(int data)
 	{
@@ -13,8 +13,8 @@ namespace MinimumSpanningTreePrimAlgorithm
 		this->isInOperationalSet = false;
 	}
 
-	// Graph Private Member Methods
-	Node* Graph::MakeOrFindNode(int data)
+	// Graph private member methods
+	Node* Graph::makeOrFindNode(int data)
 	{
 		Node* node = nullptr;
 		if (this->_nodeMap.find(data) == this->_nodeMap.end())
@@ -29,17 +29,17 @@ namespace MinimumSpanningTreePrimAlgorithm
 		return node;
 	}
 
-	// Graph Public Member Methods
-	void Graph::PushUndirectedEdge(int dataU, int dataV, int weight)
+	// Graph public member methods
+	void Graph::pushUndirectedEdge(int dataU, int dataV, int weight)
 	{
-		Node* nodeU = this->MakeOrFindNode(dataU);
-		Node* nodeV = this->MakeOrFindNode(dataV);
+		Node* nodeU = this->makeOrFindNode(dataU);
+		Node* nodeV = this->makeOrFindNode(dataV);
 
 		this->_adjlist[nodeU].push_back({nodeV, weight});
 		this->_adjlist[nodeV].push_back({nodeU, weight});
 	}
 
-	void Graph::FindMinimumSpanningTreePrimAlgorithm()
+	void Graph::findMinimumSpanningTreePrimAlgorithm()
 	{
 		Node* root = this->_nodeMap.begin()->second;
 
@@ -78,7 +78,7 @@ namespace MinimumSpanningTreePrimAlgorithm
 		}
 	}
 
-	vector<pair<pair<int, int>, int>> Graph::GetMinimumSpanningTree()
+	vector<pair<pair<int, int>, int>> Graph::getMinimumSpanningTree()
 	{
 		return this->_minimumSpanningTree;
 	}

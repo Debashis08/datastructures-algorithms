@@ -5,7 +5,7 @@
 #include <list>
 using namespace std;
 
-namespace MinimumSpanningTreeKruskalAlgorithm
+namespace minimum_spanning_tree_kruskal_algorithm
 {
 	class Node
 	{
@@ -32,15 +32,15 @@ namespace MinimumSpanningTreeKruskalAlgorithm
 		map<int, Node*> _nodeMap;
 		vector<Edge*> _edgeList;
 		vector<pair<pair<int, int>, int>> _minimumSpanningTree;
-		Node* MakeOrFindNode(int data);
-		void MakeSet(Node* node);
-		void Union(Node* nodeU, Node* nodeV);
-		void Link(Node* nodeU, Node* nodeV);
-		Node* FindSet(Node* node);
+		Node* makeOrFindNode(int data);
+		void makeSet(Node* node);
+		void unionSet(Node* nodeU, Node* nodeV);
+		void link(Node* nodeU, Node* nodeV);
+		Node* findSet(Node* node);
 
 	public:
-		void PushUndirectedEdge(int valueU, int valueV, int weight);
-		void FindMinimumSpanningTreeKruskalAlgorithm();
-		vector<pair<pair<int, int>, int>> GetMinimumSpanningTree();
+		void pushUndirectedEdge(int valueU, int valueV, int weight);
+		void findMinimumSpanningTreeKruskalAlgorithm();
+		vector<pair<pair<int, int>, int>> getMinimumSpanningTree();
 	};
 }

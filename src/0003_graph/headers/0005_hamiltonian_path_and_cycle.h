@@ -5,7 +5,7 @@
 #include <vector>
 using namespace std;
 
-namespace HamiltonianPathAndCycle
+namespace hamiltonian_path_and_cycle
 {
 	class Node
 	{
@@ -25,16 +25,16 @@ namespace HamiltonianPathAndCycle
 		map<Node*, unordered_set<Node*>> _adjlist;
 		map<int, Node*> _nodeMap;
 		vector<int> _hamiltonianPath;
-		Node* MakeOrFindNode(int value);
-		bool IsSafe(Node* nodeU, Node* nodeV);
-		bool HamiltonianCycleAndPathUtil(Node* node);
+		Node* makeOrFindNode(int value);
+		bool isSafe(Node* nodeU, Node* nodeV);
+		bool hamiltonianCycleAndPathUtil(Node* node);
 
 	public:
-		void PushUndirectedEdge(int valueU, int valueV);
-		void PushSingleNode(int valueU);
-		void FindHamiltonianCycleAndPath();
-		bool IsHamiltonianCyclePresent();
-		bool IsHamiltonianPathPresent();
-		vector<int> GetHamiltonianPath();
+		void pushUndirectedEdge(int valueU, int valueV);
+		void pushSingleNode(int valueU);
+		void findHamiltonianCycleAndPath();
+		bool isHamiltonianCyclePresent();
+		bool isHamiltonianPathPresent();
+		vector<int> getHamiltonianPath();
 	};
 }

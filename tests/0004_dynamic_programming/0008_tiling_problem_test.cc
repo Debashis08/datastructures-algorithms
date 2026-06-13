@@ -1,33 +1,33 @@
 #include <gtest/gtest.h>
-#include "0008_TilingProblem.h"
+#include "0008_tiling_problem.h"
 
-namespace TilingProblem
+namespace tiling_problem
 {
-	TEST(TilingProblem, RecursionTest01)
+	TEST(tilingProblem, recursionTest01)
 	{
-		// Arrange
+		// arrange
 		DynamicProgramming dp;
 		int nummberOfRows = 4;
 		int expectedNumberOfWays = 5;
 
-		// Act
-		int actualNumberOfWays = dp.RecursiveNumberOfWays(nummberOfRows);
+		// act
+		int actualNumberOfWays = dp.recursiveNumberOfWays(nummberOfRows);
 
-		// Assert
+		// assert
 		ASSERT_EQ(expectedNumberOfWays, actualNumberOfWays);
 	}
 
-	TEST(TilingProblem, DpTest01)
+	TEST(tilingProblem, dpTest01)
 	{
-		// Arrange
+		// arrange
 		DynamicProgramming dp;
 		int nummberOfRows = 4;
 		int expectedNumberOfWays = 5;
 
-		// Act
-		int actualNumberOfWays = dp.DpNumberOfWays(nummberOfRows);
+		// act
+		int actualNumberOfWays = dp.dpNumberOfWays(nummberOfRows);
 
-		// Assert
+		// assert
 		ASSERT_EQ(expectedNumberOfWays, actualNumberOfWays);
 	}
 }

@@ -1,13 +1,13 @@
 #include <gtest/gtest.h>
-#include "0012_DifferenceConstraintsShortestPaths.h"
-#include"../0000_common_utilities/UnitTestHelper.h"
+#include "0012_difference_constraints_shortest_paths.h"
+#include"../0000_common_utilities/unit_test_helper.h"
 using namespace std;
 
-namespace DifferenceConstraintsShortestPaths
+namespace difference_constraints_shortest_paths
 {
 	UnitTestHelper unitTestHelper;
 
-	TEST(DifferenceConstraints, SimpleGraph)
+	TEST(differenceConstraints, simpleGraph)
 	{
 		Graph graph;
 
@@ -32,9 +32,9 @@ namespace DifferenceConstraintsShortestPaths
 			{"v4", -1},
 			{"v3", 0},
 		};
-		graph.PushAllDirectedEdges(vectorA, vectorX, vectorB);
+		graph.pushAllDirectedEdges(vectorA, vectorX, vectorB);
 
-		ASSERT_TRUE(graph.FindDifferenceConstraintsSolutionBellmanFord());
-		ASSERT_EQ(unitTestHelper.SortVectorOfPairAndSerialize(graph.GetDifferenceConstrtaintsSolution()), unitTestHelper.SortVectorOfPairAndSerialize(expectedSolution));
+		ASSERT_TRUE(graph.findDifferenceConstraintsSolutionBellmanFord());
+		ASSERT_EQ(unitTestHelper.sortVectorOfPairAndSerialize(graph.getDifferenceConstrtaintsSolution()), unitTestHelper.sortVectorOfPairAndSerialize(expectedSolution));
 	}
 }

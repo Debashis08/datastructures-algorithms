@@ -1,9 +1,9 @@
-#include "0007_MinimumSpanningTreeKruskalAlgorithm.h"
+#include "0007_minimum_spanning_tree_kruskal_algorithm.h"
 #include <climits>
 #include <algorithm>
 using namespace std;
 
-namespace MinimumSpanningTreeKruskalAlgorithm
+namespace minimum_spanning_tree_kruskal_algorithm
 {
 	Node::Node(int data)
 	{
@@ -19,8 +19,8 @@ namespace MinimumSpanningTreeKruskalAlgorithm
 		this->weight = weight;
 	}
 
-	// Graph Private Member Methods
-	Node* Graph::MakeOrFindNode(int data)
+	// Graph private member methods
+	Node* Graph::makeOrFindNode(int data)
 	{
 		Node* node = nullptr;
 		if (this->_nodeMap.find(data) == this->_nodeMap.end())
@@ -35,18 +35,18 @@ namespace MinimumSpanningTreeKruskalAlgorithm
 		return node;
 	}
 
-	void Graph::MakeSet(Node* node)
+	void Graph::makeSet(Node* node)
 	{
 		node->parent = node;
 		node->rank = 0;
 	}
 
-	void Graph::Union(Node* nodeU, Node* nodeV)
+	void Graph::unionSet(Node* nodeU, Node* nodeV)
 	{
-		this->Link(this->FindSet(nodeU), this->FindSet(nodeV));
+		this->link(this->findSet(nodeU), this->findSet(nodeV));
 	}
 
-	void Graph::Link(Node* nodeU, Node* nodeV)
+	void Graph::link(Node* nodeU, Node* nodeV)
 	{
 		if (nodeV->rank > nodeU->rank)
 		{
@@ -62,46 +62,46 @@ namespace MinimumSpanningTreeKruskalAlgorithm
 		}
 	}
 
-	Node* Graph::FindSet(Node* node)
+	Node* Graph::findSet(Node* node)
 	{
 		if (node != node->parent)
 		{
-			node->parent = this->FindSet(node->parent);
+			node->parent = this->findSet(node->parent);
 		}
 		return node->parent;
 	}
 
-	// Graph Public Member Methods
-	void Graph::PushUndirectedEdge(int dataU, int dataV, int weight)
+	// Graph public member methods
+	void Graph::pushUndirectedEdge(int dataU, int dataV, int weight)
 	{
-		Node* nodeU = this->MakeOrFindNode(dataU);
-		Node* nodeV = this->MakeOrFindNode(dataV);
+		Node* nodeU = this->makeOrFindNode(dataU);
+		Node* nodeV = this->makeOrFindNode(dataV);
 
 		this->_adjlist[nodeU].push_back(nodeV);
 		this->_adjlist[nodeV].push_back(nodeU);
 		this->_edgeList.push_back(new Edge(nodeU, nodeV, weight));
 	}
 
-	void Graph::FindMinimumSpanningTreeKruskalAlgorithm()
+	void Graph::findMinimumSpanningTreeKruskalAlgorithm()
 	{
 		for (auto& iterator : this->_nodeMap)
 		{
-			this->MakeSet(iterator.second);
+			this->makeSet(iterator.second);
 		}
 		
 		sort(this->_edgeList.begin(), this->_edgeList.end(), [](Edge* edgeX, Edge* edgeY) { return edgeX->weight < edgeY->weight; });
 
 		for (auto& edge : this->_edgeList)
 		{
-			if (this->FindSet(edge->nodeU) != this->FindSet(edge->nodeV))
+			if (this->findSet(edge->nodeU) != this->findSet(edge->nodeV))
 			{
-				this->Union(edge->nodeU, edge->nodeV);
+				this->unionSet(edge->nodeU, edge->nodeV);
 				this->_minimumSpanningTree.push_back({ {edge->nodeU->data, edge->nodeV->data}, edge->weight });
 			}
 		}
 	}
 
-	vector<pair<pair<int, int>, int>> Graph::GetMinimumSpanningTree()
+	vector<pair<pair<int, int>, int>> Graph::getMinimumSpanningTree()
 	{
 		return this->_minimumSpanningTree;
 	}

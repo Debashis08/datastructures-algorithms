@@ -3,21 +3,21 @@
 using namespace std;
 
 /*
-Pattern 1
-Linear Recurrence
+pattern 1
+linear recurrence
 
-Description
-Print the n'th Fibonacci number.
+description
+print the n'th fibonacci number.
 
 */
 
-namespace FibonacciNumber
+namespace fibonacci_number
 {
 	class DynamicProgramming
 	{
 	private:
 	public:
-		int RecursiveNthFibonacci(int n);
-		int DpNthFibonacci(int n);
+		int recursiveNthFibonacci(int n);
+		int dpNthFibonacci(int n);
 	};
 }

@@ -1,7 +1,7 @@
-#include "0005_HamiltonianPathAndCycle.h"
+#include "0005_hamiltonian_path_and_cycle.h"
 
 using namespace std;
-namespace HamiltonianPathAndCycle
+namespace hamiltonian_path_and_cycle
 {
 	Node::Node(int value)
 	{
@@ -9,8 +9,8 @@ namespace HamiltonianPathAndCycle
 		this->isVisited = false;
 	}
 
-	// Graph Private Member Methods
-	Node* Graph::MakeOrFindNode(int value)
+	// Graph private member methods
+	Node* Graph::makeOrFindNode(int value)
 	{
 		Node* node = nullptr;
 		if (this->_nodeMap.find(value) == this->_nodeMap.end())
@@ -25,7 +25,7 @@ namespace HamiltonianPathAndCycle
 		return node;
 	}
 
-	bool Graph::IsSafe(Node* nodeU, Node* nodeV)
+	bool Graph::isSafe(Node* nodeU, Node* nodeV)
 	{
 		if (this->_adjlist[nodeU].find(nodeV) == this->_adjlist[nodeU].end())
 		{
@@ -38,7 +38,7 @@ namespace HamiltonianPathAndCycle
 		return true;
 	}
 
-	bool Graph::HamiltonianCycleAndPathUtil(Node* nodeU)
+	bool Graph::hamiltonianCycleAndPathUtil(Node* nodeU)
 	{
 		if (this->_visitedNodeCount == this->_nodeMap.size())
 		{
@@ -53,12 +53,12 @@ namespace HamiltonianPathAndCycle
 		}
 		for (auto& nodeV : this->_adjlist[nodeU])
 		{
-			if (this->IsSafe(nodeU, nodeV))
+			if (this->isSafe(nodeU, nodeV))
 			{
 				this->_hamiltonianPath.push_back(nodeV->data);
 				nodeV->isVisited = true;
 				this->_visitedNodeCount++;
-				if (this->HamiltonianCycleAndPathUtil(nodeV))
+				if (this->hamiltonianCycleAndPathUtil(nodeV))
 				{
 					return true;
 				}
@@ -70,22 +70,22 @@ namespace HamiltonianPathAndCycle
 		return false;
 	}
 
-	// Graph Public Member Methods
-	void Graph::PushUndirectedEdge(int valueU, int valueV)
+	// Graph public member methods
+	void Graph::pushUndirectedEdge(int valueU, int valueV)
 	{
-		Node* nodeU = this->MakeOrFindNode(valueU);
-		Node* nodeV = this->MakeOrFindNode(valueV);
+		Node* nodeU = this->makeOrFindNode(valueU);
+		Node* nodeV = this->makeOrFindNode(valueV);
 
 		this->_adjlist[nodeU].insert(nodeV);
 		this->_adjlist[nodeV].insert(nodeU);
 	}
 
-	void Graph::PushSingleNode(int valueU)
+	void Graph::pushSingleNode(int valueU)
 	{
-		this->MakeOrFindNode(valueU);
+		this->makeOrFindNode(valueU);
 	}
 
-	void Graph::FindHamiltonianCycleAndPath()
+	void Graph::findHamiltonianCycleAndPath()
 	{
 		this->_isHamiltonianCyclePresent = false;
 		this->_isHamiltonianPathPresent = false;
@@ -94,20 +94,20 @@ namespace HamiltonianPathAndCycle
 		this->_hamiltonianPath.push_back(this->_startingNode->data);
 		this->_startingNode->isVisited = true;
 		this->_visitedNodeCount = 1;
-		this->HamiltonianCycleAndPathUtil(this->_startingNode);
+		this->hamiltonianCycleAndPathUtil(this->_startingNode);
 	}
 
-	bool Graph::IsHamiltonianCyclePresent()
+	bool Graph::isHamiltonianCyclePresent()
 	{
 		return this->_isHamiltonianCyclePresent;
 	}
 
-	bool Graph::IsHamiltonianPathPresent()
+	bool Graph::isHamiltonianPathPresent()
 	{
 		return this->_isHamiltonianPathPresent;
 	}
 
-	vector<int> Graph::GetHamiltonianPath()
+	vector<int> Graph::getHamiltonianPath()
 	{
 		return this->_hamiltonianPath;
 	}

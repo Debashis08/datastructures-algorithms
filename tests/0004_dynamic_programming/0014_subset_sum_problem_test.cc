@@ -1,35 +1,35 @@
 #include <gtest/gtest.h>
-#include "0014_SubsetSumProblem.h"
+#include "0014_subset_sum_problem.h"
 
-namespace SubsetSumProblem
+namespace subset_sum_problem
 {
-	TEST(SubsetSumProblemTest, RecursiveSubsetSumTest)
+	TEST(subsetSumProblemTest, recursiveSubsetSumTest)
 	{
-		// Arrange
+		// arrange
 		DynamicProgramming dp;
 		vector<int> nums = { 3, 34, 4, 12, 5, 2 };
 		int sum = 9;
 		bool expectedResult = true;
 
-		// Act
-		bool actualResult = dp.RecursiveSubsetSum(nums, sum);
+		// act
+		bool actualResult = dp.recursiveSubsetSum(nums, sum);
 
-		// Assert
+		// assert
 		ASSERT_EQ(expectedResult, actualResult);
 	}
 
-	TEST(SubsetSumProblemTest, DpSubsetSumTest)
+	TEST(subsetSumProblemTest, dpSubsetSumTest)
 	{
-		// Arrange
+		// arrange
 		DynamicProgramming dp;
 		vector<int> nums = { 3, 34, 4, 12, 5, 2 };
 		int sum = 9;
 		bool expectedResult = true;
 
-		// Act
-		bool actualResult = dp.DpIsSubsetSum(nums, sum);
+		// act
+		bool actualResult = dp.dpIsSubsetSum(nums, sum);
 
-		// Assert
+		// assert
 		ASSERT_EQ(expectedResult, actualResult);
 	}
 }

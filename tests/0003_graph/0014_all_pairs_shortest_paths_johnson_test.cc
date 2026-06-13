@@ -1,15 +1,15 @@
 #include <gtest/gtest.h>
-#include "0014_AllPairsShortestPathsJohnson.h"
-#include"../0000_common_utilities/UnitTestHelper.h"
+#include "0014_all_pairs_shortest_paths_johnson.h"
+#include"../0000_common_utilities/unit_test_helper.h"
 using namespace std;
 
-namespace AllPairsShortestPathsJohnson
+namespace all_pairs_shortest_paths_johnson
 {
 	UnitTestHelper unitTestHelper;
 
-	TEST(JohnsonAlgorithm, SimpleGraph)
+	TEST(johnsonAlgorithm, simpleGraph)
 	{
-		// Arrange
+		// arrange
 		Graph graph;
 		vector<vector<int>> expectedDistanceMatrix =
 		{
@@ -21,22 +21,22 @@ namespace AllPairsShortestPathsJohnson
 		};
 		string expectedPredecessorMatrixesult = "[1 5 4 3 2][1 5 4 3][1 5 4][1 5][2 4 1][2 4 3][2 4][2 4 1 5][3 2 4 1][3 2][3 2 4][3 2 4 1 5][4 1][4 3 2][4 3][4 1 5][5 4 1][5 4 3 2][5 4 3][5 4]";
 
-		// Act
-		graph.PushDirectedEdge(1, 2, 3);
-		graph.PushDirectedEdge(1, 3, 8);
-		graph.PushDirectedEdge(1, 5, -4);
-		graph.PushDirectedEdge(2, 4, 1);
-		graph.PushDirectedEdge(2, 5, 7);
-		graph.PushDirectedEdge(3, 2, 4);
-		graph.PushDirectedEdge(4, 3, -5);
-		graph.PushDirectedEdge(4, 1, 2);
-		graph.PushDirectedEdge(5, 4, 6);
+		// act
+		graph.pushDirectedEdge(1, 2, 3);
+		graph.pushDirectedEdge(1, 3, 8);
+		graph.pushDirectedEdge(1, 5, -4);
+		graph.pushDirectedEdge(2, 4, 1);
+		graph.pushDirectedEdge(2, 5, 7);
+		graph.pushDirectedEdge(3, 2, 4);
+		graph.pushDirectedEdge(4, 3, -5);
+		graph.pushDirectedEdge(4, 1, 2);
+		graph.pushDirectedEdge(5, 4, 6);
 
-		bool result = graph.FindAllPairsShortestPathsJohnsonAlgorithm();
-		vector<vector<int>> actualDistanceMatrix = graph.GetAllPairsShortestPathsDistanceMatrix();
-		string actualPredecessorMatrix = unitTestHelper.SerializeVectorToString(graph.GetAllPairsShortestPathsPathMatrix());
+		bool result = graph.findAllPairsShortestPathsJohnsonAlgorithm();
+		vector<vector<int>> actualDistanceMatrix = graph.getAllPairsShortestPathsDistanceMatrix();
+		string actualPredecessorMatrix = unitTestHelper.serializeVectorToString(graph.getAllPairsShortestPathsPathMatrix());
 
-		// Assert
+		// assert
 		ASSERT_TRUE(result);
 		ASSERT_EQ(expectedDistanceMatrix, actualDistanceMatrix);
 		ASSERT_EQ(expectedPredecessorMatrixesult, actualPredecessorMatrix);

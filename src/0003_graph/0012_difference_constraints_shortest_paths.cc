@@ -1,8 +1,8 @@
-#include "0012_DifferenceConstraintsShortestPaths.h"
+#include "0012_difference_constraints_shortest_paths.h"
 #include <climits>
 using namespace std;
 
-namespace DifferenceConstraintsShortestPaths
+namespace difference_constraints_shortest_paths
 {
 	Node::Node(string data)
 	{
@@ -17,8 +17,8 @@ namespace DifferenceConstraintsShortestPaths
 		this->weight = weight;
 	}
 
-	// Graph Private Member Methods
-	Node* Graph::MakeOrFindNode(string data)
+	// Graph private member methods
+	Node* Graph::makeOrFindNode(string data)
 	{
 		Node* node = nullptr;
 		if (this->_nodeMap.find(data) == this->_nodeMap.end())
@@ -33,16 +33,16 @@ namespace DifferenceConstraintsShortestPaths
 		return node;
 	}
 
-	void Graph::PushDirectedEdge(string dataU, string dataV, int weight)
+	void Graph::pushDirectedEdge(string dataU, string dataV, int weight)
 	{
-		Node* nodeU = this->MakeOrFindNode(dataU);
-		Node* nodeV = this->MakeOrFindNode(dataV);
+		Node* nodeU = this->makeOrFindNode(dataU);
+		Node* nodeV = this->makeOrFindNode(dataV);
 
 		this->_adjlist[nodeU].push_back(nodeV);
 		this->_edgeList.push_back(new Edge(nodeU, nodeV, weight));
 	}
 
-	void Graph::InitializeSingleSource(Node* sourceNode)
+	void Graph::initializeSingleSource(Node* sourceNode)
 	{
 		for (auto& iterator : this->_nodeMap)
 		{
@@ -51,7 +51,7 @@ namespace DifferenceConstraintsShortestPaths
 		sourceNode->distance = 0;
 	}
 
-	void Graph::Relax(Edge* edge)
+	void Graph::relax(Edge* edge)
 	{
 		if (edge->nodeU->distance != INT_MAX && (edge->nodeV->distance > (edge->nodeU->distance + edge->weight)))
 		{
@@ -59,10 +59,10 @@ namespace DifferenceConstraintsShortestPaths
 		}
 	}
 
-	// Graph Public Member Methods
-	void Graph::PushAllDirectedEdges(vector<vector<int>> vectorA, vector<string> vectorX, vector<int> vectorB)
+	// Graph public member methods
+	void Graph::pushAllDirectedEdges(vector<vector<int>> vectorA, vector<string> vectorX, vector<int> vectorB)
 	{
-		// Creating the Actual Graph
+		// creating the actual Graph
 		string valueU = "";
 		string valueV = "";
 		int weight = 0;
@@ -80,31 +80,31 @@ namespace DifferenceConstraintsShortestPaths
 				}
 			}
 			weight = vectorB[i];
-			this->PushDirectedEdge(valueU, valueV, weight);
+			this->pushDirectedEdge(valueU, valueV, weight);
 		}
 
-		// Creating all the edges from the additional vertex
+		// creating all the edges from the additional vertex
 		valueU = "";
 		valueV = "";
 		weight = 0;
 		for (int i = 0; i < vectorX.size(); i++)
 		{
 			valueV = vectorX[i];
-			this->PushDirectedEdge(valueU, valueV, weight);
+			this->pushDirectedEdge(valueU, valueV, weight);
 		}
 	}
 
-	bool Graph::FindDifferenceConstraintsSolutionBellmanFord()
+	bool Graph::findDifferenceConstraintsSolutionBellmanFord()
 	{
 		Node* source = this->_nodeMap[""];
 
-		this->InitializeSingleSource(source);
+		this->initializeSingleSource(source);
 
 		for (int i = 0; i < this->_nodeMap.size(); i++)
 		{
 			for (auto& edge : this->_edgeList)
 			{
-				this->Relax(edge);
+				this->relax(edge);
 			}
 		}
 
@@ -118,7 +118,7 @@ namespace DifferenceConstraintsShortestPaths
 		return true;
 	}
 
-	vector<pair<string, int>> Graph::GetDifferenceConstrtaintsSolution()
+	vector<pair<string, int>> Graph::getDifferenceConstrtaintsSolution()
 	{
 		vector<pair<string, int>> result;
 		for (auto& node : this->_nodeMap)

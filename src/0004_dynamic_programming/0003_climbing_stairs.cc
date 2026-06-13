@@ -1,19 +1,19 @@
-#include "0003_ClimbingStairs.h"
+#include "0003_climbing_stairs.h"
 using namespace std;
 
-namespace ClimbingStairs
+namespace climbing_stairs
 {
-	int DynamicProgramming::RecursiveCountWays(int n)
+	int DynamicProgramming::recursiveCountWays(int n)
 	{
 		if (n == 0 || n == 1)
 		{
 			return 1;
 		}
 
-		return this->RecursiveCountWays(n - 1) + this->RecursiveCountWays(n - 2);
+		return this->recursiveCountWays(n - 1) + this->recursiveCountWays(n - 2);
 	}
 
-	int DynamicProgramming::DpCountWays(int n)
+	int DynamicProgramming::dpCountWays(int n)
 	{
 		vector<int> dp(n + 1, 0);
 		dp[0] = 1;

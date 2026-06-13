@@ -1,9 +1,9 @@
-#include "0006_EulerianPathAndCircuit.h"
+#include "0006_eulerian_path_and_circuit.h"
 #include <stack>
 #include <algorithm>
 using namespace std;
 
-namespace EulerianPathAndCircuit
+namespace eulerian_path_and_circuit
 {
 	Node::Node(int value)
 	{
@@ -14,8 +14,8 @@ namespace EulerianPathAndCircuit
 		this->visited = false;
 	}
 
-	// Graph Private Member Methods
-	Node* Graph::MakeOrFindNode(int value)
+	// Graph private member methods
+	Node* Graph::makeOrFindNode(int value)
 	{
 		Node* node = nullptr;
 		if (this->_nodeMap.find(value) == this->_nodeMap.end())
@@ -30,23 +30,23 @@ namespace EulerianPathAndCircuit
 		return node;
 	}
 
-	void Graph::DepthFirstSearch(Node* nodeU)
+	void Graph::depthFirstSearch(Node* nodeU)
 	{
 		nodeU->visited = true;
 		for (auto& nodeV : this->_adjlist[nodeU])
 		{
 			if (nodeV->visited == false)
 			{
-				this->DepthFirstSearch(nodeV);
+				this->depthFirstSearch(nodeV);
 			}
 		}
 	}
 
-	bool Graph::IsConnected()
+	bool Graph::isConnected()
 	{
-		// Step-1 : Make the visited property of all nodes as false. It is already done in constructor.
+		// step-1 : make the visited property of all nodes as false. it is already done in constructor.
 
-		// Step-2 : Find a node which do not have 0 degree.
+		// step-2 : find a node which do not have 0 degree.
 		Node* node = nullptr;
 		for (auto& iterator : this->_nodeMap)
 		{
@@ -57,15 +57,15 @@ namespace EulerianPathAndCircuit
 			}
 		}
 
-		// Step-3 : If node is null, it means G.E is null, so G is connected, else call DFS to traverse the graph G.
+		// step-3 : if node is null, it means G.E is null, so G is connected, else call DFS to traverse the graph G.
 		if (node == nullptr)
 		{
 			return true;
 		}
 
-		this->DepthFirstSearch(node);
+		this->depthFirstSearch(node);
 
-		// Step-4 : Checking if all the non-zero degree vertices have been visited or not.
+		// step-4 : checking if all the non-zero degree vertices have been visited or not.
 		for (auto& iterator : this->_nodeMap)
 		{
 			if (iterator.second->visited == false && iterator.second->degree != 0)
@@ -76,7 +76,7 @@ namespace EulerianPathAndCircuit
 		return true;
 	}
 
-	void Graph::EulerianPathHierholzerAlgorithm(Node* startingNode)
+	void Graph::eulerianPathHierholzerAlgorithm(Node* startingNode)
 	{
 		stack<Node*> currentPath;
 		currentPath.push(startingNode);
@@ -98,11 +98,11 @@ namespace EulerianPathAndCircuit
 		}
 	}
 
-	// Graph Public Member Methods
-	void Graph::PushUndirectedEdge(int valueU, int valueV)
+	// Graph public member methods
+	void Graph::pushUndirectedEdge(int valueU, int valueV)
 	{
-		Node* nodeU = this->MakeOrFindNode(valueU);
-		Node* nodeV = this->MakeOrFindNode(valueV);
+		Node* nodeU = this->makeOrFindNode(valueU);
+		Node* nodeV = this->makeOrFindNode(valueV);
 
 		this->_adjlist[nodeU].push_back(nodeV);
 		nodeU->degree++;
@@ -110,25 +110,25 @@ namespace EulerianPathAndCircuit
 		nodeV->degree++;
 	}
 
-	void Graph::PushDirectedEdge(int valueU, int valueV)
+	void Graph::pushDirectedEdge(int valueU, int valueV)
 	{
-		Node* nodeU = this->MakeOrFindNode(valueU);
-		Node* nodeV = this->MakeOrFindNode(valueV);
+		Node* nodeU = this->makeOrFindNode(valueU);
+		Node* nodeV = this->makeOrFindNode(valueV);
 
 		this->_adjlist[nodeU].push_back(nodeV);
 		nodeU->outDegree++;
 		nodeV->inDegree++;
 	}
 
-	void Graph::PushSingleNode(int valueU)
+	void Graph::pushSingleNode(int valueU)
 	{
-		this->MakeOrFindNode(valueU);
+		this->makeOrFindNode(valueU);
 	}
 
-	void Graph::FindEulerianPathAndCircuit()
+	void Graph::findEulerianPathAndCircuit()
 	{
-		// If the graph is not connected then graph G is Not-Eulerian.
-		if (this->IsConnected() == false)
+		// if the graph is not connected then graph G is not-eulerian.
+		if (this->isConnected() == false)
 		{
 			this->_isEulerianPathPresent = false;
 			this->_isEulerianCircuitPresent = false;
@@ -144,7 +144,7 @@ namespace EulerianPathAndCircuit
 			}
 		}
 
-		// Check-1 :  When no vertex with odd degree is present, then graph G is Eulerian.
+		// check-1 :  when no vertex with odd degree is present, then graph G is eulerian.
 		if (oddDegreeVertexCount == 0)
 		{
 			this->_isEulerianPathPresent = true;
@@ -152,7 +152,7 @@ namespace EulerianPathAndCircuit
 			return;
 		}
 
-		// Check-2 : When 2 vertices have odd degree, then graph G is Semi-Eulerian.
+		// check-2 : when 2 vertices have odd degree, then graph G is semi-eulerian.
 		if (oddDegreeVertexCount == 2)
 		{
 			this->_isEulerianPathPresent = true;
@@ -160,7 +160,7 @@ namespace EulerianPathAndCircuit
 			return;
 		}
 
-		// Check-3 : When more than 2 vertices have odd degree, then graph G is Not Eulerian.
+		// check-3 : when more than 2 vertices have odd degree, then graph G is not eulerian.
 		if (oddDegreeVertexCount > 2)
 		{
 			this->_isEulerianPathPresent = false;
@@ -169,27 +169,27 @@ namespace EulerianPathAndCircuit
 		}
 	}
 
-	bool Graph::IsEulerianPathPresent()
+	bool Graph::isEulerianPathPresent()
 	{
 		return this->_isEulerianPathPresent;
 	}
 
-	bool Graph::IsEulerianCircuitPresent()
+	bool Graph::isEulerianCircuitPresent()
 	{
 		return this->_isEulerianCircuitPresent;
 	}
 
-	vector<int> Graph::UndirectedGraphGetEulerianPath()
+	vector<int> Graph::undirectedGraphGetEulerianPath()
 	{
-		// Case-3 : When more than 2 vertices have odd degree, then the graph G is not Eulerian.
-		// No Eulerian Path is posible.
+		// Case-3 : when more than 2 vertices have odd degree, then the graph G is not eulerian.
+		// no eulerian path is posible.
 		if (this->_isEulerianPathPresent == false)
 		{
 			return {};
 		}
 
-		// Now 2 cases remains.
-		// Case-2 : When 2 vertices have odd degree. Choose any one of them.
+		// now 2 cases remains.
+		// Case-2 : when 2 vertices have odd degree. choose any one of them.
 		Node* node = nullptr;
 		for (auto& iterator : this->_nodeMap)
 		{
@@ -200,12 +200,12 @@ namespace EulerianPathAndCircuit
 			}
 		}
 
-		// Case-1 : When no vertex with odd degree is present. Choose any vertex as starting point.
+		// Case-1 : when no vertex with odd degree is present. choose any vertex as starting point.
 		if (node == nullptr)
 		{
 			node = this->_nodeMap[0];
 		}
-		this->EulerianPathHierholzerAlgorithm(node);
+		this->eulerianPathHierholzerAlgorithm(node);
 		reverse(this->_eulerianPath.begin(), this->_eulerianPath.end());
 		return this->_eulerianPath;
 	}

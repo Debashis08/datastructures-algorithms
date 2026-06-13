@@ -1,117 +1,117 @@
 #include <gtest/gtest.h>
-#include "0010_WaysToCoverDistance.h"
+#include "0010_ways_to_cover_distance.h"
 
-namespace WaysToCoverDistance
+namespace ways_to_cover_distance
 {
-	TEST(WaysToCoverDistanceTest, RecursiveWaysToCoverDistance1)
+	TEST(waysToCoverDistanceTest, recursiveWaysToCoverDistance1)
 	{
-		// Arrange
+		// arrange
 		DynamicProgramming dp;
 		int distance = 3;
 		int expectedNumberOfWaysToCoverDistance = 4;
 
-		// Act
-		int actualNumberOfWaysToCoverDistance = dp.RecursiveWaysToCoverDistance(distance);
+		// act
+		int actualNumberOfWaysToCoverDistance = dp.recursiveWaysToCoverDistance(distance);
 
-		// Assert
+		// assert
 		ASSERT_EQ(expectedNumberOfWaysToCoverDistance, actualNumberOfWaysToCoverDistance);
 	}
 
-	TEST(WaysToCoverDistanceTest, RecursiveWaysToCoverDistance2)
+	TEST(waysToCoverDistanceTest, recursiveWaysToCoverDistance2)
 	{
-		// Arrange
+		// arrange
 		DynamicProgramming dp;
 		int distance = 4;
 		int expectedNumberOfWaysToCoverDistance = 7;
 
-		// Act
-		int actualNumberOfWaysToCoverDistance = dp.RecursiveWaysToCoverDistance(distance);
+		// act
+		int actualNumberOfWaysToCoverDistance = dp.recursiveWaysToCoverDistance(distance);
 
-		// Assert
+		// assert
 		ASSERT_EQ(expectedNumberOfWaysToCoverDistance, actualNumberOfWaysToCoverDistance);
 	}
 
-	TEST(WaysToCoverDistanceTest, RecursiveWaysToCoverDistanc3)
+	TEST(waysToCoverDistanceTest, recursiveWaysToCoverDistanc3)
 	{
-		// Arrange
+		// arrange
 		DynamicProgramming dp;
 		int distance = 5;
 		int expectedNumberOfWaysToCoverDistance = 13;
 
-		// Act
-		int actualNumberOfWaysToCoverDistance = dp.RecursiveWaysToCoverDistance(distance);
+		// act
+		int actualNumberOfWaysToCoverDistance = dp.recursiveWaysToCoverDistance(distance);
 
-		// Assert
+		// assert
 		ASSERT_EQ(expectedNumberOfWaysToCoverDistance, actualNumberOfWaysToCoverDistance);
 	}
 
-	TEST(WaysToCoverDistanceTest, RecursiveWaysToCoverDistanc4)
+	TEST(waysToCoverDistanceTest, recursiveWaysToCoverDistanc4)
 	{
-		// Arrange
+		// arrange
 		DynamicProgramming dp;
 		int distance = 6;
 		int expectedNumberOfWaysToCoverDistance = 24;
 
-		// Act
-		int actualNumberOfWaysToCoverDistance = dp.RecursiveWaysToCoverDistance(distance);
+		// act
+		int actualNumberOfWaysToCoverDistance = dp.recursiveWaysToCoverDistance(distance);
 
-		// Assert
+		// assert
 		ASSERT_EQ(expectedNumberOfWaysToCoverDistance, actualNumberOfWaysToCoverDistance);
 	}
 
-	TEST(WaysToCoverDistanceTest, DpWaysToCoverDistance1)
+	TEST(waysToCoverDistanceTest, dpWaysToCoverDistance1)
 	{
-		// Arrange
+		// arrange
 		DynamicProgramming dp;
 		int distance = 3;
 		int expectedNumberOfWaysToCoverDistance = 4;
 
-		// Act
-		int actualNumberOfWaysToCoverDistance = dp.DpWaysToCoverDistance(distance);
+		// act
+		int actualNumberOfWaysToCoverDistance = dp.dpWaysToCoverDistance(distance);
 
-		// Assert
+		// assert
 		ASSERT_EQ(expectedNumberOfWaysToCoverDistance, actualNumberOfWaysToCoverDistance);
 	}
 
-	TEST(WaysToCoverDistanceTest, DpWaysToCoverDistance2)
+	TEST(waysToCoverDistanceTest, dpWaysToCoverDistance2)
 	{
-		// Arrange
+		// arrange
 		DynamicProgramming dp;
 		int distance = 4;
 		int expectedNumberOfWaysToCoverDistance = 7;
 
-		// Act
-		int actualNumberOfWaysToCoverDistance = dp.DpWaysToCoverDistance(distance);
+		// act
+		int actualNumberOfWaysToCoverDistance = dp.dpWaysToCoverDistance(distance);
 
-		// Assert
+		// assert
 		ASSERT_EQ(expectedNumberOfWaysToCoverDistance, actualNumberOfWaysToCoverDistance);
 	}
 
-	TEST(WaysToCoverDistanceTest, DpWaysToCoverDistance3)
+	TEST(waysToCoverDistanceTest, dpWaysToCoverDistance3)
 	{
-		// Arrange
+		// arrange
 		DynamicProgramming dp;
 		int distance = 5;
 		int expectedNumberOfWaysToCoverDistance = 13;
 
-		// Act
-		int actualNumberOfWaysToCoverDistance = dp.DpWaysToCoverDistance(distance);
+		// act
+		int actualNumberOfWaysToCoverDistance = dp.dpWaysToCoverDistance(distance);
 
-		// Assert
+		// assert
 		ASSERT_EQ(expectedNumberOfWaysToCoverDistance, actualNumberOfWaysToCoverDistance);
 	}
 
-	TEST(WaysToCoverDistanceTest, DpWaysToCoverDistance4)
+	TEST(waysToCoverDistanceTest, dpWaysToCoverDistance4)
 	{
-		// Arrange
+		// arrange
 		DynamicProgramming dp;
 		int distance = 6;
 		int expectedNumberOfWaysToCoverDistance = 24;
 
-		// Act
-		int actualNumberOfWaysToCoverDistance = dp.DpWaysToCoverDistance(distance);
+		// act
+		int actualNumberOfWaysToCoverDistance = dp.dpWaysToCoverDistance(distance);
 
-		// Assert
+		// assert
 		ASSERT_EQ(expectedNumberOfWaysToCoverDistance, actualNumberOfWaysToCoverDistance);
 	}
 }

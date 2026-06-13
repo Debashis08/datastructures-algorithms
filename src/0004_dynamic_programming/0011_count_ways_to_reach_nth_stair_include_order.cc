@@ -1,9 +1,9 @@
-#include "0011_CountWaysToReachNthStairIncludeOrder.h"
+#include "0011_count_ways_to_reach_nth_stair_include_order.h"
 
-namespace CountWaysToReachNthStairIncludeOrder
+namespace count_ways_to_reach_nth_stair_include_order
 {
-	// Dynamic Programming Private Member Methods.
-	int DynamicProgramming::RecursiveCountWaysToReachNthStairIncludeOrderHelper(int n)
+	// dynamic programming private member methods.
+	int DynamicProgramming::recursiveCountWaysToReachNthStairIncludeOrderHelper(int n)
 	{
 		if (n < 0)
 		{
@@ -15,19 +15,19 @@ namespace CountWaysToReachNthStairIncludeOrder
 		}
 
 		int result = 0;
-		result += this->RecursiveCountWaysToReachNthStairIncludeOrderHelper(n - 1);
-		result += this->RecursiveCountWaysToReachNthStairIncludeOrderHelper(n - 2);
+		result += this->recursiveCountWaysToReachNthStairIncludeOrderHelper(n - 1);
+		result += this->recursiveCountWaysToReachNthStairIncludeOrderHelper(n - 2);
 
 		return result;
 	}
 
-	// Dynamic Programming Public Member Methods.
-	int DynamicProgramming::RecursiveCountWaysToReachNthStairIncludeOrder(int n)
+	// dynamic programming public member methods.
+	int DynamicProgramming::recursiveCountWaysToReachNthStairIncludeOrder(int n)
 	{
-		return this->RecursiveCountWaysToReachNthStairIncludeOrderHelper(n);
+		return this->recursiveCountWaysToReachNthStairIncludeOrderHelper(n);
 	}
 
-	int DynamicProgramming::DpCountWaysToReachNthStairIncludeOrder(int n)
+	int DynamicProgramming::dpCountWaysToReachNthStairIncludeOrder(int n)
 	{
 		vector<int> dp(n + 1, 0);
 		dp[0] = 1;

@@ -1,8 +1,8 @@
-#include "0016_PartitionEqualSubsetSum.h"
+#include "0016_partition_equal_subset_sum.h"
 
-namespace PartitionEqualSubsetSum
+namespace partition_equal_subset_sum
 {
-	bool DynamicProgramming::RecursivePartitionEqualSubsetsHelper(vector<int>& nums, int targetSum, int numberOfElements)
+	bool DynamicProgramming::recursivePartitionEqualSubsetsHelper(vector<int>& nums, int targetSum, int numberOfElements)
 	{
 		if (targetSum == 0)
 		{
@@ -16,31 +16,31 @@ namespace PartitionEqualSubsetSum
 
 		if (nums[numberOfElements - 1] > targetSum)
 		{
-			return this->RecursivePartitionEqualSubsetsHelper(nums, targetSum, numberOfElements - 1);
+			return this->recursivePartitionEqualSubsetsHelper(nums, targetSum, numberOfElements - 1);
 		}
 
-		return (this->RecursivePartitionEqualSubsetsHelper(nums, targetSum - nums[numberOfElements - 1], numberOfElements - 1) || this->RecursivePartitionEqualSubsetsHelper(nums, targetSum, numberOfElements - 1));
+		return (this->recursivePartitionEqualSubsetsHelper(nums, targetSum - nums[numberOfElements - 1], numberOfElements - 1) || this->recursivePartitionEqualSubsetsHelper(nums, targetSum, numberOfElements - 1));
 	}
 
-	bool DynamicProgramming::RecursivePartitionEqualSubsets(vector<int> nums)
+	bool DynamicProgramming::recursivePartitionEqualSubsets(vector<int> nums)
 	{
 		int targetSum = accumulate(nums.begin(), nums.end(), 0);
 
-		// Check if targetSum is odd, then equal partition is not possible at all
+		// check if targetSum is odd, then equal partition is not possible at all
 		if (targetSum % 2 != 0)
 		{
 			return false;
 		}
 
 		int numberOfElements = nums.size();
-		return this->RecursivePartitionEqualSubsetsHelper(nums, targetSum / 2, numberOfElements);
+		return this->recursivePartitionEqualSubsetsHelper(nums, targetSum / 2, numberOfElements);
 	}
 
-	bool DynamicProgramming::DpPartitionEqualSubsets(vector<int> nums)
+	bool DynamicProgramming::dpPartitionEqualSubsets(vector<int> nums)
 	{
 		int targetSum = accumulate(nums.begin(), nums.end(), 0);
 
-		// Check if targetSum is odd, then equal partition is not possible at all
+		// check if targetSum is odd, then equal partition is not possible at all
 		if (targetSum % 2 != 0)
 		{
 			return false;

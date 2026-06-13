@@ -1,9 +1,9 @@
-#include "0001_BinarySearchTree.h"
+#include "0001_binary_search_tree.h"
 #include <iostream>
 #include <algorithm>
 using namespace std;
 
-namespace BinarySearchTree
+namespace binary_search_tree
 {
 	Node::Node(int data, Node* parent, Node* left, Node* right)
 	{

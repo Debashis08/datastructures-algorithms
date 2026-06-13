@@ -3,21 +3,21 @@
 using namespace std;
 
 /*
-Pattern 1
-Linear Recurrence
+pattern 1
+linear recurrence
 
-Description
-Print the n'th Tribonacci number.
+description
+print the n'th tribonacci number.
 
 */
 
-namespace TribonacciNumber
+namespace tribonacci_number
 {
 	class DynamicProgramming
 	{
 	private:
 	public:
-		int RecursiveNthTribonacci(int n);
-		int DpNthTribonacci(int n);
+		int recursiveNthTribonacci(int n);
+		int dpNthTribonacci(int n);
 	};
 }

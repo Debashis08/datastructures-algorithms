@@ -1,33 +1,33 @@
 #include <gtest/gtest.h>
-#include "0003_ClimbingStairs.h"
+#include "0003_climbing_stairs.h"
 
-namespace ClimbingStairs
+namespace climbing_stairs
 {
-	TEST(ClimbingStairs, RecursiveTest)
+	TEST(climbingStairs, recursiveTest)
 	{
-		// Arrange
+		// arrange
 		DynamicProgramming dp;
 		int n = 4;
 		int expectedCount = 5;
 
-		// Act
-		int actualCount = dp.RecursiveCountWays(n);
+		// act
+		int actualCount = dp.recursiveCountWays(n);
 
-		// Assert
+		// assert
 		ASSERT_EQ(expectedCount, actualCount);
 	}
 
-	TEST(ClimbingStairs, DpTest)
+	TEST(climbingStairs, dpTest)
 	{
-		// Arrange
+		// arrange
 		DynamicProgramming dp;
 		int n = 4;
 		int expectedCount = 5;
 
-		// Act
-		int actualCount = dp.DpCountWays(n);
+		// act
+		int actualCount = dp.dpCountWays(n);
 
-		// Assert
+		// assert
 		ASSERT_EQ(expectedCount, actualCount);
 	}
 }

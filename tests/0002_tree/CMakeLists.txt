@@ -14,7 +14,7 @@ enable_testing()
 
 add_executable(
   0002_TreeTests
-  0001_BinarySearchTreeTest.cc
+  0001_binary_search_tree_test.cc
 )
 
 target_link_libraries(

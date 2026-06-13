@@ -1,33 +1,33 @@
 #include <gtest/gtest.h>
-#include "0005_HouseRobber1.h"
+#include "0005_house_robber1.h"
 
-namespace HouseRobber1
+namespace house_robber1
 {
-	TEST(HouseRobber1, RecursionTest)
+	TEST(houseRobber1, recursionTest)
 	{
-		// Arrange
+		// arrange
 		DynamicProgramming dp;
 		vector<int> houseValues = { 6, 7, 1, 3, 8, 2, 4 };
 		int expectedMaximumLoot = 19;
 
-		// Act
-		int actualMaximumLoot = dp.RecursiveMaximumLoot(houseValues);
+		// act
+		int actualMaximumLoot = dp.recursiveMaximumLoot(houseValues);
 
-		// Assert
+		// assert
 		ASSERT_EQ(expectedMaximumLoot, actualMaximumLoot);
 	}
 
-	TEST(HouseRobber1, DpTest)
+	TEST(houseRobber1, dpTest)
 	{
-		// Arrange
+		// arrange
 		DynamicProgramming dp;
 		vector<int> houseValues = { 6, 7, 1, 3, 8, 2, 4 };
 		int expectedMaximumLoot = 19;
 
-		// Act
-		int actualMaximumLoot = dp.DpMaximumLoot(houseValues);
+		// act
+		int actualMaximumLoot = dp.dpMaximumLoot(houseValues);
 
-		// Assert
+		// assert
 		ASSERT_EQ(expectedMaximumLoot, actualMaximumLoot);
 	}
 }

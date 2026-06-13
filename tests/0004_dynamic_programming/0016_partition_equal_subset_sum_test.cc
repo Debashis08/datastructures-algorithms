@@ -1,33 +1,33 @@
 #include<gtest/gtest.h>
-#include "0016_PartitionEqualSubsetSum.h"
+#include "0016_partition_equal_subset_sum.h"
 
-namespace PartitionEqualSubsetSum
+namespace partition_equal_subset_sum
 {
-	TEST(PartitionEqualSubsetSum, RecursivePartitionEqualSubsetSum)
+	TEST(partitionEqualSubsetSum, recursivePartitionEqualSubsetSum)
 	{
-		// Arrange
+		// arrange
 		DynamicProgramming dp;
 		vector<int> nums = { 1, 5, 11, 5 };
 		bool expectedResult = true;
 
-		// Act
-		bool actualResult = dp.RecursivePartitionEqualSubsets(nums);
+		// act
+		bool actualResult = dp.recursivePartitionEqualSubsets(nums);
 
-		// Assert
+		// assert
 		ASSERT_EQ(expectedResult, actualResult);
 	}
 
-	TEST(PartitionEqualSubsetSum, DpPartitionEqualSubsetSum)
+	TEST(partitionEqualSubsetSum, dpPartitionEqualSubsetSum)
 	{
-		// Arrange
+		// arrange
 		DynamicProgramming dp;
 		vector<int> nums = { 1, 5, 11, 5 };
 		bool expectedResult = true;
 
-		// Act
-		bool actualResult = dp.DpPartitionEqualSubsets(nums);
+		// act
+		bool actualResult = dp.dpPartitionEqualSubsets(nums);
 
-		// Assert
+		// assert
 		ASSERT_EQ(expectedResult, actualResult);
 	}
 }

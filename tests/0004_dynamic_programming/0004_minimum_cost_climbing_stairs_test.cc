@@ -1,33 +1,33 @@
 #include <gtest/gtest.h>
-#include "0004_MinimumCostClimbingStairs.h"
+#include "0004_minimum_cost_climbing_stairs.h"
 
-namespace MinimumCostClimbingStairs
+namespace minimum_cost_climbing_stairs
 {
-	TEST(MinimumCostClimbingStairs, RecursionTest)
+	TEST(minimumCostClimbingStairs, recursionTest)
 	{
-		// Arrange
+		// arrange
 		DynamicProgramming dp;
 		vector<int> cost = { 16, 19, 10, 12, 18 };
 		int expectedCost = 31;
 
-		// Act
-		int actualCost = dp.RecursiveMinimumCostClimbingStairs(cost);
+		// act
+		int actualCost = dp.recursiveMinimumCostClimbingStairs(cost);
 
-		// Assert
+		// assert
 		ASSERT_EQ(expectedCost, actualCost);
 	}
 
-	TEST(MinimumCostClimbingStairs, DpTest)
+	TEST(minimumCostClimbingStairs, dpTest)
 	{
-		// Arrange
+		// arrange
 		DynamicProgramming dp;
 		vector<int> cost = { 16, 19, 10, 12, 18 };
 		int expectedCost = 31;
 
-		// Act
-		int actualCost = dp.DpMinimumCostClimbingStairs(cost);
+		// act
+		int actualCost = dp.dpMinimumCostClimbingStairs(cost);
 
-		// Assert
+		// assert
 		ASSERT_EQ(expectedCost, actualCost);
 	}
 }

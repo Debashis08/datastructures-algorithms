@@ -7,7 +7,7 @@
 #include <vector>
 using namespace std;
 
-namespace BreadthFirstSearch
+namespace breadth_first_search
 {
     enum color { WHITE, GRAY, BLACK };
     class Node
@@ -25,11 +25,11 @@ namespace BreadthFirstSearch
     private:
         map<Node*, list<Node*>> _adjlist;
         map<int, Node*> _nodeMap;
-        Node* MakeOrFindNode(int value);
-        void BreadthFirstSearch(Node* node);
+        Node* makeOrFindNode(int value);
+        void breadthFirstSearch(Node* node);
     public:
-        void PushUndirectedEdge(int valueU, int valueV);
+        void pushUndirectedEdge(int valueU, int valueV);
         void BFS(int value);
-        vector<pair<int, int>> ShowBFSResult();
+        vector<pair<int, int>> showBFSResult();
     };
 }

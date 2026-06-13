@@ -4,31 +4,31 @@
 using namespace std;
 
 /*
-Pattern 2
-Subset / 0-1 Knapsack
+pattern 2
+subset / 0-1 knapsack
 
-Description
-Given an array arr[] of non-negative integers and a value sum, the task is to check if there is a subset of the given array whose sum is equal to the given sum.
+description
+given an array arr[] of non-negative integers and a value sum, the task is to check if there is a subset of the given array whose sum is equal to the given sum.
 
-Examples:
+examples:
 
-Input: arr[] = [3, 34, 4, 12, 5, 2], sum = 9
-Output: True
-Explanation: There is a subset (4, 5) with sum 9.
+input: arr[] = [3, 34, 4, 12, 5, 2], sum = 9
+output: true
+explanation: there is a subset (4, 5) with sum 9.
 
-Input: arr[] = [3, 34, 4, 12, 5, 2], sum = 30
-Output: False
-Explanation: There is no subset that add up to 30.
+input: arr[] = [3, 34, 4, 12, 5, 2], sum = 30
+output: false
+explanation: there is no subset that add up to 30.
 */
 
-namespace SubsetSumProblem
+namespace subset_sum_problem
 {
 	class DynamicProgramming
 	{
 	private:
-		bool SubsetSumRecursiveHelper(vector<int>& nums, int sum, int numberOfElements);
+		bool subsetSumRecursiveHelper(vector<int>& nums, int sum, int numberOfElements);
 	public:
-		bool RecursiveSubsetSum(vector<int> nums, int sum);
-		bool DpIsSubsetSum(vector<int> nums, int sum);
+		bool recursiveSubsetSum(vector<int> nums, int sum);
+		bool dpIsSubsetSum(vector<int> nums, int sum);
 	};
 }

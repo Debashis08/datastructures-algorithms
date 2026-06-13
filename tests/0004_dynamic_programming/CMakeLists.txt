@@ -14,23 +14,24 @@ enable_testing()
 
 add_executable(
   0005DynamicProgrammingTests
-  0001_FibonacciNumberTest.cc
-  0002_TribonacciNumberTest.cc
-  0003_ClimbingStairsTest.cc
-  0004_MinimumCostClimbingStairsTest.cc
-  0005_HouseRobber1Test.cc
-  0006_HouseRobber2Test.cc
-  0007_DecodeWaysTest.cc
-  0008_TilingProblemTest.cc
-  0009_FriendsPairingProblemTest.cc
-  0010_WaysToCoverDistanceTest.cc
-  0011_CountWaysToReachNthStairIncludeOrderTest.cc
-  0012_CountWaysToReachNthStairExcludeOrderTest.cc
-  0013_KnapsackProblemTest.cc
-  0014_SubsetSumProblemTest.cc
-  0015_CountSubsetsForSumTest.cc
-  0016_PartitionEqualSubsetSumTest.cc
-  0017_TargetSumTest.cc
+
+  0001_fibonacci_number_test.cc
+  0002_tribonacci_number_test.cc
+  0003_climbing_stairs_test.cc
+  0004_minimum_cost_climbing_stairs_test.cc
+  0005_house_robber1_test.cc
+  0006_house_robber2_test.cc
+  0007_decode_ways_test.cc
+  0008_tiling_problem_test.cc
+  0009_friends_pairing_problem_test.cc
+  0010_ways_to_cover_distance_test.cc
+  0011_count_ways_to_reach_nth_stair_include_order_test.cc
+  0012_count_ways_to_reach_nth_stair_exclude_order_test.cc
+  0013_knapsack_problem_test.cc
+  0014_subset_sum_problem_test.cc
+  0015_count_subsets_for_sum_test.cc
+  0016_partition_equal_subset_sum_test.cc
+  0017_target_sum_test.cc
 
 )
 

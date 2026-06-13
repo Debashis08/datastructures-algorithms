@@ -1,10 +1,10 @@
-#include "0002_DepthFirstSearch.h"
+#include "0002_depth_first_search.h"
 #include <vector>
 #include <utility>
 #include <climits>
 using namespace std;
 
-namespace DepthFirstSearch
+namespace depth_first_search
 {
 	Node::Node(int value)
 	{
@@ -15,7 +15,7 @@ namespace DepthFirstSearch
 		this->parent = nullptr;
 	}
 
-	Node* Graph::MakeOrFindNode(int value)
+	Node* Graph::makeOrFindNode(int value)
 	{
 		Node* node = nullptr;
 		if (this->_nodeMap.find(value) == this->_nodeMap.end())
@@ -30,7 +30,7 @@ namespace DepthFirstSearch
 		return node;
 	}
 
-	void Graph::DepthFirstSearch(Node* nodeU)
+	void Graph::depthFirstSearch(Node* nodeU)
 	{
 		this->_time++;
 		nodeU->discoveredTime = this->_time;
@@ -40,7 +40,7 @@ namespace DepthFirstSearch
 			if (nodeV->color == WHITE)
 			{
 				nodeV->parent = nodeU;
-				this->DepthFirstSearch(nodeV);
+				this->depthFirstSearch(nodeV);
 			}
 		}
 		nodeU->color = BLACK;
@@ -48,10 +48,10 @@ namespace DepthFirstSearch
 		nodeU->finishingTime = this->_time;
 	}
 
-	void Graph::PushDirectedEdge(int valueU, int valueV)
+	void Graph::pushDirectedEdge(int valueU, int valueV)
 	{
-		Node* nodeU = this->MakeOrFindNode(valueU);
-		Node* nodeV = this->MakeOrFindNode(valueV);
+		Node* nodeU = this->makeOrFindNode(valueU);
+		Node* nodeV = this->makeOrFindNode(valueV);
 
 		this->_adjlist[nodeU].push_back(nodeV);
 	}
@@ -63,12 +63,12 @@ namespace DepthFirstSearch
 		{
 			if (iterator.second->color == WHITE)
 			{
-				this->DepthFirstSearch(iterator.second);
+				this->depthFirstSearch(iterator.second);
 			}
 		}
 	}
 
-	vector<pair<int, pair<int, int>>> Graph::ShowDFSResult()
+	vector<pair<int, pair<int, int>>> Graph::showDFSResult()
 	{
 		vector<pair<int, pair<int, int>>> result;
 		for (auto& node : this->_nodeMap)
