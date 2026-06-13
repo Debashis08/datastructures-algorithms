@@ -3,7 +3,7 @@ Checks: >
 
 WarningsAsErrors: '*'
 
-HeaderFilterRegex: '(include/.*|source/.*)'
+HeaderFilterRegex: '(include/.*|src/.*)'
 
 CheckOptions:
   # Private member variables
@@ -14,7 +14,7 @@ CheckOptions:
 
   # Member function (non-static, non-const, non-virtual)
   - key: readability-identifier-naming.MethodCase
-    value: CamelCase
+    value: camelBack
 
   # Class names
   - key: readability-identifier-naming.ClassCase
