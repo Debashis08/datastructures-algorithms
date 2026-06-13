@@ -31,7 +31,7 @@ namespace depth_first_search
         void depthFirstSearch(Node* Node);
     public:
         void pushDirectedEdge(int valueU, int valueV);
-        void DFS();
+        void dfs();
         vector<pair<int, pair<int, int>>> showDFSResult();
     };
 }

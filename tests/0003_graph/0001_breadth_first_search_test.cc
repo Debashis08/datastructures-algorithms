@@ -23,7 +23,7 @@ namespace breadth_first_search
         graph.pushUndirectedEdge(6, 8);
         graph.pushUndirectedEdge(7, 8);
 
-        graph.BFS(1);
+        graph.bfs(1);
         
         string actualResult = unitTestHelper.serializeVectorToString(graph.showBFSResult());
         string expectedResult = "1(0) 2(1) 3(1) 4(2) 5(2) 6(2) 7(3) 8(3)";
@@ -36,7 +36,7 @@ namespace breadth_first_search
 
         graph.pushUndirectedEdge(1, 2);
 
-        graph.BFS(1);
+        graph.bfs(1);
 
         string actualResult = unitTestHelper.serializeVectorToString(graph.showBFSResult());
         string expectedResult = "1(0) 2(1)";

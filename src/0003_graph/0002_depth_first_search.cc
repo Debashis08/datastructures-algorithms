@@ -56,7 +56,7 @@ namespace depth_first_search
 		this->_adjlist[nodeU].push_back(nodeV);
 	}
 
-	void Graph::DFS()
+	void Graph::dfs()
 	{
 		this->_time = 0;
 		for (auto& iterator : this->_nodeMap)

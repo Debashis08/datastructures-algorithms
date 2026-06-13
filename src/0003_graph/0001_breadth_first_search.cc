@@ -69,7 +69,7 @@ namespace breadth_first_search
 		this->_adjlist[nodeV].push_back(nodeU);
 	}
 
-	void Graph::BFS(int value)
+	void Graph::bfs(int value)
 	{
 		this->breadthFirstSearch(this->_nodeMap[value]);
 	}

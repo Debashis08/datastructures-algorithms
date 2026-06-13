@@ -12,7 +12,13 @@ CheckOptions:
   - key: readability-identifier-naming.PrivateMemberCase
     value: camelBack
 
-  # Member function (non-static, non-const, non-virtual)
+  # Private member methods
+  - key: readability-identifier-naming.PrivateMethodPrefix
+    value: _
+  - key: readability-identifier-naming.PrivateMethodCase
+    value: camelBack
+
+  # Public/Protected member methods
   - key: readability-identifier-naming.MethodCase
     value: camelBack
 

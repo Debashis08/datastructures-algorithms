@@ -29,7 +29,7 @@ namespace breadth_first_search
         void breadthFirstSearch(Node* node);
     public:
         void pushUndirectedEdge(int valueU, int valueV);
-        void BFS(int value);
+        void bfs(int value);
         vector<pair<int, int>> showBFSResult();
     };
 }
