@@ -6,7 +6,7 @@ namespace minimum_spanning_tree_prim_algorithm
 {
 	UnitTestHelper unitTestHelper;
 
-	TEST(MST, prim)
+	TEST(minimumSpanningTreePrim, getMinimumSpanningTreePrim)
 	{
 		Graph graph;
 

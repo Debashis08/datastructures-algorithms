@@ -6,7 +6,7 @@ namespace minimum_spanning_tree_kruskal_algorithm
 {
 	UnitTestHelper unitTestHelper;
 
-	TEST(MST, kruskal)
+	TEST(minimumSpanningTreeKruskal, getMinimumSpanningTreeKruskal)
 	{
 		Graph graph;
 

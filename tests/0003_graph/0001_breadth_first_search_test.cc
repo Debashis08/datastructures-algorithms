@@ -8,7 +8,7 @@ namespace breadth_first_search
     UnitTestHelper unitTestHelper;
 
 
-	TEST(bFSTesting, showBFSResultTest01) 
+	TEST(breadthFirstSearch, showBFSResultTest01)
     {
 		Graph graph;
 
@@ -30,7 +30,7 @@ namespace breadth_first_search
         EXPECT_EQ(actualResult, expectedResult);
 	}
 
-    TEST(bFSTesting, showBFSResultTest02) 
+    TEST(breadthFirstSearch, showBFSResultTest02)
     {
         Graph graph;
 

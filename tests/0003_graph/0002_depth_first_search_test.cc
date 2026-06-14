@@ -6,7 +6,7 @@ namespace depth_first_search
 {
     UnitTestHelper unitTestHelper;
 
-    TEST(dFSTesting, showDFSResultTest01)
+    TEST(depthFirstSearch, showDFSResultTest01)
     {
         Graph graph;
 
@@ -27,7 +27,7 @@ namespace depth_first_search
     }
 
 
-    TEST(dFSTesting, showDFSResultTest_SingleVertex)
+    TEST(depthFirstSearch, showDFSResultTestSingleVertex)
     {
         Graph graph;
 
@@ -40,7 +40,7 @@ namespace depth_first_search
         EXPECT_EQ(actualResult, expectedResult);
     }
 
-    TEST(dFSTesting, showDFSResultTest_DisconnectedGraph)
+    TEST(depthFirstSearch, showDFSResultTestDisconnectedGraph)
     {
         Graph graph;
 
@@ -54,7 +54,7 @@ namespace depth_first_search
         EXPECT_EQ(actualResult, expectedResult);
     }
 
-    TEST(dFSTesting, showDFSResultTest_CyclicGraph)
+    TEST(depthFirstSearch, showDFSResultTestCyclicGraph)
     {
         Graph graph;
 
@@ -69,7 +69,7 @@ namespace depth_first_search
         EXPECT_EQ(actualResult, expectedResult);
     }
 
-    TEST(dFSTesting, showDFSResultTest_LargeGraph)
+    TEST(depthFirstSearch, showDFSResultTestLargeGraph)
     {
         Graph graph;
 
@@ -97,7 +97,7 @@ namespace depth_first_search
         EXPECT_EQ(actualResult, expectedResult);
     }
 
-    TEST(dFSTesting, showDFSResultTest_NoEdges)
+    TEST(depthFirstSearch, showDFSResultTestNoEdges)
     {
         Graph graph;
 
@@ -113,7 +113,7 @@ namespace depth_first_search
         EXPECT_EQ(actualResult, expectedResult);
     }
 
-    TEST(dFSTesting, showDFSResultTest_CyclicGraphWithBackEdges)
+    TEST(depthFirstSearch, showDFSResultTest_CyclicGraphWithBackEdges)
     {
         Graph graph;
 
@@ -130,7 +130,7 @@ namespace depth_first_search
         EXPECT_EQ(actualResult, expectedResult);
     }
 
-    TEST(dFSTesting, showDFSResultTest_DenseGraph)
+    TEST(depthFirstSearch, showDFSResultTestDenseGraph)
     {
         Graph graph;
 
@@ -155,7 +155,7 @@ namespace depth_first_search
         EXPECT_EQ(actualResult, expectedResult);
     }
 
-    TEST(dFSTesting, showDFSResultTest_SelfLoopsAndParallelEdges)
+    TEST(depthFirstSearch, showDFSResultTestSelfLoopsAndParallelEdges)
     {
         Graph graph;
 

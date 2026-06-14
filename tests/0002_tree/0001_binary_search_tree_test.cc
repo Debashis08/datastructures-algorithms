@@ -7,7 +7,7 @@ namespace binary_search_tree
 {
     UnitTestHelper unitTestHelper;
 
-    TEST(bSTInsertData, recursiveInorderTest)
+    TEST(binarySearchTree, recursiveInorderTest)
     {
         BinarySearchTree bst;
         bst.insertNode(50);
@@ -21,7 +21,7 @@ namespace binary_search_tree
         EXPECT_EQ(actualResult, expectedResult);
     }
 
-    TEST(bSTInsertData, recursivePreorderTest)
+    TEST(binarySearchTree, recursivePreorderTest)
     {
         BinarySearchTree bst;
         bst.insertNode(50);
@@ -34,7 +34,7 @@ namespace binary_search_tree
         EXPECT_EQ(actualResult, expectedResult);
     }
 
-    TEST(bSTInsertData, recursivePostorderTest)
+    TEST(binarySearchTree, recursivePostorderTest)
     {
         BinarySearchTree bst;
         bst.insertNode(50);
@@ -47,7 +47,7 @@ namespace binary_search_tree
         EXPECT_EQ(actualResult, expectedResult);
     }
 
-    TEST(bSTInsertData, morrisInorderTest)
+    TEST(binarySearchTree, morrisInorderTest)
     {
         BinarySearchTree bst;
         bst.insertNode(50);
@@ -61,7 +61,7 @@ namespace binary_search_tree
         EXPECT_EQ(actualResult, expectedResult);
     }
 
-    TEST(bSTInsertData, morrisPreorderTest)
+    TEST(binarySearchTree, morrisPreorderTest)
     {
         BinarySearchTree bst;
         bst.insertNode(50);
@@ -75,7 +75,7 @@ namespace binary_search_tree
         EXPECT_EQ(actualResult, expectedResult);
     }
 
-    TEST(bSTInsertData, morrisPostorderTest)
+    TEST(binarySearchTree, morrisPostorderTest)
     {
         BinarySearchTree bst;
         bst.insertNode(50);
