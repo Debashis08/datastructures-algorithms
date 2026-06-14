@@ -15,7 +15,7 @@ namespace eulerian_path_and_circuit
 	}
 
 	// Graph private member methods
-	Node* Graph::makeOrFindNode(int value)
+	Node* Graph::_makeOrFindNode(int value)
 	{
 		Node* node = nullptr;
 		if (this->_nodeMap.find(value) == this->_nodeMap.end())
@@ -30,19 +30,19 @@ namespace eulerian_path_and_circuit
 		return node;
 	}
 
-	void Graph::depthFirstSearch(Node* nodeU)
+	void Graph::_depthFirstSearch(Node* nodeU)
 	{
 		nodeU->visited = true;
 		for (auto& nodeV : this->_adjlist[nodeU])
 		{
 			if (nodeV->visited == false)
 			{
-				this->depthFirstSearch(nodeV);
+				this->_depthFirstSearch(nodeV);
 			}
 		}
 	}
 
-	bool Graph::isConnected()
+	bool Graph::_isConnected()
 	{
 		// step-1 : make the visited property of all nodes as false. it is already done in constructor.
 
@@ -63,7 +63,7 @@ namespace eulerian_path_and_circuit
 			return true;
 		}
 
-		this->depthFirstSearch(node);
+		this->_depthFirstSearch(node);
 
 		// step-4 : checking if all the non-zero degree vertices have been visited or not.
 		for (auto& iterator : this->_nodeMap)
@@ -76,7 +76,7 @@ namespace eulerian_path_and_circuit
 		return true;
 	}
 
-	void Graph::eulerianPathHierholzerAlgorithm(Node* startingNode)
+	void Graph::_eulerianPathHierholzerAlgorithm(Node* startingNode)
 	{
 		stack<Node*> currentPath;
 		currentPath.push(startingNode);
@@ -101,8 +101,8 @@ namespace eulerian_path_and_circuit
 	// Graph public member methods
 	void Graph::pushUndirectedEdge(int valueU, int valueV)
 	{
-		Node* nodeU = this->makeOrFindNode(valueU);
-		Node* nodeV = this->makeOrFindNode(valueV);
+		Node* nodeU = this->_makeOrFindNode(valueU);
+		Node* nodeV = this->_makeOrFindNode(valueV);
 
 		this->_adjlist[nodeU].push_back(nodeV);
 		nodeU->degree++;
@@ -112,8 +112,8 @@ namespace eulerian_path_and_circuit
 
 	void Graph::pushDirectedEdge(int valueU, int valueV)
 	{
-		Node* nodeU = this->makeOrFindNode(valueU);
-		Node* nodeV = this->makeOrFindNode(valueV);
+		Node* nodeU = this->_makeOrFindNode(valueU);
+		Node* nodeV = this->_makeOrFindNode(valueV);
 
 		this->_adjlist[nodeU].push_back(nodeV);
 		nodeU->outDegree++;
@@ -122,13 +122,13 @@ namespace eulerian_path_and_circuit
 
 	void Graph::pushSingleNode(int valueU)
 	{
-		this->makeOrFindNode(valueU);
+		this->_makeOrFindNode(valueU);
 	}
 
 	void Graph::findEulerianPathAndCircuit()
 	{
 		// if the graph is not connected then graph G is not-eulerian.
-		if (this->isConnected() == false)
+		if (this->_isConnected() == false)
 		{
 			this->_isEulerianPathPresent = false;
 			this->_isEulerianCircuitPresent = false;
@@ -205,7 +205,7 @@ namespace eulerian_path_and_circuit
 		{
 			node = this->_nodeMap[0];
 		}
-		this->eulerianPathHierholzerAlgorithm(node);
+		this->_eulerianPathHierholzerAlgorithm(node);
 		reverse(this->_eulerianPath.begin(), this->_eulerianPath.end());
 		return this->_eulerianPath;
 	}

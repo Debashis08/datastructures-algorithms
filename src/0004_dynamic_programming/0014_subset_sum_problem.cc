@@ -3,7 +3,7 @@
 namespace subset_sum_problem
 {
 	// dynamic programming private member methods.
-	bool DynamicProgramming::subsetSumRecursiveHelper(vector<int>& nums, int sum, int numberOfElements)
+	bool DynamicProgramming::_recursiveSubsetSumHelper(vector<int>& nums, int sum, int numberOfElements)
 	{
 		// Base case.
 		// if the sum is 0, we found a subset with a given sum.
@@ -22,21 +22,21 @@ namespace subset_sum_problem
 		// when the current element is greater than the sum, we skip it, as all elemeents are non-negative.
 		if (nums[numberOfElements - 1] > sum)
 		{
-			return this->subsetSumRecursiveHelper(nums, sum, numberOfElements - 1);
+			return this->_recursiveSubsetSumHelper(nums, sum, numberOfElements - 1);
 		}
 
 		// when the current element is equal to or less than the sum, we have two choices.
 		// 1. include the current element in the subset and the sum is reduced by the current element value and also the number of elements is reducded by 1.
 		// 2. exclude the current element from the subset and the sum remains the same but the number of eleements is reduced by 1.
 		// if either of these two choices return true, we return true.
-		return this->subsetSumRecursiveHelper(nums, sum - nums[numberOfElements - 1], numberOfElements - 1) || this->subsetSumRecursiveHelper(nums, sum, numberOfElements - 1);
+		return this->_recursiveSubsetSumHelper(nums, sum - nums[numberOfElements - 1], numberOfElements - 1) || this->_recursiveSubsetSumHelper(nums, sum, numberOfElements - 1);
 	}
 
 	// dynamic programming public member methods.
 	bool DynamicProgramming::recursiveSubsetSum(vector<int> nums, int sum)
 	{
 		int numberOfElements = nums.size();
-		return this->subsetSumRecursiveHelper(nums, sum, numberOfElements);
+		return this->_recursiveSubsetSumHelper(nums, sum, numberOfElements);
 	}
 
 	bool DynamicProgramming::dpIsSubsetSum(vector<int> nums, int sum)

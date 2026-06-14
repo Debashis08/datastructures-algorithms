@@ -5,7 +5,7 @@ using namespace std;
 namespace maximum_flow_ford_fulkerson
 {
 	// Graph private member methods
-	void Graph::resolveAntiParallelEdges()
+	void Graph::_resolveAntiParallelEdges()
 	{
 		int countParallelEdges = 0;
 		for (int i = 0; i < this->_noOfVertices; i++)
@@ -61,7 +61,7 @@ namespace maximum_flow_ford_fulkerson
 		this->_noOfVertices = newNoOfVertices;
 	}
 
-	void Graph::depthFirstSearchVisit(int nodeU)
+	void Graph::_depthFirstSearchVisit(int nodeU)
 	{
 		this->_visited[nodeU] = true;
 		for (int nodeV = 0; nodeV < this->_noOfVertices; nodeV++)
@@ -69,12 +69,12 @@ namespace maximum_flow_ford_fulkerson
 			if (!this->_visited[nodeV] && this->_residualGraph[nodeU][nodeV] > 0)
 			{
 				this->_parent[nodeV] = nodeU;
-				this->depthFirstSearchVisit(nodeV);
+				this->_depthFirstSearchVisit(nodeV);
 			}
 		}
 	}
 
-	bool Graph::depthFirstSearch()
+	bool Graph::_depthFirstSearch()
 	{
 		// resetting the visited values
 		fill(this->_visited.begin(), this->_visited.end(), false);
@@ -83,7 +83,7 @@ namespace maximum_flow_ford_fulkerson
 		fill(this->_parent.begin(), this->_parent.end(), -1);
 
 		// starting the depthFirstSearch from the source vertex
-		this->depthFirstSearchVisit(this->_source);
+		this->_depthFirstSearchVisit(this->_source);
 
 		// returning the visited value of the sink vertex, initially it was set to false
 		return this->_visited[this->_sink];
@@ -110,11 +110,11 @@ namespace maximum_flow_ford_fulkerson
 	int Graph::findMaximumFlowFordFulkerson()
 	{
 		// resolving all the parallel edges if present
-		this->resolveAntiParallelEdges();
+		this->_resolveAntiParallelEdges();
 		this->_residualGraph = this->_adjMatrix;
 
 		// while there exists a path p from source to sink in the residual network G'
-		while (this->depthFirstSearch())
+		while (this->_depthFirstSearch())
 		{
 			int augmentedPathFlow = INT_MAX;
 

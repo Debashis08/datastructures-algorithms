@@ -3,7 +3,7 @@
 namespace knapsack_problem
 {
 	// dynamic programming private member methods.
-	int DynamicProgramming::knapsackRecursiveHelper(int capacity, vector<int>& weight, vector<int>& profit, int numberOfItems)
+	int DynamicProgramming::_recursiveKnapsackHelper(int capacity, vector<int>& weight, vector<int>& profit, int numberOfItems)
 	{
 		if (capacity <= 0 || numberOfItems == 0)
 		{
@@ -15,10 +15,10 @@ namespace knapsack_problem
 		// pick the current item only if does not exceed the capacity.
 		if (weight[numberOfItems - 1] <= capacity)
 		{
-			pickCurrentItem = profit[numberOfItems - 1] + this->knapsackRecursiveHelper(capacity - weight[numberOfItems - 1], weight, profit, numberOfItems - 1);
+			pickCurrentItem = profit[numberOfItems - 1] + this->_recursiveKnapsackHelper(capacity - weight[numberOfItems - 1], weight, profit, numberOfItems - 1);
 		}
 
-		int dropCurrentItem = this->knapsackRecursiveHelper(capacity, weight, profit, numberOfItems - 1);
+		int dropCurrentItem = this->_recursiveKnapsackHelper(capacity, weight, profit, numberOfItems - 1);
 
 		return max(pickCurrentItem, dropCurrentItem);
 	}
@@ -27,7 +27,7 @@ namespace knapsack_problem
 	int DynamicProgramming::recursiveKnapsack(int capacity, vector<int> weight, vector<int> profit)
 	{
 		size_t totalNumberOfItems = weight.size();
-		return this->knapsackRecursiveHelper(capacity, weight, profit, totalNumberOfItems);
+		return this->_recursiveKnapsackHelper(capacity, weight, profit, totalNumberOfItems);
 	}
 
 	int DynamicProgramming::dpKnapsack(int capacity, vector<int> weight, vector<int> profit)

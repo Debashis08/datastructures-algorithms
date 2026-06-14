@@ -19,10 +19,10 @@ namespace maximum_flow_relabel_to_front
 		vector<int> _height;
 		vector<bool> _visited;
 		list<int> _nodeList;
-		void initializePreflow();
-		void discharge(int nodeU);
-		void push(int nodeU, int nodeV);
-		void relabel(int nodeU);
+		void _initializePreflow();
+		void _discharge(int nodeU);
+		void _push(int nodeU, int nodeV);
+		void _relabel(int nodeU);
 	public:
 		void createGraph(int noOfVertices);
 		void pushDirectedEdge(int valueU, int valueV, int capacity);

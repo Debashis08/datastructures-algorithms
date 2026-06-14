@@ -10,7 +10,7 @@ namespace hamiltonian_path_and_cycle
 	}
 
 	// Graph private member methods
-	Node* Graph::makeOrFindNode(int value)
+	Node* Graph::_makeOrFindNode(int value)
 	{
 		Node* node = nullptr;
 		if (this->_nodeMap.find(value) == this->_nodeMap.end())
@@ -25,7 +25,7 @@ namespace hamiltonian_path_and_cycle
 		return node;
 	}
 
-	bool Graph::isSafe(Node* nodeU, Node* nodeV)
+	bool Graph::_isSafe(Node* nodeU, Node* nodeV)
 	{
 		if (this->_adjlist[nodeU].find(nodeV) == this->_adjlist[nodeU].end())
 		{
@@ -38,7 +38,7 @@ namespace hamiltonian_path_and_cycle
 		return true;
 	}
 
-	bool Graph::hamiltonianCycleAndPathUtil(Node* nodeU)
+	bool Graph::_hamiltonianCycleAndPathUtil(Node* nodeU)
 	{
 		if (this->_visitedNodeCount == this->_nodeMap.size())
 		{
@@ -53,12 +53,12 @@ namespace hamiltonian_path_and_cycle
 		}
 		for (auto& nodeV : this->_adjlist[nodeU])
 		{
-			if (this->isSafe(nodeU, nodeV))
+			if (this->_isSafe(nodeU, nodeV))
 			{
 				this->_hamiltonianPath.push_back(nodeV->data);
 				nodeV->isVisited = true;
 				this->_visitedNodeCount++;
-				if (this->hamiltonianCycleAndPathUtil(nodeV))
+				if (this->_hamiltonianCycleAndPathUtil(nodeV))
 				{
 					return true;
 				}
@@ -73,8 +73,8 @@ namespace hamiltonian_path_and_cycle
 	// Graph public member methods
 	void Graph::pushUndirectedEdge(int valueU, int valueV)
 	{
-		Node* nodeU = this->makeOrFindNode(valueU);
-		Node* nodeV = this->makeOrFindNode(valueV);
+		Node* nodeU = this->_makeOrFindNode(valueU);
+		Node* nodeV = this->_makeOrFindNode(valueV);
 
 		this->_adjlist[nodeU].insert(nodeV);
 		this->_adjlist[nodeV].insert(nodeU);
@@ -82,7 +82,7 @@ namespace hamiltonian_path_and_cycle
 
 	void Graph::pushSingleNode(int valueU)
 	{
-		this->makeOrFindNode(valueU);
+		this->_makeOrFindNode(valueU);
 	}
 
 	void Graph::findHamiltonianCycleAndPath()
@@ -94,7 +94,7 @@ namespace hamiltonian_path_and_cycle
 		this->_hamiltonianPath.push_back(this->_startingNode->data);
 		this->_startingNode->isVisited = true;
 		this->_visitedNodeCount = 1;
-		this->hamiltonianCycleAndPathUtil(this->_startingNode);
+		this->_hamiltonianCycleAndPathUtil(this->_startingNode);
 	}
 
 	bool Graph::isHamiltonianCyclePresent()

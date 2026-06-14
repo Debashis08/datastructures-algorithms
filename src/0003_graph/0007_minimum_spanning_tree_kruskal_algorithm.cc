@@ -20,7 +20,7 @@ namespace minimum_spanning_tree_kruskal_algorithm
 	}
 
 	// Graph private member methods
-	Node* Graph::makeOrFindNode(int data)
+	Node* Graph::_makeOrFindNode(int data)
 	{
 		Node* node = nullptr;
 		if (this->_nodeMap.find(data) == this->_nodeMap.end())
@@ -35,18 +35,18 @@ namespace minimum_spanning_tree_kruskal_algorithm
 		return node;
 	}
 
-	void Graph::makeSet(Node* node)
+	void Graph::_makeSet(Node* node)
 	{
 		node->parent = node;
 		node->rank = 0;
 	}
 
-	void Graph::unionSet(Node* nodeU, Node* nodeV)
+	void Graph::_unionSet(Node* nodeU, Node* nodeV)
 	{
-		this->link(this->findSet(nodeU), this->findSet(nodeV));
+		this->_linkSet(this->_findSet(nodeU), this->_findSet(nodeV));
 	}
 
-	void Graph::link(Node* nodeU, Node* nodeV)
+	void Graph::_linkSet(Node* nodeU, Node* nodeV)
 	{
 		if (nodeV->rank > nodeU->rank)
 		{
@@ -62,11 +62,11 @@ namespace minimum_spanning_tree_kruskal_algorithm
 		}
 	}
 
-	Node* Graph::findSet(Node* node)
+	Node* Graph::_findSet(Node* node)
 	{
 		if (node != node->parent)
 		{
-			node->parent = this->findSet(node->parent);
+			node->parent = this->_findSet(node->parent);
 		}
 		return node->parent;
 	}
@@ -74,8 +74,8 @@ namespace minimum_spanning_tree_kruskal_algorithm
 	// Graph public member methods
 	void Graph::pushUndirectedEdge(int dataU, int dataV, int weight)
 	{
-		Node* nodeU = this->makeOrFindNode(dataU);
-		Node* nodeV = this->makeOrFindNode(dataV);
+		Node* nodeU = this->_makeOrFindNode(dataU);
+		Node* nodeV = this->_makeOrFindNode(dataV);
 
 		this->_adjlist[nodeU].push_back(nodeV);
 		this->_adjlist[nodeV].push_back(nodeU);
@@ -86,16 +86,16 @@ namespace minimum_spanning_tree_kruskal_algorithm
 	{
 		for (auto& iterator : this->_nodeMap)
 		{
-			this->makeSet(iterator.second);
+			this->_makeSet(iterator.second);
 		}
 		
 		sort(this->_edgeList.begin(), this->_edgeList.end(), [](Edge* edgeX, Edge* edgeY) { return edgeX->weight < edgeY->weight; });
 
 		for (auto& edge : this->_edgeList)
 		{
-			if (this->findSet(edge->nodeU) != this->findSet(edge->nodeV))
+			if (this->_findSet(edge->nodeU) != this->_findSet(edge->nodeV))
 			{
-				this->unionSet(edge->nodeU, edge->nodeV);
+				this->_unionSet(edge->nodeU, edge->nodeV);
 				this->_minimumSpanningTree.push_back({ {edge->nodeU->data, edge->nodeV->data}, edge->weight });
 			}
 		}

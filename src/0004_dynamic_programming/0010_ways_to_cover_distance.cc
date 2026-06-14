@@ -3,7 +3,7 @@
 namespace ways_to_cover_distance
 {
 	// dynamic programming private member methods.
-	int DynamicProgramming::waysToCoverDistanceRecursiveHelper(int dist)
+	int DynamicProgramming::_waysToCoverDistanceRecursiveHelper(int dist)
 	{
 		if (dist < 0)
 		{
@@ -16,9 +16,9 @@ namespace ways_to_cover_distance
 		}
 		
 		int result = 0;
-		result += this->waysToCoverDistanceRecursiveHelper(dist - 1);
-		result += this->waysToCoverDistanceRecursiveHelper(dist - 2);
-		result += this->waysToCoverDistanceRecursiveHelper(dist - 3);
+		result += this->_waysToCoverDistanceRecursiveHelper(dist - 1);
+		result += this->_waysToCoverDistanceRecursiveHelper(dist - 2);
+		result += this->_waysToCoverDistanceRecursiveHelper(dist - 3);
 		
 		return result;
 	}
@@ -26,7 +26,7 @@ namespace ways_to_cover_distance
 	// dynamic programming public member methods.
 	int DynamicProgramming::recursiveWaysToCoverDistance(int dist)
 	{
-		return this->waysToCoverDistanceRecursiveHelper(dist);
+		return this->_waysToCoverDistanceRecursiveHelper(dist);
 	}
 
 	int DynamicProgramming::dpWaysToCoverDistance(int dist)

@@ -3,14 +3,14 @@
 
 namespace minimum_cost_climbing_stairs
 {
-	int DynamicProgramming::minCostRecursive(size_t step, vector<int>& cost)
+	int DynamicProgramming::_minCostRecursive(size_t step, vector<int>& cost)
 	{
 		if (step == 0 || step == 1)
 		{
 			return cost[step];
 		}
 
-		return cost[step] + min(this->minCostRecursive(step - 1, cost), this->minCostRecursive(step - 2, cost));
+		return cost[step] + min(this->_minCostRecursive(step - 1, cost), this->_minCostRecursive(step - 2, cost));
 	}
 
 	int DynamicProgramming::recursiveMinimumCostClimbingStairs(vector<int>& cost)
@@ -22,7 +22,7 @@ namespace minimum_cost_climbing_stairs
 			return cost[0];
 		}
 
-		return min(this->minCostRecursive(totalSteps - 1, cost), this->minCostRecursive(totalSteps - 2, cost));
+		return min(this->_minCostRecursive(totalSteps - 1, cost), this->_minCostRecursive(totalSteps - 2, cost));
 	}
 
 	int DynamicProgramming::dpMinimumCostClimbingStairs(vector<int>& cost)

@@ -13,7 +13,7 @@ FetchContent_MakeAvailable(googletest)
 enable_testing()
 
 add_executable(
-  0005DynamicProgrammingTests
+  0005_DynamicProgrammingTests
 
   0001_fibonacci_number_test.cc
   0002_tribonacci_number_test.cc
@@ -36,15 +36,15 @@ add_executable(
 )
 
 target_link_libraries(
-  0005DynamicProgrammingTests
+  0005_DynamicProgrammingTests
   GTest::gtest_main
-  0005DYNAMICPROGRAMMING
+  0005_DynamicProgramming
 )
 
 # Add .clang-tidy configuration to this library.
 if(CLANG_TIDY_EXE)
-  set_target_properties(0005DYNAMICPROGRAMMING PROPERTIES CXX_CLANG_TIDY "${CLANG_TIDY_COMMAND}")
+  set_target_properties(0005_DynamicProgramming PROPERTIES CXX_CLANG_TIDY "${CLANG_TIDY_COMMAND}")
 endif()
 
 include(GoogleTest)
-gtest_discover_tests(0005DynamicProgrammingTests DISCOVERY_TIMEOUT 30)
+gtest_discover_tests(0005_DynamicProgrammingTests DISCOVERY_TIMEOUT 30)

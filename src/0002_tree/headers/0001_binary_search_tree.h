@@ -21,14 +21,14 @@ namespace binary_search_tree
 	{
 	private:
 		Node* _root;
-		void _insertBSTreeNode(Node* node);
-		Node* _findBSTreeNode(int value);
-		Node* _findBSTreeMinNode(Node* node);
-		Node* _findBSTreeMaxNode(Node* node);
+		void _insert(Node* node);
+		Node* _findNodeByValue(int value);
+		Node* _findMinimumValueNode(Node* node);
+		Node* _findMaximumValueNode(Node* node);
 		Node* _findSuccessor(Node* node);
 		Node* _findPredecessor(Node* node);
 		void _transplant(Node* nodeU, Node* nodeV);
-		void _deleteBSTreeNode(Node* node);
+		void _delete(Node* node);
 		void _recursiveInorder(Node* node, vector<int>& result);
 		void _recursivePreorder(Node* node, vector<int>& result);
 		void _recursivePostorder(Node* node, vector<int>& result);

@@ -20,7 +20,7 @@ namespace single_source_shortest_path_dijkstra
 	}
 
 	// Graph private member methods
-	Node* Graph::makeOrFindNode(int data)
+	Node* Graph::_makeOrFindNode(int data)
 	{
 		Node* node = nullptr;
 		if (this->_nodeMap.find(data) == this->_nodeMap.end())
@@ -35,7 +35,7 @@ namespace single_source_shortest_path_dijkstra
 		return node;
 	}
 
-	void Graph::initializeSingleSource(Node* sourceNode)
+	void Graph::_initializeSingleSource(Node* sourceNode)
 	{
 		for (auto& iterator : this->_nodeMap)
 		{
@@ -45,7 +45,7 @@ namespace single_source_shortest_path_dijkstra
 		sourceNode->distance = 0;
 	}
 
-	void Graph::relax(Edge* edge)
+	void Graph::_relax(Edge* edge)
 	{
 		if (edge->nodeU->distance != INT_MAX && (edge->nodeV->distance > (edge->nodeU->distance + edge->weight)))
 		{
@@ -56,9 +56,9 @@ namespace single_source_shortest_path_dijkstra
 		}
 	}
 
-	void Graph::dijkstra(Node* source)
+	void Graph::_dijkstra(Node* source)
 	{
-		this->initializeSingleSource(source);
+		this->_initializeSingleSource(source);
 
 		for (auto& node : this->_nodeMap)
 		{
@@ -72,25 +72,25 @@ namespace single_source_shortest_path_dijkstra
 
 			for (auto& edge : this->_edgeMap[nodeU])
 			{
-				this->relax(edge);
+				this->_relax(edge);
 			}
 		}
 	}
 
-	void Graph::getShortestPath(Node* node, vector<int>& path)
+	void Graph::_getShortestPath(Node* node, vector<int>& path)
 	{
 		path.push_back(node->data);
 		if (node->parent != nullptr)
 		{
-			this->getShortestPath(node->parent, path);
+			this->_getShortestPath(node->parent, path);
 		}
 	}
 
 	// Graph public member methods
 	void Graph::pushDirectedEdge(int dataU, int dataV, int weight)
 	{
-		Node* nodeU = this->makeOrFindNode(dataU);
-		Node* nodeV = this->makeOrFindNode(dataV);
+		Node* nodeU = this->_makeOrFindNode(dataU);
+		Node* nodeV = this->_makeOrFindNode(dataV);
 
 		this->_adjlist[nodeU].push_back(nodeV);
 		this->_edgeMap[nodeU].push_back(new Edge(nodeU, nodeV, weight));
@@ -99,14 +99,14 @@ namespace single_source_shortest_path_dijkstra
 	void Graph::findShortestPathDijkstra(int data)
 	{
 		Node* source = this->_nodeMap[data];
-		this->dijkstra(source);
+		this->_dijkstra(source);
 	}
 
 	vector<int> Graph::getDijkstraShortestPath(int data)
 	{
 		vector<int> path = {};
 		Node* node = this->_nodeMap[data];
-		this->getShortestPath(node, path);
+		this->_getShortestPath(node, path);
 		reverse(path.begin(), path.end());
 		return path;
 	}

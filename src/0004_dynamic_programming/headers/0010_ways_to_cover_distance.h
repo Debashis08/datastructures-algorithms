@@ -39,7 +39,7 @@ namespace ways_to_cover_distance
 	class DynamicProgramming
 	{
 	private:
-		int waysToCoverDistanceRecursiveHelper(int dist);
+		int _waysToCoverDistanceRecursiveHelper(int dist);
 	public:
 		int recursiveWaysToCoverDistance(int dist);
 		int dpWaysToCoverDistance(int dist);

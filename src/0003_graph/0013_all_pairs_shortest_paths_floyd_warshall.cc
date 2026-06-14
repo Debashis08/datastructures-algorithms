@@ -5,7 +5,7 @@ using namespace std;
 namespace all_pairs_shortest_paths_floyd_warshall
 {
 	// Graph private member methods
-	void Graph::initializeDistanceAndPredecessors()
+	void Graph::_initializeDistanceAndPredecessors()
 	{
 		this->_shortestPathMatrixFloydWarshall = this->_adjMatrix;
 
@@ -25,12 +25,12 @@ namespace all_pairs_shortest_paths_floyd_warshall
 		}
 	}
 
-	void Graph::getShortestPath(int source, int destination, vector<int>& path)
+	void Graph::_getShortestPath(int source, int destination, vector<int>& path)
 	{
 		if (this->_predecessorMatrix[source - 1][destination - 1] != source)
 		{
 			int predecessor = this->_predecessorMatrix[source - 1][destination - 1];
-			this->getShortestPath(source, predecessor, path);
+			this->_getShortestPath(source, predecessor, path);
 			path.push_back(predecessor);
 		}
 	}
@@ -62,7 +62,7 @@ namespace all_pairs_shortest_paths_floyd_warshall
 
 	void Graph::findAllPairsShortestPathsFloydWarshallSolution()
 	{
-		this->initializeDistanceAndPredecessors();
+		this->_initializeDistanceAndPredecessors();
 
 		for (int k = 0; k < this->_noOfVertices; k++)
 		{
@@ -93,7 +93,7 @@ namespace all_pairs_shortest_paths_floyd_warshall
 				{
 					vector<int> path = {};
 					path.push_back(i + 1);
-					this->getShortestPath(i + 1, j + 1, path);
+					this->_getShortestPath(i + 1, j + 1, path);
 					path.push_back(j + 1);
 					result.push_back(path);
 				}

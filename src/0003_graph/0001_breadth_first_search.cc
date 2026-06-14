@@ -17,7 +17,7 @@ namespace breadth_first_search
 		this->parent = nullptr;
 	}
 
-	Node* Graph::makeOrFindNode(int value)
+	Node* Graph::_makeOrFindNode(int value)
 	{
 		Node* node = nullptr;
 		if (this->_nodeMap.find(value) == this->_nodeMap.end())
@@ -32,7 +32,7 @@ namespace breadth_first_search
 		return node;
 	}
 
-	void Graph::breadthFirstSearch(Node* node)
+	void Graph::_breadthFirstSearch(Node* node)
 	{
 		node->color = WHITE;
 		node->distance = 0;
@@ -62,8 +62,8 @@ namespace breadth_first_search
 
 	void Graph::pushUndirectedEdge(int valueU, int valueV)
 	{
-		Node* nodeU = this->makeOrFindNode(valueU);
-		Node* nodeV = this->makeOrFindNode(valueV);
+		Node* nodeU = this->_makeOrFindNode(valueU);
+		Node* nodeV = this->_makeOrFindNode(valueV);
 
 		this->_adjlist[nodeU].push_back(nodeV);
 		this->_adjlist[nodeV].push_back(nodeU);
@@ -71,7 +71,7 @@ namespace breadth_first_search
 
 	void Graph::bfs(int value)
 	{
-		this->breadthFirstSearch(this->_nodeMap[value]);
+		this->_breadthFirstSearch(this->_nodeMap[value]);
 	}
 
 	vector<pair<int, int>> Graph::showBFSResult()

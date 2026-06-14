@@ -18,7 +18,7 @@ namespace difference_constraints_shortest_paths
 	}
 
 	// Graph private member methods
-	Node* Graph::makeOrFindNode(string data)
+	Node* Graph::_makeOrFindNode(string data)
 	{
 		Node* node = nullptr;
 		if (this->_nodeMap.find(data) == this->_nodeMap.end())
@@ -33,16 +33,16 @@ namespace difference_constraints_shortest_paths
 		return node;
 	}
 
-	void Graph::pushDirectedEdge(string dataU, string dataV, int weight)
+	void Graph::_pushDirectedEdge(string dataU, string dataV, int weight)
 	{
-		Node* nodeU = this->makeOrFindNode(dataU);
-		Node* nodeV = this->makeOrFindNode(dataV);
+		Node* nodeU = this->_makeOrFindNode(dataU);
+		Node* nodeV = this->_makeOrFindNode(dataV);
 
 		this->_adjlist[nodeU].push_back(nodeV);
 		this->_edgeList.push_back(new Edge(nodeU, nodeV, weight));
 	}
 
-	void Graph::initializeSingleSource(Node* sourceNode)
+	void Graph::_initializeSingleSource(Node* sourceNode)
 	{
 		for (auto& iterator : this->_nodeMap)
 		{
@@ -51,7 +51,7 @@ namespace difference_constraints_shortest_paths
 		sourceNode->distance = 0;
 	}
 
-	void Graph::relax(Edge* edge)
+	void Graph::_relax(Edge* edge)
 	{
 		if (edge->nodeU->distance != INT_MAX && (edge->nodeV->distance > (edge->nodeU->distance + edge->weight)))
 		{
@@ -80,7 +80,7 @@ namespace difference_constraints_shortest_paths
 				}
 			}
 			weight = vectorB[i];
-			this->pushDirectedEdge(valueU, valueV, weight);
+			this->_pushDirectedEdge(valueU, valueV, weight);
 		}
 
 		// creating all the edges from the additional vertex
@@ -90,7 +90,7 @@ namespace difference_constraints_shortest_paths
 		for (int i = 0; i < vectorX.size(); i++)
 		{
 			valueV = vectorX[i];
-			this->pushDirectedEdge(valueU, valueV, weight);
+			this->_pushDirectedEdge(valueU, valueV, weight);
 		}
 	}
 
@@ -98,13 +98,13 @@ namespace difference_constraints_shortest_paths
 	{
 		Node* source = this->_nodeMap[""];
 
-		this->initializeSingleSource(source);
+		this->_initializeSingleSource(source);
 
 		for (int i = 0; i < this->_nodeMap.size(); i++)
 		{
 			for (auto& edge : this->_edgeList)
 			{
-				this->relax(edge);
+				this->_relax(edge);
 			}
 		}
 

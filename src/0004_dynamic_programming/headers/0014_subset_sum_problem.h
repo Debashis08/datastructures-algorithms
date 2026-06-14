@@ -26,7 +26,7 @@ namespace subset_sum_problem
 	class DynamicProgramming
 	{
 	private:
-		bool subsetSumRecursiveHelper(vector<int>& nums, int sum, int numberOfElements);
+		bool _recursiveSubsetSumHelper(vector<int>& nums, int sum, int numberOfElements);
 	public:
 		bool recursiveSubsetSum(vector<int> nums, int sum);
 		bool dpIsSubsetSum(vector<int> nums, int sum);

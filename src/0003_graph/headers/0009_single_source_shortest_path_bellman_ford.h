@@ -30,10 +30,10 @@ namespace single_source_shortest_path_bellman_ford
 		map<Node*, vector<Node*>> _adjlist;
 		map<int, Node*> _nodeMap;
 		vector<Edge*> _edgeList;
-		Node* makeOrFindNode(int data);
-		void initializeSingleSource(Node* sourceNode);
-		void relax(Edge* edge);
-		void getShortestPath(Node* node, vector<int>& path);
+		Node* _makeOrFindNode(int data);
+		void _initializeSingleSource(Node* sourceNode);
+		void _relax(Edge* edge);
+		void _getShortestPath(Node* node, vector<int>& path);
 
 
 	public:

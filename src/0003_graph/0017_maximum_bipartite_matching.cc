@@ -6,7 +6,7 @@ using namespace std;
 namespace maximum_bipartite_matching
 {
 	// Graph private member methods
-	void Graph::resolveAntiParallelEdges()
+	void Graph::_resolveAntiParallelEdges()
 	{
 		int countParallelEdges = 0;
 		for (int i = 0; i < this->_noOfVertices; i++)
@@ -63,7 +63,7 @@ namespace maximum_bipartite_matching
 	}
 
 	// this method is used to color the vertices of the graph to determine if the given graph is bipartite or not
-	void Graph::colorGraph()
+	void Graph::_colorGraph()
 	{
 		// color of all the vertices are initialised to WHITE
 		fill(this->_color.begin(), this->_color.end(), WHITE);
@@ -125,7 +125,7 @@ namespace maximum_bipartite_matching
 	// this method is used to create the additional edges
 	// from the source vertex to the RED colored vertices and
 	// from the BLUE colored vertices to the sink vertex
-	void Graph::addAdditionalEdges()
+	void Graph::_addAdditionalEdges()
 	{
 		// resizing the residual graph to accomodate space for the new edges
 		for (auto& edge : this->_residualGraph)
@@ -156,7 +156,7 @@ namespace maximum_bipartite_matching
 	}
 
 	// implementation of breadthFirstSearch for edmondsKarp algorithm to find the path from source to sink
-	bool Graph::breadthFirstSearch()
+	bool Graph::_breadthFirstSearch()
 	{
 		// resetting the visited values
 		fill(this->_visited.begin(), this->_visited.end(), false);
@@ -208,20 +208,20 @@ namespace maximum_bipartite_matching
 	int Graph::findMaximumBipartiteMatching()
 	{
 		// resolving all the parallel edges if present
-		this->resolveAntiParallelEdges();
+		this->_resolveAntiParallelEdges();
 		this->_residualGraph = this->_adjMatrix;
 
-		this->colorGraph();
+		this->_colorGraph();
 
 		this->_source = this->_noOfVertices;
 		this->_noOfVertices++;
 		this->_sink = this->_noOfVertices;
 		this->_noOfVertices++;
 
-		this->addAdditionalEdges();
+		this->_addAdditionalEdges();
 
 		// while there exists a path p from source to sink in the residual network G'
-		while (this->breadthFirstSearch())
+		while (this->_breadthFirstSearch())
 		{
 			int augmentedPathFlow = 1;
 

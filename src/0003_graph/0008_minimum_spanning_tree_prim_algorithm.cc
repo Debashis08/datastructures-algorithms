@@ -14,7 +14,7 @@ namespace minimum_spanning_tree_prim_algorithm
 	}
 
 	// Graph private member methods
-	Node* Graph::makeOrFindNode(int data)
+	Node* Graph::_makeOrFindNode(int data)
 	{
 		Node* node = nullptr;
 		if (this->_nodeMap.find(data) == this->_nodeMap.end())
@@ -32,8 +32,8 @@ namespace minimum_spanning_tree_prim_algorithm
 	// Graph public member methods
 	void Graph::pushUndirectedEdge(int dataU, int dataV, int weight)
 	{
-		Node* nodeU = this->makeOrFindNode(dataU);
-		Node* nodeV = this->makeOrFindNode(dataV);
+		Node* nodeU = this->_makeOrFindNode(dataU);
+		Node* nodeV = this->_makeOrFindNode(dataV);
 
 		this->_adjlist[nodeU].push_back({nodeV, weight});
 		this->_adjlist[nodeV].push_back({nodeU, weight});

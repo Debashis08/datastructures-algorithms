@@ -18,7 +18,7 @@ namespace topological_sort
 		this->parent = nullptr;
 	}
 
-	Node* Graph::makeOrFindNode(int value)
+	Node* Graph::_makeOrFindNode(int value)
 	{
 		Node* node = nullptr;
 		if (this->_nodeMap.find(value) == this->_nodeMap.end())
@@ -33,7 +33,7 @@ namespace topological_sort
 		return node;
 	}
 
-	void Graph::depthFirstSearch(Node* nodeU)
+	void Graph::_depthFirstSearch(Node* nodeU)
 	{
 		this->_time++;
 		nodeU->discoveryTime = this->_time;
@@ -43,7 +43,7 @@ namespace topological_sort
 			if (nodeV->color == WHITE)
 			{
 				nodeV->parent = nodeU;
-				this->depthFirstSearch(nodeV);
+				this->_depthFirstSearch(nodeV);
 			}
 			else if (nodeV->color == GRAY)
 			{
@@ -59,8 +59,8 @@ namespace topological_sort
 
 	void Graph::pushDirectedEdge(int valueU, int valueV)
 	{
-		Node* nodeU = this->makeOrFindNode(valueU);
-		Node* nodeV = this->makeOrFindNode(valueV);
+		Node* nodeU = this->_makeOrFindNode(valueU);
+		Node* nodeV = this->_makeOrFindNode(valueV);
 
 		this->_adjlist[nodeU].push_back(nodeV);
 		nodeV->inDegree++;
@@ -68,7 +68,7 @@ namespace topological_sort
 
 	void Graph::pushSingleNode(int valueU)
 	{
-		this->makeOrFindNode(valueU);
+		this->_makeOrFindNode(valueU);
 	}
 
 	void Graph::topologicalSort()
@@ -78,7 +78,7 @@ namespace topological_sort
 		{
 			if (iterator.second->color == WHITE)
 			{
-				this->depthFirstSearch(iterator.second);
+				this->_depthFirstSearch(iterator.second);
 				if (this->_hasCycle == true)
 				{
 					break;

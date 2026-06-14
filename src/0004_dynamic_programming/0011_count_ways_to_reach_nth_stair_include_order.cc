@@ -3,7 +3,7 @@
 namespace count_ways_to_reach_nth_stair_include_order
 {
 	// dynamic programming private member methods.
-	int DynamicProgramming::recursiveCountWaysToReachNthStairIncludeOrderHelper(int n)
+	int DynamicProgramming::_recursiveCountWaysHelper(int n)
 	{
 		if (n < 0)
 		{
@@ -15,19 +15,19 @@ namespace count_ways_to_reach_nth_stair_include_order
 		}
 
 		int result = 0;
-		result += this->recursiveCountWaysToReachNthStairIncludeOrderHelper(n - 1);
-		result += this->recursiveCountWaysToReachNthStairIncludeOrderHelper(n - 2);
+		result += this->_recursiveCountWaysHelper(n - 1);
+		result += this->_recursiveCountWaysHelper(n - 2);
 
 		return result;
 	}
 
 	// dynamic programming public member methods.
-	int DynamicProgramming::recursiveCountWaysToReachNthStairIncludeOrder(int n)
+	int DynamicProgramming::recursiveCountWays(int n)
 	{
-		return this->recursiveCountWaysToReachNthStairIncludeOrderHelper(n);
+		return this->_recursiveCountWaysHelper(n);
 	}
 
-	int DynamicProgramming::dpCountWaysToReachNthStairIncludeOrder(int n)
+	int DynamicProgramming::dpCountWays(int n)
 	{
 		vector<int> dp(n + 1, 0);
 		dp[0] = 1;

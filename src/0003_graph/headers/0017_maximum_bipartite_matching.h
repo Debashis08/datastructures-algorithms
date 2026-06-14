@@ -28,10 +28,10 @@ namespace maximum_bipartite_matching
 		vector<bool> _visited;
 		vector<int> _color;
 		vector<vector<int>> _matchings;
-		void resolveAntiParallelEdges();
-		void colorGraph();
-		void addAdditionalEdges();
-		bool breadthFirstSearch();
+		void _resolveAntiParallelEdges();
+		void _colorGraph();
+		void _addAdditionalEdges();
+		bool _breadthFirstSearch();
 	public:
 		void createGraph(int noOfVertices);
 		void pushDirectedEdge(int valueU, int valueV);

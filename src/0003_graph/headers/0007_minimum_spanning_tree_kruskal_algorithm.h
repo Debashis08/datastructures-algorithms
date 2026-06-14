@@ -32,11 +32,11 @@ namespace minimum_spanning_tree_kruskal_algorithm
 		map<int, Node*> _nodeMap;
 		vector<Edge*> _edgeList;
 		vector<pair<pair<int, int>, int>> _minimumSpanningTree;
-		Node* makeOrFindNode(int data);
-		void makeSet(Node* node);
-		void unionSet(Node* nodeU, Node* nodeV);
-		void link(Node* nodeU, Node* nodeV);
-		Node* findSet(Node* node);
+		Node* _makeOrFindNode(int data);
+		void _makeSet(Node* node);
+		void _unionSet(Node* nodeU, Node* nodeV);
+		void _linkSet(Node* nodeU, Node* nodeV);
+		Node* _findSet(Node* node);
 
 	public:
 		void pushUndirectedEdge(int valueU, int valueV, int weight);

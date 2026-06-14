@@ -3,15 +3,15 @@
 namespace friends_pairing_problem
 {
 	// dynamic programming private member methods.
-	int DynamicProgramming::countFriendsPairingsRecursiveHelper(int n)
+	int DynamicProgramming::_countFriendsPairingsRecursiveHelper(int n)
 	{
 		if (n <= 1)
 		{
 			return 1;
 		}
 		int result = 0;
-		result += this->countFriendsPairingsRecursiveHelper(n - 1);
-		result += (n - 1) * this->countFriendsPairingsRecursiveHelper(n - 2);
+		result += this->_countFriendsPairingsRecursiveHelper(n - 1);
+		result += (n - 1) * this->_countFriendsPairingsRecursiveHelper(n - 2);
 
 		return result;
 	}
@@ -19,7 +19,7 @@ namespace friends_pairing_problem
 	// dynamic programming public member methods.
 	int DynamicProgramming::recursiveCountFriendsPairings(int n)
 	{
-		return this->countFriendsPairingsRecursiveHelper(n);
+		return this->_countFriendsPairingsRecursiveHelper(n);
 	}
 
 	int DynamicProgramming::dpCountFriendsPairings(int n)

@@ -19,8 +19,8 @@ namespace house_robber2
 	class DynamicProgramming
 	{
 	private:
-		int maxLootRecursive(size_t house, vector<int>& houseValues);
-		int maxLootDp(size_t firstHouse, size_t lastHouse, vector<int>& houseValues);
+		int _maxLootRecursive(size_t house, vector<int>& houseValues);
+		int _maxLootDp(size_t firstHouse, size_t lastHouse, vector<int>& houseValues);
 	public:
 		int recursiveMaximumLoot(vector<int>& houseValues);
 		int dpMaximumLoot(vector<int>& houseValues);

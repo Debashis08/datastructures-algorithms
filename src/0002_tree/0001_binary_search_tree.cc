@@ -19,7 +19,7 @@ namespace binary_search_tree
 	}
 
 
-	void BinarySearchTree::_insertBSTreeNode(Node* node)
+	void BinarySearchTree::_insert(Node* node)
 	{
 		Node* nodeY = nullptr;
 		Node* nodeX = this->_root;
@@ -50,7 +50,7 @@ namespace binary_search_tree
 		}
 	}
 
-	Node* BinarySearchTree::_findBSTreeNode(int value)
+	Node* BinarySearchTree::_findNodeByValue(int value)
 	{
 		Node* node = this->_root;
 		while (node != nullptr)
@@ -71,7 +71,7 @@ namespace binary_search_tree
 		return node;
 	}
 
-	Node* BinarySearchTree::_findBSTreeMinNode(Node* node)
+	Node* BinarySearchTree::_findMinimumValueNode(Node* node)
 	{
 		while (node->left != nullptr)
 		{
@@ -80,7 +80,7 @@ namespace binary_search_tree
 		return node;
 	}
 
-	Node* BinarySearchTree::_findBSTreeMaxNode(Node* node)
+	Node* BinarySearchTree::_findMaximumValueNode(Node* node)
 	{
 		while (node->right != nullptr)
 		{
@@ -93,7 +93,7 @@ namespace binary_search_tree
 	{
 		if (node->right != nullptr)
 		{
-			return this->_findBSTreeMinNode(node->right);
+			return this->_findMinimumValueNode(node->right);
 		}
 		Node* nodeY = node->parent;
 		while (nodeY != nullptr && node == nodeY->right)
@@ -108,7 +108,7 @@ namespace binary_search_tree
 	{
 		if (node->left != nullptr)
 		{
-			return this->_findBSTreeMaxNode(node->left);
+			return this->_findMaximumValueNode(node->left);
 		}
 		Node* nodeY = node->parent;
 		while (nodeY != nullptr && node == nodeY->left)
@@ -140,7 +140,7 @@ namespace binary_search_tree
 		}
 	}
 
-	void BinarySearchTree::_deleteBSTreeNode(Node* node)
+	void BinarySearchTree::_delete(Node* node)
 	{
 		if (node->left == nullptr)
 		{
@@ -152,7 +152,7 @@ namespace binary_search_tree
 		}
 		else
 		{
-			Node* nodeY = this->_findBSTreeMinNode(node->right);
+			Node* nodeY = this->_findMinimumValueNode(node->right);
 			if (nodeY->parent != node)
 			{
 				this->_transplant(nodeY, nodeY->right);
@@ -296,13 +296,13 @@ namespace binary_search_tree
 	void BinarySearchTree::insertNode(int value)
 	{
 		Node* node = new Node(value, nullptr, nullptr, nullptr);
-		this->_insertBSTreeNode(node);
+		this->_insert(node);
 	}
 
 	void BinarySearchTree::deleteNode(int value)
 	{
-		Node* node = this->_findBSTreeNode(value);
-		this->_deleteBSTreeNode(node);
+		Node* node = this->_findNodeByValue(value);
+		this->_delete(node);
 	}
 
 	vector<int> BinarySearchTree::recursiveInorderTraversal()

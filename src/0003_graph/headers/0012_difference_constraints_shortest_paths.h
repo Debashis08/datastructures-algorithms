@@ -30,10 +30,10 @@ namespace difference_constraints_shortest_paths
 		map<Node*, vector<Node*>> _adjlist;
 		map<string, Node*> _nodeMap;
 		vector<Edge*> _edgeList;
-		Node* makeOrFindNode(string data);
-		void pushDirectedEdge(string valueU, string valueV, int weight);
-		void initializeSingleSource(Node* sourceNode);
-		void relax(Edge* edge);
+		Node* _makeOrFindNode(string data);
+		void _pushDirectedEdge(string valueU, string valueV, int weight);
+		void _initializeSingleSource(Node* sourceNode);
+		void _relax(Edge* edge);
 
 	public:
 		void pushAllDirectedEdges(vector<vector<int>> vectorA, vector<string> vectorX, vector<int> vectorB);

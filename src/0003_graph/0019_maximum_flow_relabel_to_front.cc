@@ -8,7 +8,7 @@ namespace maximum_flow_relabel_to_front
 	// Graph private member methods
 
 	// initializes pre-flow in the given flow network
-	void Graph::initializePreflow()
+	void Graph::_initializePreflow()
 	{
 		// the height of source is set to highest possible height value
 		this->_height[this->_source] = this->_noOfVertices;
@@ -33,7 +33,7 @@ namespace maximum_flow_relabel_to_front
 	}
 
 	// discharges the excess flow from nodeU
-	void Graph::discharge(int nodeU)
+	void Graph::_discharge(int nodeU)
 	{
 		// check if excess flow of nodeU is > 0
 		while (this->_excessFlow[nodeU] > 0)
@@ -48,7 +48,7 @@ namespace maximum_flow_relabel_to_front
 				if (this->_residualGraph[nodeU][nodeV] > 0 && this->_height[nodeU] == 1 + this->_height[nodeV])
 				{
 					// push excess flow along the admissible edge (nodeU, nodeV)
-					this->push(nodeU, nodeV);
+					this->_push(nodeU, nodeV);
 					// set the hasPushed flag to true
 					hasPushed = true;
 					// check if there is no excess flow left in nodeU then no need to check any more admissible edge going from nodeU
@@ -65,13 +65,13 @@ namespace maximum_flow_relabel_to_front
 			{
 				// then it indicates that all the outgoing edges from nodeU are inadmissible
 				// so perform the relabel operation on nodeU
-				this->relabel(nodeU);
+				this->_relabel(nodeU);
 			}
 		}
 	}
 
 	// pushes the flow from nodeU to its neighbour vertices
-	void Graph::push(int nodeU, int nodeV)
+	void Graph::_push(int nodeU, int nodeV)
 	{
 		// calculate the flow amount to be added along the edge and excess flow subtracted from nodeU
 		int minimumFlow = min(this->_residualGraph[nodeU][nodeV], this->_excessFlow[nodeU]);
@@ -86,7 +86,7 @@ namespace maximum_flow_relabel_to_front
 	}
 
 	// relabels height of vertex nodeU when there are outgoing non-saturated edges available
-	void Graph::relabel(int nodeU)
+	void Graph::_relabel(int nodeU)
 	{
 		int minimumHeight = INT_MAX;
 
@@ -129,7 +129,7 @@ namespace maximum_flow_relabel_to_front
 		this->_residualGraph = this->_adjMatrix;
 
 		// initialize pre-flow
-		this->initializePreflow();
+		this->_initializePreflow();
 
 		// make the list L = G.V - {source, sink}
 		for (int i = 0; i < this->_noOfVertices; i++)
@@ -150,7 +150,7 @@ namespace maximum_flow_relabel_to_front
 			int oldHeight = this->_height[*nodeUiterator];
 
 			// discharge the excess flow of current vertex
-			this->discharge(*nodeUiterator);
+			this->_discharge(*nodeUiterator);
 
 			// check if the height of current vertex increases which means the current vertex got relabeled
 			if (this->_height[*nodeUiterator] > oldHeight)

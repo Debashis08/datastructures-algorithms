@@ -15,7 +15,7 @@ namespace strongly_connected_components
 		this->parent = nullptr;
 	}
 
-	Node* Graph::makeOrFindNode(int value)
+	Node* Graph::_makeOrFindNode(int value)
 	{
 		Node* node = nullptr;
 		if (this->_nodeMap.find(value) == this->_nodeMap.end())
@@ -30,7 +30,7 @@ namespace strongly_connected_components
 		return node;
 	}
 
-	void Graph::depthFirstSearchOnGraphG(Node* nodeU)
+	void Graph::_depthFirstSearchOnGraphG(Node* nodeU)
 	{
 		this->_time++;
 		nodeU->discoveryTime = this->_time;
@@ -40,7 +40,7 @@ namespace strongly_connected_components
 			if (nodeV->color == WHITE)
 			{
 				nodeV->parent = nodeU;
-				this->depthFirstSearchOnGraphG(nodeV);
+				this->_depthFirstSearchOnGraphG(nodeV);
 			}
 		}
 		nodeU->color = BLACK;
@@ -49,7 +49,7 @@ namespace strongly_connected_components
 		this->_nodesFinishingTimeOrder.push_front(nodeU);
 	}
 
-	void Graph::depthFirstSearchOnGraphT(Node* nodeU, vector<int>& connectedComponents)
+	void Graph::_depthFirstSearchOnGraphT(Node* nodeU, vector<int>& connectedComponents)
 	{
 		nodeU->color = GRAY;
 		connectedComponents.push_back(nodeU->data);
@@ -58,7 +58,7 @@ namespace strongly_connected_components
 			if (nodeV->color == WHITE)
 			{
 				nodeV->parent = nodeU;
-				this->depthFirstSearchOnGraphT(nodeV, connectedComponents);
+				this->_depthFirstSearchOnGraphT(nodeV, connectedComponents);
 			}
 		}
 		nodeU->color = BLACK;
@@ -66,8 +66,8 @@ namespace strongly_connected_components
 
 	void Graph::pushDirectedEdge(int valueU, int valueV)
 	{
-		Node* nodeU = this->makeOrFindNode(valueU);
-		Node* nodeV = this->makeOrFindNode(valueV);
+		Node* nodeU = this->_makeOrFindNode(valueU);
+		Node* nodeV = this->_makeOrFindNode(valueV);
 
 		// creating the actual graph.
 		this->_adjlistG[nodeU].push_back(nodeV);
@@ -78,7 +78,7 @@ namespace strongly_connected_components
 
 	void Graph::pushSingleNode(int valueU)
 	{
-		this->makeOrFindNode(valueU);
+		this->_makeOrFindNode(valueU);
 	}
 
 	void Graph::dFSOnGraphG()
@@ -88,7 +88,7 @@ namespace strongly_connected_components
 		{
 			if (iterator.second->color == WHITE)
 			{
-				this->depthFirstSearchOnGraphG(iterator.second);
+				this->_depthFirstSearchOnGraphG(iterator.second);
 			}
 		}
 	}
@@ -106,7 +106,7 @@ namespace strongly_connected_components
 			if (iterator->color == WHITE)
 			{
 				vector<int> connectedComponents;
-				this->depthFirstSearchOnGraphT(iterator, connectedComponents);
+				this->_depthFirstSearchOnGraphT(iterator, connectedComponents);
 				this->_allConnectedComponents.push_back(connectedComponents);
 			}
 		}

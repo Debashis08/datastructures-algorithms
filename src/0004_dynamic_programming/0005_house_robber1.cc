@@ -2,7 +2,7 @@
 
 namespace house_robber1
 {
-	int DynamicProgramming::maxLootRecursive(size_t house, vector<int>& houseValues)
+	int DynamicProgramming::_maxLootRecursive(size_t house, vector<int>& houseValues)
 	{
 		if (house <= 0)
 		{
@@ -14,8 +14,8 @@ namespace house_robber1
 			return houseValues[0];
 		}
 
-		int pickCurrentHouse = houseValues[house - 1] + this->maxLootRecursive(house - 2, houseValues);
-		int dropCurrentHouse = this->maxLootRecursive(house - 1, houseValues);
+		int pickCurrentHouse = houseValues[house - 1] + this->_maxLootRecursive(house - 2, houseValues);
+		int dropCurrentHouse = this->_maxLootRecursive(house - 1, houseValues);
 
 		return max(pickCurrentHouse, dropCurrentHouse);
 	}
@@ -23,7 +23,7 @@ namespace house_robber1
 	int DynamicProgramming::recursiveMaximumLoot(vector<int>& houseValues)
 	{
 		size_t totalNumberOfHouses = houseValues.size();
-		return this->maxLootRecursive(totalNumberOfHouses, houseValues);
+		return this->_maxLootRecursive(totalNumberOfHouses, houseValues);
 	}
 
 	int DynamicProgramming::dpMaximumLoot(vector<int>& houseValues)

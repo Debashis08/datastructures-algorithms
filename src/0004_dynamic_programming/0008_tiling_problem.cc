@@ -2,7 +2,7 @@
 
 namespace tiling_problem
 {
-	int DynamicProgramming::numberOfWaysRecursiveHelper(int n)
+	int DynamicProgramming::_numberOfWaysRecursiveHelper(int n)
 	{
 		if (n < 0)
 		{
@@ -15,15 +15,15 @@ namespace tiling_problem
 		}
 
 		int result = 0;
-		result += this->numberOfWaysRecursiveHelper(n - 1);
-		result += this->numberOfWaysRecursiveHelper(n - 2);
+		result += this->_numberOfWaysRecursiveHelper(n - 1);
+		result += this->_numberOfWaysRecursiveHelper(n - 2);
 
 		return result;
 	}
 
 	int DynamicProgramming::recursiveNumberOfWays(int n)
 	{
-		return this->numberOfWaysRecursiveHelper(n);
+		return this->_numberOfWaysRecursiveHelper(n);
 	}
 
 	int DynamicProgramming::dpNumberOfWays(int n)

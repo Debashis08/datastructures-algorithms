@@ -26,10 +26,10 @@ namespace eulerian_path_and_circuit
 		map<Node*, list<Node*>> _adjlist;
 		map<int, Node*> _nodeMap;
 		vector<int> _eulerianPath;
-		Node* makeOrFindNode(int value);
-		void depthFirstSearch(Node* node);
-		bool isConnected();
-		void eulerianPathHierholzerAlgorithm(Node* startingNode);
+		Node* _makeOrFindNode(int value);
+		void _depthFirstSearch(Node* node);
+		bool _isConnected();
+		void _eulerianPathHierholzerAlgorithm(Node* startingNode);
 
 	public:
 		void pushUndirectedEdge(int valueU, int valueV);

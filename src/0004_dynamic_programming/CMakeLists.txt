@@ -21,8 +21,8 @@ set(0005DYNAMICPROGRAMMING_SOURCES
 )
 
 # Create a library target
-add_library(0005DYNAMICPROGRAMMING ${0005DYNAMICPROGRAMMING_SOURCES})
+add_library(0005_DynamicProgramming ${0005DYNAMICPROGRAMMING_SOURCES})
 
-target_include_directories(0005DYNAMICPROGRAMMING PUBLIC 
+target_include_directories(0005_DynamicProgramming PUBLIC 
     ${CMAKE_CURRENT_SOURCE_DIR}/headers
 )

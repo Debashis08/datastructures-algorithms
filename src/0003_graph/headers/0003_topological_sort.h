@@ -30,8 +30,8 @@ namespace topological_sort
         map<Node*, list<Node*>> _adjlist;
         map<int, Node*> _nodeMap;
         list<Node*> _topologicalSortedNodeList;
-        Node* makeOrFindNode(int value);
-        void depthFirstSearch(Node* dFSNode);
+        Node* _makeOrFindNode(int value);
+        void _depthFirstSearch(Node* dFSNode);
     public:
         void pushDirectedEdge(int valueU, int valueV);
         void pushSingleNode(int valueU);

@@ -34,9 +34,9 @@ namespace count_ways_to_reach_nth_stair_include_order
 	class DynamicProgramming
 	{
 	private:
-		int recursiveCountWaysToReachNthStairIncludeOrderHelper(int n);
+		int _recursiveCountWaysHelper(int n);
 	public:
-		int recursiveCountWaysToReachNthStairIncludeOrder(int n);
-		int dpCountWaysToReachNthStairIncludeOrder(int n);
+		int recursiveCountWays(int n);
+		int dpCountWays(int n);
 	};
 }

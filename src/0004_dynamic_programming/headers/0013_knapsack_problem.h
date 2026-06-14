@@ -25,7 +25,7 @@ namespace knapsack_problem
 	class DynamicProgramming
 	{
 	private:
-		int knapsackRecursiveHelper(int capacity, vector<int>& weight, vector<int>& profit, int numberOfItems);
+		int _recursiveKnapsackHelper(int capacity, vector<int>& weight, vector<int>& profit, int numberOfItems);
 	public:
 		int recursiveKnapsack(int capacity, vector<int> weight, vector<int> profit);
 		int dpKnapsack(int capacity, vector<int> weight, vector<int> profit);

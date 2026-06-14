@@ -20,7 +20,7 @@ namespace all_pairs_shortest_paths_johnson
 	}
 
 	// Graph private member methods
-	Node* Graph::makeOrFindNode(int data)
+	Node* Graph::_makeOrFindNode(int data)
 	{
 		Node* node = nullptr;
 		if (this->_nodeMap.find(data) == this->_nodeMap.end())
@@ -35,13 +35,13 @@ namespace all_pairs_shortest_paths_johnson
 		return node;
 	}
 
-	void Graph::pushAugmentedDirectedEdges(Node* sourceNode, Node* nodeV, int weight)
+	void Graph::_pushAugmentedDirectedEdges(Node* sourceNode, Node* nodeV, int weight)
 	{
 		this->_augmentedAdjlist[sourceNode].push_back(nodeV);
 		this->_augmentedEdgeList.push_back(new Edge(sourceNode, nodeV, weight));
 	}
 
-	void Graph::initializeSingleSource(Node* sourceNode)
+	void Graph::_initializeSingleSource(Node* sourceNode)
 	{
 		for (auto& iterator : this->_nodeMap)
 		{
@@ -51,7 +51,7 @@ namespace all_pairs_shortest_paths_johnson
 		sourceNode->distance = 0;
 	}
 
-	void Graph::relaxBellmanFord(Edge* edge)
+	void Graph::_relaxBellmanFord(Edge* edge)
 	{
 		if (edge->nodeU->distance != INT_MAX && (edge->nodeV->distance > (edge->nodeU->distance + edge->weight)))
 		{
@@ -60,15 +60,15 @@ namespace all_pairs_shortest_paths_johnson
 		}
 	}
 
-	bool Graph::bellmanFord(Node* source)
+	bool Graph::_bellmanFord(Node* source)
 	{
-		this->initializeSingleSource(source);
+		this->_initializeSingleSource(source);
 
 		for (int i = 0; i < this->_nodeMap.size() - 1; i++)
 		{
 			for (auto& edge : this->_augmentedEdgeList)
 			{
-				this->relaxBellmanFord(edge);
+				this->_relaxBellmanFord(edge);
 			}
 		}
 
@@ -82,7 +82,7 @@ namespace all_pairs_shortest_paths_johnson
 		return true;
 	}
 
-	void Graph::relaxDijkstra(Edge* edge)
+	void Graph::_relaxDijkstra(Edge* edge)
 	{
 		if (edge->nodeU->distance != INT_MAX && (edge->nodeV->distance > (edge->nodeU->distance + edge->weight)))
 		{
@@ -93,9 +93,9 @@ namespace all_pairs_shortest_paths_johnson
 		}
 	}
 
-	void Graph::dijkstra(Node* source)
+	void Graph::_dijkstra(Node* source)
 	{
-		this->initializeSingleSource(source);
+		this->_initializeSingleSource(source);
 
 		for (auto& node : this->_nodeMap)
 		{
@@ -109,17 +109,17 @@ namespace all_pairs_shortest_paths_johnson
 
 			for (auto& edge : this->_edgeMap[nodeU])
 			{
-				this->relaxDijkstra(edge);
+				this->_relaxDijkstra(edge);
 			}
 		}
 	}
 
-	void Graph::getShortestPath(int source, int destination, vector<int>& path)
+	void Graph::_getShortestPath(int source, int destination, vector<int>& path)
 	{
 		if (this->_predecessorMatrix[source - 1][destination - 1] != source)
 		{
 			int predecessor = this->_predecessorMatrix[source - 1][destination - 1];
-			this->getShortestPath(source, predecessor, path);
+			this->_getShortestPath(source, predecessor, path);
 			path.push_back(predecessor);
 		}
 	}
@@ -127,8 +127,8 @@ namespace all_pairs_shortest_paths_johnson
 	// Graph public member methods
 	void Graph::pushDirectedEdge(int dataU, int dataV, int weight)
 	{
-		Node* nodeU = this->makeOrFindNode(dataU);
-		Node* nodeV = this->makeOrFindNode(dataV);
+		Node* nodeU = this->_makeOrFindNode(dataU);
+		Node* nodeV = this->_makeOrFindNode(dataV);
 
 		this->_adjlist[nodeU].push_back(nodeV);
 		Edge* edge = new Edge(nodeU, nodeV, weight);
@@ -151,11 +151,11 @@ namespace all_pairs_shortest_paths_johnson
 		{
 			if (node.second != source)
 			{
-				this->pushAugmentedDirectedEdges(source, node.second, 0);
+				this->_pushAugmentedDirectedEdges(source, node.second, 0);
 			}
 		}
 
-		if (this->bellmanFord(source) == false)
+		if (this->_bellmanFord(source) == false)
 		{
 			return false;
 		}
@@ -178,7 +178,7 @@ namespace all_pairs_shortest_paths_johnson
 			for (auto& iteratorU : this->_nodeMap)
 			{
 				Node* nodeU = iteratorU.second;
-				this->dijkstra(nodeU);
+				this->_dijkstra(nodeU);
 				for (auto& iteratorV : this->_nodeMap)
 				{
 					Node* nodeV = iteratorV.second;
@@ -206,7 +206,7 @@ namespace all_pairs_shortest_paths_johnson
 				{
 					vector<int> path = {};
 					path.push_back(i + 1);
-					this->getShortestPath(i + 1, j + 1, path);
+					this->_getShortestPath(i + 1, j + 1, path);
 					path.push_back(j + 1);
 					result.push_back(path);
 				}

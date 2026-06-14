@@ -2,7 +2,7 @@
 
 namespace decode_ways
 {
-	int DynamicProgramming::countWaysRecursiveHelper(string& digits, size_t index)
+	int DynamicProgramming::_countWaysRecursiveHelper(string& digits, size_t index)
 	{
 		size_t digitsLength = digits.size();
 
@@ -17,20 +17,20 @@ namespace decode_ways
 		// single digit decoding: check if current digit is not '0'.
 		if (digits[index] != '0')
 		{
-			ways = this->countWaysRecursiveHelper(digits, index + 1);
+			ways = this->_countWaysRecursiveHelper(digits, index + 1);
 		}
 
 		// two digit decoding: check if next two digits are valid.
 		if ((index + 1 < digitsLength) && ((digits[index] == '1' && digits[index + 1] <= '9') || (digits[index] == '2' && digits[index + 1] <= '6')))
 		{
-			ways += this->countWaysRecursiveHelper(digits, index + 2);
+			ways += this->_countWaysRecursiveHelper(digits, index + 2);
 		}
 		return ways;
 	}
 
 	int DynamicProgramming::recursiveCountWays(string digits)
 	{
-		return this->countWaysRecursiveHelper(digits, 0);
+		return this->_countWaysRecursiveHelper(digits, 0);
 	}
 
 	int DynamicProgramming::dpCountways(string digits)

@@ -6,7 +6,7 @@ using namespace std;
 namespace maximum_flow_edmonds_karp
 {
 	// Graph private member methods
-	void Graph::resolveAntiParallelEdges()
+	void Graph::_resolveAntiParallelEdges()
 	{
 		int countParallelEdges = 0;
 		for (int i = 0; i < this->_noOfVertices; i++)
@@ -62,7 +62,7 @@ namespace maximum_flow_edmonds_karp
 		this->_noOfVertices = newNoOfVertices;
 	}
 
-	bool Graph::breadthFirstSearch()
+	bool Graph::_breadthFirstSearch()
 	{
 		// resetting the visited values
 		fill(this->_visited.begin(), this->_visited.end(), false);
@@ -115,11 +115,11 @@ namespace maximum_flow_edmonds_karp
 	int Graph::findMaximumFlowEdmondsKarp()
 	{
 		// resolving all the parallel edges if present
-		this->resolveAntiParallelEdges();
+		this->_resolveAntiParallelEdges();
 		this->_residualGraph = this->_adjMatrix;
 
 		// while there exists a path p from source to sink in the residual network G'
-		while (this->breadthFirstSearch())
+		while (this->_breadthFirstSearch())
 		{
 			int augmentedPathFlow = INT_MAX;
 

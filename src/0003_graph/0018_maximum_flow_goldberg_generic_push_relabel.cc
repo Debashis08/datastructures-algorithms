@@ -7,7 +7,7 @@ namespace maximum_flow_goldberg_generic_push_relabel
 	// Graph private member methods
 
 	// initializes pre-flow in the given flow network
-	void Graph::initializePreflow()
+	void Graph::_initializePreflow()
 	{
 		// the height of source is set to highest possible height value
 		this->_height[this->_source] = this->_noOfVertices;
@@ -32,7 +32,7 @@ namespace maximum_flow_goldberg_generic_push_relabel
 	}
 
 	// checks if there is any vertex which has excess flow
-	bool Graph::checkOverFlow()
+	bool Graph::_checkOverFlow()
 	{
 		// iterating over all of the vertices
 		for (int i = 0; i < this->_noOfVertices; i++)
@@ -59,7 +59,7 @@ namespace maximum_flow_goldberg_generic_push_relabel
 	}
 
 	// pushes the flow from nodeU to its neighbour vertices
-	bool Graph::push(int nodeU)
+	bool Graph::_push(int nodeU)
 	{
 		int nodeV = -1;
 		int minimumFlow = INT_MAX;
@@ -98,7 +98,7 @@ namespace maximum_flow_goldberg_generic_push_relabel
 	}
 
 	// relabels height of vertex nodeU when there are outgoing non-saturated edges available
-	void Graph::relabel(int nodeU)
+	void Graph::_relabel(int nodeU)
 	{
 		int minimumHeight = INT_MAX;
 
@@ -141,16 +141,16 @@ namespace maximum_flow_goldberg_generic_push_relabel
 		this->_residualGraph = this->_adjMatrix;
 
 		// initialize pre-flow
-		this->initializePreflow();
+		this->_initializePreflow();
 
 		// checks if there is some vertices which have excess flow
-		while (this->checkOverFlow())
+		while (this->_checkOverFlow())
 		{
 			// get the vertex
 			int nodeU = this->_nodeQueue.front();
 			
 			// checks if the push operation is successful
-			if (this->push(nodeU))
+			if (this->_push(nodeU))
 			{
 				// then remove the vertex from queue and set visited[nodeU] = true
 				// so that on next checkOverFlow() method call this vertex can be discovered if it still has some excess flow
@@ -162,7 +162,7 @@ namespace maximum_flow_goldberg_generic_push_relabel
 			else
 			{
 				// then relabel nodeU without removing it from the queue
-				this->relabel(nodeU);
+				this->_relabel(nodeU);
 			}
 		}
 

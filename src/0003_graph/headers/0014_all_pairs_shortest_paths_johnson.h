@@ -48,14 +48,14 @@ namespace all_pairs_shortest_paths_johnson
 		multiset<Node*, CompareNodeDistance> _operationalSet;
 		vector<vector<int>> _shortestPathMatrix;
 		vector<vector<int>> _predecessorMatrix;
-		Node* makeOrFindNode(int data);
-		void pushAugmentedDirectedEdges(Node* sourceNode, Node* nodeV, int weight);
-		void initializeSingleSource(Node* sourceNode);
-		void relaxBellmanFord(Edge* edge);
-		bool bellmanFord(Node* source);
-		void relaxDijkstra(Edge* edge);
-		void dijkstra(Node* source);
-		void getShortestPath(int source, int destination, vector<int>& path);
+		Node* _makeOrFindNode(int data);
+		void _pushAugmentedDirectedEdges(Node* sourceNode, Node* nodeV, int weight);
+		void _initializeSingleSource(Node* sourceNode);
+		void _relaxBellmanFord(Edge* edge);
+		bool _bellmanFord(Node* source);
+		void _relaxDijkstra(Edge* edge);
+		void _dijkstra(Node* source);
+		void _getShortestPath(int source, int destination, vector<int>& path);
 
 	public:
 		void pushDirectedEdge(int dataU, int dataV, int weight);

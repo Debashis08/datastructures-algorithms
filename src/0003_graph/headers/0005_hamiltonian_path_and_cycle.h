@@ -25,9 +25,9 @@ namespace hamiltonian_path_and_cycle
 		map<Node*, unordered_set<Node*>> _adjlist;
 		map<int, Node*> _nodeMap;
 		vector<int> _hamiltonianPath;
-		Node* makeOrFindNode(int value);
-		bool isSafe(Node* nodeU, Node* nodeV);
-		bool hamiltonianCycleAndPathUtil(Node* node);
+		Node* _makeOrFindNode(int value);
+		bool _isSafe(Node* nodeU, Node* nodeV);
+		bool _hamiltonianCycleAndPathUtil(Node* node);
 
 	public:
 		void pushUndirectedEdge(int valueU, int valueV);

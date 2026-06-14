@@ -18,9 +18,9 @@ namespace maximum_flow_ford_fulkerson
 		vector<vector<int>> _residualGraph;
 		vector<int> _parent;
 		vector<bool> _visited;
-		void resolveAntiParallelEdges();
-		void depthFirstSearchVisit(int nodeU);
-		bool depthFirstSearch();
+		void _resolveAntiParallelEdges();
+		void _depthFirstSearchVisit(int nodeU);
+		bool _depthFirstSearch();
 	public:
 		void createGraph(int noOfVertices);
 		void pushDirectedEdge(int valueU, int valueV, int capacity);

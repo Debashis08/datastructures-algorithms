@@ -38,7 +38,7 @@ namespace friends_pairing_problem
 	class DynamicProgramming
 	{
 	private:
-		int countFriendsPairingsRecursiveHelper(int n);
+		int _countFriendsPairingsRecursiveHelper(int n);
 	public:
 		int recursiveCountFriendsPairings(int n);
 		int dpCountFriendsPairings(int n);

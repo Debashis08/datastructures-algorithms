@@ -18,8 +18,8 @@ namespace maximum_flow_edmonds_karp
 		vector<vector<int>> _residualGraph;
 		vector<int> _parent;
 		vector<bool> _visited;
-		void resolveAntiParallelEdges();
-		bool breadthFirstSearch();
+		void _resolveAntiParallelEdges();
+		bool _breadthFirstSearch();
 	public:
 		void createGraph(int noOfVertices);
 		void pushDirectedEdge(int valueU, int valueV, int capacity);

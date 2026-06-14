@@ -12,8 +12,8 @@ namespace all_pairs_shortest_paths_floyd_warshall
 		vector<vector<int>> _adjMatrix;
 		vector<vector<int>> _shortestPathMatrixFloydWarshall;
 		vector<vector<int>> _predecessorMatrix;
-		void initializeDistanceAndPredecessors();
-		void getShortestPath(int source, int destination, vector<int>& path);
+		void _initializeDistanceAndPredecessors();
+		void _getShortestPath(int source, int destination, vector<int>& path);
 		
 	public:
 		void createGraph(int noOfVertices);

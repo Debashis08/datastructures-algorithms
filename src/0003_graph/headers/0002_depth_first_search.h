@@ -27,8 +27,8 @@ namespace depth_first_search
         int _time;
         map<Node*, list<Node*>> _adjlist;
         map<int, Node*> _nodeMap;
-        Node* makeOrFindNode(int value);
-        void depthFirstSearch(Node* Node);
+        Node* _makeOrFindNode(int value);
+        void _depthFirstSearch(Node* Node);
     public:
         void pushDirectedEdge(int valueU, int valueV);
         void dfs();

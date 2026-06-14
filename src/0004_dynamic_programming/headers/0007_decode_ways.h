@@ -24,7 +24,7 @@ namespace decode_ways
 	class DynamicProgramming
 	{
 	private:
-		int countWaysRecursiveHelper(string& digits, size_t index);
+		int _countWaysRecursiveHelper(string& digits, size_t index);
 	public:
 		int recursiveCountWays(string digits);
 		int dpCountways(string digits);

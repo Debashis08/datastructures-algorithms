@@ -3,7 +3,7 @@
 namespace count_subsets_for_sum
 {
 	// dynamic programming private member methods
-	int DynamicProgramming::recursiveCountSubsetsHelper(vector<int>& nums, int targetSum, int currentSum, int index)
+	int DynamicProgramming::_recursiveCountSubsetsHelper(vector<int>& nums, int targetSum, int currentSum, int index)
 	{
 		int noOfElements = nums.size();
 		if (index == noOfElements)
@@ -11,12 +11,12 @@ namespace count_subsets_for_sum
 			return (targetSum == currentSum);
 		}
 
-		int exclude = this->recursiveCountSubsetsHelper(nums, targetSum, currentSum, index + 1);
+		int exclude = this->_recursiveCountSubsetsHelper(nums, targetSum, currentSum, index + 1);
 		int include = 0;
 
 		if ((nums[index] + currentSum) <= targetSum)
 		{
-			include = this->recursiveCountSubsetsHelper(nums, targetSum, currentSum + nums[index], index + 1);
+			include = this->_recursiveCountSubsetsHelper(nums, targetSum, currentSum + nums[index], index + 1);
 		}
 
 		return (exclude + include);
@@ -25,7 +25,7 @@ namespace count_subsets_for_sum
 	// dynamic programming public member methods
 	int DynamicProgramming::recursiveCountSubsets(vector<int> nums, int sum)
 	{
-		return this->recursiveCountSubsetsHelper(nums, sum, 0, 0);
+		return this->_recursiveCountSubsetsHelper(nums, sum, 0, 0);
 	}
 
 	int DynamicProgramming::dpCountSubsets(vector<int> nums, int sum)

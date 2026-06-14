@@ -11,7 +11,7 @@ namespace count_ways_to_reach_nth_stair_exclude_order
 		int expectedNumberOfWays = 3;
 
 		// act
-		int actualNumberOfWays = dp.recursiveCountWaysToReachNthStairExcludeOrder(n);
+		int actualNumberOfWays = dp.recursiveCountWays(n);
 
 		// assert
 		ASSERT_EQ(expectedNumberOfWays, actualNumberOfWays);
@@ -25,7 +25,7 @@ namespace count_ways_to_reach_nth_stair_exclude_order
 		int expectedNumberOfWays = 3;
 
 		// act
-		int actualNumberOfWays = dp.dpCountWaysToReachNthStairExcludeOrder(n);
+		int actualNumberOfWays = dp.dpCountWays(n);
 
 		// assert
 		ASSERT_EQ(expectedNumberOfWays, actualNumberOfWays);

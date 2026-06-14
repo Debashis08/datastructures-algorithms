@@ -17,7 +17,7 @@ namespace tiling_problem
 	class DynamicProgramming
 	{
 	private:
-		int numberOfWaysRecursiveHelper(int n);
+		int _numberOfWaysRecursiveHelper(int n);
 	public:
 		int recursiveNumberOfWays(int n);
 		int dpNumberOfWays(int n);

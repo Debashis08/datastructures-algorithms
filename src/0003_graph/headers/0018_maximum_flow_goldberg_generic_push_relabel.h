@@ -19,10 +19,10 @@ namespace maximum_flow_goldberg_generic_push_relabel
 		vector<int> _height;
 		vector<bool> _visited;
 		queue<int> _nodeQueue;
-		void initializePreflow();
-		bool checkOverFlow();
-		bool push(int nodeU);
-		void relabel(int nodeU);
+		void _initializePreflow();
+		bool _checkOverFlow();
+		bool _push(int nodeU);
+		void _relabel(int nodeU);
 	public:
 		void createGraph(int noOfVertices);
 		void pushDirectedEdge(int valueU, int valueV, int capacity);

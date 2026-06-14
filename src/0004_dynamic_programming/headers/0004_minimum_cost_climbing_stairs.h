@@ -17,7 +17,7 @@ namespace minimum_cost_climbing_stairs
 	class DynamicProgramming
 	{
 	private:
-		int minCostRecursive(size_t step, vector<int>& cost);
+		int _minCostRecursive(size_t step, vector<int>& cost);
 	public:
 		int recursiveMinimumCostClimbingStairs(vector<int>& cost);
 		int dpMinimumCostClimbingStairs(vector<int>& cost);

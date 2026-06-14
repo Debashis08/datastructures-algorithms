@@ -15,7 +15,7 @@ namespace depth_first_search
 		this->parent = nullptr;
 	}
 
-	Node* Graph::makeOrFindNode(int value)
+	Node* Graph::_makeOrFindNode(int value)
 	{
 		Node* node = nullptr;
 		if (this->_nodeMap.find(value) == this->_nodeMap.end())
@@ -30,7 +30,7 @@ namespace depth_first_search
 		return node;
 	}
 
-	void Graph::depthFirstSearch(Node* nodeU)
+	void Graph::_depthFirstSearch(Node* nodeU)
 	{
 		this->_time++;
 		nodeU->discoveredTime = this->_time;
@@ -40,7 +40,7 @@ namespace depth_first_search
 			if (nodeV->color == WHITE)
 			{
 				nodeV->parent = nodeU;
-				this->depthFirstSearch(nodeV);
+				this->_depthFirstSearch(nodeV);
 			}
 		}
 		nodeU->color = BLACK;
@@ -50,8 +50,8 @@ namespace depth_first_search
 
 	void Graph::pushDirectedEdge(int valueU, int valueV)
 	{
-		Node* nodeU = this->makeOrFindNode(valueU);
-		Node* nodeV = this->makeOrFindNode(valueV);
+		Node* nodeU = this->_makeOrFindNode(valueU);
+		Node* nodeV = this->_makeOrFindNode(valueV);
 
 		this->_adjlist[nodeU].push_back(nodeV);
 	}
@@ -63,7 +63,7 @@ namespace depth_first_search
 		{
 			if (iterator.second->color == WHITE)
 			{
-				this->depthFirstSearch(iterator.second);
+				this->_depthFirstSearch(iterator.second);
 			}
 		}
 	}

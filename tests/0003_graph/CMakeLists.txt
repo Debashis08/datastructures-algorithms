@@ -13,7 +13,7 @@ FetchContent_MakeAvailable(googletest)
 enable_testing()
 
 add_executable(
-  0003GraphTests
+  0003_GraphTests
 
   0001_breadth_first_search_test.cc
   0002_depth_first_search_test.cc
@@ -37,15 +37,15 @@ add_executable(
 )
 
 target_link_libraries(
-  0003GraphTests
+  0003_GraphTests
   GTest::gtest_main
-  0003GRAPH
+  0003_Graph
 )
 
 # Add .clang-tidy configuration to this library.
 if(CLANG_TIDY_EXE)
-  set_target_properties(0003GRAPH PROPERTIES CXX_CLANG_TIDY "${CLANG_TIDY_COMMAND}")
+  set_target_properties(0003_Graph PROPERTIES CXX_CLANG_TIDY "${CLANG_TIDY_COMMAND}")
 endif()
 
 include(GoogleTest)
-gtest_discover_tests(0003GraphTests DISCOVERY_TIMEOUT 30)
+gtest_discover_tests(0003_GraphTests DISCOVERY_TIMEOUT 30)

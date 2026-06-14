@@ -30,9 +30,9 @@ namespace strongly_connected_components
         map<int, Node*> _nodeMap;
         list<Node*> _nodesFinishingTimeOrder;
         vector<vector<int>> _allConnectedComponents;
-        Node* makeOrFindNode(int value);
-        void depthFirstSearchOnGraphG(Node* dFSNode);
-        void depthFirstSearchOnGraphT(Node* dFSNode, vector<int>& connectedComponents);
+        Node* _makeOrFindNode(int value);
+        void _depthFirstSearchOnGraphG(Node* dFSNode);
+        void _depthFirstSearchOnGraphT(Node* dFSNode, vector<int>& connectedComponents);
     public:
         void pushDirectedEdge(int valueU, int valueV);
         void pushSingleNode(int valueU);

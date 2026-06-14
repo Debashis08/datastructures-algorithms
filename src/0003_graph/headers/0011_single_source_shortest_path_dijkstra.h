@@ -41,11 +41,11 @@ namespace single_source_shortest_path_dijkstra
 		map<int, Node*> _nodeMap;
 		map<Node*, vector<Edge*>> _edgeMap;
 		multiset<Node*, CompareNodeDistance> _operationalSet;
-		Node* makeOrFindNode(int data);
-		void initializeSingleSource(Node* sourceNode);
-		void relax(Edge* edge);
-		void dijkstra(Node* source);
-		void getShortestPath(Node* node, vector<int>& path);
+		Node* _makeOrFindNode(int data);
+		void _initializeSingleSource(Node* sourceNode);
+		void _relax(Edge* edge);
+		void _dijkstra(Node* source);
+		void _getShortestPath(Node* node, vector<int>& path);
 
 	public:
 		void pushDirectedEdge(int valueU, int valueV, int weight);
