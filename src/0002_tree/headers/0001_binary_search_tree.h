@@ -1,0 +1,49 @@
+#pragma once
+
+#include <vector>
+#include <string>
+using namespace std;
+
+namespace dsa::binary_search_tree
+{
+	class Node
+	{
+	public:
+		int data;
+		Node* parent;
+		Node* left;
+		Node* right;
+
+		Node(int data, Node* parent, Node* left, Node* right);
+	};
+
+	class BinarySearchTree
+	{
+	private:
+		Node* _root;
+		void _insert(Node* node);
+		Node* _findNodeByValue(int value);
+		Node* _findMinimumValueNode(Node* node);
+		Node* _findMaximumValueNode(Node* node);
+		Node* _findSuccessor(Node* node);
+		Node* _findPredecessor(Node* node);
+		void _transplant(Node* nodeU, Node* nodeV);
+		void _delete(Node* node);
+		void _recursiveInorder(Node* node, vector<int>& result);
+		void _recursivePreorder(Node* node, vector<int>& result);
+		void _recursivePostorder(Node* node, vector<int>& result);
+		void _morrisInorder(Node* node, vector<int>& result);
+		void _morrisPreorder(Node* node, vector<int>& result);
+		void _morrisPostorder(Node* node, vector<int>& result);
+	public:
+		BinarySearchTree();
+		void insertNode(int value);
+		void deleteNode(int value);
+		vector<int> recursiveInorderTraversal();
+		vector<int> recursivePreorderTravesal();
+		vector<int> recursivePostorderTravesal();
+		vector<int> morrisInorderTraversal();
+		vector<int> morrisPreorderTraversal();
+		vector<int> morrisPostorderTraversal();
+	};
+}

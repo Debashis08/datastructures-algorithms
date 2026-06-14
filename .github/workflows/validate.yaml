@@ -60,10 +60,9 @@ jobs:
           clang-tidy --version
           $files = Get-ChildItem -Recurse -Path src -Include *.cpp,*.cc,*.cxx -File
           $failed = $false
-          # These source/.* files would be checked using .clang-tidy maintained at projectroot
           foreach ($file in $files) {
             Write-Host "Checking $($file.FullName)"
-            clang-tidy -p build "$($file.FullName)" --warnings-as-errors=*
+            clang-tidy -p build --header-filter=".*" "$($file.FullName)" --warnings-as-errors=*
             if ($LASTEXITCODE -ne 0) { $failed = $true }
           }
           if ($failed) { Write-Error "Clang-tidy failed."; exit 1 }

@@ -1,7 +1,7 @@
 ﻿cmake_minimum_required (VERSION 3.10)
 project ("datastructures-algorithms")
 
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
@@ -19,9 +19,6 @@ if(CLANG_TIDY_EXE)
     )
 endif()
 
-include_directories(${CMAKE_SOURCE_DIR}/include)
-
-add_subdirectory(include)
 add_subdirectory(src)
 
 cmake_policy(SET CMP0135 NEW)
