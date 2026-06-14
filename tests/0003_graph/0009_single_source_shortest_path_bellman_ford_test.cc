@@ -2,7 +2,7 @@
 #include "0009_single_source_shortest_path_bellman_ford.h"
 #include "../0000_common_utilities/unit_test_helper.h"
 
-namespace single_source_shortest_path_bellman_ford
+namespace dsa::single_source_shortest_path_bellman_ford
 {
     UnitTestHelper unitTestHelper;
 

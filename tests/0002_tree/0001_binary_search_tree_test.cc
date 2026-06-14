@@ -3,7 +3,7 @@
 #include "0001_binary_search_tree.h"
 #include "../0000_common_utilities/unit_test_helper.h"
 
-namespace binary_search_tree
+namespace dsa::binary_search_tree
 {
     UnitTestHelper unitTestHelper;
 

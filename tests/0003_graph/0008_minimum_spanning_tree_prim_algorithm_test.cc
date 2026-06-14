@@ -2,7 +2,7 @@
 #include "0008_minimum_spanning_tree_prim_algorithm.h"
 #include "../0000_common_utilities/unit_test_helper.h"
 
-namespace minimum_spanning_tree_prim_algorithm
+namespace dsa::minimum_spanning_tree_prim_algorithm
 {
 	UnitTestHelper unitTestHelper;
 

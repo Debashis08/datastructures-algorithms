@@ -1,6 +1,6 @@
 #include "0007_decode_ways.h"
 
-namespace decode_ways
+namespace dsa::decode_ways
 {
 	int DynamicProgramming::_countWaysRecursiveHelper(string& digits, size_t index)
 	{

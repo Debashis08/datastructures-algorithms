@@ -1,7 +1,7 @@
 #include "0004_minimum_cost_climbing_stairs.h"
 #include <algorithm>
 
-namespace minimum_cost_climbing_stairs
+namespace dsa::minimum_cost_climbing_stairs
 {
 	int DynamicProgramming::_minCostRecursive(size_t step, vector<int>& cost)
 	{

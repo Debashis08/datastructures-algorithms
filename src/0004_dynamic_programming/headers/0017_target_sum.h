@@ -31,7 +31,7 @@ input: N = 1, arr[] = {1}, target = 1
 output: 1
 */
 
-namespace target_sum
+namespace dsa::target_sum
 {
 	class DynamicProgramming
 	{

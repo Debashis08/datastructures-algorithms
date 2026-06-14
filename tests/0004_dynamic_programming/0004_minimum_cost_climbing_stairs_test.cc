@@ -1,7 +1,7 @@
 #include <gtest/gtest.h>
 #include "0004_minimum_cost_climbing_stairs.h"
 
-namespace minimum_cost_climbing_stairs
+namespace dsa::minimum_cost_climbing_stairs
 {
 	TEST(minimumCostClimbingStairs, recursionTest)
 	{

@@ -11,7 +11,7 @@ print the n'th tribonacci number.
 
 */
 
-namespace tribonacci_number
+namespace dsa::tribonacci_number
 {
 	class DynamicProgramming
 	{

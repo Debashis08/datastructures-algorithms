@@ -2,7 +2,7 @@
 #include "0003_topological_sort.h"
 #include "../0000_common_utilities/unit_test_helper.h"
 
-namespace topological_sort
+namespace dsa::topological_sort
 {
 	UnitTestHelper unitTestHelper;
 

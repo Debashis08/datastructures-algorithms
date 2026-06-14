@@ -2,7 +2,7 @@
 #include "0016_maximum_flow_edmonds_karp.h"
 #include "../0000_common_utilities/unit_test_helper.h"
 
-namespace maximum_flow_edmonds_karp
+namespace dsa::maximum_flow_edmonds_karp
 {
 	UnitTestHelper unitTestHelper;
 

@@ -4,7 +4,7 @@
 #include <vector>
 using namespace std;
 
-namespace maximum_flow_edmonds_karp
+namespace dsa::maximum_flow_edmonds_karp
 {
 	class Graph
 	{

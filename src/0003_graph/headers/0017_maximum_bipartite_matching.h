@@ -4,7 +4,7 @@
 #include <vector>
 using namespace std;
 
-namespace maximum_bipartite_matching
+namespace dsa::maximum_bipartite_matching
 {
 	enum color
 	{

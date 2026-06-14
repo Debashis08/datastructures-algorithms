@@ -5,7 +5,7 @@
 #include <vector>
 using namespace std;
 
-namespace difference_constraints_shortest_paths
+namespace dsa::difference_constraints_shortest_paths
 {
 	class Node
 	{

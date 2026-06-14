@@ -3,7 +3,7 @@
 #include <algorithm>
 using namespace std;
 
-namespace directed_acyclic_graph_shortest_path
+namespace dsa::directed_acyclic_graph_shortest_path
 {
 	Node::Node(int data)
 	{

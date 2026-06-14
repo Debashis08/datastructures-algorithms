@@ -1,7 +1,7 @@
 #include <gtest/gtest.h>
 #include "0007_decode_ways.h"
 
-namespace decode_ways
+namespace dsa::decode_ways
 {
 	TEST(decodeWays, recursionTest01)
 	{

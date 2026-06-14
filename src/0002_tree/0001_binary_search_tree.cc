@@ -3,7 +3,7 @@
 #include <algorithm>
 using namespace std;
 
-namespace binary_search_tree
+namespace dsa::binary_search_tree
 {
 	Node::Node(int data, Node* parent, Node* left, Node* right)
 	{

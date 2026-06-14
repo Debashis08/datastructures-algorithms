@@ -1,6 +1,6 @@
 #include "0002_tribonacci_number.h"
 
-namespace tribonacci_number
+namespace dsa::tribonacci_number
 {
 	int DynamicProgramming::recursiveNthTribonacci(int n)
 	{

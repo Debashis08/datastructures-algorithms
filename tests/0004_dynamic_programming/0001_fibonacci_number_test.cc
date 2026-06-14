@@ -2,7 +2,7 @@
 #include "0001_fibonacci_number.h"
 using namespace std;
 
-namespace fibonacci_number
+namespace dsa::fibonacci_number
 {
 	TEST(fibonacciNumber, recursiveTest)
 	{

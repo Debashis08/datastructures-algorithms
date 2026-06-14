@@ -1,7 +1,7 @@
 #include "0005_hamiltonian_path_and_cycle.h"
 
 using namespace std;
-namespace hamiltonian_path_and_cycle
+namespace dsa::hamiltonian_path_and_cycle
 {
 	Node::Node(int value)
 	{

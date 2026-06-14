@@ -2,7 +2,7 @@
 #include "0004_strongly_connected_components.h"
 #include "../0000_common_utilities/unit_test_helper.h"
 
-namespace strongly_connected_components
+namespace dsa::strongly_connected_components
 {
 	UnitTestHelper  unitTestHelper;
 

@@ -1,7 +1,7 @@
 #include <gtest/gtest.h>
 #include "0008_tiling_problem.h"
 
-namespace tiling_problem
+namespace dsa::tiling_problem
 {
 	TEST(tilingProblem, recursionTest01)
 	{

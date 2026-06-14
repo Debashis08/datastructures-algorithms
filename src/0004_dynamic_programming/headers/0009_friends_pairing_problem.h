@@ -33,7 +33,7 @@ In case of n = 4, we have 3 ways to form a group:
 	3) 2 separate pairs (2,2)
 */
 
-namespace friends_pairing_problem
+namespace dsa::friends_pairing_problem
 {
 	class DynamicProgramming
 	{

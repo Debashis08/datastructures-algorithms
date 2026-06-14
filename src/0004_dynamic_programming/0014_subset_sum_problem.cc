@@ -1,6 +1,6 @@
 #include "0014_subset_sum_problem.h"
 
-namespace subset_sum_problem
+namespace dsa::subset_sum_problem
 {
 	// dynamic programming private member methods.
 	bool DynamicProgramming::_recursiveSubsetSumHelper(vector<int>& nums, int sum, int numberOfElements)

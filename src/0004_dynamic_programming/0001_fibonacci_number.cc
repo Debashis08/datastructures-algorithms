@@ -1,6 +1,6 @@
 #include "0001_fibonacci_number.h"
 
-namespace fibonacci_number
+namespace dsa::fibonacci_number
 {
 	int DynamicProgramming::recursiveNthFibonacci(int n)
 	{

@@ -1,7 +1,7 @@
 #include <gtest/gtest.h>
 #include "0003_climbing_stairs.h"
 
-namespace climbing_stairs
+namespace dsa::climbing_stairs
 {
 	TEST(climbingStairs, recursiveTest)
 	{

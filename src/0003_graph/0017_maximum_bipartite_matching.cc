@@ -3,7 +3,7 @@
 #include <queue>
 using namespace std;
 
-namespace maximum_bipartite_matching
+namespace dsa::maximum_bipartite_matching
 {
 	// Graph private member methods
 	void Graph::_resolveAntiParallelEdges()

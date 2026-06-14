@@ -1,6 +1,6 @@
 #include "0010_ways_to_cover_distance.h"
 
-namespace ways_to_cover_distance
+namespace dsa::ways_to_cover_distance
 {
 	// dynamic programming private member methods.
 	int DynamicProgramming::_waysToCoverDistanceRecursiveHelper(int dist)

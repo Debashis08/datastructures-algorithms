@@ -19,7 +19,7 @@ note : groupings that contain invalid codes(e.g., "0" by itself or numbers great
 for instance, the string "230" is invalid because "0" cannot stand alone, and "30" is greater than "26", so it cannot represent any letter.the task is to find the total number of valid ways to decode a given string.
 */
 
-namespace decode_ways
+namespace dsa::decode_ways
 {
 	class DynamicProgramming
 	{

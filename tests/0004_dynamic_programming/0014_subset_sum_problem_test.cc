@@ -1,7 +1,7 @@
 #include <gtest/gtest.h>
 #include "0014_subset_sum_problem.h"
 
-namespace subset_sum_problem
+namespace dsa::subset_sum_problem
 {
 	TEST(subsetSumProblemTest, recursiveSubsetSumTest)
 	{

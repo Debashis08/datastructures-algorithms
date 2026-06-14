@@ -2,7 +2,7 @@
 #include "0017_maximum_bipartite_matching.h"
 #include "../0000_common_utilities/unit_test_helper.h"
 
-namespace maximum_bipartite_matching
+namespace dsa::maximum_bipartite_matching
 {
 	TEST(maximumBipartiteMatching, simpleGraph)
 	{

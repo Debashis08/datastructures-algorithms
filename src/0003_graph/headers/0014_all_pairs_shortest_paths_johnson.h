@@ -5,7 +5,7 @@
 #include <set>
 using namespace std;
 
-namespace all_pairs_shortest_paths_johnson
+namespace dsa::all_pairs_shortest_paths_johnson
 {
 	class Node
 	{

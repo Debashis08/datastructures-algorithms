@@ -21,7 +21,7 @@ output: false
 explanation: there is no subset that add up to 30.
 */
 
-namespace subset_sum_problem
+namespace dsa::subset_sum_problem
 {
 	class DynamicProgramming
 	{

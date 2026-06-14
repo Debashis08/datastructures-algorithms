@@ -1,7 +1,7 @@
 #include <gtest/gtest.h>
 #include "0012_count_ways_to_reach_nth_stair_exclude_order.h"
 
-namespace count_ways_to_reach_nth_stair_exclude_order
+namespace dsa::count_ways_to_reach_nth_stair_exclude_order
 {
 	TEST(countWaysToReachNthStairExcludeOrderTest, recursiveCountWaysToReachNthStairExcludeOrder1)
 	{

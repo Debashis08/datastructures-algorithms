@@ -2,7 +2,7 @@
 #include "0002_depth_first_search.h"
 #include "../0000_common_utilities/unit_test_helper.h"
 
-namespace depth_first_search
+namespace dsa::depth_first_search
 {
     UnitTestHelper unitTestHelper;
 

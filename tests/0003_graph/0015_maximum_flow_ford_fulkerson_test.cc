@@ -2,7 +2,7 @@
 #include "0015_maximum_flow_ford_fulkerson.h"
 #include "../0000_common_utilities/unit_test_helper.h"
 
-namespace maximum_flow_ford_fulkerson
+namespace dsa::maximum_flow_ford_fulkerson
 {
 	UnitTestHelper unitTestHelper;
 

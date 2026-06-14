@@ -20,7 +20,7 @@ input: W = 3, profit[] = [1, 2, 3], weight[] = [4, 5, 6]
 output: 0
 */
 
-namespace knapsack_problem
+namespace dsa::knapsack_problem
 {
 	class DynamicProgramming
 	{

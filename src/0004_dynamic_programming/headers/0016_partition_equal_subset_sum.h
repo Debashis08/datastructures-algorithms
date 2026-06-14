@@ -23,7 +23,7 @@ output: false
 explanation: the array cannot be partitioned into equal sum sets.
 */
 
-namespace partition_equal_subset_sum
+namespace dsa::partition_equal_subset_sum
 {
 	class DynamicProgramming
 	{

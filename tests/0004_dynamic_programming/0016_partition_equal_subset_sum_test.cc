@@ -1,7 +1,7 @@
 #include<gtest/gtest.h>
 #include "0016_partition_equal_subset_sum.h"
 
-namespace partition_equal_subset_sum
+namespace dsa::partition_equal_subset_sum
 {
 	TEST(partitionEqualSubsetSum, recursivePartitionEqualSubsetSum)
 	{

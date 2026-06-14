@@ -2,7 +2,7 @@
 #include "node.h"
 
 // demonstrate some basic assertions.
-namespace node_testing
+namespace dsa::node_testing
 {
 	TEST(testingNodeValue, positiveTestCase) 
 	{

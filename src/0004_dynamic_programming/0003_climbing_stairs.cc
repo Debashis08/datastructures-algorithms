@@ -1,7 +1,7 @@
 #include "0003_climbing_stairs.h"
 using namespace std;
 
-namespace climbing_stairs
+namespace dsa::climbing_stairs
 {
 	int DynamicProgramming::recursiveCountWays(int n)
 	{

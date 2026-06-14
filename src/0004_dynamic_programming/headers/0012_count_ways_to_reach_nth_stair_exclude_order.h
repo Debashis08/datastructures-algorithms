@@ -31,7 +31,7 @@ output: 3
 explanation: three ways to reach 5th stair: {1, 1, 1, 1, 1}, {1, 1, 1, 2} and {1, 2, 2}.
 */
 
-namespace count_ways_to_reach_nth_stair_exclude_order
+namespace dsa::count_ways_to_reach_nth_stair_exclude_order
 {
 	class DynamicProgramming
 	{

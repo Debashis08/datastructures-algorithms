@@ -29,7 +29,7 @@ output: 5
 explanation: there are five ways to reach 4th stair: {1, 1, 1, 1}, {1, 1, 2}, {2, 1, 1}, {1, 2, 1} and {2, 2}.
 */
 
-namespace count_ways_to_reach_nth_stair_include_order
+namespace dsa::count_ways_to_reach_nth_stair_include_order
 {
 	class DynamicProgramming
 	{

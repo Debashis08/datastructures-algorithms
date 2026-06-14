@@ -21,7 +21,7 @@ output: 4
 explanation: all the possible subsets are [1], [1], [1] and [1]
 */
 
-namespace count_subsets_for_sum
+namespace dsa::count_subsets_for_sum
 {
 	class DynamicProgramming
 	{

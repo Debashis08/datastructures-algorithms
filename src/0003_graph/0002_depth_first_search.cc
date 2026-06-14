@@ -4,7 +4,7 @@
 #include <climits>
 using namespace std;
 
-namespace depth_first_search
+namespace dsa::depth_first_search
 {
 	Node::Node(int value)
 	{

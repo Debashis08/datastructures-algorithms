@@ -1,6 +1,6 @@
 #include "0017_target_sum.h"
 
-namespace target_sum
+namespace dsa::target_sum
 {
 	int DynamicProgramming::_recursiveFindTotalWaysHelper(vector<int>& nums, int currentSum, int targetSum, int index)
 	{

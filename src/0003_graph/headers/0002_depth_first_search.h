@@ -6,7 +6,7 @@
 #include <vector>
 using namespace std;
 
-namespace depth_first_search
+namespace dsa::depth_first_search
 {
     enum color { WHITE, GRAY, BLACK };
 

@@ -3,7 +3,7 @@
 #include"../0000_common_utilities/unit_test_helper.h"
 using namespace std;
 
-namespace difference_constraints_shortest_paths
+namespace dsa::difference_constraints_shortest_paths
 {
 	UnitTestHelper unitTestHelper;
 

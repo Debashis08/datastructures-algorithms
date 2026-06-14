@@ -2,7 +2,7 @@
 #include "0005_hamiltonian_path_and_cycle.h"
 #include "../0000_common_utilities/unit_test_helper.h"
 
-namespace hamiltonian_path_and_cycle
+namespace dsa::hamiltonian_path_and_cycle
 {
 	UnitTestHelper unitTestHelper;
 

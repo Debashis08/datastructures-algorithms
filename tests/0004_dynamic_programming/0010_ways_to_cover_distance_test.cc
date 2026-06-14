@@ -1,7 +1,7 @@
 #include <gtest/gtest.h>
 #include "0010_ways_to_cover_distance.h"
 
-namespace ways_to_cover_distance
+namespace dsa::ways_to_cover_distance
 {
 	TEST(waysToCoverDistanceTest, recursiveWaysToCoverDistance1)
 	{

@@ -1,7 +1,7 @@
 #include <gtest/gtest.h>
 #include "0013_knapsack_problem.h"
 
-namespace knapsack_problem
+namespace dsa::knapsack_problem
 {
 	TEST(knapsackProblemTest, recursiveKnapsackProblemTest01)
 	{

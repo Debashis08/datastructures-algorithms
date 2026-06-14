@@ -5,7 +5,7 @@
 #include <list>
 using namespace std;
 
-namespace directed_acyclic_graph_shortest_path
+namespace dsa::directed_acyclic_graph_shortest_path
 {
 	enum color {WHITE, GRAY, BLACK};
 

@@ -14,7 +14,7 @@ note: since the houses are in a circle, the first and last houses are also consi
 
 */
 
-namespace house_robber2
+namespace dsa::house_robber2
 {
 	class DynamicProgramming
 	{

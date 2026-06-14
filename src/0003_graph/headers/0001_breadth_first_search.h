@@ -7,7 +7,7 @@
 #include <vector>
 using namespace std;
 
-namespace breadth_first_search
+namespace dsa::breadth_first_search
 {
     enum color { WHITE, GRAY, BLACK };
     class Node

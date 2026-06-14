@@ -2,7 +2,7 @@
 #include "0011_single_source_shortest_path_dijkstra.h"
 #include "../0000_common_utilities/unit_test_helper.h"
 
-namespace single_source_shortest_path_dijkstra
+namespace dsa::single_source_shortest_path_dijkstra
 {
 	UnitTestHelper unitTestHelper;
 

@@ -3,7 +3,7 @@
 #include <queue>
 using namespace std;
 
-namespace maximum_flow_edmonds_karp
+namespace dsa::maximum_flow_edmonds_karp
 {
 	// Graph private member methods
 	void Graph::_resolveAntiParallelEdges()

@@ -12,7 +12,7 @@ we can either start from the step with index 0, or the step with index 1. the ta
 
 */
 
-namespace minimum_cost_climbing_stairs
+namespace dsa::minimum_cost_climbing_stairs
 {
 	class DynamicProgramming
 	{

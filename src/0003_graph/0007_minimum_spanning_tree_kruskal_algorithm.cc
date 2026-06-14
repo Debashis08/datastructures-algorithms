@@ -3,7 +3,7 @@
 #include <algorithm>
 using namespace std;
 
-namespace minimum_spanning_tree_kruskal_algorithm
+namespace dsa::minimum_spanning_tree_kruskal_algorithm
 {
 	Node::Node(int data)
 	{

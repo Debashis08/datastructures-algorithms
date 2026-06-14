@@ -3,7 +3,7 @@
 #include <vector>
 using namespace std;
 
-namespace all_pairs_shortest_paths_floyd_warshall
+namespace dsa::all_pairs_shortest_paths_floyd_warshall
 {
 	class Graph
 	{

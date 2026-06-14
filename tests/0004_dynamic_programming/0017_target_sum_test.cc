@@ -1,7 +1,7 @@
 #include <gtest/gtest.h>
 #include "0017_target_sum.h"
 
-namespace target_sum
+namespace dsa::target_sum
 {
 	TEST(targetSum, recursiveSolutionTest_ValidInput_ReturnsCorrectResult)
 	{

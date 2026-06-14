@@ -2,7 +2,7 @@
 #include <climits>
 using namespace std;
 
-namespace all_pairs_shortest_paths_floyd_warshall
+namespace dsa::all_pairs_shortest_paths_floyd_warshall
 {
 	// Graph private member methods
 	void Graph::_initializeDistanceAndPredecessors()

@@ -3,7 +3,7 @@
 #include <algorithm>
 using namespace std;
 
-namespace eulerian_path_and_circuit
+namespace dsa::eulerian_path_and_circuit
 {
 	Node::Node(int value)
 	{

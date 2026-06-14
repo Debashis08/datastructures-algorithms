@@ -6,7 +6,7 @@
 #include <vector>
 using namespace std;
 
-namespace strongly_connected_components
+namespace dsa::strongly_connected_components
 {
     enum color { WHITE, GRAY, BLACK };
 

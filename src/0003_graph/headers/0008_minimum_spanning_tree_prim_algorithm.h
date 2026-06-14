@@ -5,7 +5,7 @@
 #include <set>
 using namespace std;
 
-namespace minimum_spanning_tree_prim_algorithm
+namespace dsa::minimum_spanning_tree_prim_algorithm
 {
 	class Node
 	{

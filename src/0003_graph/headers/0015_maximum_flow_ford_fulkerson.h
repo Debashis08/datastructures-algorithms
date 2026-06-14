@@ -4,7 +4,7 @@
 #include <vector>
 using namespace std;
 
-namespace maximum_flow_ford_fulkerson
+namespace dsa::maximum_flow_ford_fulkerson
 {
 	class Graph
 	{

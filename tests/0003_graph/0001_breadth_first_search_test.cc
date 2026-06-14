@@ -3,7 +3,7 @@
 #include "../../src/0003_graph/headers/0001_breadth_first_search.h"
 #include "../0000_common_utilities/unit_test_helper.h"
 
-namespace breadth_first_search
+namespace dsa::breadth_first_search
 {
     UnitTestHelper unitTestHelper;
 

@@ -6,7 +6,7 @@
 #include <vector>
 using namespace std;
 
-namespace topological_sort
+namespace dsa::topological_sort
 {
     enum color { WHITE, GRAY, BLACK };
 

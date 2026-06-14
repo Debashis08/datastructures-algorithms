@@ -12,7 +12,7 @@ the person can climb either 1 stair or 2 stairs at a time, the task is to count 
 
 */
 
-namespace climbing_stairs
+namespace dsa::climbing_stairs
 {
 	class DynamicProgramming
 	{

@@ -1,7 +1,7 @@
 #include <gtest/gtest.h>
 #include "0009_friends_pairing_problem.h"
 
-namespace friends_pairing_problem
+namespace dsa::friends_pairing_problem
 {
 	TEST(friendsPairingProblemDynamicProgrammingTest, recursiveCountFriendsPairingsTest1)
 	{

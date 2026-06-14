@@ -4,7 +4,7 @@
 #include <string>
 using namespace std;
 
-namespace binary_search_tree
+namespace dsa::binary_search_tree
 {
 	class Node
 	{

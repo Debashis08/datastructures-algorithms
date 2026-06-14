@@ -1,6 +1,6 @@
 #include "0011_count_ways_to_reach_nth_stair_include_order.h"
 
-namespace count_ways_to_reach_nth_stair_include_order
+namespace dsa::count_ways_to_reach_nth_stair_include_order
 {
 	// dynamic programming private member methods.
 	int DynamicProgramming::_recursiveCountWaysHelper(int n)

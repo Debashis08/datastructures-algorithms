@@ -11,7 +11,7 @@ print the n'th fibonacci number.
 
 */
 
-namespace fibonacci_number
+namespace dsa::fibonacci_number
 {
 	class DynamicProgramming
 	{

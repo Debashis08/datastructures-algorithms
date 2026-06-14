@@ -1,6 +1,6 @@
 #include "0016_partition_equal_subset_sum.h"
 
-namespace partition_equal_subset_sum
+namespace dsa::partition_equal_subset_sum
 {
 	bool DynamicProgramming::_recursivePartitionEqualSubsetsHelper(vector<int>& nums, int targetSum, int numberOfElements)
 	{

@@ -4,7 +4,7 @@
 #include <queue>
 using namespace std;
 
-namespace maximum_flow_goldberg_generic_push_relabel
+namespace dsa::maximum_flow_goldberg_generic_push_relabel
 {
 	class Graph
 	{

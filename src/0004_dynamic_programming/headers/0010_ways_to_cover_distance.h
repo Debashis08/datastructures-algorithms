@@ -34,7 +34,7 @@ explanation: below are the four ways
 =>  1 step + 3 step
 */
 
-namespace ways_to_cover_distance
+namespace dsa::ways_to_cover_distance
 {
 	class DynamicProgramming
 	{

@@ -5,7 +5,7 @@
 #include <vector>
 using namespace std;
 
-namespace hamiltonian_path_and_cycle
+namespace dsa::hamiltonian_path_and_cycle
 {
 	class Node
 	{

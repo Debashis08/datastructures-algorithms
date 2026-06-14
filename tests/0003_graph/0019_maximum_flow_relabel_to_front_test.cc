@@ -3,7 +3,7 @@
 #include "../0000_common_utilities/unit_test_helper.h"
 using namespace std;
 
-namespace maximum_flow_relabel_to_front
+namespace dsa::maximum_flow_relabel_to_front
 {
 	UnitTestHelper unitTestHelper;
 

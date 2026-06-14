@@ -2,7 +2,7 @@
 #include "0002_tribonacci_number.h"
 using namespace std;
 
-namespace tribonacci_number
+namespace dsa::tribonacci_number
 {
 	TEST(tribonacciNumber, recursiveTest)
 	{

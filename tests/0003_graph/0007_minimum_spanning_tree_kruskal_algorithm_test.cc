@@ -2,7 +2,7 @@
 #include "0007_minimum_spanning_tree_kruskal_algorithm.h"
 #include "../0000_common_utilities/unit_test_helper.h"
 
-namespace minimum_spanning_tree_kruskal_algorithm
+namespace dsa::minimum_spanning_tree_kruskal_algorithm
 {
 	UnitTestHelper unitTestHelper;
 

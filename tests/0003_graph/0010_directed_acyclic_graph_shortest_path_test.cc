@@ -2,7 +2,7 @@
 #include "0010_directed_acyclic_graph_shortest_path.h"
 #include "../0000_common_utilities/unit_test_helper.h"
 
-namespace directed_acyclic_graph_shortest_path
+namespace dsa::directed_acyclic_graph_shortest_path
 {
 	UnitTestHelper unitTestHelper;
 

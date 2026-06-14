@@ -1,6 +1,6 @@
 #include "0005_house_robber1.h"
 
-namespace house_robber1
+namespace dsa::house_robber1
 {
 	int DynamicProgramming::_maxLootRecursive(size_t house, vector<int>& houseValues)
 	{

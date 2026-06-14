@@ -1,6 +1,6 @@
 #include "0013_knapsack_problem.h"
 
-namespace knapsack_problem
+namespace dsa::knapsack_problem
 {
 	// dynamic programming private member methods.
 	int DynamicProgramming::_recursiveKnapsackHelper(int capacity, vector<int>& weight, vector<int>& profit, int numberOfItems)

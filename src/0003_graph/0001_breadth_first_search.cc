@@ -7,7 +7,7 @@
 #include <climits>
 using namespace std;
 
-namespace breadth_first_search
+namespace dsa::breadth_first_search
 {
 	Node::Node(int value)
 	{

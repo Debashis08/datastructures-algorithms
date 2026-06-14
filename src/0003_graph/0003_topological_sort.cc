@@ -6,7 +6,7 @@
 #include <stdexcept>
 using namespace std;
 
-namespace topological_sort
+namespace dsa::topological_sort
 {
 	Node::Node(int value)
 	{

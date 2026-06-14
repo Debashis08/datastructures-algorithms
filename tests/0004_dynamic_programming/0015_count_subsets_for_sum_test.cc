@@ -1,7 +1,7 @@
 #include <gtest/gtest.h>
 #include "0015_count_subsets_for_sum.h"
 
-namespace count_subsets_for_sum
+namespace dsa::count_subsets_for_sum
 {
 	TEST(countSubsetsForSum, recursiveCountSubsetSum)
 	{

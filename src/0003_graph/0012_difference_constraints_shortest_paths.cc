@@ -2,7 +2,7 @@
 #include <climits>
 using namespace std;
 
-namespace difference_constraints_shortest_paths
+namespace dsa::difference_constraints_shortest_paths
 {
 	Node::Node(string data)
 	{

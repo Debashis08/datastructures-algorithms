@@ -1,7 +1,7 @@
 #include <gtest/gtest.h>
 #include "0006_house_robber2.h"
 
-namespace house_robber2
+namespace dsa::house_robber2
 {
 	TEST(houseRobber2, recursionTest01)
 	{

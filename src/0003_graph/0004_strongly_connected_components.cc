@@ -4,7 +4,7 @@
 #include <climits>
 using namespace std;
 
-namespace strongly_connected_components
+namespace dsa::strongly_connected_components
 {
 	Node::Node(int value)
 	{

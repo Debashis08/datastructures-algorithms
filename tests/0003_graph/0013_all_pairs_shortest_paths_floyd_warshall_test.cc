@@ -3,7 +3,7 @@
 #include "../0000_common_utilities/unit_test_helper.h"
 using namespace std;
 
-namespace all_pairs_shortest_paths_floyd_warshall
+namespace dsa::all_pairs_shortest_paths_floyd_warshall
 {
 	UnitTestHelper unitTestHelper;
 

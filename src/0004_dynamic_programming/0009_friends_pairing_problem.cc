@@ -1,6 +1,6 @@
 #include "0009_friends_pairing_problem.h"
 
-namespace friends_pairing_problem
+namespace dsa::friends_pairing_problem
 {
 	// dynamic programming private member methods.
 	int DynamicProgramming::_countFriendsPairingsRecursiveHelper(int n)

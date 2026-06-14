@@ -3,7 +3,7 @@
 #include <iterator>
 using namespace std;
 
-namespace maximum_flow_relabel_to_front
+namespace dsa::maximum_flow_relabel_to_front
 {
 	// Graph private member methods
 

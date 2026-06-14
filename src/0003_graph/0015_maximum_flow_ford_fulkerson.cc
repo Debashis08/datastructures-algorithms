@@ -2,7 +2,7 @@
 #include <climits>
 using namespace std;
 
-namespace maximum_flow_ford_fulkerson
+namespace dsa::maximum_flow_ford_fulkerson
 {
 	// Graph private member methods
 	void Graph::_resolveAntiParallelEdges()

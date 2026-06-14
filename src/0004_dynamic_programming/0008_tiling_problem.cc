@@ -1,6 +1,6 @@
 #include "0008_tiling_problem.h"
 
-namespace tiling_problem
+namespace dsa::tiling_problem
 {
 	int DynamicProgramming::_numberOfWaysRecursiveHelper(int n)
 	{

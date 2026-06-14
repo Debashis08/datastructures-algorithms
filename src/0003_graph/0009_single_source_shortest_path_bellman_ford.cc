@@ -3,7 +3,7 @@
 #include <algorithm>
 using namespace std;
 
-namespace single_source_shortest_path_bellman_ford
+namespace dsa::single_source_shortest_path_bellman_ford
 {
 	Node::Node(int data)
 	{

@@ -2,7 +2,7 @@
 #include "0006_eulerian_path_and_circuit.h"
 #include "../0000_common_utilities/unit_test_helper.h"
 
-namespace eulerian_path_and_circuit
+namespace dsa::eulerian_path_and_circuit
 {
 	UnitTestHelper unitTestHelper;
 
