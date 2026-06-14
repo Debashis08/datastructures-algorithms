@@ -7,7 +7,7 @@ namespace dsa::directed_acyclic_graph_shortest_path
 	UnitTestHelper unitTestHelper;
 
 	// Test for simple Graph
-	TEST(dAGTest, simpleGraph)
+	TEST(directedAcyclicGraphShortestPath, shortestPath)
 	{
 		Graph graph;
 
