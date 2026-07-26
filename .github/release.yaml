@@ -19,13 +19,13 @@ categories:
     labels:
       - 'graph'
 
-  - title: 'Greedy Algorithms'
-    labels:
-      - 'greedy-algorithms'
-
   - title: 'Dynamic Programming'
     labels:
       - 'dynamic-programming'
+
+  - title: 'Greedy Algorithms'
+    labels:
+      - 'greedy-algorithms'
 
   - title: 'Bitwise Algorithms'
     labels:
