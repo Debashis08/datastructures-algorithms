@@ -1,6 +1,7 @@
 # Specify the source files
 set(0002TREE_SOURCES
     0001_binary_search_tree.cc
+    0004_segment_tree.cc
 )
 
 # Create a library target
