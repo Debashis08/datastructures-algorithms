@@ -11,16 +11,16 @@ namespace dsa::segment_tree
 		int startIndex;
 		int endIndex;
 		int sum;
-		Node* left;
-		Node* right;
+		Node* leftChild;
+		Node* rightChild;
 
 		Node(int start, int end)
 		{
 			startIndex = start;
 			endIndex = end;
 			sum = 0;
-			left = nullptr;
-			right = nullptr;
+			leftChild = nullptr;
+			rightChild = nullptr;
 		}
 	};
 
@@ -28,12 +28,14 @@ namespace dsa::segment_tree
 	{
 	private:
 		Node* _root;
-		int sizeOfTheVector;
-		Node* buildSegmentTree(vector<int>& data, int start, int end);
-		int queryHelper(const Node* node, int leftQuery, int rightQuery) const;
+		int sizeOfData;
+		Node* _buildSegmentTree(vector<int>& data, int start, int end);
+		int _queryHelper(const Node* node, int left, int right) const;
+		void _updateHelper(Node* node, int targetIndex, int newValue);
 		
 	public:
 		SegmentTree(vector<int>& data);
-		int query(int leftQuery, int rightQuery) const;
+		int query(int left, int right) const;
+		void update(int targetIndex, int newValue);
 	};
 }
