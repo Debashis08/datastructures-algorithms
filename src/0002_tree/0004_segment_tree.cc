@@ -58,9 +58,9 @@ namespace dsa::segment_tree
 		node->sum = node->leftChild->sum + node->rightChild->sum;
 	}
 
-	SegmentTree::SegmentTree(vector<int>& data) : sizeOfData(data.size())
+	SegmentTree::SegmentTree(vector<int>& data) : _sizeOfData(data.size())
 	{
-		this->_root = _buildSegmentTree(data, 0, sizeOfData - 1);
+		this->_root = _buildSegmentTree(data, 0, _sizeOfData - 1);
 	}
 
 	int SegmentTree::query(int left, int right) const

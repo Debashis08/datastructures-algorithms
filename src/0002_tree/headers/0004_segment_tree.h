@@ -28,7 +28,7 @@ namespace dsa::segment_tree
 	{
 	private:
 		Node* _root;
-		int sizeOfData;
+		int _sizeOfData;
 		Node* _buildSegmentTree(vector<int>& data, int start, int end);
 		int _queryHelper(const Node* node, int left, int right) const;
 		void _updateHelper(Node* node, int targetIndex, int newValue);
