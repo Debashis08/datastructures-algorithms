@@ -19,7 +19,7 @@ In a traditional engineering context, we compare a Segment Tree against simpler 
 We divide the array into halves recursively until we reach individual elements ($L == R$). These become the leaf nodes. As recursion unwinds, parent nodes calculate their aggregate value by summing the values of their left and right children:
 
 $$
- \text{node}\rightarrow\text{sum} = \text{left\_child}\rightarrow\text{sum} + \text{right\_child}\rightarrow\text{sum}
+\text{node}\rightarrow\text{sum} = \text{left child}\rightarrow\text{sum} + \text{right child}\rightarrow\text{sum}
 $$
 
 - **Time Complexity:** $O(N)$ because exactly $2N - 1$ nodes are created.
