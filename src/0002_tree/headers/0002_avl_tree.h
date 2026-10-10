@@ -1,6 +1,8 @@
 #pragma once
 
 #include <cmath>
+#include <algorithm>
+#include <vector>
 using namespace std;
 
 namespace dsa::avl_tree
@@ -30,9 +32,11 @@ namespace dsa::avl_tree
 		void _transplant(Node* u, Node* v);
 		void _insert(Node* node);
 		void _delete(Node* node);
+		void _recursiveInorder(Node* node, vector<vector<int>>& result);
 	public:
 		AvlTree();
 		void insertNode(int value);
 		void deleteNode(int value);
+		vector<vector<int>> recursiveInorderTraversal();
 	};
 }
