@@ -123,9 +123,14 @@ namespace dsa::avl_tree
 					(parent == grandParent->right && child == parent->right))
 				{
 					this->_rotate(grandParent, parent);
+
 					int pLeftHeight = (parent->left != nullptr) ? parent->left->height : 0;
 					int pRightHeight = (parent->right != nullptr) ? parent->right->height : 0;
 					parent->height = 1 + max(pLeftHeight, pRightHeight);
+
+					int gpLeftHeight = (grandParent->left != nullptr) ? grandParent->left->height : 0;
+					int gpRightHeight = (grandParent->right != nullptr) ? grandParent->right->height : 0;
+					grandParent->height = 1 + max(gpLeftHeight, gpRightHeight);
 
 					// Continue upward from the new subtree root
 					node = node->parent;

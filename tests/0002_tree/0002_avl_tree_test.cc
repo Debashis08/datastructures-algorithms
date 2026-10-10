@@ -18,7 +18,7 @@ namespace dsa::avl_tree
 
 		// Act
 		string actualResult = utHelper.serializeVectorToString(avlTree.recursiveInorderTraversal());
-		string expectedResult = "";
+		string expectedResult = "[30 1][40 2][50 1][70 3][80 2][90 1]";
 		// Assert
 		EXPECT_EQ(actualResult, expectedResult);
 	}
