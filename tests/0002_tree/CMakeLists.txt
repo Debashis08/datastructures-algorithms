@@ -15,6 +15,7 @@ add_executable(
 	
 	# List down all the test files
 	0001_binary_search_tree_test.cc
+	0002_avl_tree_test.cc
 )
 
 target_link_libraries(
