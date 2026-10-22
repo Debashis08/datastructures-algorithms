@@ -338,7 +338,7 @@ namespace dsa::red_black_tree
 
 	void RedBlackTree::_recursiveInorder(Node* node, vector<vector<int>>& result)
 	{
-		if (node == nullptr)
+		if (node == this->_nil)
 		{
 			return;
 		}
