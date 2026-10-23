@@ -3,6 +3,7 @@ set(0002TREE_SOURCES
     0001_binary_search_tree.cc
     0002_avl_tree.cc
     0003_red_black_tree.cc
+    0004_segment_tree.cc
 
 )
 

@@ -17,6 +17,7 @@ add_executable(
 	0001_binary_search_tree_test.cc
 	0002_avl_tree_test.cc
 	0003_red_black_tree_test.cc
+	0004_segment_tree_test.cc
 
 )
 
