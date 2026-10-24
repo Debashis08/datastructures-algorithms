@@ -6,7 +6,8 @@
 namespace dsa::bfs
 {
     UnitTestHelper unitTestHelper;
-    TEST(bfsDistanceTest, 0001_simple_graph)
+
+    TEST(BfsTests, 0001_SimpleConnectedGraph)
     {
         Graph graph;
         int n = 6;
@@ -25,7 +26,7 @@ namespace dsa::bfs
         string expected = "0 1 1 2 3 3";
         EXPECT_EQ(result, expected);
     }
-    TEST(bfsDistanceTest, 0002_simple_graph)
+    TEST(BfsTests, 0002_SimpleConnectedGraph)
     {
         Graph graph;
         int n = 7;
@@ -45,7 +46,7 @@ namespace dsa::bfs
         string expected = "0 1 1 2 2 2 2";
         EXPECT_EQ(result, expected);
     }
-    TEST(bfsDistanceTest, 0003_single_node)
+    TEST(BfsTests, 0003_SingleNode)
     {
         Graph graph;
         int n = 1;
@@ -59,7 +60,7 @@ namespace dsa::bfs
         string expected = "0";
         EXPECT_EQ(result, expected);
     }
-    TEST(bfsDistanceTest, 0004_disconnected_graph)
+    TEST(BfsTests, 0004_DisconnectedGraph)
     {
         Graph graph;
         int n = 6;
