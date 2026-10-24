@@ -15,7 +15,7 @@ add_executable(
 	
 	# List down all the test files
 	0001_bfs_test.cc
-
+	0002_dfs_test.cc
 )
 
 target_link_libraries(

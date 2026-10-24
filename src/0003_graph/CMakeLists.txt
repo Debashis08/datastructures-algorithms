@@ -3,6 +3,7 @@ set(0003GRAPH_SOURCES
 
     # List down all the source files
     0001_bfs.cc
+    0002_dfs.cc
 
 )
 
