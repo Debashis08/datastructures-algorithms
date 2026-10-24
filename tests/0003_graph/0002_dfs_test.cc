@@ -6,18 +6,18 @@ namespace dsa::dfs
 {
     UnitTestHelper unitTestHelper;
 
-    TEST(depthFirstSearch, 0001_dfsTest_SimpleConnectedGraph)
+    TEST(DfsTests, 0001_SimpleConnectedGraph)
     {
         Graph graph;
         int n = 7;
         vector<vector<int>> adjMat = {
             {},
             { 2, 4 },
-            { 5 },   
+            { 5 },
             { 5, 6 },
-            { 2 },   
-            { 4 },   
-            { 6 }    
+            { 2 },
+            { 4 },
+            { 6 }
         };
 
         auto results = graph.dfs(adjMat, n);
@@ -26,7 +26,7 @@ namespace dsa::dfs
         EXPECT_EQ(actualResult, expectedResult);
     }
 
-    TEST(depthFirstSearch, showDFSResultTestSingleVertex)
+    TEST(DfsTests, 0002_SingleVertex)
     {
         Graph graph;
         int n = 2;
@@ -41,7 +41,7 @@ namespace dsa::dfs
         EXPECT_EQ(actualResult, expectedResult);
     }
 
-    TEST(depthFirstSearch, showDFSResultTestDisconnectedGraph)
+    TEST(DfsTests, 0003_DisconnectedGraph)
     {
         Graph graph;
         int n = 5;
@@ -59,7 +59,7 @@ namespace dsa::dfs
         EXPECT_EQ(actualResult, expectedResult);
     }
 
-    TEST(depthFirstSearch, showDFSResultTestCyclicGraph)
+    TEST(DfsTests, 0004_CyclicGraph)
     {
         Graph graph;
         int n = 4;
@@ -76,28 +76,28 @@ namespace dsa::dfs
         EXPECT_EQ(actualResult, expectedResult);
     }
 
-    TEST(depthFirstSearch, showDFSResultTestLargeGraph)
+    TEST(DfsTests, 0005_LargeGraph)
     {
         Graph graph;
         int n = 17;
         vector<vector<int>> adjMat = {
             {},
             { 2, 3 },
-            { 4 },   
-            {},      
-            { 5 },   
-            { 6 },   
-            { 7 },   
-            { 8 },   
-            { 9 },   
-            { 10 },  
-            { 11 },  
-            { 12 },  
-            { 13 },  
-            { 14 },  
-            { 15 },  
-            { 16 },  
-            {}       
+            { 4 },
+            {},
+            { 5 },
+            { 6 },
+            { 7 },
+            { 8 },
+            { 9 },
+            { 10 },
+            { 11 },
+            { 12 },
+            { 13 },
+            { 14 },
+            { 15 },
+            { 16 },
+            {}
         };
 
         auto results = graph.dfs(adjMat, n);
@@ -106,15 +106,15 @@ namespace dsa::dfs
         EXPECT_EQ(actualResult, expectedResult);
     }
 
-    TEST(depthFirstSearch, showDFSResultTestNoEdges)
+    TEST(DfsTests, 0006_NoEdges)
     {
         Graph graph;
         int n = 4;
         vector<vector<int>> adjMat = {
             {},
-            { 1 },
-            { 2 },
-            { 3 }
+            {},
+            {},
+            {}
         };
 
         auto results = graph.dfs(adjMat, n);
@@ -123,7 +123,7 @@ namespace dsa::dfs
         EXPECT_EQ(actualResult, expectedResult);
     }
 
-    TEST(depthFirstSearch, showDFSResultTest_CyclicGraphWithBackEdges)
+    TEST(DfsTests, 0007_CyclicGraphWithBackEdges)
     {
         Graph graph;
         int n = 5;
@@ -141,7 +141,7 @@ namespace dsa::dfs
         EXPECT_EQ(actualResult, expectedResult);
     }
 
-    TEST(depthFirstSearch, showDFSResultTestDenseGraph)
+    TEST(DfsTests, 0008_DenseGraph)
     {
         Graph graph;
         int n = 5;
@@ -159,7 +159,7 @@ namespace dsa::dfs
         EXPECT_EQ(actualResult, expectedResult);
     }
 
-    TEST(depthFirstSearch, showDFSResultTestSelfLoopsAndParallelEdges)
+    TEST(DfsTests, 0009_SelfLoopsAndParallelEdges)
     {
         Graph graph;
         int n = 4;
