@@ -16,6 +16,7 @@ add_executable(
 	# List down all the test files
 	0001_fibonacci_test.cc
 	0002_tribonacci_test.cc
+	0003_climbing_stairs_test.cc
 
 )
 
