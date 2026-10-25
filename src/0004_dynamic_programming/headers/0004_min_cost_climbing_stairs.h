@@ -1,0 +1,24 @@
+#pragma once
+
+#include<vector>
+using namespace std;
+
+/*
+pattern 1
+linear recurrence
+
+description
+given an array of integers cost[] of length n, where cost[i] is the cost of the ith step on a staircase. once the cost is paid, we can either climb 1 or 2 steps.
+we can either start from the step with index 0, or the step with index 1. the task is to find the minimum cost to reach the top.
+
+*/
+
+namespace dsa::min_cost_climbing_stairs
+{
+	class DynamicProgramming
+	{
+	private:
+	public:
+		int minCostClimbingStairs(vector<int>& cost);
+	};
+}
