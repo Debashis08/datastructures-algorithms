@@ -3,6 +3,8 @@ set(0004DYNAMICPROGRAMMING_SOURCES
 
     # List down all the source files.
     0001_fibonacci.cc
+    0002_tribonacci.cc
+
 )
 
 # Create the library target
