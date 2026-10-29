@@ -7,7 +7,7 @@ set(0004DYNAMICPROGRAMMING_SOURCES
     0003_climbing_stairs.cc
     0004_min_cost_climbing_stairs.cc
     0005_house_robber_1.cc
-
+    0006_house_robber_2.cc
 
 
 
