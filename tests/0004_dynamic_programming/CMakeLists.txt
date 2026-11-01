@@ -21,7 +21,7 @@ add_executable(
 	0005_house_robber_1_test.cc
 	0006_house_robber_2_test.cc
 	0007_tiling_1x2_test.cc
-
+	0008_friends_pairing_test.cc
 
 
 
