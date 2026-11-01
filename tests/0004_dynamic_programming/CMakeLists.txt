@@ -22,7 +22,7 @@ add_executable(
 	0006_house_robber_2_test.cc
 	0007_tiling_1x2_test.cc
 	0008_friends_pairing_test.cc
-
+	0009_ways_to_cover_distance_test.cc
 
 
 
