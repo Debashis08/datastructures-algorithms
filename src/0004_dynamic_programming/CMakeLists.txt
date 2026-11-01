@@ -9,7 +9,7 @@ set(0004DYNAMICPROGRAMMING_SOURCES
     0005_house_robber_1.cc
     0006_house_robber_2.cc
     0007_tiling_1x2.cc
-
+    0008_friends_pairing.cc
 
 
 
