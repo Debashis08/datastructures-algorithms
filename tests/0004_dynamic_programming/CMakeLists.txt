@@ -20,7 +20,7 @@ add_executable(
 	0004_min_cost_climbing_stairs_test.cc
 	0005_house_robber_1_test.cc
 	0006_house_robber_2_test.cc
-
+	0007_tiling_1x2_test.cc
 
 
 
