@@ -11,7 +11,7 @@ set(0004DYNAMICPROGRAMMING_SOURCES
     0007_tiling_1x2.cc
     0008_friends_pairing.cc
     0009_ways_to_cover_distance.cc
-
+    0010_knapsack_01.cc
 
 
 
