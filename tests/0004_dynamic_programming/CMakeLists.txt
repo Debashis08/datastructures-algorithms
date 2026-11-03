@@ -23,7 +23,7 @@ add_executable(
 	0007_tiling_1x2_test.cc
 	0008_friends_pairing_test.cc
 	0009_ways_to_cover_distance_test.cc
-
+	0010_knapsack_01_test.cc
 
 
 
