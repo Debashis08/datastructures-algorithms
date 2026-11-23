@@ -24,7 +24,7 @@ add_executable(
 	0008_friends_pairing_test.cc
 	0009_ways_to_cover_distance_test.cc
 	0010_knapsack_01_test.cc
-
+	0011_subset_sum_test.cc
 
 
 
